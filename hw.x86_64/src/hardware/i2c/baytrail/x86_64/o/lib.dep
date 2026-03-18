@@ -1,0 +1,4 @@
+lib.o: \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/i2c/baytrail/lib.c \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/i2c/baytrail/proto.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/i2c/baytrail/baytrail_i2c.h

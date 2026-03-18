@@ -1,0 +1,4 @@
+info.o: \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/i2c/mec170/info.c \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/i2c/mec170/proto.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\hw\ecm_mec170x.h

@@ -1,0 +1,17 @@
+#!/bin/sh
+# script to build the image for a bootable USB device.
+set -v
+
+# Create the QNX6 partition image for BIOS boot mode
+mkqnx6fsimg -vv ../part_bios_boot.build part_bios_boot.img
+
+# Create the DOS partition image for UEFI boot mode
+mkfatfsimg  -vv ../part_uefi_boot.build part_uefi_boot.img
+
+# Create the QNX6 partition image for data storage
+mkqnx6fsimg -vv ../part_qnx_data.build part_qnx_data.img
+
+# Create the USB disk image
+diskimage -o disk.img -c ../disk.cfg -b $QNX_TARGET/x86_64/boot/sys/ipl-diskpc1 -s 131072
+
+rm part_bios_boot.img part_uefi_boot.img part_qnx_data.img

@@ -1,0 +1,17 @@
+MEC170x ECM Based I2C for SECO - Intel Amston Lake
+
+%C [mec170 options] [generic options]
+
+mec170 options:
+-d bus_num          I2C bus number.(Default: 10)
+-v                  Increase verbosity.(Default: 0)
+
+Generic options for I2C resource manager libi2c-master:
+--b bus_speed   Default bus speed. (Default: 100000)
+--u unit        Unit number. Number to append to device name
+                prefix (/dev/i2c). (Default: 0)
+
+Following bus speeds are currently supported: 1MHZ, 100KHZ, 400KHZ.
+
+Example:
+%C -d10 --u1 --b100000

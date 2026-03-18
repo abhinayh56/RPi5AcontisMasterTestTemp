@@ -1,0 +1,33 @@
+# Set the size of the filesystem image in disk sectors (not filesystem blocks)
+# The size must be a multiple of 8 and can be any value that can fit on the media
+# Set the BIOS boot partition (t177) to 200MB in this example
+[num_sectors=409600]
+
+# In QNX Neutrino 6, inodes have to be pre-allocated at format time
+[num_inodes=50000]
+
+# The blocksize is typically set based on how the filesystem is expected to be used
+# If the filesystem will contain many very small files, reduce the specified blksize,
+# because each file occupies a whole number of blocks. Default to 4KiB as that size
+# ensures everything is 4KiB aligned and may work better with some solid-state
+# devices.
+[blksize=4096]
+
+# Include the boot IFS(s) in the image, in /.boot directory
+# In this example, x86_64-generic-bios.bin is the IFS image that you
+# build from the BSP and primary_boot_image.bin is its name in the image.
+# You can choose any name that is less than 27 characters for the boot IFS in /.boot
+/.boot/primary_boot_image.bin=../generic-bios/x86_64-generic-bios.bin
+/.boot/x86_64-generic-smmu.bin=../generic-bios/x86_64-generic-bios-smmu.bin
+
+#Note that Hypervisor boot IFS is made optional, because it will only be there if you
+# have QNX Hypervisor product installed.
+[+optional] /.boot/x86_64-generic-bios-hyp.bin=../generic-bios/x86_64-generic-bios-hyp.bin
+
+# Optionally, include any other files you want in the filesystem image
+#/usr/bin/traceprinter=${QNX_TARGET}/x86_64/usr/bin/traceprinter
+#/usr/bin/awk=${QNX_TARGET}/x86_64/usr/bin/awk
+
+# Optionally, include a complete directory without specifying individual file names
+# For example, include all files for screen graphics
+#/usr/lib/graphics/intel-drm=${QNX_TARGET}/x86_64/usr/lib/graphics/intel-drm

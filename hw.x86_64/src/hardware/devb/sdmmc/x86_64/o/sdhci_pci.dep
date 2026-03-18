@@ -1,0 +1,10 @@
+sdhci_pci.o: \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/devb/sdmmc/sdiodi/hc/sdhci_pci.c \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/devb/sdmmc/sdiodi/internal.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/devb/sdmmc/sdiodi/include/sdiodi.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/devb/sdmmc/sdiodi/include/mmc.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/devb/sdmmc/sdiodi/include/sd.h \
+ bs.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/devb/sdmmc/sdiodi/hc/sdhci.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/devb/include/pci_devices.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/devb/sdmmc/sdiodi/hc/sdhci_pci.h

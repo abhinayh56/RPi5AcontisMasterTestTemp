@@ -1,0 +1,8 @@
+STATE=Desktop
+INSTALLDIR=x86_64/sbin/
+INSTALLNAME=devb-sdmmc
+NAME=devb-sdmmc
+USER=Dell
+HOST=SSIPLIT1128
+DATE=2026/03/10-11:14:33-IST
+DESCRIPTION=sd/mmc disk driver

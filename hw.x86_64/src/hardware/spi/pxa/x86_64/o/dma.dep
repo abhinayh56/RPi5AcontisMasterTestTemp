@@ -1,0 +1,3 @@
+dma.o: \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/spi/pxa/dma.c \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/spi/pxa/pxa-spi.h

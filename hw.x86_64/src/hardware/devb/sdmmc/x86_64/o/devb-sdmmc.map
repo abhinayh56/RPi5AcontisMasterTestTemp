@@ -1,0 +1,933 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+LOAD C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtbegin.o
+LOAD base.o
+LOAD bs.o
+LOAD card.o
+LOAD dwmshc.o
+LOAD imx8_hc.o
+LOAD ls10xx.o
+LOAD mmc.o
+LOAD pci.o
+LOAD rcar.o
+LOAD sd.o
+LOAD sdhci.o
+LOAD sdhci_dwc.o
+LOAD sdhci_pci.o
+LOAD sim_assd.o
+LOAD sim_sdmmc.o
+LOAD soc.o
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/usr/lib\libdrvr.a
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/usr/lib\libcache.a
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib\libsmmu.a
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/libsecpol.so
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/libslog2.so
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/libpci.so
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/libcam.so
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/libc.so
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib\libcS.a
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/libgcc_s.so
+LOAD C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0\libgcc_eh.a
+LOAD C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtend.o
+LOAD C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+                [!provide]                        PROVIDE (__executable_start = SEGMENT_START ("text-segment", 0x0))
+                0x0000000000000200                . = (SEGMENT_START ("text-segment", 0x0) + SIZEOF_HEADERS)
+
+.interp         0x0000000000000200       0x17
+ *(.interp)
+ .interp        0x0000000000000200       0x17 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.note.gnu.build-id
+                0x0000000000000218       0x20
+ *(.note.gnu.build-id)
+ .note.gnu.build-id
+                0x0000000000000218       0x20 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.note           0x0000000000000238       0x1c
+ .note          0x0000000000000238       0x1c C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.hash
+ *(.hash)
+
+.gnu.hash       0x0000000000000258       0x3c
+ *(.gnu.hash)
+ .gnu.hash      0x0000000000000258       0x3c C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.dynsym         0x0000000000000298      0xc78
+ *(.dynsym)
+ .dynsym        0x0000000000000298      0xc78 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.dynstr         0x0000000000000f10      0x7d9
+ *(.dynstr)
+ .dynstr        0x0000000000000f10      0x7d9 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.gnu.version    0x00000000000016ea        0x0
+ *(.gnu.version)
+ .gnu.version   0x00000000000016ea        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.gnu.version_d  0x00000000000016f0        0x0
+ *(.gnu.version_d)
+ .gnu.version_d
+                0x00000000000016f0        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.gnu.version_r  0x00000000000016f0        0x0
+ *(.gnu.version_r)
+ .gnu.version_r
+                0x00000000000016f0        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.rela.dyn       0x00000000000016f0     0x11d0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ .rela.data.rel.ro
+                0x00000000000016f0        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .rela.data.rel.local
+                0x00000000000016f0      0x6d8 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .rela.data.rel.ro.local
+                0x0000000000001dc8      0x978 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .rela.data.rel
+                0x0000000000002740       0xc0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ .rela.got      0x0000000000002800       0xa8 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ .rela.bss      0x00000000000028a8        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ *(.rela.ldata .rela.ldata.* .rela.gnu.linkonce.l.*)
+ *(.rela.lbss .rela.lbss.* .rela.gnu.linkonce.lb.*)
+ *(.rela.lrodata .rela.lrodata.* .rela.gnu.linkonce.lr.*)
+ *(.rela.ifunc)
+ .rela.ifunc    0x00000000000028a8        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .rela.fini_array
+                0x00000000000028a8       0x18 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.rela.plt       0x00000000000028c0      0xb58
+ *(.rela.plt)
+ .rela.plt      0x00000000000028c0      0xb58 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ *(.rela.iplt)
+
+.relr.dyn
+ *(.relr.dyn)
+
+.init           0x0000000000003418        0x9
+ *(SORT_NONE(.init))
+ .init          0x0000000000003418        0x4 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+                0x0000000000003418                _init
+ .init          0x000000000000341c        0x5 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.plt            0x0000000000003430      0x7a0
+ *(.plt)
+ .plt           0x0000000000003430      0x7a0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+                0x0000000000003440                clock_gettime
+                0x0000000000003450                pci_device_read_ba
+                0x0000000000003460                cam_configure
+                0x0000000000003470                pthread_cond_signal
+                0x0000000000003480                strtok_r
+                0x0000000000003490                pci_device_write_cmd
+                0x00000000000034a0                _init_array
+                0x00000000000034b0                pthread_attr_destroy
+                0x00000000000034c0                simq_reset_dev
+                0x00000000000034d0                pthread_create
+                0x00000000000034e0                strerror
+                0x00000000000034f0                pthread_attr_init
+                0x0000000000003500                pci_device_find_capid
+                0x0000000000003510                memmove
+                0x0000000000003520                snprintf
+                0x0000000000003530                sim_alloc_hba
+                0x0000000000003540                timer_create
+                0x0000000000003550                pthread_setname_np
+                0x0000000000003560                usleep
+                0x0000000000003570                pthread_condattr_init
+                0x0000000000003580                _preinit_array
+                0x0000000000003590                InterruptUnmask
+                0x00000000000035a0                memcpy
+                0x00000000000035b0                pthread_condattr_setclock
+                0x00000000000035c0                timer_delete
+                0x00000000000035d0                cam_set_thread_state
+                0x00000000000035e0                pci_device_cfg_cap_enable
+                0x00000000000035f0                vsnprintf
+                0x0000000000003600                strtoll
+                0x0000000000003610                pci_device_attach
+                0x0000000000003620                xpt_display_ccb
+                0x0000000000003630                __stackavail
+                0x0000000000003640                pci_device_read_cmd
+                0x0000000000003650                __stack_chk_fail
+                0x0000000000003660                vslogf
+                0x0000000000003670                strtol
+                0x0000000000003680                xpt_bus_deregister
+                0x0000000000003690                MsgSendPulse
+                0x00000000000036a0                pthread_getschedparam
+                0x00000000000036b0                calloc
+                0x00000000000036c0                atomic_clr
+                0x00000000000036d0                MsgSendPulsePtr
+                0x00000000000036e0                pthread_condattr_destroy
+                0x00000000000036f0                simq_rel_simq
+                0x0000000000003700                ConnectDetach
+                0x0000000000003710                nanospin_ns
+                0x0000000000003720                pthread_attr_setinheritsched
+                0x0000000000003730                pci_device_read_cap
+                0x0000000000003740                __get_errno_ptr
+                0x0000000000003750                pthread_attr_setstacksize
+                0x0000000000003760                strlcpy
+                0x0000000000003770                strncmp
+                0x0000000000003780                mmap_device_memory
+                0x0000000000003790                sched_get_priority_max
+                0x00000000000037a0                pthread_cond_init
+                0x00000000000037b0                sched_get_priority_min
+                0x00000000000037c0                ConnectAttach
+                0x00000000000037d0                simq_ccb_enqueue
+                0x00000000000037e0                MsgReceivePulse
+                0x00000000000037f0                strdup
+                0x0000000000003800                ChannelDestroy
+                0x0000000000003810                memset
+                0x0000000000003820                cam_slogf
+                0x0000000000003830                pci_device_read_irq
+                0x0000000000003840                pci_device_read_vid
+                0x0000000000003850                cam_create_thread
+                0x0000000000003860                TraceEvent
+                0x0000000000003870                ChannelCreate
+                0x0000000000003880                pthread_sleepon_signal
+                0x0000000000003890                _fini_array
+                0x00000000000038a0                pci_strerror
+                0x00000000000038b0                pthread_sleepon_wait
+                0x00000000000038c0                strcmp
+                0x00000000000038d0                pthread_mutex_unlock
+                0x00000000000038e0                delay
+                0x00000000000038f0                xpt_async
+                0x0000000000003900                simq_post_ccb
+                0x0000000000003910                simq_frz_simq
+                0x0000000000003920                atexit
+                0x0000000000003930                getsubopt
+                0x0000000000003940                xpt_vtop_sg
+                0x0000000000003950                munmap_device_memory
+                0x0000000000003960                pci_device_find
+                0x0000000000003970                pci_device_detach
+                0x0000000000003980                fputc
+                0x0000000000003990                simq_ccb_dequeue
+                0x00000000000039a0                sim_drvr_options
+                0x00000000000039b0                pthread_self
+                0x00000000000039c0                simq_scsi_reset
+                0x00000000000039d0                xpt_free
+                0x00000000000039e0                pthread_mutex_destroy
+                0x00000000000039f0                xpt_device_register
+                0x0000000000003a00                pthread_mutex_lock
+                0x0000000000003a10                xpt_bus_register
+                0x0000000000003a20                pthread_cond_wait
+                0x0000000000003a30                nsec2timespec
+                0x0000000000003a40                simq_dinit
+                0x0000000000003a50                pthread_sleepon_unlock
+                0x0000000000003a60                xpt_vtop
+                0x0000000000003a70                sim_free_hba
+                0x0000000000003a80                pthread_cond_destroy
+                0x0000000000003a90                pthread_attr_setschedpolicy
+                0x0000000000003aa0                pthread_mutex_init
+                0x0000000000003ab0                strlen
+                0x0000000000003ac0                InterruptDetach
+                0x0000000000003ad0                simq_init
+                0x0000000000003ae0                pthread_attr_setschedparam
+                0x0000000000003af0                pthread_sleepon_lock
+                0x0000000000003b00                pci_device_read_ccode
+                0x0000000000003b10                pthread_join
+                0x0000000000003b20                xpt_device_deregister
+                0x0000000000003b30                timer_settime
+                0x0000000000003b40                pci_device_read_did
+                0x0000000000003b50                pthread_cond_timedwait
+                0x0000000000003b60                cam_parse_number
+                0x0000000000003b70                xpt_alloc
+                0x0000000000003b80                atomic_set
+                0x0000000000003b90                vfprintf
+                0x0000000000003ba0                InterruptAttachEvent
+                0x0000000000003bb0                free
+                0x0000000000003bc0                _syspage_time
+ *(.iplt)
+
+.plt.got        0x0000000000003bd0        0x8
+ *(.plt.got)
+ .plt.got       0x0000000000003bd0        0x8 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+                0x0000000000003bd0                __cxa_finalize
+
+.plt.sec
+ *(.plt.sec)
+
+.text           0x0000000000003be0    0x15e02
+                0x0000000000003be0                _btext = .
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ .text.startup  0x0000000000003be0       0xb3 sim_sdmmc.o
+                0x0000000000003be0                main
+ *(.text.hot .text.hot.*)
+ *(SORT_BY_NAME(.text.sorted.*))
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ *fill*         0x0000000000003c93        0xd 
+ .text          0x0000000000003ca0       0xe9 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+                0x0000000000003ca0                _start
+ .text          0x0000000000003d89        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ *fill*         0x0000000000003d89        0x7 
+ .text          0x0000000000003d90       0x41 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtbegin.o
+ *fill*         0x0000000000003dd1        0xf 
+ .text          0x0000000000003de0     0x4f9c base.o
+                0x0000000000004410                sdio_slogf
+                0x0000000000004c40                fls
+                0x0000000000004c60                sdio_alloc
+                0x0000000000004c80                sdio_free
+                0x0000000000004c90                sdio_hc_alloc
+                0x0000000000004d40                sdio_hc_free
+                0x0000000000004d80                sdio_vtop_sg
+                0x0000000000004d90                sdio_vtop
+                0x0000000000004da0                sdio_hc_getsubopt
+                0x0000000000004ec0                sdio_set_thread_state
+                0x0000000000004ef0                sdio_create_thread
+                0x0000000000005080                sdio_extract_bits
+                0x00000000000050f0                sdio_sg_start
+                0x0000000000005130                sdio_sg_nxt
+                0x00000000000051c0                sdio_device_errata
+                0x00000000000052b0                sdio_reconcile_errata
+                0x0000000000005310                sdio_drv_type
+                0x0000000000005370                sdio_bus_mode
+                0x00000000000053e0                sdio_bus_width
+                0x0000000000005440                sdio_clock
+                0x0000000000005680                sdio_timing
+                0x00000000000056e0                sdio_signal_voltage
+                0x0000000000005740                sdio_select_voltage
+                0x0000000000005780                sdio_tune
+                0x00000000000057e0                sdio_preset
+                0x0000000000005800                _sdio_cache
+                0x0000000000005820                _sdio_reset
+                0x0000000000005950                _sdio_retune
+                0x0000000000005a90                sdio_wait_cmd
+                0x0000000000005bc0                sdio_issue_cmd
+                0x0000000000005cc0                sdio_cmd_cmplt
+                0x0000000000005d80                _sdio_send_cmd
+                0x0000000000005fe0                _sdio_send_status
+                0x0000000000006090                _sdio_wait_card_status
+                0x00000000000061b0                sdio_send_csd
+                0x0000000000006260                sdio_select_card
+                0x0000000000006310                _sdio_pwrmgnt
+                0x0000000000007590                _sdio_stop_transmission
+                0x0000000000007630                _sdio_set_block_length
+                0x00000000000076e0                _sdio_set_block_count
+                0x00000000000077e0                _sdio_lock_unlock
+                0x0000000000007a20                sdio_go_idle
+                0x0000000000007a90                sdio_all_send_cid
+                0x0000000000007b40                _sdio_bus_error
+                0x0000000000007c90                sdio_hc_event
+                0x0000000000007d00                sdio_timer_settime
+                0x0000000000007d80                sdio_options
+                0x00000000000087d0                sdio_hc_lookup
+                0x00000000000088e0                _sdio_disconnect
+                0x0000000000008940                _sdio_connect
+ .text          0x0000000000008d7c        0x0 bs.o
+ *fill*         0x0000000000008d7c        0x4 
+ .text          0x0000000000008d80     0x1c84 card.o
+                0x0000000000008d80                sdio_device_lookup
+                0x0000000000008e00                sdio_client_hdl
+                0x0000000000008e10                sdio_bs_hdl
+                0x0000000000008e20                sdio_get_cid
+                0x0000000000008e30                sdio_get_raw_cid
+                0x0000000000008e40                sdio_get_csd
+                0x0000000000008e50                sdio_get_raw_csd
+                0x0000000000008e60                sdio_get_ecsd
+                0x0000000000008e70                sdio_get_raw_ecsd
+                0x0000000000008e80                sdio_get_raw_scr
+                0x0000000000008e90                sdio_verbosity
+                0x0000000000008ea0                sdio_alloc_cmd
+                0x0000000000008f40                sdio_free_cmd
+                0x0000000000008fa0                sdio_cmd_status
+                0x0000000000008fc0                sdio_setup_cmd_ext
+                0x0000000000008fd0                sdio_setup_cmd
+                0x0000000000008ff0                sdio_setup_cmd_io
+                0x0000000000009020                sdio_send_cmd
+                0x0000000000009110                sdio_stop_transmission
+                0x00000000000091d0                sdio_set_partition
+                0x00000000000092a0                sdio_set_block_count
+                0x0000000000009360                sdio_set_block_length
+                0x0000000000009420                sdio_sd_switch
+                0x0000000000009510                sdio_mmc_switch
+                0x0000000000009600                sdio_mmc_rpmb_rw
+                0x00000000000096e0                sdio_mmc_gen_man
+                0x00000000000097f0                sdio_send_ext_csd
+                0x00000000000098b0                sdio_wait_card_status
+                0x00000000000099a0                sdio_send_status
+                0x0000000000009a60                sdio_retune
+                0x0000000000009b50                sdio_hpi
+                0x0000000000009dd0                sdio_hc_info
+                0x0000000000009e50                sdio_dev_info
+                0x0000000000009ff0                sdio_cache
+                0x000000000000a0e0                sdio_pwroff_notify
+                0x000000000000a1f0                sdio_erase
+                0x000000000000a2f0                sdio_lock_unlock
+                0x000000000000a3f0                sdio_bus_error
+                0x000000000000a4a0                sdio_reset
+                0x000000000000a550                sdio_idle
+                0x000000000000a600                sdio_pwrmgnt
+                0x000000000000a6c0                sdio_detach
+                0x000000000000a730                sdio_attach
+                0x000000000000a870                sdio_enum
+                0x000000000000a8b0                sdio_disconnect
+                0x000000000000a8c0                sdio_connect
+                0x000000000000a930                sdio_app_read_status
+ .text          0x000000000000aa04        0x0 dwmshc.o
+ .text          0x000000000000aa04        0x0 imx8_hc.o
+ .text          0x000000000000aa04        0x0 ls10xx.o
+ *fill*         0x000000000000aa04        0xc 
+ .text          0x000000000000aa10     0x2bb9 mmc.o
+                0x000000000000b930                mmc_switch
+                0x000000000000b950                mmc_rpmb_rw
+                0x000000000000bb50                mmc_gen_man_cmd
+                0x000000000000bde0                mmc_set_partition
+                0x000000000000be40                mmc_sleep_awake
+                0x000000000000bf10                mmc_cache
+                0x000000000000bfe0                mmc_pwroff_notify
+                0x000000000000c050                mmc_erase_timeout
+                0x000000000000c140                mmc_erase
+                0x000000000000c2d0                mmc_send_ext_csd
+                0x000000000000c410                mmc_retune
+                0x000000000000c710                mmc_init_device
+                0x000000000000d440                mmc_bus_error
+                0x000000000000d520                mmc_ident
+ *fill*         0x000000000000d5c9        0x7 
+ .text          0x000000000000d5d0      0xbf1 pci.o
+                0x000000000000d5d0                sdio_pci_init
+                0x000000000000d5e0                sdio_pci_dinit
+                0x000000000000d5f0                sdio_pci_detach_device
+                0x000000000000d670                sdio_pci_device
+                0x000000000000e090                sdio_pci_scan
+ .text          0x000000000000e1c1        0x0 rcar.o
+ *fill*         0x000000000000e1c1        0xf 
+ .text          0x000000000000e1d0     0x2796 sd.o
+                0x000000000000e7d0                sd_pwroff_notify
+                0x000000000000e8b0                sd_cache
+                0x000000000000ea60                sd_switch
+                0x000000000000f2f0                sd_app_cmd
+                0x000000000000f360                sd_app_sd_status
+                0x000000000000f8f0                sd_erase_timeout
+                0x000000000000f910                sd_erase
+                0x000000000000fa70                sd_send_if_cond
+                0x000000000000fdd0                sd_lock_unlock
+                0x000000000000fe60                sd_init_device
+                0x0000000000010830                sd_bus_error
+                0x00000000000108d0                sd_ident
+ *fill*         0x0000000000010966        0xa 
+ .text          0x0000000000010970     0x1f12 sdhci.o
+                0x0000000000011870                sdhci_reset
+                0x0000000000011b90                sdhci_dinit
+                0x0000000000012020                sdhci_init
+ .text          0x0000000000012882        0x0 sdhci_dwc.o
+ *fill*         0x0000000000012882        0xe 
+ .text          0x0000000000012890       0x37 sdhci_pci.o
+                0x0000000000012890                sdhci_pci_init
+ *fill*         0x00000000000128c7        0x9 
+ .text          0x00000000000128d0      0xcbd sim_assd.o
+                0x0000000000012d40                sdmmc_assd_control_devctl
+                0x0000000000012e50                sdmmc_assd_status_devctl
+                0x0000000000012eb0                sdmmc_assd_properties_devctl
+                0x0000000000012f10                sdmmc_assd_apdu_devctl
+                0x0000000000013560                sdmmc_assd_init
+ *fill*         0x000000000001358d        0x3 
+ .text          0x0000000000013590     0x6452 sim_sdmmc.o
+                0x0000000000013590                sdmmc_sim_init
+                0x0000000000013a80                sdmmc_sim_args
+                0x0000000000013f20                sdmmc_sim_action
+                0x0000000000014600                sdmmc_sense
+                0x0000000000014660                sdmmc_unit_ready
+                0x00000000000147f0                sdmmc_bkops_cfg
+                0x0000000000014bf0                sdmmc_sim_detach
+                0x0000000000015370                sdmmc_sim_attach
+                0x00000000000156c0                sdmmc_reset
+                0x00000000000157b0                sdmmc_bkops
+                0x0000000000015d90                sdmmc_rw
+                0x00000000000162b0                sdmmc_read_write
+                0x00000000000167c0                sdmmc_wp_devctl
+                0x0000000000016d90                sdmmc_erase_devctl
+                0x00000000000170e0                sdmmc_card_register_devctl
+                0x0000000000019250                sdmmc_driver_thread
+                0x0000000000019620                sdmmc_suspend
+                0x0000000000019800                sdmmc_resume
+ .text          0x00000000000199e2        0x0 soc.o
+ .text          0x00000000000199e2        0x0 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtend.o
+ .text          0x00000000000199e2        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+ *(.gnu.warning)
+
+.fini           0x00000000000199e2        0x9
+ *(SORT_NONE(.fini))
+ .fini          0x00000000000199e2        0x4 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+                0x00000000000199e2                _fini
+ .fini          0x00000000000199e6        0x5 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+                [!provide]                        PROVIDE (__etext = .)
+                [!provide]                        PROVIDE (_etext = .)
+                [!provide]                        PROVIDE (etext = .)
+
+.rodata         0x0000000000019a00     0x2db0
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.1
+                0x0000000000019a00      0xdc5 base.o
+                                        0x691 (size before relaxing)
+ *fill*         0x000000000001a7c5        0x3 
+ .rodata.str1.8
+                0x000000000001a7c8     0x12f4 base.o
+                                        0x5c1 (size before relaxing)
+ *fill*         0x000000000001babc        0x4 
+ .rodata        0x000000000001bac0      0x2e0 base.o
+                0x000000000001bce0                sdio_tbp_8bit
+                0x000000000001bd60                sdio_tbp_4bit
+ .rodata.cst8   0x000000000001bda0       0x20 base.o
+                                         0x18 (size before relaxing)
+ .rodata.cst16  0x000000000001bdc0       0x10 base.o
+ .rodata.str1.1
+                0x000000000001bdd0       0x1b bs.o
+ .rodata.str1.8
+                0x000000000001bdd0      0x191 mmc.o
+ .rodata.str1.1
+                0x000000000001bdd0      0x142 mmc.o
+ *fill*         0x000000000001bdd0       0x10 
+ .rodata        0x000000000001bde0      0x15c mmc.o
+ .rodata.str1.8
+                0x000000000001bf3c      0x47d pci.o
+ .rodata.str1.1
+                0x000000000001bf3c       0x36 pci.o
+ *fill*         0x000000000001bf3c        0x4 
+ .rodata        0x000000000001bf40       0x67 pci.o
+ *fill*         0x000000000001bfa7        0x1 
+ .rodata.cst4   0x000000000001bfa8        0x8 pci.o
+                                          0x4 (size before relaxing)
+ .rodata.str1.1
+                0x000000000001bfb0       0xc3 sd.o
+ .rodata.str1.8
+                0x000000000001bfb0      0x1a9 sd.o
+ *fill*         0x000000000001bfb0       0x10 
+ .rodata        0x000000000001bfc0      0x1e3 sd.o
+ .rodata.str1.1
+                0x000000000001c1a3      0x118 sdhci.o
+ .rodata.str1.8
+                0x000000000001c1a3       0x82 sdhci.o
+ *fill*         0x000000000001c1a3        0xd 
+ .rodata        0x000000000001c1b0       0xc4 sdhci.o
+ .rodata.str1.1
+                0x000000000001c274       0x5b sdhci_pci.o
+ .rodata.str1.8
+                0x000000000001c274       0x39 sim_assd.o
+ *fill*         0x000000000001c274        0x4 
+ .rodata        0x000000000001c278        0xe sim_assd.o
+ .rodata.str1.1
+                0x000000000001c286      0x3e7 sim_sdmmc.o
+ .rodata.str1.8
+                0x000000000001c286      0x4c4 sim_sdmmc.o
+ *fill*         0x000000000001c286        0xa 
+ .rodata        0x000000000001c290      0x511 sim_sdmmc.o
+ .rodata.cst4   0x000000000001c7a1        0x4 sim_sdmmc.o
+ .rodata.cst8   0x000000000001c7a1       0x10 sim_sdmmc.o
+ *fill*         0x000000000001c7a1        0x1 
+ .rodata.cst2   0x000000000001c7a2        0xe sim_sdmmc.o
+
+.rodata1
+ *(.rodata1)
+
+.eh_frame_hdr   0x000000000001c7b0      0x70c
+ *(.eh_frame_hdr)
+ .eh_frame_hdr  0x000000000001c7b0      0x70c base.o
+                0x000000000001c7b0                __GNU_EH_FRAME_HDR
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame       0x000000000001cec0     0x23b4
+ *(.eh_frame)
+ .eh_frame      0x000000000001cec0       0x40 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .eh_frame      0x000000000001cf00       0x18 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+                                         0x30 (size before relaxing)
+ .eh_frame      0x000000000001cf18      0xa18 base.o
+                                        0xa30 (size before relaxing)
+ .eh_frame      0x000000000001d930      0x6d0 card.o
+                                        0x6e8 (size before relaxing)
+ .eh_frame      0x000000000001e000      0x360 mmc.o
+                                        0x378 (size before relaxing)
+ .eh_frame      0x000000000001e360       0xb0 pci.o
+                                         0xc8 (size before relaxing)
+ .eh_frame      0x000000000001e410      0x368 sd.o
+                                        0x380 (size before relaxing)
+ .eh_frame      0x000000000001e778      0x298 sdhci.o
+                                        0x2b0 (size before relaxing)
+ .eh_frame      0x000000000001ea10       0x18 sdhci_pci.o
+                                         0x30 (size before relaxing)
+ .eh_frame      0x000000000001ea28      0x1b8 sim_assd.o
+                                        0x1d0 (size before relaxing)
+ .eh_frame      0x000000000001ebe0      0x690 sim_sdmmc.o
+                                        0x6a8 (size before relaxing)
+ .eh_frame      0x000000000001f270        0x4 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtend.o
+ *(.eh_frame.*)
+
+.sframe         0x000000000001f274        0x0
+ *(.sframe)
+ .sframe        0x000000000001f274        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ *(.sframe.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges*)
+                0x0000000000020658                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.sframe
+ *(.sframe)
+ *(.sframe.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges*)
+
+.tdata          0x0000000000020658        0x0
+                [!provide]                        PROVIDE (__tdata_start = .)
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000000020658        0x0
+                0x0000000000020658                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                0x0000000000020658                PROVIDE (__preinit_array_end = .)
+
+.init_array     0x0000000000020658        0x0
+                0x0000000000020658                PROVIDE (__init_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                0x0000000000020658                PROVIDE (__init_array_end = .)
+
+.fini_array     0x0000000000020658        0x8
+                0x0000000000020658                PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+ .fini_array    0x0000000000020658        0x8 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtbegin.o
+                0x0000000000020660                PROVIDE (__fini_array_end = .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro    0x0000000000020660      0x380
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ .data.rel.ro.local
+                0x0000000000020660      0x348 base.o
+ *fill*         0x00000000000209a8       0x18 
+ .data.rel.ro.local
+                0x00000000000209c0       0x20 sim_sdmmc.o
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+ .data.rel.ro   0x00000000000209e0        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+
+.dynamic        0x00000000000209e0      0x1f0
+ *(.dynamic)
+ .dynamic       0x00000000000209e0      0x1f0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+                0x00000000000209e0                _DYNAMIC
+
+.got            0x0000000000020bd0      0x418
+ *(.got.plt)
+ .got.plt       0x0000000000020bd0      0x3e0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+                0x0000000000020bd0                _GLOBAL_OFFSET_TABLE_
+ *(.igot.plt)
+ *(.got)
+ .got           0x0000000000020fb0       0x38 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ *(.igot)
+                0x0000000000021000                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x0000000000021000      0x5b0
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000021000        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .data          0x0000000000021000        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ .data          0x0000000000021000        0x0 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtbegin.o
+ .data.rel.local
+                0x0000000000021000        0x8 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtbegin.o
+                0x0000000000021000                __dso_handle
+ .data          0x0000000000021008        0x0 base.o
+ *fill*         0x0000000000021008       0x18 
+ .data.rel.local
+                0x0000000000021020       0xb0 base.o
+ .data          0x00000000000210d0        0x0 bs.o
+ *fill*         0x00000000000210d0       0x10 
+ .data.rel      0x00000000000210e0       0x78 bs.o
+                0x00000000000210e0                sdio_vendors
+ .data          0x0000000000021158        0x0 card.o
+ .data          0x0000000000021158        0x0 dwmshc.o
+ .data          0x0000000000021158        0x0 imx8_hc.o
+ .data          0x0000000000021158        0x0 ls10xx.o
+ .data          0x0000000000021158        0x0 mmc.o
+ *fill*         0x0000000000021158        0x8 
+ .data.rel.local
+                0x0000000000021160      0x118 mmc.o
+ .data          0x0000000000021278        0x0 pci.o
+ .data          0x0000000000021278        0x0 rcar.o
+ .data          0x0000000000021278        0x0 sd.o
+ *fill*         0x0000000000021278        0x8 
+ .data.rel.local
+                0x0000000000021280       0x50 sd.o
+ .data          0x00000000000212d0        0x0 sdhci.o
+ *fill*         0x00000000000212d0       0x10 
+ .data.rel.local
+                0x00000000000212e0       0x30 sdhci.o
+ .data          0x0000000000021310        0x0 sdhci_dwc.o
+ .data          0x0000000000021310        0x0 sdhci_pci.o
+ *fill*         0x0000000000021310       0x10 
+ .data.rel.local
+                0x0000000000021320      0x220 sdhci_pci.o
+                0x0000000000021320                sdio_sdhci_intel_products
+                0x0000000000021480                sdio_sdhci_cmd_products
+                0x00000000000214c0                sdio_sdhci_o2_products
+                0x0000000000021500                sdio_sdhci_product
+ .data          0x0000000000021540        0x0 sim_assd.o
+ .data          0x0000000000021540        0x0 sim_sdmmc.o
+ .data.rel.local
+                0x0000000000021540       0x70 sim_sdmmc.o
+ .data          0x00000000000215b0        0x0 soc.o
+ .data          0x00000000000215b0        0x0 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtend.o
+ .data          0x00000000000215b0        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.data1
+ *(.data1)
+                0x00000000000215b0                _edata = .
+                [!provide]                        PROVIDE (edata = .)
+                0x00000000000215b0                . = ALIGN (ALIGNOF (NEXT_SECTION))
+                0x00000000000215c0                __bss_start = .
+
+.bss            0x00000000000215c0      0x158
+ *(.dynbss)
+ .dynbss        0x00000000000215c0        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00000000000215c0        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .bss           0x00000000000215c0        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ .bss           0x00000000000215c0        0x1 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtbegin.o
+ *fill*         0x00000000000215c1       0x1f 
+ .bss           0x00000000000215e0       0xe8 base.o
+                0x00000000000215e0                sdio_ctrl
+ .bss           0x00000000000216c8        0x0 bs.o
+ .bss           0x00000000000216c8        0x0 card.o
+ .bss           0x00000000000216c8        0x0 dwmshc.o
+ .bss           0x00000000000216c8        0x0 imx8_hc.o
+ .bss           0x00000000000216c8        0x0 ls10xx.o
+ .bss           0x00000000000216c8        0x0 mmc.o
+ .bss           0x00000000000216c8        0x0 pci.o
+ .bss           0x00000000000216c8        0x0 rcar.o
+ .bss           0x00000000000216c8        0x0 sd.o
+ .bss           0x00000000000216c8        0x0 sdhci.o
+ .bss           0x00000000000216c8        0x0 sdhci_dwc.o
+ .bss           0x00000000000216c8        0x0 sdhci_pci.o
+ .bss           0x00000000000216c8        0x0 sim_assd.o
+ *fill*         0x00000000000216c8       0x18 
+ .bss           0x00000000000216e0       0x38 sim_sdmmc.o
+                0x00000000000216e0                sdmmc_ctrl
+ .bss           0x0000000000021718        0x0 soc.o
+ .bss           0x0000000000021718        0x0 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtend.o
+ .bss           0x0000000000021718        0x0 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+ *(COMMON)
+                0x0000000000021718                . = ALIGN ((. != 0x0)?0x8:0x1)
+
+.lbss
+ *(.dynlbss)
+ *(.lbss .lbss.* .gnu.linkonce.lb.*)
+ *(LARGE_COMMON)
+                0x0000000000021718                . = ALIGN (0x8)
+                0x0000000000021718                . = SEGMENT_START ("ldata-segment", .)
+
+.lrodata
+ *(.lrodata .lrodata.* .gnu.linkonce.lr.*)
+
+.ldata          0x0000000000023718        0x0
+ *(.ldata .ldata.* .gnu.linkonce.l.*)
+                0x0000000000023718                . = ALIGN ((. != 0x0)?0x8:0x1)
+                0x0000000000023718                . = ALIGN (0x8)
+                0x0000000000021718                _end = .
+                [!provide]                        PROVIDE (end = .)
+                0x0000000000023718                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x45
+ *(.comment)
+ .comment       0x0000000000000000       0x45 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtbegin.o
+                                         0x46 (size before relaxing)
+ .comment       0x0000000000000045       0x46 base.o
+ .comment       0x0000000000000045       0x46 bs.o
+ .comment       0x0000000000000045       0x46 card.o
+ .comment       0x0000000000000045       0x46 dwmshc.o
+ .comment       0x0000000000000045       0x46 imx8_hc.o
+ .comment       0x0000000000000045       0x46 ls10xx.o
+ .comment       0x0000000000000045       0x46 mmc.o
+ .comment       0x0000000000000045       0x46 pci.o
+ .comment       0x0000000000000045       0x46 rcar.o
+ .comment       0x0000000000000045       0x46 sd.o
+ .comment       0x0000000000000045       0x46 sdhci.o
+ .comment       0x0000000000000045       0x46 sdhci_dwc.o
+ .comment       0x0000000000000045       0x46 sdhci_pci.o
+ .comment       0x0000000000000045       0x46 sim_assd.o
+ .comment       0x0000000000000045       0x46 sim_sdmmc.o
+ .comment       0x0000000000000045       0x46 soc.o
+ .comment       0x0000000000000045       0x46 C:/Users/Dell/qnx800/host/win64/x86_64/usr/lib/gcc/x86_64-pc-nto-qnx8.0.0/12.2.0/crtend.o
+
+.gnu.build.attributes
+ *(.gnu.build.attributes .gnu.build.attributes.*)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000       0xb0
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x30 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .debug_aranges
+                0x0000000000000030       0x40 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ .debug_aranges
+                0x0000000000000070       0x40 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000       0x89
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000       0x45 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .debug_info    0x0000000000000045       0x22 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ .debug_info    0x0000000000000067       0x22 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.debug_abbrev   0x0000000000000000       0x45
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0x21 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .debug_abbrev  0x0000000000000021       0x12 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ .debug_abbrev  0x0000000000000033       0x12 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.debug_line     0x0000000000000000      0x1b5
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000       0xa3 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+ .debug_line    0x00000000000000a3       0x88 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ .debug_line    0x000000000000012b       0x8a C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x0000000000000000      0x122
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x122 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crt1.o
+                                         0x98 (size before relaxing)
+ .debug_str     0x0000000000000122       0x91 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ .debug_str     0x0000000000000122       0x91 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000       0x80
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0x40 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crti.o
+ .debug_ranges  0x0000000000000040       0x40 C:/Users/Dell/qnx800/target/qnx/x86_64/lib/crtn.o
+
+.debug_addr
+ *(.debug_addr)
+
+.debug_line_str
+ *(.debug_line_str)
+
+.debug_loclists
+ *(.debug_loclists)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_names
+ *(.debug_names)
+
+.debug_rnglists
+ *(.debug_rnglists)
+
+.debug_str_offsets
+ *(.debug_str_offsets)
+
+.debug_sup
+ *(.debug_sup)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(C:\Users\Dell\AppData\Local\Temp\2qccaQEWm7\tmp_qcc_32416 elf64-x86-64)
+LOAD linker stubs

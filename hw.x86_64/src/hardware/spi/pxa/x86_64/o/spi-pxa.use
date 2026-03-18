@@ -1,0 +1,29 @@
+SPI common options
+
+Syntax:
+%C [-c config_file] [-v]
+
+    -c config_file      Path to the SPI configuration file
+                        (default: /etc/system/config/spi/spi.conf)
+    -v                  Increase verbosity. This will override the "verbose" value in the config file.
+
+Note: SPI config file template can be found at "lib/io-spi/config_files/spi-template.conf".
+
+Examples:
+
+# Start the driver using a custom config file path
+%C -c /etc/custom/spi.conf
+
+Driver-specific options:
+(To be set in the config file by parameter 'bs' under section 'bus')
+
+#    idx=num                Defines PCI device index
+#    vid=num                Defines PCI Vendor ID
+#    did=num                Defines PCI Device ID
+#    rx_thresh=num          Defines Receive FIFO Threshold (default 32)
+#    tx_thresh=num          Defines Transmit FIFO Threshold (default 32)
+#    dma_rx_thresh=num      Defines Receive FIFO Threshold (default 1) - DMA mode
+#    dma_tx_thresh=num      Defines Transmit FIFO Threshold (default 16) - DMA mode
+#    dma_tx_low_thresh=num  Defines Transmit Low FIFO Threshold (default 48)- DMA mod
+#    dma                    Enable DMA exchange mode
+#    loopback               Enable SPI loopback mode for testing

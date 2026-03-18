@@ -1,0 +1,14 @@
+main.o: \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/hardware/startup/boards/x86/main.c \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\startup.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\sys\startup.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\x86_64\cpu_startup.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\x86_64\priv.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\x86\lapic.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\x86\imps.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\hw\acpi.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\x86\x86both_startup.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\sys\restore_ifs.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\hw\uefi.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\x86\intel_misc.h \
+ c:\users\dell\ide-8.0-workspace\hw.x86_64\install\usr\include\x86\pci_misc.h

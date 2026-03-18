@@ -1,0 +1,16 @@
+# The EFI boot partition only needs to be large enough to hold the IFS
+# Set the EFI boot partition (t12) to 200MB in this example
+[num_sectors=409600]
+
+# Create the boot image with the name required by your board's firmware
+# NOTE: you can change which boot image is used for the default boot here
+EFI/BOOT/BOOTX64.EFI=../generic-uefi/x86_64-generic-uefi.efi
+
+# Save IFS copies
+x86_64-generic-uefi.efi=../generic-uefi/x86_64-generic-uefi.efi
+x86_64-generic-uefi-smmu.efi=../generic-uefi/x86_64-generic-uefi-smmu.efi
+#Note that Hypervisor boot IFS is made optional, because it will only be there if you
+# have QNX Hypervisor product installed.
+[+optional] x86_64-generic-uefi-hyp.efi=../generic-uefi/x86_64-generic-uefi-hyp.efi
+
+x86_64-ehl-crb-uefi.efi=../elkhart-lake/x86_64-ehl-crb-uefi.efi

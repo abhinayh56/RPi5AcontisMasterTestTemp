@@ -1,0 +1,5 @@
+ecm_server.o: \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/utils/ecm-mec170x/ecm_server.c \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/utils/ecm-mec170x/MEC170X_def.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/utils/ecm-mec170x/public/hw/ecm_mec170x.h \
+ C:/Users/Dell/ide-8.0-workspace/hw.x86_64/src/utils/ecm-mec170x/ecm_comm.h

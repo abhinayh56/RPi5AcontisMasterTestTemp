@@ -1,0 +1,30 @@
+build/aarch64le-debug/./External/ec_master_library/Examples/Common/EcDemoParms.o: \
+ External/ec_master_library/Examples/Common/EcDemoParms.cpp \
+ src/EcDemoApp.h External/ec_master_library/SDK/INC/EcMaster.h \
+ External/ec_master_library/SDK/INC/EcOs.h \
+ External/ec_master_library/SDK/INC/EcType.h \
+ External/ec_master_library/SDK/INC/QNX/EcOsPlatform.h \
+ External/ec_master_library/SDK/INC/EcType.h \
+ External/ec_master_library/SDK/INC/EcFeatures.h \
+ External/ec_master_library/SDK/INC/EcError.h \
+ External/ec_master_library/SDK/INC/OsCommon.h \
+ External/ec_master_library/SDK/INC/EcInterfaceCommon.h \
+ External/ec_master_library/SDK/INC/EcVersion.h \
+ External/ec_master_library/SDK/INC/EcLog.h \
+ External/ec_master_library/SDK/INC/EcEscReg.h \
+ External/ec_master_library/SDK/INC/EthernetServices.h \
+ External/ec_master_library/SDK/INC/EcLink.h \
+ External/ec_master_library/Examples/Common/QNX/EcDemoPlatform.h \
+ External/ec_master_library/Examples/Common/EcDemoParms.h \
+ External/ec_master_library/Examples/Common/EcLogging.h \
+ External/ec_master_library/Sources/Common/EcTimer.h \
+ External/ec_master_library/Sources/Common/EcList.h \
+ External/ec_master_library/Examples/Common/EcNotification.h \
+ External/ec_master_library/Examples/Common/EcSdoServices.h \
+ External/ec_master_library/Examples/Common/EcSelectLinkLayer.h \
+ External/ec_master_library/Examples/Common/EcSlaveInfo.h \
+ External/ec_master_library/Examples/Common/QNX/EcDemoTimingTaskPlatform.h \
+ External/ec_master_library/Examples/Common/EcDemoTimingTask.h \
+ External/ec_master_library/SDK/INC/EcRasServer.h \
+ External/ec_master_library/SDK/INC/EcRasError.h \
+ External/ec_master_library/SDK/INC/EcRasType.h

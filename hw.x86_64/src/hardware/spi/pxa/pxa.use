@@ -1,0 +1,14 @@
+
+Driver-specific options:
+(To be set in the config file by parameter 'bs' under section 'bus')
+
+#    idx=num                Defines PCI device index
+#    vid=num                Defines PCI Vendor ID
+#    did=num                Defines PCI Device ID
+#    rx_thresh=num          Defines Receive FIFO Threshold (default 32)
+#    tx_thresh=num          Defines Transmit FIFO Threshold (default 32)
+#    dma_rx_thresh=num      Defines Receive FIFO Threshold (default 1) - DMA mode
+#    dma_tx_thresh=num      Defines Transmit FIFO Threshold (default 16) - DMA mode
+#    dma_tx_low_thresh=num  Defines Transmit Low FIFO Threshold (default 48)- DMA mod
+#    dma                    Enable DMA exchange mode
+#    loopback               Enable SPI loopback mode for testing

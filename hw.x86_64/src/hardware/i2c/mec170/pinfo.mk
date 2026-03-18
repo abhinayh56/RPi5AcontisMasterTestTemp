@@ -1,0 +1,4 @@
+define PINFO
+PINFO DESCRIPTION=INTEL MEC170 ECM I2C Driver
+endef
+

@@ -1,0 +1,4 @@
+This utility is meant for SECO SMARC board, it interfaces i2c and watchdog via MEC170x.
+Takes optional priority argument, relies on kernel provided priority if not set.
+
+%C [-p prioirity]

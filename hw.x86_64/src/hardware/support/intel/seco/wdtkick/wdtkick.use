@@ -1,0 +1,13 @@
+Use message for wdtkick
+%C Watchdog Timer Module
+
+Syntax:
+    wdtkick [options] 
+
+Options:
+ -p priority          Thread priority. Default is to Inherit
+ -d initial-delay     Initial delay for the WDT in milliseconds. Default: 100
+ -e event-timeout     WDT timeout in milliseconds to trigger a watchdog event. Default: 30000
+ -r reset-timeout     WDT timeout in milliseconds to trigger a system reset. Default: 29000
+ -s sleep             Period between each WDT kick in milliseconds. Default: 29000
+

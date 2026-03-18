@@ -1,0 +1,23 @@
+INTEL BAYTRAIL I2C Driver
+
+Syntax:
+%C [device options] [generic options]
+
+Example:
+%C -d0x0F41 -vvv -r0x8086 --u0 --b100000
+
+Device options:
+-c  i2c_clock       I2C input clock (Default: 0)
+-d  device_id       PCI device ID of the I2C bus (Default: 0xFFFF)
+-h  sda_hold_time   I2C SDA hold time in units of i2c_clk period (Default: 0)
+-i  device_index    PCI device index (Default: 0)
+-I                  Set SCL and Holt registers to Intel Recommended values(Case:00168315)
+                    Note: -r value will be ignored and the Hold time will be a constant
+                    value when -I option is used (Default: disabled)
+-q  irq_number      I2C interrupt number (Default: -1)
+-r  vendor_id       PCI vendor ID of the I2C bus (Default: 0x8086)
+-v  verbose         I2C verbosity level (Default: 2)
+
+Generic options:
+--b bus_speed       Default bus speed (Default: 100000)
+--u unit            Unit number (Default: 0)

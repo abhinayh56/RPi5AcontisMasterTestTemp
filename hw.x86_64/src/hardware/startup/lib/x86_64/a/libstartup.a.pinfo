@@ -1,0 +1,8 @@
+STATE=Desktop
+INSTALLDIR=x86_64/usr/lib/
+INSTALLNAME=libstartup.a
+NAME=libstartup.a
+USER=Dell
+HOST=SSIPLIT1128
+DATE=2026/03/10-11:14:41-IST
+DESCRIPTION=startup library
