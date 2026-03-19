@@ -205,6 +205,19 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="aarch64le-debug">
+			<resource resourceType="PROJECT" workspacePath="/EcMasterDemoCustom"/>
+		</configuration>
+		<configuration configurationName="aarch64le-profile">
+			<resource resourceType="PROJECT" workspacePath="/EcMasterDemoCustom"/>
+		</configuration>
+		<configuration configurationName="aarch64le-release">
+			<resource resourceType="PROJECT" workspacePath="/EcMasterDemoCustom"/>
+		</configuration>
+		<configuration configurationName="aarch64le-coverage">
+			<resource resourceType="PROJECT" workspacePath="/EcMasterDemoCustom"/>
+		</configuration>
+	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

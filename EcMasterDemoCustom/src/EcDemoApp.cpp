@@ -857,8 +857,6 @@ Find slave parameters.
 static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD          dwRes      = EC_E_NOERROR;
-    T_MY_APP_DESC*      pMyAppDesc = pAppContext->pMyAppDesc;
-    EC_T_CFG_SLAVE_INFO oCfgSlaveInfo;
 
     dwRes = ecatFindOutpVarByName("SubDevice_1003 [EL2008].Channel 1.Output", &s_OutputProcessVar_1);
 	if (dwRes != EC_E_NOERROR)
@@ -941,9 +939,6 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 	}
 
 	return dwRes;
-
-Exit:
-    return EC_E_NOERROR;
 }
 
 /***************************************************************************************************/

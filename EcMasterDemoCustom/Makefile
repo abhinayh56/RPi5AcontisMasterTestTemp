@@ -35,7 +35,6 @@ LIBS += -L$(EC_DIR)/SDK/LIB/QNX8/aarch64
 LIBS += -lEcMaster
 LIBS += -lEcMasterRasServer
 LIBS += -lsocket
-LIBS += -lm
 
 #Compiler flags for build profiles
 CCFLAGS_release += -O2
@@ -48,6 +47,7 @@ LIBS_profile += -lprofilingS
 #Generic compiler flags (which include build type flags)
 CCFLAGS_all += -Wall -fmessage-length=0
 CCFLAGS_all += $(CCFLAGS_$(BUILD_PROFILE))
+CCFLAGS_all += -Wno-packed-not-aligned
 #Shared library has to be compiled with -fPIC
 #CCFLAGS_all += -fPIC
 LDFLAGS_all += $(LDFLAGS_$(BUILD_PROFILE))
