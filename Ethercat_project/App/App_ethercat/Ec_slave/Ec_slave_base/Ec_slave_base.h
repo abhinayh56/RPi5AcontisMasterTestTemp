@@ -2,6 +2,8 @@
 #define EC_SLAVE_BASE_H
 
 #include "EcMaster.h"
+#include <vector>
+#include "Ec_pdo_element.h"
 
 class Ec_slave_base
 {
@@ -25,6 +27,8 @@ public:
 	virtual EC_T_DWORD transferRxPdo();
 
 private:
+	std::vector<Ec_pdo_element> m_rxPdoElementVector;
+	std::vector<Ec_pdo_element> m_txPdoElementVector;
 };
 
 #endif // EC_SLAVE_BASE_H
