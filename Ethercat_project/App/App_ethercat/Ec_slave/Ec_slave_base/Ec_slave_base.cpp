@@ -22,7 +22,21 @@ EC_T_DWORD Ec_slave_base::processTxPdo()
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_base::runMainProcess()
+EC_T_DWORD Ec_slave_base::publishData()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD Ec_slave_base::subscribeData()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD Ec_slave_base::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 

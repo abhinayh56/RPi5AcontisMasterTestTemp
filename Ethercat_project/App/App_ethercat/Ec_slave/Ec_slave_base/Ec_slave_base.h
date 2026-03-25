@@ -8,17 +8,21 @@ class Ec_slave_base
 public:
 	Ec_slave_base();
 
-	~Ec_slave_base();
+	virtual ~Ec_slave_base();
 
-	EC_T_DWORD transferTxPdo();
+	virtual EC_T_DWORD transferTxPdo();
 
-	EC_T_DWORD processTxPdo();
+	virtual EC_T_DWORD processTxPdo();
 
-	EC_T_DWORD runMainProcess();
+	virtual EC_T_DWORD publishData();
 
-	EC_T_DWORD processRxPdo();
+	virtual EC_T_DWORD subscribeData();
 
-	EC_T_DWORD transferRxPdo();
+	virtual EC_T_DWORD mainProcess();
+
+	virtual EC_T_DWORD processRxPdo();
+
+	virtual EC_T_DWORD transferRxPdo();
 
 private:
 };
