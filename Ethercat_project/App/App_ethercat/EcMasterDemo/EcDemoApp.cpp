@@ -938,6 +938,8 @@ Exit:
 */
 static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
+	Ec_slave_base ec_slave_base;
+
 	static int i = 0;
 	std::cout << "This is a test from new ethercat project: " << i << std::endl;
 	i++;
