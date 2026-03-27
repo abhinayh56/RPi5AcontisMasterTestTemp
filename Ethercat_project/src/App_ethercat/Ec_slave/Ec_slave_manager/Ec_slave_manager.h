@@ -15,7 +15,6 @@
 #include "Ec_slave_elmo_drive.h"
 #include "Ec_slave_ipos2401_mx_cat.h"
 #include "Ec_slave_pitch_drive.h"
-#include "Eigen/Dense"
 
 class Ec_slave_manager
 {
