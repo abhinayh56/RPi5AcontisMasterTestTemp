@@ -14,4 +14,5 @@ build/aarch64le-debug/./App/App_ethercat/Ec_slave/Ec_slave_base/Ec_slave_base.o:
  External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLog.h \
  External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
  External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
- External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
+ App/App_ethercat/Ec_slave/Ec_slave_base/Ec_pdo_element.h

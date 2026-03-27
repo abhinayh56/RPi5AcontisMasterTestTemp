@@ -1,2 +1,19 @@
 build/aarch64le-debug/./App/App_ethercat/Ec_slave/Ec_slave_encbrkctrl/Ec_slave_encbrkctrl.o: \
- App/App_ethercat/Ec_slave/Ec_slave_encbrkctrl/Ec_slave_encbrkctrl.cpp
+ App/App_ethercat/Ec_slave/Ec_slave_encbrkctrl/Ec_slave_encbrkctrl.cpp \
+ App/App_ethercat/Ec_slave/Ec_slave_encbrkctrl/Ec_slave_encbrkctrl.h \
+ App/App_ethercat/Ec_slave/Ec_slave_base/Ec_slave_base.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/QNX/EcOsPlatform.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcFeatures.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/OsCommon.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcInterfaceCommon.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcVersion.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLog.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
+ External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
+ App/App_ethercat/Ec_slave/Ec_slave_base/Ec_pdo_element.h

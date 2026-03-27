@@ -3,7 +3,7 @@
 
 #include "Ec_slave_base.h"
 
-namespace Ec_slave_den_net_e
+namespace Ec_slave_den_net_e_data
 {
 	#pragma pack(push, 1)
 	struct TxPdo
@@ -56,8 +56,8 @@ public:
 	virtual void dispRxPdo();
 
 protected:
-	Ec_slave_den_net_e::TxPdo m_TxPdo;
-	Ec_slave_den_net_e::RxPdo m_RxPdo;
+	Ec_slave_den_net_e_data::TxPdo m_TxPdo;
+	Ec_slave_den_net_e_data::RxPdo m_RxPdo;
 };
 
 #endif // EC_SLAVE_DEN_NET_E_H

@@ -866,10 +866,10 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 //	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ACT_VEL);
 //	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ADC_VAL);
 
-    ec_slave_pitch_drive_1.registerTxPdos();
-    ec_slave_pitch_drive_2.registerTxPdos();
-    ec_slave_pitch_drive_3.registerTxPdos();
-    ec_slave_pitch_drive_4.registerTxPdos();
+    ec_slave_pitch_drive_1.registerTxPdo();
+    ec_slave_pitch_drive_2.registerTxPdo();
+    ec_slave_pitch_drive_3.registerTxPdo();
+    ec_slave_pitch_drive_4.registerTxPdo();
 
     return dwRes;
 }

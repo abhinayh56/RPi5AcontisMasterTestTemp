@@ -30,7 +30,7 @@ namespace Ec_slave_rfidslave_data
 		PdoVariable<0x0006, 20, uint16_t> MFG_Month;
 		PdoVariable<0x0006, 21, uint16_t> MFG_Year;
 	};
-	#pragma
+	#pragma pack(pop)
 
 	#pragma pack(push, 1)
 	struct RxPdo

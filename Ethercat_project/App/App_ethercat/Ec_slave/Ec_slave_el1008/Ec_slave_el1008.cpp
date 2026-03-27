@@ -91,7 +91,7 @@ EC_T_DWORD Ec_slave_el1008::mainProcess()
 	return dwRes;
 }
 
-void Ec_slave_el1008::::dispTxPdo()
+void Ec_slave_el1008::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
@@ -106,6 +106,6 @@ void Ec_slave_el1008::::dispTxPdo()
 	<< std::endl;
 }
 
-void Ec_slave_el1008::::dispRxPdo()
+void Ec_slave_el1008::dispRxPdo()
 {
 }

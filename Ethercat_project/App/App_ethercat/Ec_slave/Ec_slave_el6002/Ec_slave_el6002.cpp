@@ -267,52 +267,52 @@ void Ec_slave_el6002::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"Channel_1 (Status, Data_In_0_21): " << m_TxPdo.Channel_1_Status << ", " <<
-	m_TxPdo.Channel_1_Data_In_0 << ", " <<
-	m_TxPdo.Channel_1_Data_In_1 << ", " <<
-	m_TxPdo.Channel_1_Data_In_2 << ", " <<
-	m_TxPdo.Channel_1_Data_In_3 << ", " <<
-	m_TxPdo.Channel_1_Data_In_4 << ", " <<
-	m_TxPdo.Channel_1_Data_In_5 << ", " <<
-	m_TxPdo.Channel_1_Data_In_6 << ", " <<
-	m_TxPdo.Channel_1_Data_In_7 << ", " <<
-	m_TxPdo.Channel_1_Data_In_8 << ", " <<
-	m_TxPdo.Channel_1_Data_In_9 << ", " <<
-	m_TxPdo.Channel_1_Data_In_10 << ", " <<
-	m_TxPdo.Channel_1_Data_In_11 << ", " <<
-	m_TxPdo.Channel_1_Data_In_12 << ", " <<
-	m_TxPdo.Channel_1_Data_In_13 << ", " <<
-	m_TxPdo.Channel_1_Data_In_14 << ", " <<
-	m_TxPdo.Channel_1_Data_In_15 << ", " <<
-	m_TxPdo.Channel_1_Data_In_16 << ", " <<
-	m_TxPdo.Channel_1_Data_In_17 << ", " <<
-	m_TxPdo.Channel_1_Data_In_18 << ", " <<
-	m_TxPdo.Channel_1_Data_In_19 << ", " <<
-	m_TxPdo.Channel_1_Data_In_20 << ", " <<
-	m_TxPdo.Channel_1_Data_In_21 << ", " <<
-	"Channel_2 (Status, Data_In_0_21): " << m_TxPdo.Channel_2_Status << ", " <<
-	m_TxPdo.Channel_2_Data_In_0 << ", " <<
-	m_TxPdo.Channel_2_Data_In_1 << ", " <<
-	m_TxPdo.Channel_2_Data_In_2 << ", " <<
-	m_TxPdo.Channel_2_Data_In_3 << ", " <<
-	m_TxPdo.Channel_2_Data_In_4 << ", " <<
-	m_TxPdo.Channel_2_Data_In_5 << ", " <<
-	m_TxPdo.Channel_2_Data_In_6 << ", " <<
-	m_TxPdo.Channel_2_Data_In_7 << ", " <<
-	m_TxPdo.Channel_2_Data_In_8 << ", " <<
-	m_TxPdo.Channel_2_Data_In_9 << ", " <<
-	m_TxPdo.Channel_2_Data_In_10 << ", " <<
-	m_TxPdo.Channel_2_Data_In_11 << ", " <<
-	m_TxPdo.Channel_2_Data_In_12 << ", " <<
-	m_TxPdo.Channel_2_Data_In_13 << ", " <<
-	m_TxPdo.Channel_2_Data_In_14 << ", " <<
-	m_TxPdo.Channel_2_Data_In_15 << ", " <<
-	m_TxPdo.Channel_2_Data_In_16 << ", " <<
-	m_TxPdo.Channel_2_Data_In_17 << ", " <<
-	m_TxPdo.Channel_2_Data_In_18 << ", " <<
-	m_TxPdo.Channel_2_Data_In_19 << ", " <<
-	m_TxPdo.Channel_2_Data_In_20 << ", " <<
-	m_TxPdo.Channel_2_Data_In_21
+	"Channel_1 (Status, Data_In_0_21): " << m_TxPdo.Channel_1_Status.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_0.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_1.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_2.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_3.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_4.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_5.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_6.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_7.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_8.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_9.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_10.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_11.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_12.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_13.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_14.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_15.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_16.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_17.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_18.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_19.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_20.value << ", " <<
+	m_TxPdo.Channel_1_Data_In_21.value << ", " <<
+	"Channel_2 (Status, Data_In_0_21): " << m_TxPdo.Channel_2_Status.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_0.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_1.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_2.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_3.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_4.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_5.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_6.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_7.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_8.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_9.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_10.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_11.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_12.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_13.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_14.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_15.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_16.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_17.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_18.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_19.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_20.value << ", " <<
+	m_TxPdo.Channel_2_Data_In_21.value
 	<< std::endl;
 }
 
@@ -320,51 +320,51 @@ void Ec_slave_el6002::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"Channel_1 (Ctrl, Data_Out_0_21): " << m_RxPdo.Channel_1_Ctrl << ", " <<
-	m_RxPdo.Channel_1_Data_Out_0 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_1 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_2 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_3 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_4 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_5 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_6 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_7 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_8 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_9 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_10 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_11 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_12 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_13 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_14 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_15 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_16 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_17 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_18 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_19 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_20 << ", " <<
-	m_RxPdo.Channel_1_Data_Out_21 << ", " <<
-	"Channel_2 (Ctrl, Data_Out_0_21): " << m_RxPdo.Channel_2_Ctrl << ", " <<
-	m_RxPdo.Channel_2_Data_Out_0 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_1 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_2 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_3 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_4 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_5 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_6 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_7 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_8 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_9 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_10 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_11 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_12 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_13 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_14 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_15 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_16 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_17 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_18 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_19 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_20 << ", " <<
-	m_RxPdo.Channel_2_Data_Out_21
+	"Channel_1 (Ctrl, Data_Out_0_21): " << m_RxPdo.Channel_1_Ctrl.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_0.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_1.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_2.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_3.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_4.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_5.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_6.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_7.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_8.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_9.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_10.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_11.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_12.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_13.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_14.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_15.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_16.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_17.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_18.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_19.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_20.value << ", " <<
+	m_RxPdo.Channel_1_Data_Out_21.value << ", " <<
+	"Channel_2 (Ctrl, Data_Out_0_21): " << m_RxPdo.Channel_2_Ctrl.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_0.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_1.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_2.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_3.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_4.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_5.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_6.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_7.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_8.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_9.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_10.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_11.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_12.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_13.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_14.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_15.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_16.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_17.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_18.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_19.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_20.value << ", " <<
+	m_RxPdo.Channel_2_Data_Out_21.value
 	<< std::endl;
 }

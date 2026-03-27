@@ -91,11 +91,11 @@ EC_T_DWORD Ec_slave_el2008::mainProcess()
 	return dwRes;
 }
 
-void Ec_slave_el2008::::dispTxPdo()
+void Ec_slave_el2008::dispTxPdo()
 {
 }
 
-void Ec_slave_el2008::::dispRxPdo()
+void Ec_slave_el2008::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
