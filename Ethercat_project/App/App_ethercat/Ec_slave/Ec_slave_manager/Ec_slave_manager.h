@@ -4,6 +4,7 @@
 #include <vector>
 #include "EcType.h"
 #include "Ec_slave_base.h"
+#include "Ec_slave_pitch_drive.h"
 
 class Ec_slave_manager
 {
@@ -21,6 +22,9 @@ public:
     EC_T_DWORD cyclicProcess();
 
 private:
+    std::vector<Ec_slave_base*> m_slaveVector;
+    int m_numSlaves = 0;
+
     EC_T_DWORD transferTxPdo();
 
     EC_T_DWORD transferRxPdo();
@@ -38,9 +42,6 @@ private:
     void dispTxPdo();
 
     void dispRxPdo();
-
-    std::vector<Ec_slave_base*> m_slaveVector;
-    int m_numSlaves = 0;
 };
 
 #endif // EC_SLAVE_MANAGER_H

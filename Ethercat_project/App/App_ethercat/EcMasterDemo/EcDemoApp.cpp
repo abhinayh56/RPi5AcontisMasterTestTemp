@@ -50,6 +50,8 @@ Ec_slave_pitch_drive ec_slave_pitch_drive_2(1010);
 Ec_slave_pitch_drive ec_slave_pitch_drive_3(1011);
 Ec_slave_pitch_drive ec_slave_pitch_drive_4(1012);
 
+Ec_slave_manager slave_manager;
+
 /*-FUNCTION DEFINITIONS------------------------------------------------------*/
 
 /********************************************************************************/
@@ -829,6 +831,13 @@ static EC_T_DWORD myAppInit(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_UNREFPARM(pAppContext);
 
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    dwRes |= slave_manager.addSlave(&ec_slave_pitch_drive_1);
+    dwRes |= slave_manager.addSlave(&ec_slave_pitch_drive_2);
+    dwRes |= slave_manager.addSlave(&ec_slave_pitch_drive_3);
+    dwRes |= slave_manager.addSlave(&ec_slave_pitch_drive_4);
+
     return EC_E_NOERROR;
 }
 
@@ -843,10 +852,7 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    ec_slave_pitch_drive_1.registerTxPdo();
-    ec_slave_pitch_drive_2.registerTxPdo();
-    ec_slave_pitch_drive_3.registerTxPdo();
-    ec_slave_pitch_drive_4.registerTxPdo();
+    dwRes |= slave_manager.registerPdo();
 
     return dwRes;
 }
@@ -891,19 +897,9 @@ Exit:
 */
 static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
-//	static int i = 0;
-//	std::cout << "This is a test from new ethercat project: " << i << std::endl;
-//	i++;
+    EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	ec_slave_pitch_drive_1.transferTxPdo();
-	ec_slave_pitch_drive_2.transferTxPdo();
-	ec_slave_pitch_drive_3.transferTxPdo();
-	ec_slave_pitch_drive_4.transferTxPdo();
-    
-//	ec_slave_pitch_drive_1.mainProcess();
-//	ec_slave_pitch_drive_2.mainProcess();
-//	ec_slave_pitch_drive_3.mainProcess();
-	ec_slave_pitch_drive_4.mainProcess();
+    dwRes |= slave_manager.cyclicProcess();
 
     return EC_E_NOERROR;
 }

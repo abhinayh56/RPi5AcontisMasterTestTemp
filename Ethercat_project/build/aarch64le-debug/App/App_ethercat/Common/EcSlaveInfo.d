@@ -26,9 +26,10 @@ build/aarch64le-debug/./App/App_ethercat/Common/EcSlaveInfo.o: \
  App/App_ethercat/Common/EcSlaveInfo.h \
  App/App_ethercat/Common/QNX/EcDemoTimingTaskPlatform.h \
  App/App_ethercat/Common/EcDemoTimingTask.h \
- App/App_ethercat/Ec_slave/Ec_slave_pitch_drive/Ec_slave_pitch_drive.h \
+ App/App_ethercat/Ec_slave/Ec_slave_manager/Ec_slave_manager.h \
  App/App_ethercat/Ec_slave/Ec_slave_base/Ec_slave_base.h \
  App/App_ethercat/Ec_slave/Ec_slave_base/Ec_pdo_element.h \
+ App/App_ethercat/Ec_slave/Ec_slave_pitch_drive/Ec_slave_pitch_drive.h \
  External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasServer.h \
  External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasError.h \
  External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasType.h
