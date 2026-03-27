@@ -26,6 +26,8 @@
 #include "EcSlaveInfo.h"
 #include "EcDemoTimingTaskPlatform.h"
 #include <iostream>
+//#include "Ec_pdo_element.h"
+#include "Ec_slave_pitch_drive.h"
 
 /*-DEFINES-------------------------------------------------------------------*/
 #define EC_DEMO_APP_NAME (EC_T_CHAR*)"EcMasterDemo"

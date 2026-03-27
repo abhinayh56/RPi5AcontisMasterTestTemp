@@ -45,6 +45,25 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppDiagnosis(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppNotify(EC_T_DWORD dwCode, EC_T_NOTIFYPARMS* pParms);
 
+//struct TxPdo
+//{
+//	PdoVariable<0x6064, 0,  int32_t> ACT_POS;
+//	PdoVariable<0x6041, 0, uint16_t> STATUS_WD;
+//	PdoVariable<0x6077, 0,  int16_t> ACT_TOR;
+//	PdoVariable<0x6061, 0,  uint8_t> OPMODE_DISP;
+//	PdoVariable<0x603F, 0, uint16_t> ERROR_CODE;
+//	PdoVariable<0x3002, 0,  uint8_t> DIG_IN;
+//	PdoVariable<0x606C, 0,  int32_t> ACT_VEL;
+//	PdoVariable<0x3007, 0, uint16_t> ADC_VAL;
+//};
+//
+//static TxPdo m_TxPdo;
+
+Ec_slave_pitch_drive ec_slave_pitch_drive_1(1009);
+Ec_slave_pitch_drive ec_slave_pitch_drive_2(1010);
+Ec_slave_pitch_drive ec_slave_pitch_drive_3(1011);
+Ec_slave_pitch_drive ec_slave_pitch_drive_4(1012);
+
 /*-FUNCTION DEFINITIONS------------------------------------------------------*/
 
 /********************************************************************************/
@@ -836,66 +855,23 @@ Find slave parameters.
 */
 static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
-    EC_T_DWORD          dwRes      = EC_E_NOERROR;
-    T_MY_APP_DESC*      pMyAppDesc = pAppContext->pMyAppDesc;
-    EC_T_CFG_SLAVE_INFO oCfgSlaveInfo;
-    OsMemset(&oCfgSlaveInfo, 0, sizeof(EC_T_CFG_SLAVE_INFO));
+    EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    if (pAppContext->AppParms.bFlash)
-    {
-        EC_T_WORD wFlashSlaveAddr = pAppContext->AppParms.wFlashSlaveAddr;
+//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ACT_POS);
+//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.STATUS_WD);
+//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ACT_TOR);
+//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.OPMODE_DISP);
+//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ERROR_CODE);
+//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.DIG_IN);
+//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ACT_VEL);
+//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ADC_VAL);
 
-        /* check if slave address is provided */
-        if (wFlashSlaveAddr != INVALID_FIXED_ADDR)
-        {
-            /* get slave's process data offset and some other infos */
-            dwRes = ecatGetCfgSlaveInfo(EC_TRUE, wFlashSlaveAddr, &oCfgSlaveInfo);
-            if (dwRes != EC_E_NOERROR)
-            {
-                EcLogMsg(EC_LOG_LEVEL_ERROR, (pEcLogContext, EC_LOG_LEVEL_ERROR, "ERROR: myAppPrepare: ecatGetCfgSlaveInfo() returns with error=0x%x, slave address=%d\n", dwRes, wFlashSlaveAddr));
-                goto Exit;
-            }
+    ec_slave_pitch_drive_1.registerTxPdos();
+    ec_slave_pitch_drive_2.registerTxPdos();
+    ec_slave_pitch_drive_3.registerTxPdos();
+    ec_slave_pitch_drive_4.registerTxPdos();
 
-            if (oCfgSlaveInfo.dwPdSizeOut != 0)
-            {
-                pMyAppDesc->dwFlashPdBitSize = oCfgSlaveInfo.dwPdSizeOut;
-                pMyAppDesc->dwFlashPdBitOffs = oCfgSlaveInfo.dwPdOffsOut;
-            }
-            else
-            {
-                EcLogMsg(EC_LOG_LEVEL_ERROR, (pEcLogContext, EC_LOG_LEVEL_ERROR, "ERROR: myAppPrepare: Slave address=%d has no outputs, therefore flashing not possible\n", wFlashSlaveAddr));
-            }
-        }
-        else
-        {
-            /* get complete process data output size */
-            EC_T_MEMREQ_DESC oPdMemorySize;
-            OsMemset(&oPdMemorySize, 0, sizeof(EC_T_MEMREQ_DESC));
-
-            dwRes = ecatIoCtl(EC_IOCTL_GET_PDMEMORYSIZE, EC_NULL, 0, &oPdMemorySize, sizeof(EC_T_MEMREQ_DESC), EC_NULL);
-            if (dwRes != EC_E_NOERROR)
-            {
-                EcLogMsg(EC_LOG_LEVEL_ERROR, (pEcLogContext, EC_LOG_LEVEL_ERROR, "ERROR: myAppPrepare: ecatIoControl(EC_IOCTL_GET_PDMEMORYSIZE) returns with error=0x%x\n", dwRes));
-                goto Exit;
-            }
-            pMyAppDesc->dwFlashPdBitSize = oPdMemorySize.dwPDOutSize * 8;
-        }
-        if (pMyAppDesc->dwFlashPdBitSize > 0)
-        {
-            pMyAppDesc->dwFlashInterval = 20000; /* flash every 20 msec */
-            pMyAppDesc->dwFlashBufSize = BIT2BYTE(pMyAppDesc->dwFlashPdBitSize);
-            pMyAppDesc->pbyFlashBuf = (EC_T_BYTE*)OsMalloc(pMyAppDesc->dwFlashBufSize);
-            if (EC_NULL == pMyAppDesc->pbyFlashBuf)
-            {
-                EcLogMsg(EC_LOG_LEVEL_ERROR, (pEcLogContext, EC_LOG_LEVEL_ERROR, "ERROR: myAppPrepare: no memory left \n"));
-                goto Exit;
-            }
-            OsMemset(pMyAppDesc->pbyFlashBuf, 0 , pMyAppDesc->dwFlashBufSize);
-        }
-    }
-
-Exit:
-    return EC_E_NOERROR;
+    return dwRes;
 }
 
 /***************************************************************************************************/
@@ -938,29 +914,42 @@ Exit:
 */
 static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
-	static int i = 0;
-	std::cout << "This is a test from new ethercat project: " << i << std::endl;
-	i++;
+//	static int i = 0;
+//	std::cout << "This is a test from new ethercat project: " << i << std::endl;
+//	i++;
 
-    T_MY_APP_DESC* pMyAppDesc = pAppContext->pMyAppDesc;
-    EC_T_BYTE*     pbyPdOut   = ecatGetProcessImageOutputPtr();
+//	EC_T_BYTE* pBuffer = ecatGetProcessImageInputPtr();
+//
+//	transferInputPdoObject(m_TxPdo.ACT_POS, pBuffer);
+//	transferInputPdoObject(m_TxPdo.STATUS_WD, pBuffer);
+//	transferInputPdoObject(m_TxPdo.ACT_TOR, pBuffer);
+//	transferInputPdoObject(m_TxPdo.OPMODE_DISP, pBuffer);
+//	transferInputPdoObject(m_TxPdo.ERROR_CODE, pBuffer);
+//	transferInputPdoObject(m_TxPdo.DIG_IN, pBuffer);
+//	transferInputPdoObject(m_TxPdo.ACT_VEL, pBuffer);
+//	transferInputPdoObject(m_TxPdo.ADC_VAL, pBuffer);
 
-    /* demo code flashing */
-    if (pMyAppDesc->dwFlashPdBitSize != 0)
-    {
-        pMyAppDesc->dwFlashTimer += pAppContext->AppParms.dwBusCycleTimeUsec;
-        if (pMyAppDesc->dwFlashTimer >= pMyAppDesc->dwFlashInterval)
-        {
-            pMyAppDesc->dwFlashTimer = 0;
+	ec_slave_pitch_drive_1.transferTxPdo();
+	ec_slave_pitch_drive_2.transferTxPdo();
+	ec_slave_pitch_drive_3.transferTxPdo();
+	ec_slave_pitch_drive_4.transferTxPdo();
 
-            /* flash with pattern */
-            pMyAppDesc->byFlashVal++;
-            OsMemset(pMyAppDesc->pbyFlashBuf, pMyAppDesc->byFlashVal, pMyAppDesc->dwFlashBufSize);
+//	std::cout <<
+//	"ACT_POS: " << m_TxPdo.ACT_POS.value << ", "
+//	"STATUS_WD: " << m_TxPdo.STATUS_WD.value << ", "
+//	"ACT_TOR: " << m_TxPdo.ACT_TOR.value << ", "
+//	"OPMODE_DISP: " << m_TxPdo.OPMODE_DISP.value << ", "
+//	"ERROR_CODE: " << m_TxPdo.ERROR_CODE.value << ", "
+//	"DIG_IN: " << m_TxPdo.DIG_IN.value << ", "
+//	"ACT_VEL: " << m_TxPdo.ACT_VEL.value << ", "
+//	"ADC_VAL: " << m_TxPdo.ADC_VAL.value
+//	<< std::endl;
 
-            /* update PdOut */
-            EC_COPYBITS(pbyPdOut, pMyAppDesc->dwFlashPdBitOffs, pMyAppDesc->pbyFlashBuf, 0, pMyAppDesc->dwFlashPdBitSize);
-        }
-    }
+//	ec_slave_pitch_drive_1.mainProcess();
+//	ec_slave_pitch_drive_2.mainProcess();
+//	ec_slave_pitch_drive_3.mainProcess();
+	ec_slave_pitch_drive_4.mainProcess();
+
     return EC_E_NOERROR;
 }
 

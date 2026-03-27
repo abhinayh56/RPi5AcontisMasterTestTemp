@@ -8,9 +8,13 @@
 class Ec_slave_base
 {
 public:
-	Ec_slave_base();
+	Ec_slave_base(uint16_t slaveAddr);
 
 	virtual ~Ec_slave_base();
+
+	virtual EC_T_DWORD registerTxPdos();
+
+	virtual EC_T_DWORD registerRxPdos();
 
 	virtual EC_T_DWORD transferTxPdo();
 
@@ -26,9 +30,12 @@ public:
 
 	virtual EC_T_DWORD transferRxPdo();
 
+protected:
+	uint16_t m_SlaveAddr = 0;
+
 private:
-	std::vector<Ec_pdo_element> m_rxPdoElementVector;
-	std::vector<Ec_pdo_element> m_txPdoElementVector;
+//	std::vector<Ec_pdo_element> m_rxPdoElementVector;
+//	std::vector<Ec_pdo_element> m_txPdoElementVector;
 };
 
 #endif // EC_SLAVE_BASE_H
