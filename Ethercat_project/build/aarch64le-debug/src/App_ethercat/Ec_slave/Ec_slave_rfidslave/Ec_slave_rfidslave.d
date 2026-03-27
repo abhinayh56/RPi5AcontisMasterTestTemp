@@ -1,0 +1,19 @@
+build/aarch64le-debug/./src/App_ethercat/Ec_slave/Ec_slave_rfidslave/Ec_slave_rfidslave.o: \
+ src/App_ethercat/Ec_slave/Ec_slave_rfidslave/Ec_slave_rfidslave.cpp \
+ src/App_ethercat/Ec_slave/Ec_slave_rfidslave/Ec_slave_rfidslave.h \
+ src/App_ethercat/Ec_slave/Ec_slave_base/Ec_slave_base.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/QNX/EcOsPlatform.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcFeatures.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/OsCommon.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcInterfaceCommon.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcVersion.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLog.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
+ src/App_ethercat/Ec_slave/Ec_slave_base/Ec_pdo_element.h

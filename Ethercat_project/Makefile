@@ -20,9 +20,9 @@ LD = $(CXX)
 
 #INCLUDES += -I/path/to/my/lib/include
 #INCLUDES += -I../mylib/public
-DIR_EC_SDK = ./External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
-DIR_APP_ETHERCAT = ./App/App_ethercat
-#DIR_APP_ETHERCAT = ./External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/Examples
+DIR_EC_SDK = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
+DIR_APP_ETHERCAT = ./src/App_ethercat
+#DIR_APP_ETHERCAT = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/Examples
 
 # External EtherCAT
 INCLUDES += -I$(DIR_EC_SDK)/SDK/INC
