@@ -18,17 +18,17 @@ public:
 
 	virtual EC_T_DWORD transferTxPdo();
 
+	virtual EC_T_DWORD transferRxPdo();
+
 	virtual EC_T_DWORD processTxPdo();
+
+	virtual EC_T_DWORD processRxPdo();
 
 	virtual EC_T_DWORD publishData();
 
 	virtual EC_T_DWORD subscribeData();
 
 	virtual EC_T_DWORD mainProcess();
-
-	virtual EC_T_DWORD processRxPdo();
-
-	virtual EC_T_DWORD transferRxPdo();
 
 protected:
 	uint16_t m_SlaveAddr = 0;
