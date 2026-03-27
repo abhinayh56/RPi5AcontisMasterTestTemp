@@ -36,7 +36,7 @@ namespace Ec_slave_pitch_drive_data
 class Ec_slave_pitch_drive : public Ec_slave_base
 {
 public:
-	Ec_slave_pitch_drive(uint16_t slaveAddr);
+	Ec_slave_pitch_drive(uint16_t slaveAddr, const std::string &slaveName);
 
 	~Ec_slave_pitch_drive();
 

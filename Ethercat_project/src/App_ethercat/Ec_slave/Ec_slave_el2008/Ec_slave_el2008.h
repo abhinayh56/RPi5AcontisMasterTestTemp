@@ -23,7 +23,7 @@ namespace Ec_slave_el2008_data
 class Ec_slave_el2008 : public Ec_slave_base
 {
 public:
-	Ec_slave_el2008(uint16_t slaveAddr);
+	Ec_slave_el2008(uint16_t slaveAddr, const std::string &slaveName);
 
 	~Ec_slave_el2008();
 

@@ -3,12 +3,13 @@
 
 #include "EcMaster.h"
 #include <vector>
+#include <string>
 #include "Ec_pdo_element.h"
 
 class Ec_slave_base
 {
 public:
-	Ec_slave_base(uint16_t slaveAddr);
+	Ec_slave_base(uint16_t slaveAddr, const std::string &slaveName);
 
 	virtual ~Ec_slave_base();
 
@@ -35,7 +36,8 @@ public:
 	virtual void dispRxPdo();
 
 protected:
-	uint16_t m_SlaveAddr = 0;
+	uint16_t m_SlaveAddr;
+	std::string m_slaveName;
 
 private:
 //	std::vector<Ec_pdo_element> m_rxPdoElementVector;

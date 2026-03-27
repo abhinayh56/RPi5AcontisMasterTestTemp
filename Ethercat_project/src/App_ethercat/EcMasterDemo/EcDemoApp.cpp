@@ -827,10 +827,10 @@ static EC_T_DWORD myAppInit(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1009));
-    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1010));
-    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1011));
-    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1012));
+    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1009, "motor_1"));
+    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1010, "motor_2"));
+    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1011, "motor_3"));
+    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1012, "motor_4"));
 
     return EC_E_NOERROR;
 }

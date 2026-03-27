@@ -1,6 +1,6 @@
 #include "Ec_slave_el1008.h"
 
-Ec_slave_el1008::Ec_slave_el1008(uint16_t slaveAddr) : Ec_slave_base(slaveAddr)
+Ec_slave_el1008::Ec_slave_el1008(uint16_t slaveAddr, const std::string &slaveName) : Ec_slave_base(slaveAddr, slaveName)
 {
 }
 
@@ -95,6 +95,7 @@ void Ec_slave_el1008::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"Channel_1: " << m_TxPdo.Channel_1.value << ", "
 	"Channel_2: " << m_TxPdo.Channel_2.value << ", "
 	"Channel_3: " << m_TxPdo.Channel_3.value << ", "

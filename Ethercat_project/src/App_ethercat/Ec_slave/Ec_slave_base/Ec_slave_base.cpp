@@ -1,8 +1,9 @@
 #include "Ec_slave_base.h"
 
-Ec_slave_base::Ec_slave_base(uint16_t slaveAddr)
+Ec_slave_base::Ec_slave_base(uint16_t slaveAddr, const std::string &slaveName)
 {
 	m_SlaveAddr = slaveAddr;
+	m_slaveName = slaveName;
 }
 
 Ec_slave_base::~Ec_slave_base()

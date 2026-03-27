@@ -1,6 +1,6 @@
 #include "Ec_slave_den_net_e.h"
 
-Ec_slave_den_net_e::Ec_slave_den_net_e(uint16_t slaveAddr) : Ec_slave_base(slaveAddr)
+Ec_slave_den_net_e::Ec_slave_den_net_e(uint16_t slaveAddr, const std::string &slaveName) : Ec_slave_base(slaveAddr, slaveName)
 {
 }
 
@@ -99,6 +99,7 @@ void Ec_slave_den_net_e::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"Status_Word: " << m_TxPdo.Status_Word.value << ", "
 	"Actual_position: " << m_TxPdo.Actual_position.value << ", "
 	"Actual_velocity: " << m_TxPdo.Actual_velocity.value << ", "
@@ -110,6 +111,7 @@ void Ec_slave_den_net_e::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"Control_Word: " << m_RxPdo.Control_Word.value << ", "
 	"Position_set_point: " << m_RxPdo.Position_set_point.value << ", "
 	"Velocity_set_point: " << m_RxPdo.Velocity_set_point.value << ", "

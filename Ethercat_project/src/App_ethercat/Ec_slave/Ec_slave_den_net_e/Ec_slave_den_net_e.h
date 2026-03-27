@@ -29,7 +29,7 @@ namespace Ec_slave_den_net_e_data
 class Ec_slave_den_net_e : public Ec_slave_base
 {
 public:
-	Ec_slave_den_net_e(uint16_t slaveAddr);
+	Ec_slave_den_net_e(uint16_t slaveAddr, const std::string &slaveName);
 
 	~Ec_slave_den_net_e();
 

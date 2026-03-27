@@ -61,7 +61,7 @@ namespace Ec_slave_rfidslave_data
 class Ec_slave_rfidslave : public Ec_slave_base
 {
 public:
-	Ec_slave_rfidslave(uint16_t slaveAddr);
+	Ec_slave_rfidslave(uint16_t slaveAddr, const std::string &slaveName);
 
 	~Ec_slave_rfidslave();
 

@@ -1,6 +1,6 @@
 #include "Ec_slave_pitch_drive.h"
 
-Ec_slave_pitch_drive::Ec_slave_pitch_drive(uint16_t slaveAddr) : Ec_slave_base(slaveAddr)
+Ec_slave_pitch_drive::Ec_slave_pitch_drive(uint16_t slaveAddr, const std::string &slaveName) : Ec_slave_base(slaveAddr, slaveName)
 {
 }
 
@@ -113,6 +113,7 @@ void Ec_slave_pitch_drive::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"ACT_POS: " << m_TxPdo.ACT_POS.value << ", "
 	"STATUS_WD: " << m_TxPdo.STATUS_WD.value << ", "
 	"ACT_TOR: " << m_TxPdo.ACT_TOR.value << ", "
@@ -128,6 +129,7 @@ void Ec_slave_pitch_drive::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"TARGET_POSE: " << m_RxPdo.TARGET_POSE.value << ", "
 	"CONTROL_WD: " << m_RxPdo.CONTROL_WD.value << ", "
 	"TARGET_TORQ: " << m_RxPdo.TARGET_TORQ.value << ", "

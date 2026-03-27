@@ -1,6 +1,6 @@
 #include "Ec_slave_encbrkctrl.h"
 
-Ec_slave_encbrkctrl::Ec_slave_encbrkctrl(uint16_t slaveAddr) : Ec_slave_base(slaveAddr)
+Ec_slave_encbrkctrl::Ec_slave_encbrkctrl(uint16_t slaveAddr, const std::string &slaveName) : Ec_slave_base(slaveAddr, slaveName)
 {
 }
 
@@ -91,6 +91,7 @@ void Ec_slave_encbrkctrl::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"ENC1: " << m_TxPdo.ENC1.value << ", "
 	"ENC2: " << m_TxPdo.ENC2.value
 	<< std::endl;
@@ -100,6 +101,7 @@ void Ec_slave_encbrkctrl::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"BRK1: " << m_RxPdo.BRK1.value << ", "
 	"BRK2: " << m_RxPdo.BRK2.value
 	<< std::endl;
