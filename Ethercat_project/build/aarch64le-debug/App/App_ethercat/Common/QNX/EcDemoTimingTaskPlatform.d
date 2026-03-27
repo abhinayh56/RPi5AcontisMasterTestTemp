@@ -29,6 +29,16 @@ build/aarch64le-debug/./App/App_ethercat/Common/QNX/EcDemoTimingTaskPlatform.o: 
  App/App_ethercat/Ec_slave/Ec_slave_manager/Ec_slave_manager.h \
  App/App_ethercat/Ec_slave/Ec_slave_base/Ec_slave_base.h \
  App/App_ethercat/Ec_slave/Ec_slave_base/Ec_pdo_element.h \
+ App/App_ethercat/Ec_slave/Ec_slave_el1008/Ec_slave_el1008.h \
+ App/App_ethercat/Ec_slave/Ec_slave_el2008/Ec_slave_el2008.h \
+ App/App_ethercat/Ec_slave/Ec_slave_el3024/Ec_slave_el3024.h \
+ App/App_ethercat/Ec_slave/Ec_slave_el6002/Ec_slave_el6002.h \
+ App/App_ethercat/Ec_slave/Ec_slave_io_module/Ec_slave_io_module.h \
+ App/App_ethercat/Ec_slave/Ec_slave_encbrkctrl/Ec_slave_encbrkctrl.h \
+ App/App_ethercat/Ec_slave/Ec_slave_rfidslave/Ec_slave_rfidslave.h \
+ App/App_ethercat/Ec_slave/Ec_slave_den_net_e/Ec_slave_den_net_e.h \
+ App/App_ethercat/Ec_slave/Ec_slave_elmo_drive/Ec_slave_elmo_drive.h \
+ App/App_ethercat/Ec_slave/Ec_slave_ipos2401_mx_cat/Ec_slave_ipos2401_mx_cat.h \
  App/App_ethercat/Ec_slave/Ec_slave_pitch_drive/Ec_slave_pitch_drive.h \
  External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasServer.h \
  External/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasError.h \

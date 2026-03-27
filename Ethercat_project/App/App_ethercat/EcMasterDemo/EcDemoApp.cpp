@@ -45,13 +45,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppDiagnosis(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppNotify(EC_T_DWORD dwCode, EC_T_NOTIFYPARMS* pParms);
 
-Ec_slave_pitch_drive ec_slave_pitch_drive_1(1009);
-Ec_slave_pitch_drive ec_slave_pitch_drive_2(1010);
-Ec_slave_pitch_drive ec_slave_pitch_drive_3(1011);
-Ec_slave_pitch_drive ec_slave_pitch_drive_4(1012);
-
 Ec_slave_manager slave_manager;
-
 /*-FUNCTION DEFINITIONS------------------------------------------------------*/
 
 /********************************************************************************/
@@ -833,10 +827,10 @@ static EC_T_DWORD myAppInit(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= slave_manager.addSlave(&ec_slave_pitch_drive_1);
-    dwRes |= slave_manager.addSlave(&ec_slave_pitch_drive_2);
-    dwRes |= slave_manager.addSlave(&ec_slave_pitch_drive_3);
-    dwRes |= slave_manager.addSlave(&ec_slave_pitch_drive_4);
+    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1009));
+    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1010));
+    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1011));
+    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1012));
 
     return EC_E_NOERROR;
 }

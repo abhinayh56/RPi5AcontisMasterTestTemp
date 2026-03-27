@@ -4,6 +4,16 @@
 #include <vector>
 #include "EcType.h"
 #include "Ec_slave_base.h"
+#include "Ec_slave_el1008.h"
+#include "Ec_slave_el2008.h"
+#include "Ec_slave_el3024.h"
+#include "Ec_slave_el6002.h"
+#include "Ec_slave_io_module.h"
+#include "Ec_slave_encbrkctrl.h"
+#include "Ec_slave_rfidslave.h"
+#include "Ec_slave_den_net_e.h"
+#include "Ec_slave_elmo_drive.h"
+#include "Ec_slave_ipos2401_mx_cat.h"
 #include "Ec_slave_pitch_drive.h"
 
 class Ec_slave_manager
