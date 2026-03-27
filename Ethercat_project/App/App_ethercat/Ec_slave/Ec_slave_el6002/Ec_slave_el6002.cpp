@@ -12,27 +12,52 @@ EC_T_DWORD Ec_slave_el6002::registerTxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Device_ID);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Second);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Minute);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Hour);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Day);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Month);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Year);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Roll_Offset);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Pitch_Offset);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Yaw_Offset);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Grip_Offset);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.No_of_Usages);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Max_Usages);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Digital_Inputs);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Grip_Counts);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.System_Number);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Device_UID);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Spare_Bytes);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.MFG_Day);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.MFG_Month);
-	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.MFG_Year);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Status);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_0);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_1);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_2);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_3);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_4);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_5);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_6);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_7);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_8);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_9);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_10);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_11);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_12);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_13);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_14);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_15);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_16);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_17);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_18);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_19);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_20);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_1_Data_In_21);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Status);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_0);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_1);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_2);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_3);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_4);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_5);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_6);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_7);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_8);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_9);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_10);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_11);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_12);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_13);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_14);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_15);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_16);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_17);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_18);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_19);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_20);
+	dwRes |= lookupInputPdoObject(m_SlaveAddr, m_TxPdo.Channel_2_Data_In_21);
 
 	return dwRes;
 }
@@ -41,25 +66,52 @@ EC_T_DWORD Ec_slave_el6002::registerRxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Acknowledge);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Second);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Minute);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Hour);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Day);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Month);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Year);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.No_of_Usages);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Digital_Outputs);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Grip_Counts);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.System_Number);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Led_Red);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Led_Green);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.LED_Blue);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Spare_Bytes);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Roll_Offset);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Pitch_Offset);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Yaw_Offset);
-	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Grip_Offset);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Ctrl);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_0);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_1);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_2);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_3);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_4);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_5);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_6);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_7);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_8);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_9);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_10);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_11);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_12);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_13);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_14);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_15);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_16);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_17);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_18);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_19);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_20);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_1_Data_Out_21);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Ctrl);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_0);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_1);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_2);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_3);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_4);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_5);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_6);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_7);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_8);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_9);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_10);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_11);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_12);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_13);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_14);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_15);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_16);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_17);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_18);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_19);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_20);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.Channel_2_Data_Out_21);
 
 	return dwRes;
 }
@@ -70,27 +122,52 @@ EC_T_DWORD Ec_slave_el6002::transferTxPdo()
 
 	EC_T_BYTE* pBuffer = ecatGetProcessImageInputPtr();
 
-	transferInputPdoObject(m_TxPdo.Device_ID, pBuffer);
-	transferInputPdoObject(m_TxPdo.Second, pBuffer);
-	transferInputPdoObject(m_TxPdo.Minute, pBuffer);
-	transferInputPdoObject(m_TxPdo.Hour, pBuffer);
-	transferInputPdoObject(m_TxPdo.Day, pBuffer);
-	transferInputPdoObject(m_TxPdo.Month, pBuffer);
-	transferInputPdoObject(m_TxPdo.Year, pBuffer);
-	transferInputPdoObject(m_TxPdo.Roll_Offset, pBuffer);
-	transferInputPdoObject(m_TxPdo.Pitch_Offset, pBuffer);
-	transferInputPdoObject(m_TxPdo.Yaw_Offset, pBuffer);
-	transferInputPdoObject(m_TxPdo.Grip_Offset, pBuffer);
-	transferInputPdoObject(m_TxPdo.No_of_Usages, pBuffer);
-	transferInputPdoObject(m_TxPdo.Max_Usages, pBuffer);
-	transferInputPdoObject(m_TxPdo.Digital_Inputs, pBuffer);
-	transferInputPdoObject(m_TxPdo.Grip_Counts, pBuffer);
-	transferInputPdoObject(m_TxPdo.System_Number, pBuffer);
-	transferInputPdoObject(m_TxPdo.Device_UID, pBuffer);
-	transferInputPdoObject(m_TxPdo.Spare_Bytes, pBuffer);
-	transferInputPdoObject(m_TxPdo.MFG_Day, pBuffer);
-	transferInputPdoObject(m_TxPdo.MFG_Month, pBuffer);
-	transferInputPdoObject(m_TxPdo.MFG_Year, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Status, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_0, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_1, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_2, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_3, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_4, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_5, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_6, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_7, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_8, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_9, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_10, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_11, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_12, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_13, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_14, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_15, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_16, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_17, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_18, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_19, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_20, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_1_Data_In_21, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Status, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_0, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_1, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_2, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_3, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_4, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_5, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_6, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_7, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_8, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_9, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_10, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_11, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_12, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_13, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_14, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_15, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_16, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_17, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_18, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_19, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_20, pBuffer);
+	transferInputPdoObject(m_TxPdo.Channel_2_Data_In_21, pBuffer);
 
 	return dwRes;
 }
@@ -101,25 +178,52 @@ EC_T_DWORD Ec_slave_el6002::transferRxPdo()
 
 	EC_T_BYTE* pBuffer = ecatGetProcessImageOutputPtr();
 
-	transferOutputPdoObject(m_RxPdo.Acknowledge, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Second, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Minute, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Hour, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Day, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Month, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Year, pBuffer);
-	transferOutputPdoObject(m_RxPdo.No_of_Usages, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Digital_Outputs, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Grip_Counts, pBuffer);
-	transferOutputPdoObject(m_RxPdo.System_Number, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Led_Red, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Led_Green, pBuffer);
-	transferOutputPdoObject(m_RxPdo.LED_Blue, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Spare_Bytes, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Roll_Offset, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Pitch_Offset, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Yaw_Offset, pBuffer);
-	transferOutputPdoObject(m_RxPdo.Grip_Offset, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Ctrl, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_0, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_1, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_2, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_3, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_4, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_5, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_6, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_7, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_8, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_9, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_10, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_11, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_12, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_13, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_14, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_15, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_16, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_17, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_18, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_19, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_20, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_1_Data_Out_21, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Ctrl, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_0, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_1, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_2, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_3, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_4, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_5, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_6, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_7, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_8, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_9, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_10, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_11, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_12, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_13, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_14, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_15, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_16, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_17, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_18, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_19, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_20, pBuffer);
+	transferOutputPdoObject(m_RxPdo.Channel_2_Data_Out_21, pBuffer);
 
 	return dwRes;
 }
@@ -163,27 +267,52 @@ void Ec_slave_el6002::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"Device_ID: " << m_TxPdo.Device_ID.value << ", "
-	"Second: " << m_TxPdo.Second.value << ", "
-	"Minute: " << m_TxPdo.Minute.value << ", "
-	"Hour: " << m_TxPdo.Hour.value << ", "
-	"Day: " << m_TxPdo.Day.value << ", "
-	"Month: " << m_TxPdo.Month.value << ", "
-	"Year: " << m_TxPdo.Year.value << ", "
-	"Roll_Offset: " << m_TxPdo.Roll_Offset.value << ", "
-	"Pitch_Offset: " << m_TxPdo.Pitch_Offset.value << ", "
-	"Yaw_Offset: " << m_TxPdo.Yaw_Offset.value << ", "
-	"Grip_Offset: " << m_TxPdo.Grip_Offset.value << ", "
-	"No_of_Usages: " << m_TxPdo.No_of_Usages.value << ", "
-	"Max_Usages: " << m_TxPdo.Max_Usages.value << ", "
-	"Digital_Inputs: " << m_TxPdo.Digital_Inputs.value << ", "
-	"Grip_Counts: " << m_TxPdo.Grip_Counts.value << ", "
-	"System_Number: " << m_TxPdo.System_Number.value << ", "
-	"Device_UID: " << m_TxPdo.Device_UID.value << ", "
-	"Spare_Bytes: " << m_TxPdo.Spare_Bytes.value << ", "
-	"MFG_Day: " << m_TxPdo.MFG_Day.value << ", "
-	"MFG_Month: " << m_TxPdo.MFG_Month.value << ", "
-	"MFG_Year: " << m_TxPdo.MFG_Year.value
+	"Channel_1 (Status, Data_In_0_21): " << m_TxPdo.Channel_1_Status << ", " <<
+	m_TxPdo.Channel_1_Data_In_0 << ", " <<
+	m_TxPdo.Channel_1_Data_In_1 << ", " <<
+	m_TxPdo.Channel_1_Data_In_2 << ", " <<
+	m_TxPdo.Channel_1_Data_In_3 << ", " <<
+	m_TxPdo.Channel_1_Data_In_4 << ", " <<
+	m_TxPdo.Channel_1_Data_In_5 << ", " <<
+	m_TxPdo.Channel_1_Data_In_6 << ", " <<
+	m_TxPdo.Channel_1_Data_In_7 << ", " <<
+	m_TxPdo.Channel_1_Data_In_8 << ", " <<
+	m_TxPdo.Channel_1_Data_In_9 << ", " <<
+	m_TxPdo.Channel_1_Data_In_10 << ", " <<
+	m_TxPdo.Channel_1_Data_In_11 << ", " <<
+	m_TxPdo.Channel_1_Data_In_12 << ", " <<
+	m_TxPdo.Channel_1_Data_In_13 << ", " <<
+	m_TxPdo.Channel_1_Data_In_14 << ", " <<
+	m_TxPdo.Channel_1_Data_In_15 << ", " <<
+	m_TxPdo.Channel_1_Data_In_16 << ", " <<
+	m_TxPdo.Channel_1_Data_In_17 << ", " <<
+	m_TxPdo.Channel_1_Data_In_18 << ", " <<
+	m_TxPdo.Channel_1_Data_In_19 << ", " <<
+	m_TxPdo.Channel_1_Data_In_20 << ", " <<
+	m_TxPdo.Channel_1_Data_In_21 << ", " <<
+	"Channel_2 (Status, Data_In_0_21): " << m_TxPdo.Channel_2_Status << ", " <<
+	m_TxPdo.Channel_2_Data_In_0 << ", " <<
+	m_TxPdo.Channel_2_Data_In_1 << ", " <<
+	m_TxPdo.Channel_2_Data_In_2 << ", " <<
+	m_TxPdo.Channel_2_Data_In_3 << ", " <<
+	m_TxPdo.Channel_2_Data_In_4 << ", " <<
+	m_TxPdo.Channel_2_Data_In_5 << ", " <<
+	m_TxPdo.Channel_2_Data_In_6 << ", " <<
+	m_TxPdo.Channel_2_Data_In_7 << ", " <<
+	m_TxPdo.Channel_2_Data_In_8 << ", " <<
+	m_TxPdo.Channel_2_Data_In_9 << ", " <<
+	m_TxPdo.Channel_2_Data_In_10 << ", " <<
+	m_TxPdo.Channel_2_Data_In_11 << ", " <<
+	m_TxPdo.Channel_2_Data_In_12 << ", " <<
+	m_TxPdo.Channel_2_Data_In_13 << ", " <<
+	m_TxPdo.Channel_2_Data_In_14 << ", " <<
+	m_TxPdo.Channel_2_Data_In_15 << ", " <<
+	m_TxPdo.Channel_2_Data_In_16 << ", " <<
+	m_TxPdo.Channel_2_Data_In_17 << ", " <<
+	m_TxPdo.Channel_2_Data_In_18 << ", " <<
+	m_TxPdo.Channel_2_Data_In_19 << ", " <<
+	m_TxPdo.Channel_2_Data_In_20 << ", " <<
+	m_TxPdo.Channel_2_Data_In_21
 	<< std::endl;
 }
 
@@ -191,24 +320,51 @@ void Ec_slave_el6002::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"Acknowledge: " << m_RxPdo.Acknowledge.value << ", "
-	"Second: " << m_RxPdo.Second.value << ", "
-	"Minute: " << m_RxPdo.Minute.value << ", "
-	"Hour: " << m_RxPdo.Hour.value << ", "
-	"Day: " << m_RxPdo.Day.value << ", "
-	"Month: " << m_RxPdo.Month.value << ", "
-	"Year: " << m_RxPdo.Year.value << ", "
-	"No_of_Usages: " << m_RxPdo.No_of_Usages.value << ", "
-	"Digital_Outputs: " << m_RxPdo.Digital_Outputs.value << ", "
-	"Grip_Counts: " << m_RxPdo.Grip_Counts.value << ", "
-	"System_Number: " << m_RxPdo.System_Number.value << ", "
-	"Led_Red: " << m_RxPdo.Led_Red.value << ", "
-	"Led_Green: " << m_RxPdo.Led_Green.value << ", "
-	"LED_Blue: " << m_RxPdo.LED_Blue.value << ", "
-	"Spare_Bytes: " << m_RxPdo.Spare_Bytes.value << ", "
-	"Roll_Offset: " << m_RxPdo.Roll_Offset.value << ", "
-	"Pitch_Offset: " << m_RxPdo.Pitch_Offset.value << ", "
-	"Yaw_Offset: " << m_RxPdo.Yaw_Offset.value << ", "
-	"Grip_Offset: " << m_RxPdo.Grip_Offset.value
+	"Channel_1 (Ctrl, Data_Out_0_21): " << m_RxPdo.Channel_1_Ctrl << ", " <<
+	m_RxPdo.Channel_1_Data_Out_0 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_1 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_2 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_3 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_4 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_5 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_6 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_7 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_8 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_9 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_10 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_11 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_12 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_13 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_14 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_15 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_16 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_17 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_18 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_19 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_20 << ", " <<
+	m_RxPdo.Channel_1_Data_Out_21 << ", " <<
+	"Channel_2 (Ctrl, Data_Out_0_21): " << m_RxPdo.Channel_2_Ctrl << ", " <<
+	m_RxPdo.Channel_2_Data_Out_0 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_1 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_2 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_3 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_4 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_5 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_6 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_7 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_8 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_9 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_10 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_11 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_12 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_13 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_14 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_15 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_16 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_17 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_18 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_19 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_20 << ", " <<
+	m_RxPdo.Channel_2_Data_Out_21
 	<< std::endl;
 }
