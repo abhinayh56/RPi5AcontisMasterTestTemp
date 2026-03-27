@@ -5,6 +5,7 @@
 
 namespace Ec_slave_rfidslave_data
 {
+	#pragma pack(push, 1)
 	struct TxPdo
 	{
 		PdoVariable<0x0006,  1, uint16_t> Device_ID;
@@ -29,7 +30,9 @@ namespace Ec_slave_rfidslave_data
 		PdoVariable<0x0006, 20, uint16_t> MFG_Month;
 		PdoVariable<0x0006, 21, uint16_t> MFG_Year;
 	};
+	#pragma
 
+	#pragma pack(push, 1)
 	struct RxPdo
 	{
         PdoVariable<0x0005,  1, uint16_t> Acknowledge;
@@ -52,6 +55,7 @@ namespace Ec_slave_rfidslave_data
 		PdoVariable<0x0005, 18, uint16_t> Yaw_Offset;
 		PdoVariable<0x0005, 19, uint16_t> Grip_Offset;
 	};
+	#pragma pack(pop)
 }
 
 class Ec_slave_rfidslave : public Ec_slave_base

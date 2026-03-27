@@ -5,17 +5,21 @@
 
 namespace Ec_slave_encbrkctrl_data
 {
+	#pragma pack(push, 1)
 	struct TxPdo
 	{
 		PdoVariable<0x0006,  1, uint32_t> ENC1;
 		PdoVariable<0x0006,  2, uint32_t> ENC2;
 	};
+	#pragma pack(pop)
 
+	#pragma pack(push, 1)
 	struct RxPdo
 	{
         PdoVariable<0x0005,  1, uint16_t> BRK1;
 		PdoVariable<0x0005,  2, uint16_t> BRK2;
 	};
+	#pragma pack(pop)
 }
 
 class Ec_slave_encbrkctrl : public Ec_slave_base

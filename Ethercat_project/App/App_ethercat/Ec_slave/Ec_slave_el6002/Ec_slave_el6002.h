@@ -5,6 +5,7 @@
 
 namespace Ec_slave_el6002_data
 {
+	#pragma pack(push, 1)
 	struct TxPdo
 	{
 		PdoVariable<0x0006,  1, uint16_t> Status;
@@ -31,7 +32,9 @@ namespace Ec_slave_el6002_data
 		PdoVariable<0x0006, 21,  uint8_t> MFG_Year;
 		PdoVariable<0x0006, 22,  uint16_t> MFG_Year;
 	};
+	#pragma pack(pop)
 
+	#pragma pack(push, 1)
 	struct RxPdo
 	{
         PdoVariable<0x0006,  1, uint16_t> Device_ID;
@@ -57,6 +60,7 @@ namespace Ec_slave_el6002_data
 		PdoVariable<0x0006, 21, uint16_t> MFG_Year;
 		PdoVariable<0x0006, 22, uint16_t> MFG_Year;
 	};
+	#pragma pack(pop)
 }
 
 class Ec_slave_el6002 : public Ec_slave_base

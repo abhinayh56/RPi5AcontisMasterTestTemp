@@ -5,6 +5,7 @@
 
 namespace Ec_slave_el2008_data
 {
+	#pragma pack(push, 1)
 	struct RxPdo
 	{
         PdoVariable<0x7000, 1, bool> Channel_1;
@@ -16,6 +17,7 @@ namespace Ec_slave_el2008_data
         PdoVariable<0x7060, 1, bool> Channel_7;
         PdoVariable<0x7070, 1, bool> Channel_8;
 	};
+	#pragma pack(pop)
 }
 
 class Ec_slave_el2008 : public Ec_slave_base

@@ -5,6 +5,7 @@
 
 namespace Ec_slave_pitch_drive_data
 {
+	#pragma pack(push, 1)
 	struct TxPdo
 	{
 		PdoVariable<0x6064, 0,  int32_t> ACT_POS;
@@ -16,7 +17,9 @@ namespace Ec_slave_pitch_drive_data
 		PdoVariable<0x606C, 0,  int32_t> ACT_VEL;
 		PdoVariable<0x3007, 0, uint16_t> ADC_VAL;
 	};
+	#pragma pack(pop)
 
+	#pragma pack(push, 1)
 	struct RxPdo
 	{
 		PdoVariable<0x607A, 0,  int32_t> TARGET_POSE;
@@ -27,6 +30,7 @@ namespace Ec_slave_pitch_drive_data
 		PdoVariable<0x3001, 0,  uint8_t> DIG_OUT;
 		PdoVariable<0x60FF, 0,  int32_t> TARGET_VEL;
 	};
+	#pragma pack(pop)
 }
 
 class Ec_slave_pitch_drive : public Ec_slave_base

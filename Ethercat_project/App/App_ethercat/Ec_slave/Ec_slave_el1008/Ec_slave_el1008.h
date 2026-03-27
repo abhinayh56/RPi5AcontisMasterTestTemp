@@ -5,6 +5,7 @@
 
 namespace Ec_slave_el1008_data
 {
+	#pragma pack(push, 1)
 	struct TxPdo
 	{
 		PdoVariable<0x6000, 1, bool> Channel_1;
@@ -16,6 +17,7 @@ namespace Ec_slave_el1008_data
 		PdoVariable<0x6060, 1, bool> Channel_7;
 		PdoVariable<0x6070, 1, bool> Channel_8;
 	};
+	#pragma pack(pop)
 }
 
 class Ec_slave_el1008 : public Ec_slave_base

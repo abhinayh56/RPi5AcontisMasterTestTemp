@@ -5,6 +5,7 @@
 
 namespace Ec_slave_den_net_e
 {
+	#pragma pack(push, 1)
 	struct TxPdo
 	{
 		PdoVariable<0x6041, 0, uint16_t> Status_Word;
@@ -12,7 +13,9 @@ namespace Ec_slave_den_net_e
 		PdoVariable<0x606C, 0,  int32_t> Actual_velocity;
 		PdoVariable<0x6061, 0,   int8_t> Operation_mode_display;
 	};
+	#pragma pack(pop)
 
+	#pragma pack(push, 1)
 	struct RxPdo
 	{
         PdoVariable<0x6040, 0, uint16_t> Control_Word;
@@ -20,6 +23,7 @@ namespace Ec_slave_den_net_e
         PdoVariable<0x60FF, 0,  int32_t> Velocity_set_point;
         PdoVariable<0x6060, 0,   int8_t> Operation_mode;
 	};
+	#pragma pack(pop)
 }
 
 class Ec_slave_den_net_e : public Ec_slave_base
