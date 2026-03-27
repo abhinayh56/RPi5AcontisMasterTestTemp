@@ -28,6 +28,14 @@ EC_T_DWORD Ec_slave_pitch_drive::registerRxPdos()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.TARGET_POSE);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.CONTROL_WD);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.TARGET_TORQ);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.OP_MODE);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.ERROR_CLEAR);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.DIG_OUT);
+	dwRes |= lookupOutputPdoObject(m_SlaveAddr, m_RxPdo.TARGET_VEL);
+
 	return dwRes;
 }
 
@@ -49,7 +57,31 @@ EC_T_DWORD Ec_slave_pitch_drive::transferTxPdo()
 	return dwRes;
 }
 
+EC_T_DWORD Ec_slave_pitch_drive::transferRxPdo()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	EC_T_BYTE* pBuffer = ecatGetProcessImageOutputPtr();
+
+	transferOutputPdoObject(m_RxPdo.TARGET_POSE, pBuffer);
+	transferOutputPdoObject(m_RxPdo.CONTROL_WD, pBuffer);
+	transferOutputPdoObject(m_RxPdo.TARGET_TORQ, pBuffer);
+	transferOutputPdoObject(m_RxPdo.OP_MODE, pBuffer);
+	transferOutputPdoObject(m_RxPdo.ERROR_CLEAR, pBuffer);
+	transferOutputPdoObject(m_RxPdo.DIG_OUT, pBuffer);
+	transferOutputPdoObject(m_RxPdo.TARGET_VEL, pBuffer);
+
+	return dwRes;
+}
+
 EC_T_DWORD Ec_slave_pitch_drive::processTxPdo()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD Ec_slave_pitch_drive::processRxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -75,7 +107,7 @@ EC_T_DWORD Ec_slave_pitch_drive::mainProcess()
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	std::cout <<
-	"SLAVE_ADDR: " << m_SlaveAddr << " | "
+	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
 	"ACT_POS: " << m_TxPdo.ACT_POS.value << ", "
 	"STATUS_WD: " << m_TxPdo.STATUS_WD.value << ", "
 	"ACT_TOR: " << m_TxPdo.ACT_TOR.value << ", "
@@ -85,20 +117,6 @@ EC_T_DWORD Ec_slave_pitch_drive::mainProcess()
 	"ACT_VEL: " << m_TxPdo.ACT_VEL.value << ", "
 	"ADC_VAL: " << m_TxPdo.ADC_VAL.value
 	<< std::endl;
-
-	return dwRes;
-}
-
-EC_T_DWORD Ec_slave_pitch_drive::processRxPdo()
-{
-	EC_T_DWORD dwRes = EC_E_NOERROR;
-
-	return dwRes;
-}
-
-EC_T_DWORD Ec_slave_pitch_drive::transferRxPdo()
-{
-	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
 }

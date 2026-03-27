@@ -1,5 +1,5 @@
-#ifndef PITCH_DRIVE_H
-#define PITCH_DRIVE_H
+#ifndef EC_SLAVE_PITCH_DRIVE_H
+#define EC_SLAVE_PITCH_DRIVE_H
 
 #include "Ec_slave_base.h"
 
@@ -16,6 +16,17 @@ namespace Ec_slave_pitch_drive_data
 		PdoVariable<0x606C, 0,  int32_t> ACT_VEL;
 		PdoVariable<0x3007, 0, uint16_t> ADC_VAL;
 	};
+
+	struct RxPdo
+	{
+		PdoVariable<0x607A, 0,  int32_t> TARGET_POSE;
+		PdoVariable<0x6040, 0, uint16_t> CONTROL_WD;
+		PdoVariable<0x6071, 0,  int16_t> TARGET_TORQ;
+		PdoVariable<0x6060, 0,  uint8_t> OP_MODE;
+		PdoVariable<0x3004, 0, uint16_t> ERROR_CLEAR;
+		PdoVariable<0x3001, 0,  uint8_t> DIG_OUT;
+		PdoVariable<0x60FF, 0,  int32_t> TARGET_VEL;
+	};
 }
 
 class Ec_slave_pitch_drive : public Ec_slave_base
@@ -31,7 +42,11 @@ public:
 
 	virtual EC_T_DWORD transferTxPdo();
 
+	virtual EC_T_DWORD transferRxPdo();
+
 	virtual EC_T_DWORD processTxPdo();
+
+	virtual EC_T_DWORD processRxPdo();
 
 	virtual EC_T_DWORD publishData();
 
@@ -39,12 +54,9 @@ public:
 
 	virtual EC_T_DWORD mainProcess();
 
-	virtual EC_T_DWORD processRxPdo();
-
-	virtual EC_T_DWORD transferRxPdo();
-
 protected:
 	Ec_slave_pitch_drive_data::TxPdo m_TxPdo;
+	Ec_slave_pitch_drive_data::RxPdo m_RxPdo;
 };
 
-#endif // PITCH_DRIVE_H
+#endif // EC_SLAVE_PITCH_DRIVE_H

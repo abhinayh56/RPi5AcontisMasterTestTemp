@@ -175,7 +175,7 @@ uint32_t lookupOutputPdoObject(const uint16_t slaveAddress, ObjectType& object)
         return retVal;
     }
 
-    if (sizeof(object.value) * 8 <= object.variableInfo.nBitSize)
+    if (static_cast<EC_T_INT>(sizeof(object.value)) * 8 <= object.variableInfo.nBitSize)
     {
         std::cout << "\tlookupOutputPdoObject succeeded for " << object.variableInfo.szName << "\n";
         return retVal;
