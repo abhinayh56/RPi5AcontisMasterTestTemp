@@ -52,7 +52,7 @@ EC_T_DWORD Ec_slave_manager::registerPdo()
     return dwRes;
 }
 
-void Ec_slave_manager::cyclicProcess()
+EC_T_DWORD Ec_slave_manager::cyclicProcess()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 

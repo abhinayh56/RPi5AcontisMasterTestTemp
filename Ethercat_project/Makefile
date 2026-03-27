@@ -48,6 +48,7 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_den_net_e
 INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_elmo_drive
 INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_ipos2401_mx_cat
 INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_pitch_drive
+INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_manager
 
 #LIBS += -L/path/to/my/lib/$(PLATFORM)/usr/lib -lmylib
 #LIBS += -L../mylib/$(OUTPUT_DIR) -lmylib
@@ -103,6 +104,7 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_den_net_e/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_elmo_drive/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_ipos2401_mx_cat/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_pitch_drive/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_manager/*.cpp)
 
 #Object files list
 OBJS = $(addprefix $(OUTPUT_DIR)/,$(addsuffix .o, $(basename $(SRCS))))
