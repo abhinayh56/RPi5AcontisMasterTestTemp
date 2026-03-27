@@ -105,8 +105,8 @@ void Ec_slave_elmo_drive::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"Acknowledge: " << m_RxPdo.Target_Position.value << ", "
-	"Second: " << m_RxPdo.Digital_Outputs.value << ", "
-	"Grip_Offset: " << m_RxPdo.Control_word.value
+	"Target_Position: " << m_RxPdo.Target_Position.value << ", "
+	"Digital_Outputs: " << m_RxPdo.Digital_Outputs.value << ", "
+	"Control_word: " << m_RxPdo.Control_word.value
 	<< std::endl;
 }

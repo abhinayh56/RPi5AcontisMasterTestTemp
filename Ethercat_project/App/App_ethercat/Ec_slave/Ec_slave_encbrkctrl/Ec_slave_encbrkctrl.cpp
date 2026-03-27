@@ -91,8 +91,8 @@ void Ec_slave_encbrkctrl::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"Device_ID: " << m_TxPdo.ENC1.value << ", "
-	"MFG_Year: " << m_TxPdo.ENC2.value
+	"ENC1: " << m_TxPdo.ENC1.value << ", "
+	"ENC2: " << m_TxPdo.ENC2.value
 	<< std::endl;
 }
 
@@ -100,7 +100,7 @@ void Ec_slave_encbrkctrl::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"Acknowledge: " << m_RxPdo.BRK1.value << ", "
-	"Grip_Offset: " << m_RxPdo.BRK2.value
+	"BRK1: " << m_RxPdo.BRK1.value << ", "
+	"BRK2: " << m_RxPdo.BRK2.value
 	<< std::endl;
 }
