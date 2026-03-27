@@ -1,21 +1,21 @@
-#include "Ec_slave_rfidslave.h"
+#include "Ec_slave_el2008.h"
 
-Ec_slave_rfidslave::Ec_slave_rfidslave(uint16_t slaveAddr) : Ec_slave_base(slaveAddr)
+Ec_slave_el2008::Ec_slave_el2008(uint16_t slaveAddr) : Ec_slave_base(slaveAddr)
 {
 }
 
-Ec_slave_rfidslave::~Ec_slave_rfidslave()
+Ec_slave_el2008::~Ec_slave_el2008()
 {
 }
 
-EC_T_DWORD Ec_slave_rfidslave::registerTxPdos()
+EC_T_DWORD Ec_slave_el2008::registerTxPdos()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::registerRxPdos()
+EC_T_DWORD Ec_slave_el2008::registerRxPdos()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -31,14 +31,14 @@ EC_T_DWORD Ec_slave_rfidslave::registerRxPdos()
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::transferTxPdo()
+EC_T_DWORD Ec_slave_el2008::transferTxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::transferRxPdo()
+EC_T_DWORD Ec_slave_el2008::transferRxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -56,35 +56,35 @@ EC_T_DWORD Ec_slave_rfidslave::transferRxPdo()
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::processTxPdo()
+EC_T_DWORD Ec_slave_el2008::processTxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::processRxPdo()
+EC_T_DWORD Ec_slave_el2008::processRxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::publishData()
+EC_T_DWORD Ec_slave_el2008::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::subscribeData()
+EC_T_DWORD Ec_slave_el2008::subscribeData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::mainProcess()
+EC_T_DWORD Ec_slave_el2008::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
