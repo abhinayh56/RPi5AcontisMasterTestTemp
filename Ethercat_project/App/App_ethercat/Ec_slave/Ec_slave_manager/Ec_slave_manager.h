@@ -16,6 +16,11 @@ public:
 
     EC_T_DWORD cleanup();
 
+    EC_T_DWORD registerPdo();
+
+    EC_T_DWORD cyclicProcess();
+
+private:
     EC_T_DWORD transferTxPdo();
 
     EC_T_DWORD transferRxPdo();
@@ -34,11 +39,6 @@ public:
 
     void dispRxPdo();
 
-    EC_T_DWORD registerPdo();
-
-    EC_T_DWORD cyclicProcess();
-
-private:
     std::vector<Ec_slave_base*> m_slaveVector;
     int m_numSlaves = 0;
 };

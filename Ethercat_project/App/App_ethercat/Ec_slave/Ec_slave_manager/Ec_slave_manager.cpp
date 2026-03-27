@@ -30,6 +30,45 @@ EC_T_DWORD Ec_slave_manager::cleanup()
     return dwRes;
 }
 
+EC_T_DWORD Ec_slave_manager::registerPdo()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->registerTxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+
+        dwRes |= m_slaveVector[i]->registerRxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+void Ec_slave_manager::cyclicProcess()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    transferTxPdo();
+    dispTxPdo();
+    processTxPdo();
+    publishData();
+    subscribeData();
+    mainProcess();
+    processRxPdo();
+    dispRxPdo();
+    transferRxPdo();
+
+    return dwRes;
+}
+
 EC_T_DWORD Ec_slave_manager::transferTxPdo()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -156,43 +195,4 @@ void Ec_slave_manager::dispRxPdo()
     {
         m_slaveVector[i]->dispRxPdo();
     }
-}
-
-void Ec_slave_manager::registerPdo()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    for(int i = 0; i < m_numSlaves; i++)
-    {
-        dwRes |= m_slaveVector[i]->registerTxPdo();
-        if(dwRes != EC_E_NOERROR)
-        {
-            return dwRes;
-        }
-        
-        dwRes |= m_slaveVector[i]->registerRxPdo();
-        if(dwRes != EC_E_NOERROR)
-        {
-            return dwRes;
-        }
-    }
-
-    return dwRes;
-}
-
-void Ec_slave_manager::cyclicProcess()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    transferTxPdo();
-    dispTxPdo();
-    processTxPdo();
-    publishData();
-    subscribeData();
-    mainProcess();
-    processRxPdo();
-    dispRxPdo();
-    transferRxPdo();
-
-    return dwRes;
 }
