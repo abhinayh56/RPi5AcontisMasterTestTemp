@@ -9,14 +9,14 @@ Ec_slave_base::~Ec_slave_base()
 {
 }
 
-EC_T_DWORD Ec_slave_base::registerTxPdos()
+EC_T_DWORD Ec_slave_base::registerTxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_base::registerRxPdos()
+EC_T_DWORD Ec_slave_base::registerRxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -70,4 +70,12 @@ EC_T_DWORD Ec_slave_base::mainProcess()
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
 	return dwRes;
+}
+
+void Ec_slave_base::dispTxPdo()
+{
+}
+
+void Ec_slave_base::dispRxPdo()
+{
 }

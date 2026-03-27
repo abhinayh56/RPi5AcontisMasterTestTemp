@@ -8,7 +8,7 @@ Ec_slave_pitch_drive::~Ec_slave_pitch_drive()
 {
 }
 
-EC_T_DWORD Ec_slave_pitch_drive::registerTxPdos()
+EC_T_DWORD Ec_slave_pitch_drive::registerTxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -24,7 +24,7 @@ EC_T_DWORD Ec_slave_pitch_drive::registerTxPdos()
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_pitch_drive::registerRxPdos()
+EC_T_DWORD Ec_slave_pitch_drive::registerRxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -106,6 +106,11 @@ EC_T_DWORD Ec_slave_pitch_drive::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	return dwRes;
+}
+
+void Ec_slave_pitch_drive::dispTxPdo()
+{
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
 	"ACT_POS: " << m_TxPdo.ACT_POS.value << ", "
@@ -117,6 +122,18 @@ EC_T_DWORD Ec_slave_pitch_drive::mainProcess()
 	"ACT_VEL: " << m_TxPdo.ACT_VEL.value << ", "
 	"ADC_VAL: " << m_TxPdo.ADC_VAL.value
 	<< std::endl;
+}
 
-	return dwRes;
+void Ec_slave_pitch_drive::dispRxPdo()
+{
+	std::cout <<
+	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"TARGET_POSE: " << m_RxPdo.TARGET_POSE.value << ", "
+	"CONTROL_WD: " << m_RxPdo.CONTROL_WD.value << ", "
+	"TARGET_TORQ: " << m_RxPdo.TARGET_TORQ.value << ", "
+	"OP_MODE: " << m_RxPdo.OP_MODE.value << ", "
+	"ERROR_CLEAR: " << m_RxPdo.ERROR_CLEAR.value << ", "
+	"DIG_OUT: " << m_RxPdo.DIG_OUT.value << ", "
+	"TARGET_VEL: " << m_RxPdo.TARGET_VEL.value
+	<< std::endl;
 }

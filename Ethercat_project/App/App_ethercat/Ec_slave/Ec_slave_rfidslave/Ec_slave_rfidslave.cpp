@@ -8,7 +8,7 @@ Ec_slave_rfidslave::~Ec_slave_rfidslave()
 {
 }
 
-EC_T_DWORD Ec_slave_rfidslave::registerTxPdos()
+EC_T_DWORD Ec_slave_rfidslave::registerTxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -37,7 +37,7 @@ EC_T_DWORD Ec_slave_rfidslave::registerTxPdos()
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_rfidslave::registerRxPdos()
+EC_T_DWORD Ec_slave_rfidslave::registerRxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -156,6 +156,11 @@ EC_T_DWORD Ec_slave_rfidslave::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	return dwRes;
+}
+
+void Ec_slave_rfidslave::dispTxPdo()
+{
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
 	"Device_ID: " << m_TxPdo.Device_ID.value << ", "
@@ -180,8 +185,30 @@ EC_T_DWORD Ec_slave_rfidslave::mainProcess()
 	"MFG_Month: " << m_TxPdo.MFG_Month.value << ", "
 	"MFG_Year: " << m_TxPdo.MFG_Year.value
 	<< std::endl;
-
-	return dwRes;
 }
 
-
+void Ec_slave_rfidslave::dispRxPdo()
+{
+	std::cout <<
+	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
+	"Acknowledge: " << m_RxPdo.Acknowledge.value << ", "
+	"Second: " << m_RxPdo.Second.value << ", "
+	"Minute: " << m_RxPdo.Minute.value << ", "
+	"Hour: " << m_RxPdo.Hour.value << ", "
+	"Day: " << m_RxPdo.Day.value << ", "
+	"Month: " << m_RxPdo.Month.value << ", "
+	"Year: " << m_RxPdo.Year.value << ", "
+	"No_of_Usages: " << m_RxPdo.No_of_Usages.value << ", "
+	"Digital_Outputs: " << m_RxPdo.Digital_Outputs.value << ", "
+	"Grip_Counts: " << m_RxPdo.Grip_Counts.value << ", "
+	"System_Number: " << m_RxPdo.System_Number.value << ", "
+	"Led_Red: " << m_RxPdo.Led_Red.value << ", "
+	"Led_Green: " << m_RxPdo.Led_Green.value << ", "
+	"LED_Blue: " << m_RxPdo.LED_Blue.value << ", "
+	"Spare_Bytes: " << m_RxPdo.Spare_Bytes.value << ", "
+	"Roll_Offset: " << m_RxPdo.Roll_Offset.value << ", "
+	"Pitch_Offset: " << m_RxPdo.Pitch_Offset.value << ", "
+	"Yaw_Offset: " << m_RxPdo.Yaw_Offset.value << ", "
+	"Grip_Offset: " << m_RxPdo.Grip_Offset.value
+	<< std::endl;
+}

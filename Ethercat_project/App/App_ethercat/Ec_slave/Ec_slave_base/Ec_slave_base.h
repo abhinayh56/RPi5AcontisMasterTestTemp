@@ -12,9 +12,9 @@ public:
 
 	virtual ~Ec_slave_base();
 
-	virtual EC_T_DWORD registerTxPdos();
+	virtual EC_T_DWORD registerTxPdo();
 
-	virtual EC_T_DWORD registerRxPdos();
+	virtual EC_T_DWORD registerRxPdo();
 
 	virtual EC_T_DWORD transferTxPdo();
 
@@ -29,6 +29,10 @@ public:
 	virtual EC_T_DWORD subscribeData();
 
 	virtual EC_T_DWORD mainProcess();
+
+	virtual void dispTxPdo();
+
+	virtual void dispRxPdo();
 
 protected:
 	uint16_t m_SlaveAddr = 0;

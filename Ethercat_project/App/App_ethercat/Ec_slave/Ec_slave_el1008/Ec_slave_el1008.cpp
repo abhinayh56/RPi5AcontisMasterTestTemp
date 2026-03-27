@@ -8,7 +8,7 @@ Ec_slave_el1008::~Ec_slave_el1008()
 {
 }
 
-EC_T_DWORD Ec_slave_el1008::registerTxPdos()
+EC_T_DWORD Ec_slave_el1008::registerTxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -24,7 +24,7 @@ EC_T_DWORD Ec_slave_el1008::registerTxPdos()
 	return dwRes;
 }
 
-EC_T_DWORD Ec_slave_el1008::registerRxPdos()
+EC_T_DWORD Ec_slave_el1008::registerRxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -88,6 +88,11 @@ EC_T_DWORD Ec_slave_el1008::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	return dwRes;
+}
+
+void Ec_slave_el1008::::dispTxPdo()
+{
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
 	"Channel_1: " << m_TxPdo.Channel_1.value << ", "
@@ -99,6 +104,8 @@ EC_T_DWORD Ec_slave_el1008::mainProcess()
 	"Channel_7: " << m_TxPdo.Channel_7.value << ", "
 	"Channel_8: " << m_TxPdo.Channel_8.value
 	<< std::endl;
+}
 
-	return dwRes;
+void Ec_slave_el1008::::dispRxPdo()
+{
 }

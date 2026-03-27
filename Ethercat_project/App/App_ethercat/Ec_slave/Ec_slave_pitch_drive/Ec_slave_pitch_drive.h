@@ -36,9 +36,9 @@ public:
 
 	~Ec_slave_pitch_drive();
 
-	virtual EC_T_DWORD registerTxPdos();
+	virtual EC_T_DWORD registerTxPdo();
 
-	virtual EC_T_DWORD registerRxPdos();
+	virtual EC_T_DWORD registerRxPdo();
 
 	virtual EC_T_DWORD transferTxPdo();
 
@@ -53,6 +53,10 @@ public:
 	virtual EC_T_DWORD subscribeData();
 
 	virtual EC_T_DWORD mainProcess();
+
+	virtual void dispTxPdo();
+
+	virtual void dispRxPdo();
 
 protected:
 	Ec_slave_pitch_drive_data::TxPdo m_TxPdo;
