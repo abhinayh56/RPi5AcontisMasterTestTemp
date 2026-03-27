@@ -23,6 +23,7 @@ LD = $(CXX)
 DIR_EC_SDK = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
 DIR_APP_ETHERCAT = ./src/App_ethercat
 #DIR_APP_ETHERCAT = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/Examples
+DIR_EIGEN = ./external/eigen-5.0.0
 
 # External EtherCAT
 INCLUDES += -I$(DIR_EC_SDK)/SDK/INC
@@ -49,6 +50,9 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_elmo_drive
 INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_ipos2401_mx_cat
 INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_pitch_drive
 INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_manager
+
+# Eigen library (header-only)
+INCLUDES += -I$(DIR_EIGEN)
 
 #LIBS += -L/path/to/my/lib/$(PLATFORM)/usr/lib -lmylib
 #LIBS += -L../mylib/$(OUTPUT_DIR) -lmylib
