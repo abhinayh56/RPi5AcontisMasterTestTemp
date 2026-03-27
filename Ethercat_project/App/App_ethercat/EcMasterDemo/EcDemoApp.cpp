@@ -45,20 +45,6 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppDiagnosis(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppNotify(EC_T_DWORD dwCode, EC_T_NOTIFYPARMS* pParms);
 
-//struct TxPdo
-//{
-//	PdoVariable<0x6064, 0,  int32_t> ACT_POS;
-//	PdoVariable<0x6041, 0, uint16_t> STATUS_WD;
-//	PdoVariable<0x6077, 0,  int16_t> ACT_TOR;
-//	PdoVariable<0x6061, 0,  uint8_t> OPMODE_DISP;
-//	PdoVariable<0x603F, 0, uint16_t> ERROR_CODE;
-//	PdoVariable<0x3002, 0,  uint8_t> DIG_IN;
-//	PdoVariable<0x606C, 0,  int32_t> ACT_VEL;
-//	PdoVariable<0x3007, 0, uint16_t> ADC_VAL;
-//};
-//
-//static TxPdo m_TxPdo;
-
 Ec_slave_pitch_drive ec_slave_pitch_drive_1(1009);
 Ec_slave_pitch_drive ec_slave_pitch_drive_2(1010);
 Ec_slave_pitch_drive ec_slave_pitch_drive_3(1011);
@@ -857,15 +843,6 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ACT_POS);
-//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.STATUS_WD);
-//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ACT_TOR);
-//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.OPMODE_DISP);
-//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ERROR_CODE);
-//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.DIG_IN);
-//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ACT_VEL);
-//	dwRes |= lookupInputPdoObject(1009, m_TxPdo.ADC_VAL);
-
     ec_slave_pitch_drive_1.registerTxPdo();
     ec_slave_pitch_drive_2.registerTxPdo();
     ec_slave_pitch_drive_3.registerTxPdo();
@@ -918,33 +895,11 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 //	std::cout << "This is a test from new ethercat project: " << i << std::endl;
 //	i++;
 
-//	EC_T_BYTE* pBuffer = ecatGetProcessImageInputPtr();
-//
-//	transferInputPdoObject(m_TxPdo.ACT_POS, pBuffer);
-//	transferInputPdoObject(m_TxPdo.STATUS_WD, pBuffer);
-//	transferInputPdoObject(m_TxPdo.ACT_TOR, pBuffer);
-//	transferInputPdoObject(m_TxPdo.OPMODE_DISP, pBuffer);
-//	transferInputPdoObject(m_TxPdo.ERROR_CODE, pBuffer);
-//	transferInputPdoObject(m_TxPdo.DIG_IN, pBuffer);
-//	transferInputPdoObject(m_TxPdo.ACT_VEL, pBuffer);
-//	transferInputPdoObject(m_TxPdo.ADC_VAL, pBuffer);
-
 	ec_slave_pitch_drive_1.transferTxPdo();
 	ec_slave_pitch_drive_2.transferTxPdo();
 	ec_slave_pitch_drive_3.transferTxPdo();
 	ec_slave_pitch_drive_4.transferTxPdo();
-
-//	std::cout <<
-//	"ACT_POS: " << m_TxPdo.ACT_POS.value << ", "
-//	"STATUS_WD: " << m_TxPdo.STATUS_WD.value << ", "
-//	"ACT_TOR: " << m_TxPdo.ACT_TOR.value << ", "
-//	"OPMODE_DISP: " << m_TxPdo.OPMODE_DISP.value << ", "
-//	"ERROR_CODE: " << m_TxPdo.ERROR_CODE.value << ", "
-//	"DIG_IN: " << m_TxPdo.DIG_IN.value << ", "
-//	"ACT_VEL: " << m_TxPdo.ACT_VEL.value << ", "
-//	"ADC_VAL: " << m_TxPdo.ADC_VAL.value
-//	<< std::endl;
-
+    
 //	ec_slave_pitch_drive_1.mainProcess();
 //	ec_slave_pitch_drive_2.mainProcess();
 //	ec_slave_pitch_drive_3.mainProcess();
