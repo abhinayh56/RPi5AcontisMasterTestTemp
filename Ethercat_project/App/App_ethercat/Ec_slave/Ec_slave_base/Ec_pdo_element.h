@@ -11,10 +11,10 @@ struct PdoVariable
 
     static const EC_T_WORD objectIndex = ObjectIndex;
     static const EC_T_BYTE objectSubIndex = ObjectSubIndex;
-    std::string                    objectName;
-    EC_T_PROCESS_VAR_INFO       variableInfo;
-    ValueType                   value;
-    bool                   isSupported;
+    std::string objectName;
+    EC_T_PROCESS_VAR_INFO variableInfo;
+    ValueType value;
+    bool isSupported;
 };
 
 inline uint32_t lookupInputObjectInfoByIndex(const uint16_t slaveAddress, const uint16_t objectIndex, const uint16_t objectSubIndex, EC_T_PROCESS_VAR_INFO& objectInfo, bool& isSupported)
