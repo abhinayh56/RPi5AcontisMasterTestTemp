@@ -25,11 +25,11 @@ public:
 
     EC_T_DWORD addSlave(Ec_slave_base* pSlave);
 
-    EC_T_DWORD cleanup();
+    EC_T_DWORD cleanupTask();
 
-    EC_T_DWORD configProcess();
+    EC_T_DWORD configTask();
 
-    EC_T_DWORD cyclicProcess();
+    EC_T_DWORD cyclicTask();
 
 private:
     std::vector<Ec_slave_base*> m_slaveVector;

@@ -504,7 +504,7 @@ EC_T_DWORD EcDemoApp(T_EC_DEMO_APP_CONTEXT* pAppContext)
             /* process notification jobs */
             pAppContext->pNotificationHandler->ProcessNotificationJobs();
 
-            ec_slave_manager.cleanup();
+            ec_slave_manager.cleanupTask();
 
             OsSleep(5);
         }
@@ -848,7 +848,7 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= ec_slave_manager.registerPdo();
+    dwRes |= ec_slave_manager.configTask();
 
     return dwRes;
 }
@@ -895,7 +895,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= ec_slave_manager.cyclicProcess();
+    dwRes |= ec_slave_manager.cyclicTask();
 
     return EC_E_NOERROR;
 }

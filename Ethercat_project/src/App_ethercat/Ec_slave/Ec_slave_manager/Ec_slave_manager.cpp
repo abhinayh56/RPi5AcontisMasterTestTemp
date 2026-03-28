@@ -18,7 +18,7 @@ EC_T_DWORD Ec_slave_manager::addSlave(Ec_slave_base* pSlave)
     return dwRes;
 }
 
-EC_T_DWORD Ec_slave_manager::cleanup()
+EC_T_DWORD Ec_slave_manager::cleanupTask()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -30,7 +30,7 @@ EC_T_DWORD Ec_slave_manager::cleanup()
     return dwRes;
 }
 
-EC_T_DWORD Ec_slave_manager::configProcess()
+EC_T_DWORD Ec_slave_manager::configTask()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -52,7 +52,7 @@ EC_T_DWORD Ec_slave_manager::configProcess()
     return dwRes;
 }
 
-EC_T_DWORD Ec_slave_manager::cyclicProcess()
+EC_T_DWORD Ec_slave_manager::cyclicTask()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
