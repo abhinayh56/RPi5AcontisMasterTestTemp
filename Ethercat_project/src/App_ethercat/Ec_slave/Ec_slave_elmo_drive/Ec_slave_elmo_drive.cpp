@@ -95,7 +95,7 @@ void Ec_slave_elmo_drive::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Position_actual_valuie: " << m_TxPdo.Position_actual_valuie.value << ", "
 	"Digital_Inputs: " << m_TxPdo.Digital_Inputs.value << ", "
 	"Status_word: " << m_TxPdo.Status_word.value
@@ -106,7 +106,7 @@ void Ec_slave_elmo_drive::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Target_Position: " << m_RxPdo.Target_Position.value << ", "
 	"Digital_Outputs: " << m_RxPdo.Digital_Outputs.value << ", "
 	"Control_word: " << m_RxPdo.Control_word.value

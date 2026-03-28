@@ -99,7 +99,7 @@ void Ec_slave_den_net_e::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Status_Word: " << m_TxPdo.Status_Word.value << ", "
 	"Actual_position: " << m_TxPdo.Actual_position.value << ", "
 	"Actual_velocity: " << m_TxPdo.Actual_velocity.value << ", "
@@ -111,7 +111,7 @@ void Ec_slave_den_net_e::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Control_Word: " << m_RxPdo.Control_Word.value << ", "
 	"Position_set_point: " << m_RxPdo.Position_set_point.value << ", "
 	"Velocity_set_point: " << m_RxPdo.Velocity_set_point.value << ", "

@@ -163,7 +163,7 @@ void Ec_slave_rfidslave::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Device_ID: " << m_TxPdo.Device_ID.value << ", "
 	"Second: " << m_TxPdo.Second.value << ", "
 	"Minute: " << m_TxPdo.Minute.value << ", "
@@ -192,7 +192,7 @@ void Ec_slave_rfidslave::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Acknowledge: " << m_RxPdo.Acknowledge.value << ", "
 	"Second: " << m_RxPdo.Second.value << ", "
 	"Minute: " << m_RxPdo.Minute.value << ", "

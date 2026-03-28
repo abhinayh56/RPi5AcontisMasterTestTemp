@@ -37,7 +37,7 @@ public:
 
 protected:
 	uint16_t m_SlaveAddr;
-	std::string m_slaveName;
+	std::string m_SlaveName;
 
 private:
 //	std::vector<Ec_pdo_element> m_rxPdoElementVector;

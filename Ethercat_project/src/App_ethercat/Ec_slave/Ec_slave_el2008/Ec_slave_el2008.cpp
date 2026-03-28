@@ -99,7 +99,7 @@ void Ec_slave_el2008::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Channel_1: " << m_RxPdo.Channel_1.value << ", "
 	"Channel_2: " << m_RxPdo.Channel_2.value << ", "
 	"Channel_3: " << m_RxPdo.Channel_3.value << ", "

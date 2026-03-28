@@ -267,7 +267,7 @@ void Ec_slave_el6002::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Channel_1 (Status, Data_In_0_21): " << m_TxPdo.Channel_1_Status.value << ", " <<
 	m_TxPdo.Channel_1_Data_In_0.value << ", " <<
 	m_TxPdo.Channel_1_Data_In_1.value << ", " <<
@@ -321,7 +321,7 @@ void Ec_slave_el6002::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Channel_1 (Ctrl, Data_Out_0_21): " << m_RxPdo.Channel_1_Ctrl.value << ", " <<
 	m_RxPdo.Channel_1_Data_Out_0.value << ", " <<
 	m_RxPdo.Channel_1_Data_Out_1.value << ", " <<

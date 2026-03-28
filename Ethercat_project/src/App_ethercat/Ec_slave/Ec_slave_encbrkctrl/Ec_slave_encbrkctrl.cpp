@@ -91,7 +91,7 @@ void Ec_slave_encbrkctrl::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"ENC1: " << m_TxPdo.ENC1.value << ", "
 	"ENC2: " << m_TxPdo.ENC2.value
 	<< std::endl;
@@ -101,7 +101,7 @@ void Ec_slave_encbrkctrl::dispRxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"BRK1: " << m_RxPdo.BRK1.value << ", "
 	"BRK2: " << m_RxPdo.BRK2.value
 	<< std::endl;

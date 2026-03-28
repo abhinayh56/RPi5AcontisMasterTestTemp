@@ -95,7 +95,7 @@ void Ec_slave_el1008::dispTxPdo()
 {
 	std::cout <<
 	"SLAVE_ADDR: " << m_SlaveAddr << " | " <<
-	"SLAVE_NAME: " << m_slaveName << " | " <<
+	"SLAVE_NAME: " << m_SlaveName << " | " <<
 	"Channel_1: " << m_TxPdo.Channel_1.value << ", "
 	"Channel_2: " << m_TxPdo.Channel_2.value << ", "
 	"Channel_3: " << m_TxPdo.Channel_3.value << ", "
