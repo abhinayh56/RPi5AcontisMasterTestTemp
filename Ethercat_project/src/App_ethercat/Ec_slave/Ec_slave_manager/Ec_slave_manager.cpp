@@ -30,7 +30,7 @@ EC_T_DWORD Ec_slave_manager::cleanup()
     return dwRes;
 }
 
-EC_T_DWORD Ec_slave_manager::registerPdo()
+EC_T_DWORD Ec_slave_manager::configProcess()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 

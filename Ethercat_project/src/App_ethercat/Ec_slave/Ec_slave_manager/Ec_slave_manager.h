@@ -27,7 +27,7 @@ public:
 
     EC_T_DWORD cleanup();
 
-    EC_T_DWORD registerPdo();
+    EC_T_DWORD configProcess();
 
     EC_T_DWORD cyclicProcess();
 
