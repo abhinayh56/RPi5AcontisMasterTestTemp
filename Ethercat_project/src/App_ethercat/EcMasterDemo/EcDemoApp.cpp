@@ -45,7 +45,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppDiagnosis(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppNotify(EC_T_DWORD dwCode, EC_T_NOTIFYPARMS* pParms);
 
-Ec_slave_manager slave_manager;
+Ec_slave_manager ec_slave_manager;
 /*-FUNCTION DEFINITIONS------------------------------------------------------*/
 
 /********************************************************************************/
@@ -504,6 +504,8 @@ EC_T_DWORD EcDemoApp(T_EC_DEMO_APP_CONTEXT* pAppContext)
             /* process notification jobs */
             pAppContext->pNotificationHandler->ProcessNotificationJobs();
 
+            ec_slave_manager.cleanup();
+
             OsSleep(5);
         }
     }
@@ -827,10 +829,10 @@ static EC_T_DWORD myAppInit(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1009, "motor_1"));
-    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1010, "motor_2"));
-    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1011, "motor_3"));
-    dwRes |= slave_manager.addSlave(new Ec_slave_pitch_drive(1012, "motor_4"));
+    dwRes |= ec_slave_manager.addSlave(new Ec_slave_pitch_drive(1009, "motor_1"));
+    dwRes |= ec_slave_manager.addSlave(new Ec_slave_pitch_drive(1010, "motor_2"));
+    dwRes |= ec_slave_manager.addSlave(new Ec_slave_pitch_drive(1011, "motor_3"));
+    dwRes |= ec_slave_manager.addSlave(new Ec_slave_pitch_drive(1012, "motor_4"));
 
     return EC_E_NOERROR;
 }
@@ -846,7 +848,7 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= slave_manager.registerPdo();
+    dwRes |= ec_slave_manager.registerPdo();
 
     return dwRes;
 }
@@ -893,7 +895,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= slave_manager.cyclicProcess();
+    dwRes |= ec_slave_manager.cyclicProcess();
 
     return EC_E_NOERROR;
 }
