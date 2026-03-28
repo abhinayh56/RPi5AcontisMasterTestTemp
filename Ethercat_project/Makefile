@@ -21,7 +21,7 @@ LD = $(CXX)
 #INCLUDES += -I/path/to/my/lib/include
 #INCLUDES += -I../mylib/public
 DIR_EC_SDK = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
-DIR_APP_ETHERCAT = ./src/App_ethercat
+DIR_APP_ETHERCAT = ./src/AppEthercat
 #DIR_APP_ETHERCAT = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/Examples
 DIR_EIGEN = ./external/eigen-5.0.0
 
@@ -36,20 +36,20 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/Common/QNX
 
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcMasterDemo
 
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_base
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_cia402
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_el1008
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_el2008
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_el3024
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_el6002
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_io_module
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_encbrkctrl
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_rfidslave
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_den_net_e
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_elmo_drive
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_ipos2401_mx_cat
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_pitch_drive
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_manager
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveBase
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcCia402
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl1008
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl2008
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl3024
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl6002
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIoModule
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEncbrkctrl
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveRfidslave
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveDenNetE
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive
+INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveManager
 
 # Eigen library (header-only)
 INCLUDES += -I$(DIR_EIGEN)
@@ -95,20 +95,20 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Common/QNX/*.cpp)
 
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcMasterDemo/*.cpp)
 
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_base/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_cia402/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_el1008/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_el2008/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_el3024/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_el6002/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_io_module/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_encbrkctrl/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_rfidslave/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_den_net_e/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_elmo_drive/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_ipos2401_mx_cat/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_pitch_drive/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Ec_slave/Ec_slave_manager/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveBase/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcCia402/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl1008/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl2008/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl3024/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl6002/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIoModule/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEncbrkctrl/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveRfidslave/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveDenNetE/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveManager/*.cpp)
 
 #Object files list
 OBJS = $(addprefix $(OUTPUT_DIR)/,$(addsuffix .o, $(basename $(SRCS))))
