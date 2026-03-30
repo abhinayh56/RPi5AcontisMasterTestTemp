@@ -171,6 +171,15 @@ uint32_t lookupOutputPdoObject(const uint16_t slaveAddress, ObjectType& object)
         std::cout << "\tlookupOutputPdoObject succeeded for " << object.variableInfo.szName << "\n";
         return retVal;
     }
+    else // handling fractional bytes (proper handling necessary while writing pdo)
+    {
+        if((object.variableInfo.nBitSize % 8) != 0)
+        {
+            std::cout << "\t size mismatch " << "\tobject name = " << object.variableInfo.szName << "\n" << "\t value size: " << sizeof(object.value) * 8 << ", nBitSize: " << object.variableInfo.nBitSize << " Exception" << std::endl;
+            std::cout << "\tlookupOutputPdoObject succeeded for " << object.variableInfo.szName << "\n";
+            return retVal;
+        }
+    }
 
     object.isSupported = false;
     std::cout << "\t size mismatch " << "\tobject name = " << object.variableInfo.szName << "\n" << "\t value size: " << sizeof(object.value) * 8 << ", nBitSize: " << object.variableInfo.nBitSize << std::endl;
