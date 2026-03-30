@@ -4,7 +4,7 @@
 #include "EcMaster.h"
 #include <iostream>
 
-template<EC_T_WORD ObjectIndex, EC_T_BYTE ObjectSubIndex, typename ValueType>
+template<EC_T_WORD ObjectIndex, EC_T_BYTE ObjectSubIndex, typename ValueType> // can include value size in template parameter
 struct PdoVariable
 {
     typedef ValueType value_type;
