@@ -37,12 +37,14 @@ EC_T_DWORD EcSlaveManager::configTask()
 
     for(int i = 0; i < m_numSlaves; i++)
     {
+    	std::cout << "Registering TxPdo for " << m_slaveVector[i]->getAddress() << ", " <<m_slaveVector[i]->getName() << std::endl;
         dwRes |= m_slaveVector[i]->registerTxPdo();
         if(dwRes != EC_E_NOERROR)
         {
             return dwRes;
         }
 
+        std::cout << "Registering RxPdo for " << m_slaveVector[i]->getAddress() << ", " <<m_slaveVector[i]->getName() << std::endl;
         dwRes |= m_slaveVector[i]->registerRxPdo();
         if(dwRes != EC_E_NOERROR)
         {

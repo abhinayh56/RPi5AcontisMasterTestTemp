@@ -35,9 +35,14 @@ public:
 
 	virtual void dispRxPdo();
 
+	virtual uint16_t getAddress();
+
+	virtual std::string& getName();
+
 protected:
 	uint16_t m_slaveAddr;
 	std::string m_slaveName;
+	EC_T_CFG_SLAVE_INFO m_slaveInfo;
 
 private:
 //	std::vector<Ec_pdo_element> m_rxPdoElementVector;

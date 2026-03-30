@@ -78,3 +78,14 @@ void EcSlaveBase::dispTxPdo()
 void EcSlaveBase::dispRxPdo()
 {
 }
+
+
+uint16_t EcSlaveBase::getAddress()
+{
+	return m_slaveAddr;
+}
+
+std::string& EcSlaveBase::getName()
+{
+	return m_slaveName;
+}

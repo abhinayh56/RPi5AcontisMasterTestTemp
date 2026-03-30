@@ -33,7 +33,7 @@ inline uint32_t lookupInputObjectInfoByIndex(const uint16_t slaveAddress, const 
 
     EC_T_WORD wReadEntries;
 
-    EC_T_DWORD result = ecatGetSlaveInpVarInfoNumOf(EC_TRUE, slaveAddress, &numOfVarsToRead);
+    EC_T_DWORD result = ecatGetSlaveInpVarInfoNumOf(true, slaveAddress, &numOfVarsToRead);
 
     if (result != EC_E_NOERROR)
     {
@@ -43,7 +43,7 @@ inline uint32_t lookupInputObjectInfoByIndex(const uint16_t slaveAddress, const 
 
     std::vector<EC_T_PROCESS_VAR_INFO_EX> variables(numOfVarsToRead);
 
-    result = ecatGetSlaveInpVarInfoEx(EC_TRUE, slaveAddress, numOfVarsToRead, variables.data(), &wReadEntries);
+    result = ecatGetSlaveInpVarInfoEx(true, slaveAddress, numOfVarsToRead, variables.data(), &wReadEntries);
 
     if (result != EC_E_NOERROR)
     {
@@ -113,7 +113,7 @@ inline uint32_t lookupOutputObjectInfoByIndex(const uint16_t slaveAddress, const
 
     EC_T_WORD wReadEntries;
 
-    EC_T_DWORD result = ecatGetSlaveOutpVarInfoNumOf(EC_TRUE, slaveAddress, &numOfVarsToRead);
+    EC_T_DWORD result = ecatGetSlaveOutpVarInfoNumOf(true, slaveAddress, &numOfVarsToRead);
 
     if (result != EC_E_NOERROR)
     {
@@ -123,7 +123,7 @@ inline uint32_t lookupOutputObjectInfoByIndex(const uint16_t slaveAddress, const
 
     std::vector<EC_T_PROCESS_VAR_INFO_EX> variables(numOfVarsToRead);
 
-    result = ecatGetSlaveOutpVarInfoEx(EC_TRUE, slaveAddress, numOfVarsToRead, variables.data(), &wReadEntries);
+    result = ecatGetSlaveOutpVarInfoEx(true, slaveAddress, numOfVarsToRead, variables.data(), &wReadEntries);
 
     if (result != EC_E_NOERROR)
     {
@@ -250,5 +250,57 @@ void transferOutputPdoObject(ObjectType& object, EC_T_BYTE* pBuffer)
 //transferOutputPdoObject(m_RxPdo.interpolatedDataRecord, pBuffer);
 //transferOutputPdoObject(m_RxPdo.digitalOutputs, pBuffer);
 //transferOutputPdoObject(m_RxPdo.analogValue1, pBuffer);
+
+inline uint32_t lookupSlaveInfoByAddress(const uint32_t& slaveAddress, EC_T_CFG_SLAVE_INFO& slaveInfo)
+{
+	EC_T_DWORD result = ecatGetCfgSlaveInfo(true, slaveAddress, &slaveInfo);
+
+	// check for the slave with the name slaveName
+	if (result != EC_E_NOERROR)
+	{
+		std::cout << "\tEtherCAT Slave at address " << slaveAddress << " Not FOUND " << std::endl;
+		return 1<<10;
+	}
+
+	std::cout << "\tEtherCAT Slave  " << slaveInfo.abyDeviceName << " at address " << slaveAddress << "  FOUND " << std::endl;
+
+	return 0;
+}
+
+inline uint32_t lookupSlaveInfoByName(const std::string& slaveName, EC_T_CFG_SLAVE_INFO& slaveInfo)
+{
+	EC_T_DWORD numSlaves = ecatGetNumConfiguredSlaves();
+
+	bool slaveFound = false;
+
+	for (EC_T_DWORD slaveIndex = 0; slaveIndex < numSlaves; ++slaveIndex)
+	{
+		EC_T_CFG_SLAVE_INFO tempSlaveInfo;
+
+		EC_T_WORD fixedAddr;
+		EC_T_DWORD result = ecatGetSlaveFixedAddr(slaveIndex, &fixedAddr);
+		EC_T_DWORD slaveId = ecatGetSlaveId(fixedAddr);
+
+		result = ecatGetCfgSlaveInfo(true, slaveId, &tempSlaveInfo);
+
+		// check for the slave with the name slaveName
+		if ((result == EC_E_NOERROR) && (slaveName == tempSlaveInfo.abyDeviceName))
+		{
+			slaveInfo = tempSlaveInfo;
+			slaveFound = true;
+			break;
+		}
+	}
+
+	std::cout << "\tEtherCAT Slave  " << slaveName << (slaveFound ? "FOUND" : "NOT FOUND") << std::endl;
+
+	return slaveFound ? 0 : (1<<10);
+}
+
+//void transferOutputPdoSlave(uint8_t& value, EC_T_BYTE* pBuffer, EC_T_CFG_SLAVE_INFO& slaveInfo)
+//{
+//	EC_SETBITS(pBuffer, reinterpret_cast<EC_T_BYTE*>(&value), slaveInfo.dwPdOffsOut, slaveInfo.dwPdSizeOut);
+//}
+
 
 #endif // EC_PDO_ELEMENT_H
