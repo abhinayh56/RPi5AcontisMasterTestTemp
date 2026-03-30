@@ -2,6 +2,7 @@
 
 EcSlaveManager::EcSlaveManager()
 {
+//	m_slaveVector.resize(12);
 }
 
 EcSlaveManager::~EcSlaveManager()
@@ -57,13 +58,13 @@ EC_T_DWORD EcSlaveManager::cyclicTask()
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
     transferTxPdo();
-    dispTxPdo();
+//    dispTxPdo();
     processTxPdo();
     publishData();
     subscribeData();
     mainProcess();
     processRxPdo();
-    dispRxPdo();
+//    dispRxPdo();
     transferRxPdo();
 
     return dwRes;

@@ -46,6 +46,15 @@ static EC_T_DWORD myAppDiagnosis(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppNotify(EC_T_DWORD dwCode, EC_T_NOTIFYPARMS* pParms);
 
 EcSlaveManager ecSlaveManager;
+
+EcSlaveEl1008          ecSlaveEl1008(1002,  "el1008");
+EcSlaveEl2008          ecSlaveEl2008(1003,  "el2008");
+EcSlaveRfidslave    ecSlaveRfidslave(1008,    "rfid");
+EcSlavePitchDrive ecSlavePitchDrive1(1009, "motor_1");
+EcSlavePitchDrive ecSlavePitchDrive2(1010, "motor_2");
+EcSlavePitchDrive ecSlavePitchDrive3(1011, "motor_3");
+EcSlavePitchDrive ecSlavePitchDrive4(1012, "motor_4");
+
 /*-FUNCTION DEFINITIONS------------------------------------------------------*/
 
 /********************************************************************************/
@@ -504,7 +513,7 @@ EC_T_DWORD EcDemoApp(T_EC_DEMO_APP_CONTEXT* pAppContext)
             /* process notification jobs */
             pAppContext->pNotificationHandler->ProcessNotificationJobs();
 
-            ecSlaveManager.cleanupTask();
+//            ecSlaveManager.cleanupTask();
 
             OsSleep(5);
         }
@@ -829,12 +838,15 @@ static EC_T_DWORD myAppInit(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= ecSlaveManager.addSlave(new EcSlavePitchDrive(1009, "motor_1"));
-    dwRes |= ecSlaveManager.addSlave(new EcSlavePitchDrive(1010, "motor_2"));
-    dwRes |= ecSlaveManager.addSlave(new EcSlavePitchDrive(1011, "motor_3"));
-    dwRes |= ecSlaveManager.addSlave(new EcSlavePitchDrive(1012, "motor_4"));
+	dwRes |= ecSlaveManager.addSlave(&ecSlaveEl1008);
+	dwRes |= ecSlaveManager.addSlave(&ecSlaveEl2008);
+	dwRes |= ecSlaveManager.addSlave(&ecSlaveRfidslave);
+    dwRes |= ecSlaveManager.addSlave(&ecSlavePitchDrive1);
+    dwRes |= ecSlaveManager.addSlave(&ecSlavePitchDrive2);
+    dwRes |= ecSlaveManager.addSlave(&ecSlavePitchDrive3);
+    dwRes |= ecSlaveManager.addSlave(&ecSlavePitchDrive4);
 
-    return EC_E_NOERROR;
+    return dwRes;
 }
 
 /***************************************************************************************************/
@@ -850,7 +862,7 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
     dwRes |= ecSlaveManager.configTask();
 
-    return dwRes;
+    return EC_E_NOERROR;
 }
 
 /***************************************************************************************************/
@@ -897,7 +909,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
     dwRes |= ecSlaveManager.cyclicTask();
 
-    return EC_E_NOERROR;
+    return dwRes;
 }
 
 /***************************************************************************************************/
