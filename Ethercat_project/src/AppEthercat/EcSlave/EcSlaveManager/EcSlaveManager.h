@@ -8,7 +8,7 @@
 #include "EcSlaveEl2008.h"
 #include "EcSlaveEl3024.h"
 #include "EcSlaveEl6002.h"
-#include "EcSlaveIoModule.h"
+#include "EcSlaveSscIoModule.h"
 #include "EcSlaveEncbrkctrl.h"
 #include "EcSlaveRfidslave.h"
 #include "EcSlaveDenNetE.h"

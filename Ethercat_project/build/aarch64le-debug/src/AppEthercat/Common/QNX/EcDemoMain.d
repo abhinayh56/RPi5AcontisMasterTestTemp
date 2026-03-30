@@ -32,7 +32,7 @@ build/aarch64le-debug/./src/AppEthercat/Common/QNX/EcDemoMain.o: \
  src/AppEthercat/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
  src/AppEthercat/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
  src/AppEthercat/EcSlave/EcSlaveEl6002/EcSlaveEl6002.h \
- src/AppEthercat/EcSlave/EcSlaveIoModule/EcSlaveIoModule.h \
+ src/AppEthercat/EcSlave/EcSlaveSscIoModule/EcSlaveSscIoModule.h \
  src/AppEthercat/EcSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkctrl.h \
  src/AppEthercat/EcSlave/EcSlaveRfidslave/EcSlaveRfidslave.h \
  src/AppEthercat/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
