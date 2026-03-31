@@ -4,7 +4,7 @@
 #include "EcMaster.h"
 #include <vector>
 #include <string>
-#include "EcPdoElement.h"
+#include "EcPdoVariable.h"
 
 class EcSlaveBase
 {
