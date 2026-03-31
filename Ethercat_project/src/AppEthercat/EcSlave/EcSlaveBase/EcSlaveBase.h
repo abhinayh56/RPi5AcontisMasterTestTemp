@@ -5,6 +5,11 @@
 #include <vector>
 #include <string>
 #include "EcPdoVariable.h"
+#include "EcInputPdoRegister.h"
+#include "EcOutputPdoRegister.h"
+#include "EcInputPdoTransfer.h"
+#include "EcOutputPdoTransfer.h"
+#include "EcSlavePdo.h"
 
 class EcSlaveBase
 {
