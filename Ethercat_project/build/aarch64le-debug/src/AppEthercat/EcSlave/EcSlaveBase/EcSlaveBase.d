@@ -15,4 +15,10 @@ build/aarch64le-debug/./src/AppEthercat/EcSlave/EcSlaveBase/EcSlaveBase.o: \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
- src/AppEthercat/EcSlave/EcSlaveBase/EcPdoElement.h
+ src/AppEthercat/EcSlave/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoRegister.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoRegister.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcSlavePdo.h

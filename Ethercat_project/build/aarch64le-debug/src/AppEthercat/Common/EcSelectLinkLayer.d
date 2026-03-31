@@ -27,7 +27,13 @@ build/aarch64le-debug/./src/AppEthercat/Common/EcSelectLinkLayer.o: \
  src/AppEthercat/Common/EcDemoTimingTask.h \
  src/AppEthercat/EcSlave/EcSlaveManager/EcSlaveManager.h \
  src/AppEthercat/EcSlave/EcSlaveBase/EcSlaveBase.h \
- src/AppEthercat/EcSlave/EcSlaveBase/EcPdoElement.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoRegister.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoRegister.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcSlavePdo.h \
  src/AppEthercat/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
  src/AppEthercat/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
  src/AppEthercat/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
