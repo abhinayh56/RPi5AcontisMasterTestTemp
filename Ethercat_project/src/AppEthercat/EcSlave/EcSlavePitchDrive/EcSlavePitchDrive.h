@@ -8,27 +8,27 @@ namespace EcSlavePitchDriveData
 	#pragma pack(push, 1)
 	struct TxPdo
 	{
-		PdoVariable<0x6064, 0,  int32_t> ACT_POS;
-		PdoVariable<0x6041, 0, uint16_t> STATUS_WD;
-		PdoVariable<0x6077, 0,  int16_t> ACT_TOR;
-		PdoVariable<0x6061, 0,  uint8_t> OPMODE_DISP;
-		PdoVariable<0x603F, 0, uint16_t> ERROR_CODE;
-		PdoVariable<0x3002, 0,  uint8_t> DIG_IN;
-		PdoVariable<0x606C, 0,  int32_t> ACT_VEL;
-		PdoVariable<0x3007, 0, uint16_t> ADC_VAL;
+		PdoVariable<0x6064, 0,  int32_t, 32> ACT_POS;
+		PdoVariable<0x6041, 0, uint16_t, 16> STATUS_WD;
+		PdoVariable<0x6077, 0,  int16_t, 16> ACT_TOR;
+		PdoVariable<0x6061, 0,  uint8_t,  8> OPMODE_DISP;
+		PdoVariable<0x603F, 0, uint16_t, 16> ERROR_CODE;
+		PdoVariable<0x3002, 0,  uint8_t,  8> DIG_IN;
+		PdoVariable<0x606C, 0,  int32_t, 32> ACT_VEL;
+		PdoVariable<0x3007, 0, uint16_t, 16> ADC_VAL;
 	};
 	#pragma pack(pop)
 
 	#pragma pack(push, 1)
 	struct RxPdo
 	{
-		PdoVariable<0x607A, 0,  int32_t> TARGET_POSE;
-		PdoVariable<0x6040, 0, uint16_t> CONTROL_WD;
-		PdoVariable<0x6071, 0,  int16_t> TARGET_TORQ;
-		PdoVariable<0x6060, 0,  uint8_t> OP_MODE;
-		PdoVariable<0x3004, 0, uint16_t> ERROR_CLEAR;
-		PdoVariable<0x3001, 0,  uint8_t> DIG_OUT;
-		PdoVariable<0x60FF, 0,  int32_t> TARGET_VEL;
+		PdoVariable<0x607A, 0,  int32_t, 32> TARGET_POSE;
+		PdoVariable<0x6040, 0, uint16_t, 16> CONTROL_WD;
+		PdoVariable<0x6071, 0,  int16_t, 16> TARGET_TORQ;
+		PdoVariable<0x6060, 0,  uint8_t,  8> OP_MODE;
+		PdoVariable<0x3004, 0, uint16_t, 16> ERROR_CLEAR;
+		PdoVariable<0x3001, 0,  uint8_t,  8> DIG_OUT;
+		PdoVariable<0x60FF, 0,  int32_t, 32> TARGET_VEL;
 	};
 	#pragma pack(pop)
 }

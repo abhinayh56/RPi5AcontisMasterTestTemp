@@ -8,18 +8,18 @@ namespace EcSlaveElmoDriveData
 	#pragma pack(push, 1)
 	struct TxPdo
 	{
-		PdoVariable<0x6064, 0,  int32_t> Position_actual_valuie;
-		PdoVariable<0x60FD, 0,  int32_t> Digital_Inputs;
-		PdoVariable<0x6041, 0, uint16_t> Status_word;
+		PdoVariable<0x6064, 0,  int32_t, 32> Position_actual_valuie;
+		PdoVariable<0x60FD, 0,  int32_t, 32> Digital_Inputs;
+		PdoVariable<0x6041, 0, uint16_t, 16> Status_word;
 	};
 	#pragma pack(pop)
 
 	#pragma pack(push, 1)
 	struct RxPdo
 	{
-        PdoVariable<0x607A, 0,  int32_t> Target_Position;
-		PdoVariable<0x60FE, 0, uint32_t> Digital_Outputs;
-		PdoVariable<0x6040, 0, uint16_t> Control_word;
+        PdoVariable<0x607A, 0,  int32_t, 32> Target_Position;
+		PdoVariable<0x60FE, 0, uint32_t, 32> Digital_Outputs;
+		PdoVariable<0x6040, 0, uint16_t, 16> Control_word;
 	};
 	#pragma pack(pop)
 }
