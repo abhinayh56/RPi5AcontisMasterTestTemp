@@ -62,7 +62,7 @@ inline uint32_t lookupInputObjectInfoByIndex(const uint16_t slaveAddress, const 
 }
 
 template<typename ObjectType>
-uint32_t lookupInputPdoObject(const uint16_t slaveAddress, ObjectType& object)
+inline uint32_t lookupInputPdoObject(const uint16_t slaveAddress, ObjectType& object)
 {
     uint32_t retVal = lookupInputObjectInfoByIndex(slaveAddress, object.objectIndex, object.objectSubIndex, object.variableInfo, object.isSupported);
 

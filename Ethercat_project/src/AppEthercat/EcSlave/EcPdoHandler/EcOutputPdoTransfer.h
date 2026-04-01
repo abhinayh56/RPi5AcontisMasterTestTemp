@@ -6,7 +6,7 @@
 #include <iostream>
 
 template<typename ObjectType>
-void transferOutputPdoObject(ObjectType& object, EC_T_BYTE* pBuffer)
+inline void transferOutputPdoObject(ObjectType& object, EC_T_BYTE* pBuffer)
 {
     if (object.isSupported)
     {
