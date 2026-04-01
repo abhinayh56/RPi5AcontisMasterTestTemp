@@ -10,7 +10,8 @@
 #include "EcInputPdoTransfer.h"
 #include "EcOutputPdoTransfer.h"
 #include "EcAllPdoRegister.h"
-#include "EcAllPdoTransfer.h"
+#include "EcAllInputPdoTransfer.h"
+#include "EcAllOutputPdoTransfer.h"
 
 class EcSlaveBase
 {

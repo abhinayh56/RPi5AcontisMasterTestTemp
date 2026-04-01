@@ -23,4 +23,5 @@ build/aarch64le-debug/./src/AppEthercat/EcSlave/EcSlaveEl6002/EcSlaveEl6002.o: \
  src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoTransfer.h
+ src/AppEthercat/EcSlave/EcPdoHandler/EcAllInputPdoTransfer.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcAllOutputPdoTransfer.h
