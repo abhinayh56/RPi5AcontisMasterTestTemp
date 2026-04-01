@@ -4,16 +4,15 @@
 #include "EcMaster.h"
 #include <iostream>
 
-template<EC_T_WORD ObjectIndex, EC_T_BYTE ObjectSubIndex, typename ValueType> // can include value size in template parameter
+template<EC_T_WORD ObjectIndex, EC_T_BYTE ObjectSubIndex, typename ValueType, EC_T_BYTE DataLength> // can include value size in template parameter
 struct PdoVariable
 {
-    typedef ValueType value_type;
-
     static const EC_T_WORD objectIndex = ObjectIndex;
     static const EC_T_BYTE objectSubIndex = ObjectSubIndex;
+    ValueType value;
+    static const Ec_T_BYTE dataLength = DataLength;
     std::string objectName;
     EC_T_PROCESS_VAR_INFO variableInfo;
-    ValueType value;
     bool isSupported;
 };
 

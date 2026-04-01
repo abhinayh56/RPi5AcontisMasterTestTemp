@@ -12,9 +12,9 @@ inline uint32_t lookupOutputObjectInfoByIndex(const uint16_t slaveAddress, const
     isSupported = false;
 
     std::cout << "-----------\n";
-    std::cout << "Slave ID = " << slaveId << std::endl;
-    std::cout << "Slave address = " << slaveAddress << std::endl;
-    std::cout << "Object Index = " << std::hex << objectIndex << std::endl;
+    std::cout << "Slave ID         = " << slaveId << std::endl;
+    std::cout << "Slave address    = " << slaveAddress << std::endl;
+    std::cout << "Object Index     = " << std::hex << objectIndex << std::endl;
     std::cout << "Object Sub Index = " << std::hex << objectSubIndex << std::endl;
 
     EC_T_WORD numOfVarsToRead;
@@ -25,7 +25,7 @@ inline uint32_t lookupOutputObjectInfoByIndex(const uint16_t slaveAddress, const
 
     if (result != EC_E_NOERROR)
     {
-        std::cout << "Slave not found " << std::endl;
+        std::cout << "\tSlave not found " << std::endl;
         return 1<<10;
     }
 
@@ -35,13 +35,13 @@ inline uint32_t lookupOutputObjectInfoByIndex(const uint16_t slaveAddress, const
 
     if (result != EC_E_NOERROR)
     {
-        std::cout << "ecatGetSlaveOutpVarInfoEx failed: entries read = " << std::dec << wReadEntries << std::endl;
+        std::cout << "\tecatGetSlaveOutpVarInfoEx failed: entries read = " << std::dec << wReadEntries << std::endl;
         return 1<<10;
     }
 
     if (variables.empty() || wReadEntries == 0)
     {
-        std::cout << "ecatGetSlaveOutpVarInfoEx failed: variables are empty " << std::dec << wReadEntries << std::endl;
+        std::cout << "\tecatGetSlaveOutpVarInfoEx failed: variables are empty " << std::dec << wReadEntries << std::endl;
         return 1<<10;
     }
 
@@ -49,14 +49,14 @@ inline uint32_t lookupOutputObjectInfoByIndex(const uint16_t slaveAddress, const
     {
         if ((variables[ii].wIndex == objectIndex) && (variables[ii].wSubIndex == objectSubIndex))
         {
-            std::cout << "\t Match found " << variables[ii].szName << std::endl;
+            std::cout << "\tMatch found " << variables[ii].szName << std::endl;
             ecatFindOutpVarByName(variables[ii].szName, &objectInfo);
             isSupported = true;
             break;
         }
     }
 
-    std::cout << "Output PDO Object Index = " << std::hex << objectIndex << std::dec << (isSupported ? " FOUND" : " NOT FOUND") << std::endl;
+    std::cout << "\tOutput PDO Object Index = " << std::hex << objectIndex << std::dec << ":" << objectSubIndex << " " << (isSupported ? " FOUND" : " NOT FOUND") << std::endl;
 
     return isSupported ? 0 : 1<<10;
 }
@@ -66,31 +66,24 @@ uint32_t lookupOutputPdoObject(const uint16_t slaveAddress, ObjectType& object)
 {
     uint32_t retVal = lookupOutputObjectInfoByIndex(slaveAddress, object.objectIndex, object.objectSubIndex, object.variableInfo, object.isSupported);
 
+    std::cout << "\t---\n";
+
     if (retVal != 0)
     {
         std::cout << "\tlookupInputPdoObject - FAILED : slave = " << slaveAddress << "\n";
-        std::cout << "\tobject index = " << std::hex << std::showbase << object.objectIndex << "\n";
-        std::cout << "\tobject subindex = " << std::hex << std::showbase << static_cast<uint16_t>(object.objectSubIndex) << std::endl;
+        std::cout << "\tobject index                          = " << std::hex << std::showbase << object.objectIndex << "\n";
+        std::cout << "\tobject subindex                       = " << std::hex << std::showbase << static_cast<uint16_t>(object.objectSubIndex) << std::endl;
         return retVal;
     }
 
-    if (static_cast<EC_T_INT>(sizeof(object.value)) * 8 <= object.variableInfo.nBitSize)
+    if ((static_cast<EC_T_INT>(sizeof(object.value)) * 8 <= object.variableInfo.nBitSize) || (static_cast<EC_T_INT>(object.dataLength) == object.variableInfo.nBitSize))
     {
         std::cout << "\tlookupOutputPdoObject succeeded for " << object.variableInfo.szName << "\n";
         return retVal;
     }
-    else // handling fractional bytes (proper handling necessary while writing pdo)
-    {
-        if((object.variableInfo.nBitSize % 8) != 0)
-        {
-            std::cout << "\t size mismatch " << "\tobject name = " << object.variableInfo.szName << "\n" << "\t value size: " << sizeof(object.value) * 8 << ", nBitSize: " << object.variableInfo.nBitSize << " Exception" << std::endl;
-            std::cout << "\tlookupOutputPdoObject succeeded for " << object.variableInfo.szName << "\n";
-            return retVal;
-        }
-    }
 
     object.isSupported = false;
-    std::cout << "\t size mismatch " << "\tobject name = " << object.variableInfo.szName << "\n" << "\t value size: " << sizeof(object.value) * 8 << ", nBitSize: " << object.variableInfo.nBitSize << std::endl;
+    std::cout << "\tsize mismatch " << "\tobject name = " << object.variableInfo.szName << "\n" << "\t value size: " << sizeof(object.value) * 8 << ", nBitSize: " << object.variableInfo.nBitSize << std::endl;
     return 1<<10;
 }
 
