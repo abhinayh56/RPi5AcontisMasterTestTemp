@@ -5,7 +5,7 @@
 #include "EcPdoVariable.h"
 #include <iostream>
 
-static inline void transferAllInputPdoObjectlllll(EC_T_BYTE& txPdoData, EC_T_BYTE* pBuffer, const EC_T_CFG_SLAVE_INFO& slaveInfo)
+static inline void transferAllInputPdoObject(EC_T_BYTE& txPdoData, EC_T_BYTE* pBuffer, const EC_T_CFG_SLAVE_INFO& slaveInfo)
 {
     EC_GETBITS(pBuffer, reinterpret_cast<EC_T_BYTE*>(&txPdoData), slaveInfo.dwPdOffsIn, slaveInfo.dwPdSizeIn);
 }
