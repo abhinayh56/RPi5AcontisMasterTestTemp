@@ -7,11 +7,12 @@
 
 inline uint32_t lookupOutputObjectInfoByIndex(const uint16_t slaveAddress, const uint16_t objectIndex, const uint16_t  objectSubIndex, EC_T_PROCESS_VAR_INFO& objectInfo, bool& isSupported)
 {
+    std::cout << "-----------\n";
+    
     EC_T_DWORD slaveId = ecatGetSlaveId(slaveAddress);
 
     isSupported = false;
 
-    std::cout << "-----------\n";
     std::cout << "Slave ID         = " << slaveId << std::endl;
     std::cout << "Slave address    = " << slaveAddress << std::endl;
     std::cout << "Object Index     = " << std::hex << objectIndex << std::endl;

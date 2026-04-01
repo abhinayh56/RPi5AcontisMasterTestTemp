@@ -1,11 +1,13 @@
-#ifndef EC_SLAVE_PDO_H
-#define EC_SLAVE_PDO_H
+#ifndef EC_ALL_PDO_REGISTER_H
+#define EC_ALL_PDO_REGISTER_H
 
 #include "EcMaster.h"
 #include <iostream>
 
-inline uint32_t lookupSlaveInfoByAddress(const uint32_t& slaveAddress, EC_T_CFG_SLAVE_INFO& slaveInfo)
+inline uint32_t lookupAllPdoObjectByAddress(const uint32_t& slaveAddress, EC_T_CFG_SLAVE_INFO& slaveInfo)
 {
+	std::cout << "-----------\n";
+
 	EC_T_DWORD result = ecatGetCfgSlaveInfo(true, slaveAddress, &slaveInfo);
 
 	// check for the slave with the name slaveName
@@ -20,8 +22,10 @@ inline uint32_t lookupSlaveInfoByAddress(const uint32_t& slaveAddress, EC_T_CFG_
 	return 0;
 }
 
-inline uint32_t lookupSlaveInfoByName(const std::string& slaveName, EC_T_CFG_SLAVE_INFO& slaveInfo)
+inline uint32_t lookupAllPdoObjectByName(const std::string& slaveName, EC_T_CFG_SLAVE_INFO& slaveInfo)
 {
+	std::cout << "-----------\n";
+
 	EC_T_DWORD numSlaves = ecatGetNumConfiguredSlaves();
 
 	bool slaveFound = false;
@@ -50,4 +54,4 @@ inline uint32_t lookupSlaveInfoByName(const std::string& slaveName, EC_T_CFG_SLA
 	return slaveFound ? 0 : (1<<10);
 }
 
-#endif // EC_SLAVE_PDO_H
+#endif // EC_ALL_PDO_REGISTER_H
