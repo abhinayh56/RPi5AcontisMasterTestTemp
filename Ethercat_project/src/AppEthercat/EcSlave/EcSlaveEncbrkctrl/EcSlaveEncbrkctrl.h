@@ -29,27 +29,27 @@ public:
 
 	~EcSlaveEncbrkctrl();
 
-	virtual EC_T_DWORD registerTxPdo();
+	virtual EC_T_DWORD registerTxPdo() override;
 
-	virtual EC_T_DWORD registerRxPdo();
+	virtual EC_T_DWORD registerRxPdo() override;
 
-	virtual EC_T_DWORD transferTxPdo();
+	virtual EC_T_DWORD transferTxPdo() override;
 
-	virtual EC_T_DWORD transferRxPdo();
+	virtual EC_T_DWORD transferRxPdo() override;
 
-	virtual EC_T_DWORD processTxPdo();
+	virtual EC_T_DWORD processTxPdo() override;
 
-	virtual EC_T_DWORD processRxPdo();
+	virtual EC_T_DWORD processRxPdo() override;
 
-	virtual EC_T_DWORD publishData();
+	virtual EC_T_DWORD publishData() override;
 
-	virtual EC_T_DWORD subscribeData();
+	virtual EC_T_DWORD subscribeData() override;
 
-	virtual EC_T_DWORD mainProcess();
+	virtual EC_T_DWORD mainProcess() override;
 
-	virtual void dispTxPdo();
+	virtual void dispTxPdo() override;
 
-	virtual void dispRxPdo();
+	virtual void dispRxPdo() override;
 
 protected:
 	EcSlaveEncbrkctrlData::TxPdo m_txPdo;
