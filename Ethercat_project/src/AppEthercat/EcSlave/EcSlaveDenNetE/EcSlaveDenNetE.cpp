@@ -117,7 +117,7 @@ void EcSlaveDenNetE::dispTxPdo()
 	"Status_Word: " << m_txPdo.Status_Word.value << ", "
 	"Actual_position: " << m_txPdo.Actual_position.value << ", "
 	"Actual_velocity: " << m_txPdo.Actual_velocity.value << ", "
-	"Operation_mode_display: " << m_txPdo.Operation_mode_display.value << ", "
+	"Operation_mode_display: " << (uint16_t)m_txPdo.Operation_mode_display.value << ", "
 	"Torque_actual_value: " << m_txPdo.Torque_actual_value.value << ", "
 	"Last_error: " << m_txPdo.Last_error.value << ", "
 	"Anlog_input_1_Counts: " << m_txPdo.Anlog_input_1_Counts.value << ", "
@@ -133,7 +133,7 @@ void EcSlaveDenNetE::dispRxPdo()
 	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"Control_Word: " << m_rxPdo.Control_Word.value << ", "
 	"Position_set_point: " << m_rxPdo.Position_set_point.value << ", "
-	"Operation_mode: " << m_rxPdo.Operation_mode.value << ", "
+	"Operation_mode: " << (uint16_t)m_rxPdo.Operation_mode.value << ", "
 	"Target_torque: " << m_rxPdo.Target_torque.value << ", "
 	"Digital_outputs_set_value: " << m_rxPdo.Digital_outputs_set_value.value << ", "
 	"Analog_output_1_Value: " << m_rxPdo.Analog_output_1_Value.value

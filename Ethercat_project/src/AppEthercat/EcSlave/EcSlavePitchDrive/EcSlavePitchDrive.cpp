@@ -117,9 +117,9 @@ void EcSlavePitchDrive::dispTxPdo()
 	"ACT_POS: " << m_txPdo.ACT_POS.value << ", "
 	"STATUS_WD: " << m_txPdo.STATUS_WD.value << ", "
 	"ACT_TOR: " << m_txPdo.ACT_TOR.value << ", "
-	"OPMODE_DISP: " << m_txPdo.OPMODE_DISP.value << ", "
+	"OPMODE_DISP: " << (uint16_t)m_txPdo.OPMODE_DISP.value << ", "
 	"ERROR_CODE: " << m_txPdo.ERROR_CODE.value << ", "
-	"DIG_IN: " << m_txPdo.DIG_IN.value << ", "
+	"DIG_IN: " << (uint16_t)m_txPdo.DIG_IN.value << ", "
 	"ACT_VEL: " << m_txPdo.ACT_VEL.value << ", "
 	"ADC_VAL: " << m_txPdo.ADC_VAL.value
 	<< std::endl;
@@ -133,9 +133,9 @@ void EcSlavePitchDrive::dispRxPdo()
 	"TARGET_POSE: " << m_rxPdo.TARGET_POSE.value << ", "
 	"CONTROL_WD: " << m_rxPdo.CONTROL_WD.value << ", "
 	"TARGET_TORQ: " << m_rxPdo.TARGET_TORQ.value << ", "
-	"OP_MODE: " << m_rxPdo.OP_MODE.value << ", "
+	"OP_MODE: " << (uint16_t)m_rxPdo.OP_MODE.value << ", "
 	"ERROR_CLEAR: " << m_rxPdo.ERROR_CLEAR.value << ", "
-	"DIG_OUT: " << m_rxPdo.DIG_OUT.value << ", "
+	"DIG_OUT: " << (uint16_t)m_rxPdo.DIG_OUT.value << ", "
 	"TARGET_VEL: " << m_rxPdo.TARGET_VEL.value
 	<< std::endl;
 }

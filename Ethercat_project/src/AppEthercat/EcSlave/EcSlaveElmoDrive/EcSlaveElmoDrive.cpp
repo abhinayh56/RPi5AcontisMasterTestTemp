@@ -111,7 +111,7 @@ void EcSlaveElmoDrive::dispTxPdo()
 	"SLAVE_ADDR: " << m_slaveAddr << " | " <<
 	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"Status_word: " << m_txPdo.Status_word.value << ", "
-	"Mode_of_operation_display: " << m_txPdo.Mode_of_operation_display.value << ", "
+	"Mode_of_operation_display: " << (uint16_t)m_txPdo.Mode_of_operation_display.value << ", "
 	"Position_actual_value: " << m_txPdo.Position_actual_value.value << ", "
 	"Velocity_actual_value: " << m_txPdo.Velocity_actual_value.value << ", "
 	"Torque_actual_value: " << m_txPdo.Torque_actual_value.value << ", "
@@ -126,7 +126,7 @@ void EcSlaveElmoDrive::dispRxPdo()
 	"SLAVE_ADDR: " << m_slaveAddr << " | " <<
 	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"Control_word: " << m_rxPdo.Control_word.value << ", "
-	"Mode_of_operation: " << m_rxPdo.Mode_of_operation.value << ", "
+	"Mode_of_operation: " << (uint16_t)m_rxPdo.Mode_of_operation.value << ", "
 	"Target_Torque: " << m_rxPdo.Target_Torque.value << ", "
 	"Target_Position: " << m_rxPdo.Target_Position.value << ", "
 	"Velocity_Offset: " << m_rxPdo.Velocity_Offset.value << ", "
