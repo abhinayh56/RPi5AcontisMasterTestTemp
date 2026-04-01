@@ -8,14 +8,14 @@ namespace EcSlaveEl1008Data
 	#pragma pack(push, 1)
 	struct TxPdo
 	{
-		PdoVariable<0x6000, 1, bool> Channel_1;
-		PdoVariable<0x6010, 1, bool> Channel_2;
-		PdoVariable<0x6020, 1, bool> Channel_3;
-		PdoVariable<0x6030, 1, bool> Channel_4;
-		PdoVariable<0x6040, 1, bool> Channel_5;
-		PdoVariable<0x6050, 1, bool> Channel_6;
-		PdoVariable<0x6060, 1, bool> Channel_7;
-		PdoVariable<0x6070, 1, bool> Channel_8;
+		PdoVariable<0x6000, 1, bool, 1> Channel_1;
+		PdoVariable<0x6010, 1, bool, 1> Channel_2;
+		PdoVariable<0x6020, 1, bool, 1> Channel_3;
+		PdoVariable<0x6030, 1, bool, 1> Channel_4;
+		PdoVariable<0x6040, 1, bool, 1> Channel_5;
+		PdoVariable<0x6050, 1, bool, 1> Channel_6;
+		PdoVariable<0x6060, 1, bool, 1> Channel_7;
+		PdoVariable<0x6070, 1, bool, 1> Channel_8;
 	};
 	#pragma pack(pop)
 }

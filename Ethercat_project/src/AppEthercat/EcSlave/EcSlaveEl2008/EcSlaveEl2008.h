@@ -8,14 +8,14 @@ namespace EcSlaveEl2008Data
 	#pragma pack(push, 1)
 	struct RxPdo
 	{
-        PdoVariable<0x7000, 1, bool> Channel_1;
-        PdoVariable<0x7010, 1, bool> Channel_2;
-        PdoVariable<0x7020, 1, bool> Channel_3;
-        PdoVariable<0x7030, 1, bool> Channel_4;
-        PdoVariable<0x7040, 1, bool> Channel_5;
-        PdoVariable<0x7050, 1, bool> Channel_6;
-        PdoVariable<0x7060, 1, bool> Channel_7;
-        PdoVariable<0x7070, 1, bool> Channel_8;
+        PdoVariable<0x7000, 1, bool, 1> Channel_1;
+        PdoVariable<0x7010, 1, bool, 1> Channel_2;
+        PdoVariable<0x7020, 1, bool, 1> Channel_3;
+        PdoVariable<0x7030, 1, bool, 1> Channel_4;
+        PdoVariable<0x7040, 1, bool, 1> Channel_5;
+        PdoVariable<0x7050, 1, bool, 1> Channel_6;
+        PdoVariable<0x7060, 1, bool, 1> Channel_7;
+        PdoVariable<0x7070, 1, bool, 1> Channel_8;
 	};
 	#pragma pack(pop)
 }
