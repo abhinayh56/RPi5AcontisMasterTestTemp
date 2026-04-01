@@ -8,18 +8,25 @@ namespace EcSlaveElmoDriveData
 	#pragma pack(push, 1)
 	struct TxPdo
 	{
-		PdoVariable<0x6064, 0,  int32_t, 32> Position_actual_valuie;
-		PdoVariable<0x60FD, 0,  int32_t, 32> Digital_Inputs;
 		PdoVariable<0x6041, 0, uint16_t, 16> Status_word;
+		PdoVariable<0x6061, 0,   int8_t,  8> Mode_of_operation_display;
+		PdoVariable<0x6064, 0,  int32_t, 32> Position_actual_value;
+		PdoVariable<0x606C, 0,  int32_t, 32> Velocity_actual_value;
+		PdoVariable<0x6077, 0,  int16_t, 16> Torque_actual_value;
+		PdoVariable<0x60FD, 0,  int32_t, 32> Digital_Inputs;
+		PdoVariable<0x6078, 0,  int16_t, 16> Current_actual_value;
 	};
 	#pragma pack(pop)
 
 	#pragma pack(push, 1)
 	struct RxPdo
 	{
-        PdoVariable<0x607A, 0,  int32_t, 32> Target_Position;
-		PdoVariable<0x60FE, 0, uint32_t, 32> Digital_Outputs;
-		PdoVariable<0x6040, 0, uint16_t, 16> Control_word;
+        PdoVariable<0x 6040, 0, uint16_t, 16> Control_word;
+		PdoVariable<0x 6060, 0,   int8_t,  8> Mode_of_operation;
+		PdoVariable<0x 6071, 0,  int16_t, 16> Target_Torque;
+		PdoVariable<0x 607A, 0,  int32_t, 32> Target_Position;
+		PdoVariable<0x 60B1, 0,  int32_t, 32> Velocity_Offset;
+		PdoVariable<0x 60FE, 1, uint32_t, 32> Digital_Outputs;
 	};
 	#pragma pack(pop)
 }
