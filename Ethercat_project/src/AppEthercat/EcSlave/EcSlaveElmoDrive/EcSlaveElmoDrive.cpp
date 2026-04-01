@@ -110,13 +110,13 @@ void EcSlaveElmoDrive::dispTxPdo()
 	std::cout <<
 	"SLAVE_ADDR: " << m_slaveAddr << " | " <<
 	"SLAVE_NAME: " << m_slaveName << " | " <<
-	"Digital_Inputs: " << m_txPdo.Status_word.value << ", "
-	"Digital_Inputs: " << m_txPdo.Mode_of_operation_display.value << ", "
-	"Digital_Inputs: " << m_txPdo.Position_actual_value.value << ", "
-	"Digital_Inputs: " << m_txPdo.Velocity_actual_value.value << ", "
-	"Digital_Inputs: " << m_txPdo.Torque_actual_value.value << ", "
+	"Status_word: " << m_txPdo.Status_word.value << ", "
+	"Mode_of_operation_display: " << m_txPdo.Mode_of_operation_display.value << ", "
+	"Position_actual_value: " << m_txPdo.Position_actual_value.value << ", "
+	"Velocity_actual_value: " << m_txPdo.Velocity_actual_value.value << ", "
+	"Torque_actual_value: " << m_txPdo.Torque_actual_value.value << ", "
 	"Digital_Inputs: " << m_txPdo.Digital_Inputs.value << ", "
-	"Status_word: " << m_txPdo.Current_actual_value.value
+	"Current_actual_value: " << m_txPdo.Current_actual_value.value
 	<< std::endl;
 }
 
@@ -125,11 +125,11 @@ void EcSlaveElmoDrive::dispRxPdo()
 	std::cout <<
 	"SLAVE_ADDR: " << m_slaveAddr << " | " <<
 	"SLAVE_NAME: " << m_slaveName << " | " <<
-	"Target_Position: " << m_rxPdo.Control_word.value << ", "
-	"Target_Position: " << m_rxPdo.Mode_of_operation.value << ", "
-	"Target_Position: " << m_rxPdo.Target_Torque.value << ", "
+	"Control_word: " << m_rxPdo.Control_word.value << ", "
+	"Mode_of_operation: " << m_rxPdo.Mode_of_operation.value << ", "
+	"Target_Torque: " << m_rxPdo.Target_Torque.value << ", "
 	"Target_Position: " << m_rxPdo.Target_Position.value << ", "
-	"Target_Position: " << m_rxPdo.Velocity_Offset.value << ", "
-	"Control_word: " << m_rxPdo.Digital_Outputs.value
+	"Velocity_Offset: " << m_rxPdo.Velocity_Offset.value << ", "
+	"Digital_Outputs: " << m_rxPdo.Digital_Outputs.value
 	<< std::endl;
 }
