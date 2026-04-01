@@ -51,7 +51,7 @@ public:
 
 protected:
 	EcSlaveEl2008Data::RxPdo m_rxPdo;
-//	uint8_t m_rxPdo = 0;
+	uint8_t m_rxPdoValue = 0;
 
 	uint64_t time_now_ms = 0;
 };
