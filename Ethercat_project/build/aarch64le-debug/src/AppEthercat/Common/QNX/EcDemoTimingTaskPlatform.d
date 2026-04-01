@@ -34,8 +34,7 @@ build/aarch64le-debug/./src/AppEthercat/Common/QNX/EcDemoTimingTaskPlatform.o: \
  src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcAllInputPdoTransfer.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcAllOutputPdoTransfer.h \
+ src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
  src/AppEthercat/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
  src/AppEthercat/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
  src/AppEthercat/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
