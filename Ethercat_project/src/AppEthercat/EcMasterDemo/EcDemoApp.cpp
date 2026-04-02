@@ -515,7 +515,7 @@ EC_T_DWORD EcDemoApp(T_EC_DEMO_APP_CONTEXT* pAppContext)
             /* process notification jobs */
             pAppContext->pNotificationHandler->ProcessNotificationJobs();
 
-            ecSlaveManager.cleanupTask();
+            // ecSlaveManager.cleanupTask();
 
             OsSleep(5);
         }
