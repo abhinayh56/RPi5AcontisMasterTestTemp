@@ -22,12 +22,16 @@ EC_T_DWORD EcSlaveManager::addSlave(EcSlaveBase* pSlave)
 
 EC_T_DWORD EcSlaveManager::cleanupTask()
 {
+	std::cout << "Cleanup slaves from memory start\n";
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
     for(int i = 0; i < m_numSlaves; i++)
     {
+    	std::cout << "Cleanup slave " << i + 1 << " from memory\n";
         delete m_slaveVector[i];
     }
+
+    std::cout << "Cleanup slaves from memory complete\n";
 
     return dwRes;
 }
