@@ -19,6 +19,8 @@ public:
 
 	virtual ~EcSlaveBase();
 
+	virtual EC_T_DWORD checkSlave();
+
 	virtual EC_T_DWORD registerTxPdo();
 
 	virtual EC_T_DWORD registerRxPdo();

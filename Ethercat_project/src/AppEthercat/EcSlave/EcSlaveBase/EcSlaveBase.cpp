@@ -8,6 +8,22 @@ EcSlaveBase::~EcSlaveBase()
 {
 }
 
+EC_T_DWORD EcSlaveBase::checkSlave()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	dwRes |= ecatGetCfgSlaveInfo(true, m_slaveAddr, &m_slaveInfo);
+	if (dwRes != EC_E_NOERROR)
+	{
+		std::cout << "EtherCAT Slave at address " << m_slaveAddr << " Not FOUND " << std::endl;
+		return 1<<10;
+	}
+
+	std::cout << "EtherCAT Slave  " << m_slaveInfo.abyDeviceName << " at address " << m_slaveAddr << "  FOUND " << std::endl;
+
+	return 0;
+}
+
 EC_T_DWORD EcSlaveBase::registerTxPdo()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
