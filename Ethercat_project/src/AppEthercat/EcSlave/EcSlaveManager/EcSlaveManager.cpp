@@ -15,6 +15,7 @@ EC_T_DWORD EcSlaveManager::addSlave(EcSlaveBase* pSlave)
 
     m_slaveVector.push_back(pSlave);
     m_numSlaves = m_slaveVector.size();
+    std::cout << "m_slaveVector.size(): " << m_slaveVector.size() << std::endl;
 
     return dwRes;
 }

@@ -47,13 +47,15 @@ static EC_T_DWORD myAppNotify(EC_T_DWORD dwCode, EC_T_NOTIFYPARMS* pParms);
 
 EcSlaveManager ecSlaveManager;
 
-EcSlaveEl1008          ecSlaveEl1008(1002,  "el1008");
-EcSlaveEl2008          ecSlaveEl2008(1003,  "el2008");
-EcSlaveRfidslave    ecSlaveRfidslave(1008,    "rfid");
-EcSlavePitchDrive ecSlavePitchDrive1(1009, "motor_1");
-EcSlavePitchDrive ecSlavePitchDrive2(1010, "motor_2");
-EcSlavePitchDrive ecSlavePitchDrive3(1011, "motor_3");
-EcSlavePitchDrive ecSlavePitchDrive4(1012, "motor_4");
+EcSlaveEl1008            ecSlaveEl1008(1002,    "el1008");
+EcSlaveEl2008            ecSlaveEl2008(1003,    "el2008");
+EcSlaveSscIoModule  ecSlaveSscIoModule(1008, "io_module");
+EcSlaveRfidslave      ecSlaveRfidslave(1009,      "rfid");
+EcSlavePitchDrive   ecSlavePitchDrive1(1010,   "motor_1");
+EcSlavePitchDrive   ecSlavePitchDrive2(1011,   "motor_2");
+EcSlavePitchDrive   ecSlavePitchDrive3(1012,   "motor_3");
+EcSlavePitchDrive   ecSlavePitchDrive4(1013,   "motor_4");
+EcSlaveEl6002            ecSlaveEl6002(1014,    "serial");
 
 /*-FUNCTION DEFINITIONS------------------------------------------------------*/
 
@@ -840,11 +842,13 @@ static EC_T_DWORD myAppInit(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
 	dwRes |= ecSlaveManager.addSlave(&ecSlaveEl1008);
 	dwRes |= ecSlaveManager.addSlave(&ecSlaveEl2008);
+	dwRes |= ecSlaveManager.addSlave(&ecSlaveSscIoModule);
 	dwRes |= ecSlaveManager.addSlave(&ecSlaveRfidslave);
     dwRes |= ecSlaveManager.addSlave(&ecSlavePitchDrive1);
     dwRes |= ecSlaveManager.addSlave(&ecSlavePitchDrive2);
     dwRes |= ecSlaveManager.addSlave(&ecSlavePitchDrive3);
     dwRes |= ecSlaveManager.addSlave(&ecSlavePitchDrive4);
+    dwRes |= ecSlaveManager.addSlave(&ecSlaveEl6002);
 
     return dwRes;
 }

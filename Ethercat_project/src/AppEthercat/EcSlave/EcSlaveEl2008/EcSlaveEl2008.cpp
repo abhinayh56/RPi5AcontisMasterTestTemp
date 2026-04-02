@@ -94,7 +94,7 @@ EC_T_DWORD EcSlaveEl2008::mainProcess()
 
 	time_now_ms += 4;
 
-	uint64_t time_now_s = uint64_t(double(time_now_ms) / 1000.0);
+	uint64_t time_now_s = uint64_t(double(time_now_ms) / 250.0);
 
 	uint8_t count_now = time_now_s % 9;
 
