@@ -83,6 +83,15 @@ EC_T_DWORD EcSlaveEl1008::registerPublisher()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	m_InputCh_1.publish();
+	m_InputCh_2.publish();
+	m_InputCh_3.publish();
+	m_InputCh_4.publish();
+	m_InputCh_5.publish();
+	m_InputCh_6.publish();
+	m_InputCh_7.publish();
+	m_InputCh_8.publish();
+
 	return dwRes;
 }
 
@@ -96,6 +105,15 @@ EC_T_DWORD EcSlaveEl1008::registerSubscriber()
 EC_T_DWORD EcSlaveEl1008::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	m_InputCh_1.set(m_txPdo.Channel_1.value);
+	m_InputCh_2.set(m_txPdo.Channel_2.value);
+	m_InputCh_3.set(m_txPdo.Channel_3.value);
+	m_InputCh_4.set(m_txPdo.Channel_4.value);
+	m_InputCh_5.set(m_txPdo.Channel_5.value);
+	m_InputCh_6.set(m_txPdo.Channel_6.value);
+	m_InputCh_7.set(m_txPdo.Channel_7.value);
+	m_InputCh_8.set(m_txPdo.Channel_8.value);
 
 	return dwRes;
 }

@@ -69,6 +69,24 @@ public:
 protected:
 	EcSlavePitchDriveData::TxPdo m_txPdo;
 	EcSlavePitchDriveData::RxPdo m_rxPdo;
+
+	Data_store_element<bool> m_InputCh_1;
+	Data_store_element<bool> m_InputCh_2;
+	Data_store_element<bool> m_InputCh_3;
+	Data_store_element<bool> m_InputCh_4;
+	Data_store_element<bool> m_InputCh_5;
+	Data_store_element<bool> m_InputCh_6;
+	Data_store_element<bool> m_InputCh_7;
+	Data_store_element<bool> m_InputCh_8;
+
+	bool m_InputCh_1_value = false;
+	bool m_InputCh_2_value = false;
+	bool m_InputCh_3_value = false;
+	bool m_InputCh_4_value = false;
+	bool m_InputCh_5_value = false;
+	bool m_InputCh_6_value = false;
+	bool m_InputCh_7_value = false;
+	bool m_InputCh_8_value = false;
 };
 
 #endif // EC_SLAVE_PITCH_DRIVE_H

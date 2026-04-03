@@ -1,6 +1,15 @@
 #include "EcSlavePitchDrive.h"
 
-EcSlavePitchDrive::EcSlavePitchDrive(uint16_t slaveAddr, const std::string &slaveName) : EcSlaveBase(slaveAddr, slaveName)
+EcSlavePitchDrive::EcSlavePitchDrive(uint16_t slaveAddr, const std::string &slaveName) :
+	EcSlaveBase(slaveAddr, slaveName),
+	m_InputCh_1("DIGITAL_INPUT_CH_1","ethercat/el1008", false, true),
+	m_InputCh_2("DIGITAL_INPUT_CH_2","ethercat/el1008", false, true),
+	m_InputCh_3("DIGITAL_INPUT_CH_3","ethercat/el1008", false, true),
+	m_InputCh_4("DIGITAL_INPUT_CH_4","ethercat/el1008", false, true),
+	m_InputCh_5("DIGITAL_INPUT_CH_5","ethercat/el1008", false, true),
+	m_InputCh_6("DIGITAL_INPUT_CH_6","ethercat/el1008", false, true),
+	m_InputCh_7("DIGITAL_INPUT_CH_7","ethercat/el1008", false, true),
+	m_InputCh_8("DIGITAL_INPUT_CH_8","ethercat/el1008", false, true)
 {
 }
 
@@ -99,6 +108,15 @@ EC_T_DWORD EcSlavePitchDrive::registerSubscriber()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	m_InputCh_1.subscribe();
+	m_InputCh_2.subscribe();
+	m_InputCh_3.subscribe();
+	m_InputCh_4.subscribe();
+	m_InputCh_5.subscribe();
+	m_InputCh_6.subscribe();
+	m_InputCh_7.subscribe();
+	m_InputCh_8.subscribe();
+
 	return dwRes;
 }
 
@@ -113,12 +131,30 @@ EC_T_DWORD EcSlavePitchDrive::subscribeData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	m_InputCh_1.get(m_InputCh_1_value);
+	m_InputCh_2.get(m_InputCh_2_value);
+	m_InputCh_3.get(m_InputCh_3_value);
+	m_InputCh_4.get(m_InputCh_4_value);
+	m_InputCh_5.get(m_InputCh_5_value);
+	m_InputCh_6.get(m_InputCh_6_value);
+	m_InputCh_7.get(m_InputCh_7_value);
+	m_InputCh_8.get(m_InputCh_8_value);
+
 	return dwRes;
 }
 
 EC_T_DWORD EcSlavePitchDrive::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	if(m_InputCh_1_value == true) {m_rxPdo.OP_MODE.value = 8;}
+	if(m_InputCh_2_value == true) {m_rxPdo.CONTROL_WD.value = 6;}
+	if(m_InputCh_3_value == true) {m_rxPdo.CONTROL_WD.value = 7;}
+	if(m_InputCh_4_value == true) {m_rxPdo.CONTROL_WD.value = 15;}
+	if(m_InputCh_5_value == true) {m_rxPdo.TARGET_POSE.value = 0;}
+	if(m_InputCh_6_value == true) {m_rxPdo.TARGET_POSE.value = 8192;}
+	if(m_InputCh_7_value == true) {m_rxPdo.CONTROL_WD.value = 128; m_rxPdo.OP_MODE.value = 0;}
+	if(m_InputCh_8_value == true) {m_rxPdo.CONTROL_WD.value = 0; m_rxPdo.OP_MODE.value = 0;}
 
 	return dwRes;
 }
