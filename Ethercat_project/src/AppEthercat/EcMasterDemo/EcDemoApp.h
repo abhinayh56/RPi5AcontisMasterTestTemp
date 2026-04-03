@@ -26,7 +26,7 @@
 #include "EcSlaveInfo.h"
 #include "EcDemoTimingTaskPlatform.h"
 #include <iostream>
-#include "EcSlaveManager.h"
+#include "EcTaskManager.h"
 
 /*-DEFINES-------------------------------------------------------------------*/
 #define EC_DEMO_APP_NAME (EC_T_CHAR*)"EcMasterDemo"

@@ -1,0 +1,267 @@
+#include "EcTaskManager.h"
+
+EcTaskManager::EcTaskManager()
+{
+//	m_slaveVector.resize(12);
+}
+
+EcTaskManager::~EcTaskManager()
+{
+}
+
+EC_T_DWORD EcTaskManager::addSlave(EcSlaveBase* pSlave)
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    m_slaveVector.push_back(pSlave);
+    m_numSlaves = m_slaveVector.size();
+    std::cout << "m_slaveVector.size(): " << m_slaveVector.size() << std::endl;
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::cleanupTask()
+{
+	std::cout << "Cleanup slaves from memory start\n";
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+    	std::cout << "Cleanup slave " << i + 1 << " from memory\n";
+        delete m_slaveVector[i];
+    }
+
+    std::cout << "Cleanup slaves from memory complete\n";
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::configTask()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    dwRes |= checkSlave();
+    dwRes |= registerPdo();
+    dwRes |= registerPublisher();
+    dwRes |= registerSubscriber();
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::cyclicTask()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    transferTxPdo();
+//    dispTxPdo();
+    processTxPdo();
+    publishData();
+    subscribeData();
+    mainProcess();
+    processRxPdo();
+//    dispRxPdo();
+    transferRxPdo();
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::checkSlave()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        std::cout << "Checking slave presence at " << m_slaveVector[i]->getAddress() << ", " <<m_slaveVector[i]->getName() << std::endl;
+        dwRes |= m_slaveVector[i]->checkSlave();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::registerPdo()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+    	std::cout << "Registering TxPdo for " << m_slaveVector[i]->getAddress() << ", " <<m_slaveVector[i]->getName() << std::endl;
+        dwRes |= m_slaveVector[i]->registerTxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+
+        std::cout << "Registering RxPdo for " << m_slaveVector[i]->getAddress() << ", " <<m_slaveVector[i]->getName() << std::endl;
+        dwRes |= m_slaveVector[i]->registerRxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::transferTxPdo()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->transferTxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::transferRxPdo()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->transferRxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::processTxPdo()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->processTxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::processRxPdo()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->processRxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::registerPublisher()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->registerPublisher();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::registerSubscriber()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->registerSubscriber();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::publishData()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->publishData();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::subscribeData()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->subscribeData();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskManager::mainProcess()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->mainProcess();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+void EcTaskManager::dispTxPdo()
+{
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        m_slaveVector[i]->dispTxPdo();
+    }
+}
+
+void EcTaskManager::dispRxPdo()
+{
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        m_slaveVector[i]->dispRxPdo();
+    }
+}

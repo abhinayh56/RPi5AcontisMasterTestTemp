@@ -25,7 +25,7 @@ build/aarch64le-debug/./src/AppEthercat/Common/EcLogging.o: \
  src/AppEthercat/Common/EcSlaveInfo.h \
  src/AppEthercat/Common/QNX/EcDemoTimingTaskPlatform.h \
  src/AppEthercat/Common/EcDemoTimingTask.h \
- src/AppEthercat/EcSlave/EcSlaveManager/EcSlaveManager.h \
+ src/AppMain/EcTaskManager/EcTaskManager.h \
  src/AppEthercat/EcSlave/EcSlaveBase/EcSlaveBase.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcPdoVariable.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoRegister.h \
