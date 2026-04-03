@@ -20,9 +20,11 @@ LD = $(CXX)
 
 #INCLUDES += -I/path/to/my/lib/include
 #INCLUDES += -I../mylib/public
+DIR_EXTERNAL = ./external
 DIR_EC_SDK = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
 DIR_APP_ETHERCAT = ./src/AppEthercat
 #DIR_APP_ETHERCAT = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/Examples
+DIR_ITC = ./external/ITC
 DIR_EIGEN = ./external/eigen-5.0.0
 
 # External EtherCAT
@@ -36,6 +38,9 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/Common/QNX
 
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcMasterDemo
 
+INCLUDES += -I$(DIR_ITC)
+INCLUDES += -I$(DIR_ITC)/Data_store
+INCLUDES += -I$(DIR_ITC)/Data_store_element
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcPdoHandler
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveBase
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcCia402

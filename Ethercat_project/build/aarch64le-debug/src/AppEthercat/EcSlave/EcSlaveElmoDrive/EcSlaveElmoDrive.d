@@ -23,4 +23,6 @@ build/aarch64le-debug/./src/AppEthercat/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDriv
  src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoTransfer.h
+ src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
+ external/ITC/ITC.h external/ITC/Data_store_element.h \
+ external/ITC/Data_store.h

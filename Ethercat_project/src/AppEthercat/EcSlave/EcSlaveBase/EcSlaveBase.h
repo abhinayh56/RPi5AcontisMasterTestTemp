@@ -11,6 +11,7 @@
 #include "EcOutputPdoTransfer.h"
 #include "EcAllPdoRegister.h"
 #include "EcAllPdoTransfer.h"
+#include "ITC.h"
 
 class EcSlaveBase
 {

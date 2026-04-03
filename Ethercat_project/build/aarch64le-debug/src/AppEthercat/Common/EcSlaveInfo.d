@@ -35,6 +35,8 @@ build/aarch64le-debug/./src/AppEthercat/Common/EcSlaveInfo.o: \
  src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
+ external/ITC/ITC.h external/ITC/Data_store_element.h \
+ external/ITC/Data_store.h \
  src/AppEthercat/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
  src/AppEthercat/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
  src/AppEthercat/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \

@@ -1,2 +1,0 @@
-# IPC
-Inter process communication
