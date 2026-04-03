@@ -77,6 +77,10 @@ public:
 
 	virtual EC_T_DWORD processRxPdo() override;
 
+	virtual EC_T_DWORD registerPublisher() override;
+
+	virtual EC_T_DWORD registerSubscriber() override;
+
 	virtual EC_T_DWORD publishData() override;
 
 	virtual EC_T_DWORD subscribeData() override;

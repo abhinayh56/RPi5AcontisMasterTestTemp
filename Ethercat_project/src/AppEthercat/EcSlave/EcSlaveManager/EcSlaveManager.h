@@ -43,6 +43,10 @@ private:
 
     EC_T_DWORD processRxPdo();
 
+    EC_T_DWORD registerPublisher();
+
+    EC_T_DWORD registerSubscriber();
+
     EC_T_DWORD publishData();
 
     EC_T_DWORD subscribeData();

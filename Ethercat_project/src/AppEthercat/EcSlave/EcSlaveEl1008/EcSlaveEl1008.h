@@ -39,6 +39,10 @@ public:
 
 	virtual EC_T_DWORD processRxPdo() override;
 
+	virtual EC_T_DWORD registerPublisher() override;
+
+	virtual EC_T_DWORD registerSubscriber() override;
+
 	virtual EC_T_DWORD publishData() override;
 
 	virtual EC_T_DWORD subscribeData() override;
@@ -51,6 +55,16 @@ public:
 
 protected:
 	EcSlaveEl1008Data::TxPdo m_txPdo;
+
+private:
+	Data_store_element<bool> m_InputCh_1;
+	Data_store_element<bool> m_InputCh_2;
+	Data_store_element<bool> m_InputCh_3;
+	Data_store_element<bool> m_InputCh_4;
+	Data_store_element<bool> m_InputCh_5;
+	Data_store_element<bool> m_InputCh_6;
+	Data_store_element<bool> m_InputCh_7;
+	Data_store_element<bool> m_InputCh_8;
 };
 
 #endif // EC_SLAVE_EL1008_H

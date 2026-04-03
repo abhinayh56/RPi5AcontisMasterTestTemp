@@ -102,6 +102,20 @@ EC_T_DWORD EcSlaveSscIoModule::processRxPdo()
 	return dwRes;
 }
 
+EC_T_DWORD EcSlaveSscIoModule::registerPublisher()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlaveSscIoModule::registerSubscriber()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
 EC_T_DWORD EcSlaveSscIoModule::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;

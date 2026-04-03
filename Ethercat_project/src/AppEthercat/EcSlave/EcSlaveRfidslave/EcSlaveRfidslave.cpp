@@ -138,6 +138,20 @@ EC_T_DWORD EcSlaveRfidslave::processRxPdo()
 	return dwRes;
 }
 
+EC_T_DWORD EcSlaveRfidslave::registerPublisher()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlaveRfidslave::registerSubscriber()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
 EC_T_DWORD EcSlaveRfidslave::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;

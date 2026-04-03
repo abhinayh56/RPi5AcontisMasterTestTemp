@@ -88,6 +88,20 @@ EC_T_DWORD EcSlavePitchDrive::processRxPdo()
 	return dwRes;
 }
 
+EC_T_DWORD EcSlavePitchDrive::registerPublisher()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlavePitchDrive::registerSubscriber()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
 EC_T_DWORD EcSlavePitchDrive::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;

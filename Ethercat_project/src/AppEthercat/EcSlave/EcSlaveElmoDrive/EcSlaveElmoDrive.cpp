@@ -84,6 +84,20 @@ EC_T_DWORD EcSlaveElmoDrive::processRxPdo()
 	return dwRes;
 }
 
+EC_T_DWORD EcSlaveElmoDrive::registerPublisher()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlaveElmoDrive::registerSubscriber()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
 EC_T_DWORD EcSlaveElmoDrive::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;

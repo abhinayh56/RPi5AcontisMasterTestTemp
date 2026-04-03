@@ -58,6 +58,20 @@ EC_T_DWORD EcSlaveEl3024::processRxPdo()
 	return dwRes;
 }
 
+EC_T_DWORD EcSlaveEl3024::registerPublisher()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlaveEl3024::registerSubscriber()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
 EC_T_DWORD EcSlaveEl3024::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;

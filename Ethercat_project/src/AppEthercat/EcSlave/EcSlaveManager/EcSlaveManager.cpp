@@ -67,6 +67,9 @@ EC_T_DWORD EcSlaveManager::configTask()
         }
     }
 
+    dwRes |= registerPublisher();
+    dwRes |= registerSubscriber();
+
     return dwRes;
 }
 
@@ -142,6 +145,38 @@ EC_T_DWORD EcSlaveManager::processRxPdo()
     for(int i = 0; i < m_numSlaves; i++)
     {
         dwRes |= m_slaveVector[i]->processRxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcSlaveManager::registerPublisher()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->registerPublisher();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcSlaveManager::registerSubscriber()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_slaveVector[i]->registerSubscriber();
         if(dwRes != EC_E_NOERROR)
         {
             return dwRes;

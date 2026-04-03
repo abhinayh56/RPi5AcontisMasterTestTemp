@@ -88,6 +88,20 @@ EC_T_DWORD EcSlaveDenNetE::processRxPdo()
 	return dwRes;
 }
 
+EC_T_DWORD EcSlaveDenNetE::registerPublisher()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlaveDenNetE::registerSubscriber()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
 EC_T_DWORD EcSlaveDenNetE::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;

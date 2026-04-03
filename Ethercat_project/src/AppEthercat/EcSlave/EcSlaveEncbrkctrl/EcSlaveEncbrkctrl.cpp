@@ -66,6 +66,20 @@ EC_T_DWORD EcSlaveEncbrkctrl::processRxPdo()
 	return dwRes;
 }
 
+EC_T_DWORD EcSlaveEncbrkctrl::registerPublisher()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlaveEncbrkctrl::registerSubscriber()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
 EC_T_DWORD EcSlaveEncbrkctrl::publishData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;

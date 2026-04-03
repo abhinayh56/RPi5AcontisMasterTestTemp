@@ -34,6 +34,10 @@ public:
 
 	virtual EC_T_DWORD processRxPdo();
 
+	virtual EC_T_DWORD registerPublisher();
+
+	virtual EC_T_DWORD registerSubscriber();
+
 	virtual EC_T_DWORD publishData();
 
 	virtual EC_T_DWORD subscribeData();

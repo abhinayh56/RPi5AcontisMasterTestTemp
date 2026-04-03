@@ -1,6 +1,15 @@
 #include "EcSlaveEl1008.h"
 
-EcSlaveEl1008::EcSlaveEl1008(uint16_t slaveAddr, const std::string &slaveName) : EcSlaveBase(slaveAddr, slaveName)
+EcSlaveEl1008::EcSlaveEl1008(uint16_t slaveAddr, const std::string &slaveName) :
+	EcSlaveBase(slaveAddr, slaveName),
+	m_InputCh_1("DIGITAL_INPUT_CH_1","ethercat/el1008", false, true),
+	m_InputCh_2("DIGITAL_INPUT_CH_2","ethercat/el1008", false, true),
+	m_InputCh_3("DIGITAL_INPUT_CH_3","ethercat/el1008", false, true),
+	m_InputCh_4("DIGITAL_INPUT_CH_4","ethercat/el1008", false, true),
+	m_InputCh_5("DIGITAL_INPUT_CH_5","ethercat/el1008", false, true),
+	m_InputCh_6("DIGITAL_INPUT_CH_6","ethercat/el1008", false, true),
+	m_InputCh_7("DIGITAL_INPUT_CH_7","ethercat/el1008", false, true),
+	m_InputCh_8("DIGITAL_INPUT_CH_8","ethercat/el1008", false, true)
 {
 }
 
@@ -64,6 +73,20 @@ EC_T_DWORD EcSlaveEl1008::processTxPdo()
 }
 
 EC_T_DWORD EcSlaveEl1008::processRxPdo()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlaveEl1008::registerPublisher()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	return dwRes;
+}
+
+EC_T_DWORD EcSlaveEl1008::registerSubscriber()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
