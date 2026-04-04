@@ -9,15 +9,21 @@ EcTaskEthercatSlave::~EcTaskEthercatSlave()
 {
 }
 
-EC_T_DWORD EcTaskEthercatSlave::addSlave(EcTaskEthercatSlaveBase* pSlave)
+EC_T_DWORD EcTaskEthercatSlave::addSlaves()
 {
-    EC_T_DWORD dwRes = EC_E_NOERROR;
+	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    m_EcTaskEthercatSlaveBaseVector.push_back(pSlave);
-    m_numSlaves = m_EcTaskEthercatSlaveBaseVector.size();
-    std::cout << "m_EcTaskEthercatSlaveBaseVector.size(): " << m_EcTaskEthercatSlaveBaseVector.size() << std::endl;
+	dwRes |= addSlave(new EcSlaveEl1008(1002, "el1008"));
+	dwRes |= addSlave(new EcSlaveEl2008(1003, "el2008"));
+	dwRes |= addSlave(new EcSlaveSscIoModule(1008, "io_module"));
+	dwRes |= addSlave(new EcSlaveRfidslave(1009, "rfid"));
+	dwRes |= addSlave(new EcSlavePitchDrive(1010, "motor_1"));
+	dwRes |= addSlave(new EcSlavePitchDrive(1011, "motor_2"));
+	dwRes |= addSlave(new EcSlavePitchDrive(1012, "motor_3"));
+	dwRes |= addSlave(new EcSlavePitchDrive(1013, "motor_4"));
+	dwRes |= addSlave(new EcSlaveEl6002(1014, "serial"));
 
-    return dwRes;
+	return dwRes;
 }
 
 EC_T_DWORD EcTaskEthercatSlave::cleanupTask()
@@ -32,35 +38,6 @@ EC_T_DWORD EcTaskEthercatSlave::cleanupTask()
     }
 
     std::cout << "Cleanup slaves from memory complete\n";
-
-    return dwRes;
-}
-
-EC_T_DWORD EcTaskEthercatSlave::configTask()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    dwRes |= checkSlave();
-    dwRes |= registerPdo();
-    dwRes |= registerPublisher();
-    dwRes |= registerSubscriber();
-
-    return dwRes;
-}
-
-EC_T_DWORD EcTaskEthercatSlave::cyclicTask()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    transferTxPdo();
-//    dispTxPdo();
-    processTxPdo();
-    publishData();
-    subscribeData();
-    mainProcess();
-    processRxPdo();
-//    dispRxPdo();
-    transferRxPdo();
 
     return dwRes;
 }
@@ -97,6 +74,38 @@ EC_T_DWORD EcTaskEthercatSlave::registerPdo()
 
         std::cout << "Registering RxPdo for " << m_EcTaskEthercatSlaveBaseVector[i]->getSlaveAddress() << ", " <<m_EcTaskEthercatSlaveBaseVector[i]->getSlaveName() << std::endl;
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->registerRxPdo();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlave::registerPublisher()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->registerPublisher();
+        if(dwRes != EC_E_NOERROR)
+        {
+            return dwRes;
+        }
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlave::registerSubscriber()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numSlaves; i++)
+    {
+        dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->registerSubscriber();
         if(dwRes != EC_E_NOERROR)
         {
             return dwRes;
@@ -170,38 +179,6 @@ EC_T_DWORD EcTaskEthercatSlave::processRxPdo()
     return dwRes;
 }
 
-EC_T_DWORD EcTaskEthercatSlave::registerPublisher()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    for(int i = 0; i < m_numSlaves; i++)
-    {
-        dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->registerPublisher();
-        if(dwRes != EC_E_NOERROR)
-        {
-            return dwRes;
-        }
-    }
-
-    return dwRes;
-}
-
-EC_T_DWORD EcTaskEthercatSlave::registerSubscriber()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    for(int i = 0; i < m_numSlaves; i++)
-    {
-        dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->registerSubscriber();
-        if(dwRes != EC_E_NOERROR)
-        {
-            return dwRes;
-        }
-    }
-
-    return dwRes;
-}
-
 EC_T_DWORD EcTaskEthercatSlave::publishData()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -264,4 +241,15 @@ void EcTaskEthercatSlave::dispRxPdo()
     {
         m_EcTaskEthercatSlaveBaseVector[i]->dispRxPdo();
     }
+}
+
+EC_T_DWORD EcTaskEthercatSlave::addSlave(EcTaskEthercatSlaveBase* pSlave)
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    m_EcTaskEthercatSlaveBaseVector.push_back(pSlave);
+    m_numSlaves = m_EcTaskEthercatSlaveBaseVector.size();
+    std::cout << "m_EcTaskEthercatSlaveBaseVector.size(): " << m_EcTaskEthercatSlaveBaseVector.size() << std::endl;
+
+    return dwRes;
 }

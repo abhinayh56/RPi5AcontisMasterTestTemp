@@ -22,22 +22,18 @@ public:
 
     virtual ~EcTaskEthercatSlave();
 
-    EC_T_DWORD addSlave(EcTaskEthercatSlaveBase* pSlave);
+    EC_T_DWORD addSlaves();
 
     EC_T_DWORD cleanupTask();
-
-    EC_T_DWORD configTask();
-
-    EC_T_DWORD cyclicTask();
-
-private:
-    std::vector<EcTaskEthercatSlaveBase*> m_EcTaskEthercatSlaveBaseVector;
-    int m_numSlaves = 0;
 
     EC_T_DWORD checkSlave();
 
     EC_T_DWORD registerPdo();
     
+	EC_T_DWORD registerPublisher();
+
+	EC_T_DWORD registerSubscriber();
+
     EC_T_DWORD transferTxPdo();
 
     EC_T_DWORD transferRxPdo();
@@ -45,10 +41,6 @@ private:
     EC_T_DWORD processTxPdo();
 
     EC_T_DWORD processRxPdo();
-
-    EC_T_DWORD registerPublisher();
-
-    EC_T_DWORD registerSubscriber();
 
     EC_T_DWORD publishData();
 
@@ -59,6 +51,12 @@ private:
     void dispTxPdo();
 
     void dispRxPdo();
+
+private:
+    std::vector<EcTaskEthercatSlaveBase*> m_EcTaskEthercatSlaveBaseVector;
+    int m_numSlaves = 0;
+
+    EC_T_DWORD addSlave(EcTaskEthercatSlaveBase* pSlave);
 };
 
 #endif // EC_TASK_ETHERCAT_SLAVE_H
