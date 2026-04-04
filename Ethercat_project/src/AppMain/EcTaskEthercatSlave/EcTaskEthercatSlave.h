@@ -54,7 +54,7 @@ public:
 
 private:
     std::vector<EcTaskEthercatSlaveBase*> m_EcTaskEthercatSlaveBaseVector;
-    int m_numSlaves = 0;
+    int m_numTaskEthercatSlave = 0;
 
     EC_T_DWORD addSlaveTask(EcTaskEthercatSlaveBase* pSlave);
 };

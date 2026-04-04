@@ -31,7 +31,7 @@ EC_T_DWORD EcTaskEthercatSlave::cleanupTask()
 	std::cout << "Cleanup slaves from memory start\n";
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
     	std::cout << "Cleanup slave " << i + 1 << " from memory\n";
         delete m_EcTaskEthercatSlaveBaseVector[i];
@@ -46,7 +46,7 @@ EC_T_DWORD EcTaskEthercatSlave::checkSlave()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         std::cout << "Checking slave presence at " << m_EcTaskEthercatSlaveBaseVector[i]->getSlaveAddress() << ", " <<m_EcTaskEthercatSlaveBaseVector[i]->getSlaveName() << std::endl;
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->checkSlave();
@@ -63,7 +63,7 @@ EC_T_DWORD EcTaskEthercatSlave::registerPdo()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
     	std::cout << "Registering TxPdo for " << m_EcTaskEthercatSlaveBaseVector[i]->getSlaveAddress() << ", " <<m_EcTaskEthercatSlaveBaseVector[i]->getSlaveName() << std::endl;
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->registerTxPdo();
@@ -87,7 +87,7 @@ EC_T_DWORD EcTaskEthercatSlave::registerPublisher()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->registerPublisher();
         if(dwRes != EC_E_NOERROR)
@@ -103,7 +103,7 @@ EC_T_DWORD EcTaskEthercatSlave::registerSubscriber()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->registerSubscriber();
         if(dwRes != EC_E_NOERROR)
@@ -119,7 +119,7 @@ EC_T_DWORD EcTaskEthercatSlave::transferTxPdo()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->transferTxPdo();
         if(dwRes != EC_E_NOERROR)
@@ -135,7 +135,7 @@ EC_T_DWORD EcTaskEthercatSlave::transferRxPdo()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->transferRxPdo();
         if(dwRes != EC_E_NOERROR)
@@ -151,7 +151,7 @@ EC_T_DWORD EcTaskEthercatSlave::processTxPdo()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->processTxPdo();
         if(dwRes != EC_E_NOERROR)
@@ -167,7 +167,7 @@ EC_T_DWORD EcTaskEthercatSlave::processRxPdo()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->processRxPdo();
         if(dwRes != EC_E_NOERROR)
@@ -183,7 +183,7 @@ EC_T_DWORD EcTaskEthercatSlave::publishData()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->publishData();
         if(dwRes != EC_E_NOERROR)
@@ -199,7 +199,7 @@ EC_T_DWORD EcTaskEthercatSlave::subscribeData()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->subscribeData();
         if(dwRes != EC_E_NOERROR)
@@ -215,7 +215,7 @@ EC_T_DWORD EcTaskEthercatSlave::mainProcess()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         dwRes |= m_EcTaskEthercatSlaveBaseVector[i]->mainProcess();
         if(dwRes != EC_E_NOERROR)
@@ -229,7 +229,7 @@ EC_T_DWORD EcTaskEthercatSlave::mainProcess()
 
 void EcTaskEthercatSlave::dispTxPdo()
 {
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         m_EcTaskEthercatSlaveBaseVector[i]->dispTxPdo();
     }
@@ -237,7 +237,7 @@ void EcTaskEthercatSlave::dispTxPdo()
 
 void EcTaskEthercatSlave::dispRxPdo()
 {
-    for(int i = 0; i < m_numSlaves; i++)
+    for(int i = 0; i < m_numTaskEthercatSlave; i++)
     {
         m_EcTaskEthercatSlaveBaseVector[i]->dispRxPdo();
     }
@@ -248,7 +248,7 @@ EC_T_DWORD EcTaskEthercatSlave::addSlaveTask(EcTaskEthercatSlaveBase* pSlave)
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
     m_EcTaskEthercatSlaveBaseVector.push_back(pSlave);
-    m_numSlaves = m_EcTaskEthercatSlaveBaseVector.size();
+    m_numTaskEthercatSlave = m_EcTaskEthercatSlaveBaseVector.size();
     std::cout << "m_EcTaskEthercatSlaveBaseVector.size(): " << m_EcTaskEthercatSlaveBaseVector.size() << std::endl;
 
     return dwRes;
