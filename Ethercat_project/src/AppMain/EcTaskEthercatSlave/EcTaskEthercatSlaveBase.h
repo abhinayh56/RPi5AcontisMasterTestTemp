@@ -8,7 +8,7 @@
 class EcTaskEthercatSlaveBase
 {
 public:
-	EcTaskEthercatSlaveBase(uint16_t ecTaskEthercatId, const std::string &ecTaskEthercatName);
+	EcTaskEthercatSlaveBase(uint16_t ecTaskEthercatSlaveId, const std::string &ecTaskEthercatSlaveName);
 
 	virtual ~EcTaskEthercatSlaveBase();
 
@@ -49,8 +49,8 @@ public:
 	virtual std::string& getSlaveName() = 0;
 
 protected:
-	uint16_t m_ecTaskEthercatId;
-	std::string m_ecTaskEthercatName;
+	uint16_t m_ecTaskEthercatSlaveId;
+	std::string m_ecTaskEthercatSlaveName;
 };
 
 #endif // EC_TASK_ETHERCAT_SLAVE_BASE_H
