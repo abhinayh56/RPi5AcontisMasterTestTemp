@@ -40,4 +40,7 @@ build/aarch64le-debug/./src/AppMain/EcTaskManager/EcTaskManager.o: \
  src/AppEthercat/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
  src/AppEthercat/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h \
  src/AppMain/EcTaskRobotControl/EcTaskRobotControl.h \
- src/AppMain/EcTaskUser/EcTaskUser.h
+ src/AppMain/EcTaskRobotControl/EcTaskRobotControlBase.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
+ src/AppMain/EcTaskUser/EcTaskUser.h \
+ src/AppMain/EcTaskUser/EcTaskUserBase.h

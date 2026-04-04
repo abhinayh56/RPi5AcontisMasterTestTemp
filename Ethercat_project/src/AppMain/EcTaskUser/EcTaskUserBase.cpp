@@ -17,3 +17,4 @@ std::string &EcTaskUserBase::getTaskName()
 {
     return m_ecTaskUserName;
 }
+

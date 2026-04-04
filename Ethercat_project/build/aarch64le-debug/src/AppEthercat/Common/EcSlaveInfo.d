@@ -52,7 +52,10 @@ build/aarch64le-debug/./src/AppEthercat/Common/EcSlaveInfo.o: \
  src/AppEthercat/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
  src/AppEthercat/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h \
  src/AppMain/EcTaskRobotControl/EcTaskRobotControl.h \
+ src/AppMain/EcTaskRobotControl/EcTaskRobotControlBase.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
  src/AppMain/EcTaskUser/EcTaskUser.h \
+ src/AppMain/EcTaskUser/EcTaskUserBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasServer.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasError.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasType.h

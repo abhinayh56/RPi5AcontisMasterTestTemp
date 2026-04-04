@@ -2,6 +2,7 @@
 #define EC_TASK_ROBOT_CONTROL_BASE_H
 
 #include "EcType.h"
+#include "EcError.h"
 #include "ITC.h"
 
 class EcTaskRobotControlBase
