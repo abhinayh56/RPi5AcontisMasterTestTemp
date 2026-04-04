@@ -1,6 +1,6 @@
 #include "EcSlaveBase.h"
 
-EcSlaveBase::EcSlaveBase(uint16_t slaveAddr, const std::string &slaveName) : EcTaskEthercatBase(slaveAddr, slaveName)
+EcSlaveBase::EcSlaveBase(uint16_t slaveAddr, const std::string &slaveName) : EcTaskEthercatBase(0, "task_name")
 {
 }
 

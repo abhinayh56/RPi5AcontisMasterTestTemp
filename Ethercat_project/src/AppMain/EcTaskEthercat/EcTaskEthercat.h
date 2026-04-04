@@ -15,14 +15,14 @@
 #include "EcSlaveIpos2401MxCat.h"
 #include "EcSlavePitchDrive.h"
 
-class EcTaskEthercat : public EcTaskEthercatBase
+class EcTaskEthercat
 {
 public:
     EcTaskEthercat();
 
     virtual ~EcTaskEthercat();
 
-    EC_T_DWORD addSlave(EcSlaveBase* pSlave);
+    EC_T_DWORD addSlave(EcTaskEthercatBase* pSlave);
 
     EC_T_DWORD cleanupTask();
 
@@ -33,9 +33,6 @@ public:
 private:
     std::vector<EcTaskEthercatBase*> m_ecTaskEthercatBaseVector;
     int m_numSlaves = 0;
-
-    // std::vector<EcControlTaskBase*> m_slaveVector;
-    // int m_numControlTask = 0;
 
     EC_T_DWORD checkSlave();
 

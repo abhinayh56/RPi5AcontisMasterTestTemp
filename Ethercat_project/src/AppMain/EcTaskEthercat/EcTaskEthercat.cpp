@@ -9,7 +9,7 @@ EcTaskEthercat::~EcTaskEthercat()
 {
 }
 
-EC_T_DWORD EcTaskEthercat::addSlave(EcSlaveBase* pSlave)
+EC_T_DWORD EcTaskEthercat::addSlave(EcTaskEthercatBase* pSlave)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -71,7 +71,7 @@ EC_T_DWORD EcTaskEthercat::checkSlave()
 
     for(int i = 0; i < m_numSlaves; i++)
     {
-        std::cout << "Checking slave presence at " << m_ecTaskEthercatBaseVector[i]->getAddress() << ", " <<m_ecTaskEthercatBaseVector[i]->getName() << std::endl;
+        std::cout << "Checking slave presence at " << m_ecTaskEthercatBaseVector[i]->getId() << ", " <<m_ecTaskEthercatBaseVector[i]->getName() << std::endl;
         dwRes |= m_ecTaskEthercatBaseVector[i]->checkSlave();
         if(dwRes != EC_E_NOERROR)
         {
@@ -88,14 +88,14 @@ EC_T_DWORD EcTaskEthercat::registerPdo()
 
     for(int i = 0; i < m_numSlaves; i++)
     {
-    	std::cout << "Registering TxPdo for " << m_ecTaskEthercatBaseVector[i]->getAddress() << ", " <<m_ecTaskEthercatBaseVector[i]->getName() << std::endl;
+    	std::cout << "Registering TxPdo for " << m_ecTaskEthercatBaseVector[i]->getId() << ", " <<m_ecTaskEthercatBaseVector[i]->getName() << std::endl;
         dwRes |= m_ecTaskEthercatBaseVector[i]->registerTxPdo();
         if(dwRes != EC_E_NOERROR)
         {
             return dwRes;
         }
 
-        std::cout << "Registering RxPdo for " << m_ecTaskEthercatBaseVector[i]->getAddress() << ", " <<m_ecTaskEthercatBaseVector[i]->getName() << std::endl;
+        std::cout << "Registering RxPdo for " << m_ecTaskEthercatBaseVector[i]->getId() << ", " <<m_ecTaskEthercatBaseVector[i]->getName() << std::endl;
         dwRes |= m_ecTaskEthercatBaseVector[i]->registerRxPdo();
         if(dwRes != EC_E_NOERROR)
         {

@@ -48,18 +48,14 @@ public:
 
 	virtual void dispRxPdo() override;
 
-	virtual uint16_t getAddress() override;
+	virtual uint16_t getAddress();
 
-	virtual std::string& getName() override;
+	virtual std::string& getName();
 
 protected:
 	uint16_t m_slaveAddr;
 	std::string m_slaveName;
 	EC_T_CFG_SLAVE_INFO m_slaveInfo;
-
-private:
-//	std::vector<Ec_pdo_element> m_rxPdoElementVector;
-//	std::vector<Ec_pdo_element> m_txPdoElementVector;
 };
 
 #endif // EC_SLAVE_BASE_H

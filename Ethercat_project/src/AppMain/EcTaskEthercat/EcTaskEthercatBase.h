@@ -40,7 +40,7 @@ public:
 
 	virtual void dispRxPdo();
 
-	virtual uint16_t getAddress();
+	virtual uint16_t getId();
 
 	virtual std::string& getName();
 
