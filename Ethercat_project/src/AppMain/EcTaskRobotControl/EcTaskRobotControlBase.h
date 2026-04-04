@@ -7,7 +7,7 @@
 class EcTaskRobotControlBase
 {
 public:
-    EcTaskRobotControlBase(uint16_t slaveAddr, const std::string &slaveName);
+    EcTaskRobotControlBase(uint16_t ecTaskRobotControlId, const std::string &ecTaskRobotControlName);
 
     virtual ~EcTaskRobotControlBase();
 
@@ -16,6 +16,14 @@ public:
     virtual EC_T_DWORD registerSubscriber() = 0;
 
     virtual EC_T_DWORD mainProcess() = 0;
+
+    uint16_t getTaskId();
+
+    std::string &getTaskName();
+
+protected:
+    uint16_t m_ecTaskRobotControlId;
+    std::string m_ecTaskRobotControlName;
 };
 
 #endif // EC_TASK_ROBOT_CONTROL_BASE_H

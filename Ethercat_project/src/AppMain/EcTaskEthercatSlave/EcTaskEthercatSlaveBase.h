@@ -18,9 +18,9 @@ public:
 
 	virtual EC_T_DWORD registerRxPdo() = 0;
 
-    virtual EC_T_DWORD registerPublisher() = 0;
+	virtual EC_T_DWORD registerPublisher() = 0;
 
-    virtual EC_T_DWORD registerSubscriber() = 0;
+	virtual EC_T_DWORD registerSubscriber() = 0;
 
 	virtual EC_T_DWORD transferTxPdo() = 0;
 
@@ -42,11 +42,11 @@ public:
 
 	uint16_t getTaskId();
 
-	std::string& getTaskName();
+	std::string &getTaskName();
 
 	virtual uint16_t getSlaveAddress() = 0;
 
-	virtual std::string& getSlaveName() = 0;
+	virtual std::string &getSlaveName() = 0;
 
 protected:
 	uint16_t m_ecTaskEthercatSlaveId;
