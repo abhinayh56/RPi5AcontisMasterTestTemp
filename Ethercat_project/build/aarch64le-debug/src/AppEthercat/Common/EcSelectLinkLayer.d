@@ -25,6 +25,7 @@ build/aarch64le-debug/./src/AppEthercat/Common/EcSelectLinkLayer.o: \
  src/AppEthercat/Common/EcSlaveInfo.h \
  src/AppEthercat/Common/QNX/EcDemoTimingTaskPlatform.h \
  src/AppEthercat/Common/EcDemoTimingTask.h \
+ src/AppMain/EcTaskManager/EcTaskManager.h \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.h \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
  external/ITC/ITC.h external/ITC/Data_store_element.h \
@@ -50,6 +51,8 @@ build/aarch64le-debug/./src/AppEthercat/Common/EcSelectLinkLayer.o: \
  src/AppEthercat/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
  src/AppEthercat/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
  src/AppEthercat/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h \
+ src/AppMain/EcTaskRobotControl/EcTaskRobotControl.h \
+ src/AppMain/EcTaskUser/EcTaskUser.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasServer.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasError.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasType.h

@@ -45,17 +45,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppDiagnosis(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppNotify(EC_T_DWORD dwCode, EC_T_NOTIFYPARMS* pParms);
 
-EcTaskEthercatSlave ecTaskEthercatSlave;
-
-//EcSlaveEl1008            ecSlaveEl1008(1002,    "el1008");
-//EcSlaveEl2008            ecSlaveEl2008(1003,    "el2008");
-//EcSlaveSscIoModule  ecSlaveSscIoModule(1008, "io_module");
-//EcSlaveRfidslave      ecSlaveRfidslave(1009,      "rfid");
-//EcSlavePitchDrive   ecSlavePitchDrive1(1010,   "motor_1");
-//EcSlavePitchDrive   ecSlavePitchDrive2(1011,   "motor_2");
-//EcSlavePitchDrive   ecSlavePitchDrive3(1012,   "motor_3");
-//EcSlavePitchDrive   ecSlavePitchDrive4(1013,   "motor_4");
-//EcSlaveEl6002            ecSlaveEl6002(1014,    "serial");
+EcTaskManager ecTaskManager;
 
 /*-FUNCTION DEFINITIONS------------------------------------------------------*/
 
@@ -840,25 +830,7 @@ static EC_T_DWORD myAppInit(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveEl1008);
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveEl2008);
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveSscIoModule);
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveRfidslave);
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlavePitchDrive1);
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlavePitchDrive2);
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlavePitchDrive3);
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlavePitchDrive4);
-//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveEl6002);
-
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveEl1008(1002, "el1008"));
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveEl2008(1003, "el2008"));
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveSscIoModule(1008, "io_module"));
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveRfidslave(1009, "rfid"));
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlavePitchDrive(1010, "motor_1"));
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlavePitchDrive(1011, "motor_2"));
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlavePitchDrive(1012, "motor_3"));
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlavePitchDrive(1013, "motor_4"));
-	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveEl6002(1014, "serial"));
+    dwRes |= ecTaskManager.initTask();
 
     return dwRes;
 }
@@ -874,7 +846,7 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= ecTaskEthercatSlave.configTask();
+    dwRes |= ecTaskManager.preapareTask();
 
     return EC_E_NOERROR;
 }
@@ -892,6 +864,8 @@ static EC_T_DWORD myAppSetup(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRetVal = EC_E_NOERROR;
     EC_T_DWORD dwRes    = EC_E_NOERROR;
+
+    dwRes |= ecTaskManager.setupTask();
 
     /* read CoE object dictionary from device */
     if (pAppContext->AppParms.bReadOD)
@@ -921,7 +895,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= ecTaskEthercatSlave.cyclicTask();
+    dwRes |= ecTaskManager.cyclicTask();
 
     return dwRes;
 }
@@ -935,7 +909,12 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 static EC_T_DWORD myAppDiagnosis(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_UNREFPARM(pAppContext);
-    return EC_E_NOERROR;
+
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    dwRes |= ecTaskManager.diagnosisTask();
+
+    return dwRes;
 }
 
 /********************************************************************************/
@@ -954,6 +933,12 @@ static EC_T_DWORD myAppNotify(
     EcLogMsg(EC_LOG_LEVEL_INFO, (pEcLogContext, EC_LOG_LEVEL_INFO, "myAppNotify: Unhandled notification code %d received\n", dwCode));
 
     return dwRetVal;
+
+    // EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    // dwRes |= ecTaskManager.notifyTask();
+
+    // return dwRes;
 }
 
 EC_T_VOID ShowSyntaxAppUsage(T_EC_DEMO_APP_CONTEXT* pAppContext)
