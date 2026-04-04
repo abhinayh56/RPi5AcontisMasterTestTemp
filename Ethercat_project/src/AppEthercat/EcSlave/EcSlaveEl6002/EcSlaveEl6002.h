@@ -146,7 +146,7 @@ public:
 	virtual void dispRxPdo() override;
 
 protected:
-	EcSlaveEl6002Data::TxPdo m_txPdo;
+
 	EcSlaveEl6002Data::RxPdo m_rxPdo;
 };
 

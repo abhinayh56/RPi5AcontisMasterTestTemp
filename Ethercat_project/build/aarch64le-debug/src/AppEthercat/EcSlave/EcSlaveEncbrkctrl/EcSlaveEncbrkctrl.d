@@ -24,5 +24,5 @@ build/aarch64le-debug/./src/AppEthercat/EcSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkc
  src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
- external/ITC/ITC.h external/ITC/Data_store_element.h \
- external/ITC/Data_store.h
+ src/AppMain/EcTaskEthercat/EcTaskEthercatBase.h external/ITC/ITC.h \
+ external/ITC/Data_store_element.h external/ITC/Data_store.h

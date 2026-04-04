@@ -57,6 +57,9 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive
 
+INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercat
+INCLUDES += -I$(DIR_APP_MAIN)/EcTaskRobotControl
+INCLUDES += -I$(DIR_APP_MAIN)/EcTaskUser
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskManager
 
 # Eigen library (header-only)
@@ -103,6 +106,11 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Common/QNX/*.cpp)
 
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcMasterDemo/*.cpp)
 
+SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercat/*.cpp)
+SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskRobotControl/*.cpp)
+SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskUser/*.cpp)
+SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskManager/*.cpp)
+
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveBase/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcCia402/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl1008/*.cpp)
@@ -116,8 +124,6 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveDenNetE/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive/*.cpp)
-
-SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskManager/*.cpp)
 
 #Object files list
 OBJS = $(addprefix $(OUTPUT_DIR)/,$(addsuffix .o, $(basename $(SRCS))))
