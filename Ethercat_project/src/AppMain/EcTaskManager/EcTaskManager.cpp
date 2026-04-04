@@ -12,7 +12,7 @@ EC_T_DWORD EcTaskManager::initTask()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= ecTaskEthercatSlave.addSlaves();
+    dwRes |= ecTaskEthercatSlave.addAllSlave();
 
     return dwRes;
 }

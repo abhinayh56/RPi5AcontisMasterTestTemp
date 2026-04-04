@@ -9,19 +9,19 @@ EcTaskEthercatSlave::~EcTaskEthercatSlave()
 {
 }
 
-EC_T_DWORD EcTaskEthercatSlave::addSlaves()
+EC_T_DWORD EcTaskEthercatSlave::addAllSlave()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	dwRes |= addSlave(new EcSlaveEl1008(1002, "el1008"));
-	dwRes |= addSlave(new EcSlaveEl2008(1003, "el2008"));
-	dwRes |= addSlave(new EcSlaveSscIoModule(1008, "io_module"));
-	dwRes |= addSlave(new EcSlaveRfidslave(1009, "rfid"));
-	dwRes |= addSlave(new EcSlavePitchDrive(1010, "motor_1"));
-	dwRes |= addSlave(new EcSlavePitchDrive(1011, "motor_2"));
-	dwRes |= addSlave(new EcSlavePitchDrive(1012, "motor_3"));
-	dwRes |= addSlave(new EcSlavePitchDrive(1013, "motor_4"));
-	dwRes |= addSlave(new EcSlaveEl6002(1014, "serial"));
+	dwRes |= addSlaveTask(new EcSlaveEl1008(1002, "el1008"));
+	dwRes |= addSlaveTask(new EcSlaveEl2008(1003, "el2008"));
+	dwRes |= addSlaveTask(new EcSlaveSscIoModule(1008, "io_module"));
+	dwRes |= addSlaveTask(new EcSlaveRfidslave(1009, "rfid"));
+	dwRes |= addSlaveTask(new EcSlavePitchDrive(1010, "motor_1"));
+	dwRes |= addSlaveTask(new EcSlavePitchDrive(1011, "motor_2"));
+	dwRes |= addSlaveTask(new EcSlavePitchDrive(1012, "motor_3"));
+	dwRes |= addSlaveTask(new EcSlavePitchDrive(1013, "motor_4"));
+	dwRes |= addSlaveTask(new EcSlaveEl6002(1014, "serial"));
 
 	return dwRes;
 }
@@ -243,7 +243,7 @@ void EcTaskEthercatSlave::dispRxPdo()
     }
 }
 
-EC_T_DWORD EcTaskEthercatSlave::addSlave(EcTaskEthercatSlaveBase* pSlave)
+EC_T_DWORD EcTaskEthercatSlave::addSlaveTask(EcTaskEthercatSlaveBase* pSlave)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 

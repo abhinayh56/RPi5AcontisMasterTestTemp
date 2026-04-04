@@ -22,7 +22,7 @@ public:
 
     virtual ~EcTaskEthercatSlave();
 
-    EC_T_DWORD addSlaves();
+    EC_T_DWORD addAllSlave();
 
     EC_T_DWORD cleanupTask();
 
@@ -56,7 +56,7 @@ private:
     std::vector<EcTaskEthercatSlaveBase*> m_EcTaskEthercatSlaveBaseVector;
     int m_numSlaves = 0;
 
-    EC_T_DWORD addSlave(EcTaskEthercatSlaveBase* pSlave);
+    EC_T_DWORD addSlaveTask(EcTaskEthercatSlaveBase* pSlave);
 };
 
 #endif // EC_TASK_ETHERCAT_SLAVE_H
