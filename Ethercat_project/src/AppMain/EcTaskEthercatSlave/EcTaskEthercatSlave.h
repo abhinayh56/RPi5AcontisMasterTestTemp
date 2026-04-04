@@ -20,9 +20,9 @@ class EcTaskEthercatSlave
 public:
     EcTaskEthercatSlave();
 
-    virtual ~EcTaskEthercatSlave();
+    ~EcTaskEthercatSlave();
 
-    EC_T_DWORD addAllSlave();
+    EC_T_DWORD addAllTaskSlave();
 
     EC_T_DWORD cleanupTask();
 
@@ -53,10 +53,10 @@ public:
     void dispRxPdo();
 
 private:
-    std::vector<EcTaskEthercatSlaveBase*> m_EcTaskEthercatSlaveBaseVector;
+    std::vector<EcTaskEthercatSlaveBase*> m_ecTaskEthercatSlaveBaseVector;
     int m_numTaskEthercatSlave = 0;
 
-    EC_T_DWORD addSlaveTask(EcTaskEthercatSlaveBase* pSlave);
+    EC_T_DWORD addTaskSlave(EcTaskEthercatSlaveBase* pSlave);
 };
 
 #endif // EC_TASK_ETHERCAT_SLAVE_H

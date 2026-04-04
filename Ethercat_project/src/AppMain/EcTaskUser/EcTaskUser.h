@@ -4,32 +4,20 @@
 // #include <vector>
 // #include "EcTaskUserBase.h"
 
-// class EcTaskEthercatSlave
+// class EcTaskUser
 // {
 // public:
-//     EcTaskEthercatSlave();
+//     EcTaskUser();
 
-//     virtual ~EcTaskEthercatSlave();
+//     virtual ~EcTaskUser();
 
-//     EC_T_DWORD addAllSlave();
+//     EC_T_DWORD addAllUserTask();
 
 //     EC_T_DWORD cleanupTask();
-
-//     EC_T_DWORD checkSlave();
-
-//     EC_T_DWORD registerPdo();
     
 // 	EC_T_DWORD registerPublisher();
 
 // 	EC_T_DWORD registerSubscriber();
-
-//     EC_T_DWORD transferTxPdo();
-
-//     EC_T_DWORD transferRxPdo();
-
-//     EC_T_DWORD processTxPdo();
-
-//     EC_T_DWORD processRxPdo();
 
 //     EC_T_DWORD publishData();
 
