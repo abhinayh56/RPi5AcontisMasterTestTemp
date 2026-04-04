@@ -13,6 +13,8 @@ EC_T_DWORD EcTaskManager::initTask()
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
     dwRes |= ecTaskEthercatSlave.addAllTaskSlave();
+    dwRes |= ecTaskRobotControl.addAllTaskRobotControl();
+    dwRes |= ecTaskUser.addAllTaskUser();
 
     return dwRes;
 }
@@ -24,7 +26,12 @@ EC_T_DWORD EcTaskManager::preapareTask()
 	dwRes |= ecTaskEthercatSlave.checkSlave();
 	dwRes |= ecTaskEthercatSlave.registerPdo();
 	dwRes |= ecTaskEthercatSlave.registerPublisher();
+    dwRes |= ecTaskRobotControl.registerPublisher();
+    dwRes |= ecTaskUser.registerPublisher();
+
 	dwRes |= ecTaskEthercatSlave.registerSubscriber();
+    dwRes |= ecTaskRobotControl.registerSubscriber();
+    dwRes |= ecTaskUser.registerSubscriber();
 
     return dwRes;
 }
@@ -44,6 +51,12 @@ EC_T_DWORD EcTaskManager::cyclicTask()
 //	ecTaskEthercatSlave.dispTxPdo();
 	dwRes |= ecTaskEthercatSlave.processTxPdo();
 	dwRes |= ecTaskEthercatSlave.publishData();
+    dwRes |= ecTaskUser.subscribeData();
+    dwRes |= ecTaskRobotControl.subscribeData();
+    dwRes |= ecTaskUser.mainProcess();
+    dwRes |= ecTaskRobotControl.mainProcess();
+    dwRes |= ecTaskUser.publishData();
+    dwRes |= ecTaskRobotControl.publishData();
 	dwRes |= ecTaskEthercatSlave.subscribeData();
 	dwRes |= ecTaskEthercatSlave.mainProcess();
 	dwRes |= ecTaskEthercatSlave.processRxPdo();

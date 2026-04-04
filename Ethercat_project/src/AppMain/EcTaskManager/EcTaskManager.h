@@ -26,6 +26,8 @@ public:
 
 private:
     EcTaskEthercatSlave ecTaskEthercatSlave;
+    EcTaskRobotControl ecTaskRobotControl;
+    EcTaskUser ecTaskUser;
 };
 
 #endif // EC_TASK_MANAGER_H

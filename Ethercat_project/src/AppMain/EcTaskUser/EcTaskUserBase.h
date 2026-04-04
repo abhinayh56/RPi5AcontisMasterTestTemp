@@ -16,6 +16,10 @@ public:
 
     virtual EC_T_DWORD registerSubscriber() = 0;
 
+    virtual EC_T_DWORD publishData() = 0;
+
+    virtual EC_T_DWORD subscribeData() = 0;
+
     virtual EC_T_DWORD mainProcess() = 0;
 
     uint16_t getTaskId();
