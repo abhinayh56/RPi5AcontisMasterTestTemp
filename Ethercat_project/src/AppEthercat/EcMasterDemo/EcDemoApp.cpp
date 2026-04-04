@@ -45,7 +45,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppDiagnosis(T_EC_DEMO_APP_CONTEXT* pAppContext);
 static EC_T_DWORD myAppNotify(EC_T_DWORD dwCode, EC_T_NOTIFYPARMS* pParms);
 
-EcTaskEthercat EcTaskEthercat;
+EcTaskEthercatSlave ecTaskEthercatSlave;
 
 //EcSlaveEl1008            ecSlaveEl1008(1002,    "el1008");
 //EcSlaveEl2008            ecSlaveEl2008(1003,    "el2008");
@@ -515,7 +515,7 @@ EC_T_DWORD EcDemoApp(T_EC_DEMO_APP_CONTEXT* pAppContext)
             /* process notification jobs */
             pAppContext->pNotificationHandler->ProcessNotificationJobs();
 
-            // EcTaskEthercat.cleanupTask();
+            // ecTaskEthercatSlave.cleanupTask();
 
             OsSleep(5);
         }
@@ -840,25 +840,25 @@ static EC_T_DWORD myAppInit(T_EC_DEMO_APP_CONTEXT* pAppContext)
 
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlaveEl1008);
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlaveEl2008);
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlaveSscIoModule);
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlaveRfidslave);
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlavePitchDrive1);
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlavePitchDrive2);
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlavePitchDrive3);
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlavePitchDrive4);
-//	dwRes |= EcTaskEthercat.addSlave(&ecSlaveEl6002);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveEl1008);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveEl2008);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveSscIoModule);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveRfidslave);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlavePitchDrive1);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlavePitchDrive2);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlavePitchDrive3);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlavePitchDrive4);
+//	dwRes |= ecTaskEthercatSlave.addSlave(&ecSlaveEl6002);
 
-	dwRes |= EcTaskEthercat.addSlave(new EcSlaveEl1008(1002, "el1008"));
-	dwRes |= EcTaskEthercat.addSlave(new EcSlaveEl2008(1003, "el2008"));
-	dwRes |= EcTaskEthercat.addSlave(new EcSlaveSscIoModule(1008, "io_module"));
-	dwRes |= EcTaskEthercat.addSlave(new EcSlaveRfidslave(1009, "rfid"));
-	dwRes |= EcTaskEthercat.addSlave(new EcSlavePitchDrive(1010, "motor_1"));
-	dwRes |= EcTaskEthercat.addSlave(new EcSlavePitchDrive(1011, "motor_2"));
-	dwRes |= EcTaskEthercat.addSlave(new EcSlavePitchDrive(1012, "motor_3"));
-	dwRes |= EcTaskEthercat.addSlave(new EcSlavePitchDrive(1013, "motor_4"));
-	dwRes |= EcTaskEthercat.addSlave(new EcSlaveEl6002(1014, "serial"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveEl1008(1002, "el1008"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveEl2008(1003, "el2008"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveSscIoModule(1008, "io_module"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveRfidslave(1009, "rfid"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlavePitchDrive(1010, "motor_1"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlavePitchDrive(1011, "motor_2"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlavePitchDrive(1012, "motor_3"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlavePitchDrive(1013, "motor_4"));
+	dwRes |= ecTaskEthercatSlave.addSlave(new EcSlaveEl6002(1014, "serial"));
 
     return dwRes;
 }
@@ -874,7 +874,7 @@ static EC_T_DWORD myAppPrepare(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= EcTaskEthercat.configTask();
+    dwRes |= ecTaskEthercatSlave.configTask();
 
     return EC_E_NOERROR;
 }
@@ -921,7 +921,7 @@ static EC_T_DWORD myAppWorkpd(T_EC_DEMO_APP_CONTEXT* pAppContext)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    dwRes |= EcTaskEthercat.cyclicTask();
+    dwRes |= ecTaskEthercatSlave.cyclicTask();
 
     return dwRes;
 }

@@ -25,9 +25,10 @@ build/aarch64le-debug/./src/AppEthercat/Common/EcDemoTimingTask.o: \
  src/AppEthercat/Common/EcSlaveInfo.h \
  src/AppEthercat/Common/QNX/EcDemoTimingTaskPlatform.h \
  src/AppEthercat/Common/EcDemoTimingTask.h \
- src/AppMain/EcTaskEthercat/EcTaskEthercat.h \
- src/AppMain/EcTaskEthercat/EcTaskEthercatBase.h external/ITC/ITC.h \
- external/ITC/Data_store_element.h external/ITC/Data_store.h \
+ src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.h \
+ src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
+ external/ITC/ITC.h external/ITC/Data_store_element.h \
+ external/ITC/Data_store.h \
  src/AppEthercat/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
  src/AppEthercat/EcSlave/EcSlaveBase/EcSlaveBase.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcPdoVariable.h \
@@ -38,7 +39,7 @@ build/aarch64le-debug/./src/AppEthercat/Common/EcDemoTimingTask.o: \
  src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
  src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
- src/AppMain/EcTaskEthercat/EcTaskEthercatBase.h \
+ src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
  src/AppEthercat/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
  src/AppEthercat/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
  src/AppEthercat/EcSlave/EcSlaveEl6002/EcSlaveEl6002.h \

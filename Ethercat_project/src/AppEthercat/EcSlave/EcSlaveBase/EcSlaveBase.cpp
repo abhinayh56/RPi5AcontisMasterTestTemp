@@ -1,6 +1,6 @@
 #include "EcSlaveBase.h"
 
-EcSlaveBase::EcSlaveBase(uint16_t slaveAddr, const std::string &slaveName) : EcTaskEthercatBase(0, "task_name")
+EcSlaveBase::EcSlaveBase(uint16_t slaveAddr, const std::string &slaveName) : EcTaskEthercatSlaveBase(0, "task_name")
 {
 }
 
@@ -110,12 +110,12 @@ void EcSlaveBase::dispRxPdo()
 }
 
 
-uint16_t EcSlaveBase::getAddress()
+uint16_t EcSlaveBase::getSlaveAddress()
 {
 	return m_slaveAddr;
 }
 
-std::string& EcSlaveBase::getName()
+std::string& EcSlaveBase::getSlaveName()
 {
 	return m_slaveName;
 }

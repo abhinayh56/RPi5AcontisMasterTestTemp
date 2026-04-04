@@ -11,9 +11,9 @@
 #include "EcOutputPdoTransfer.h"
 #include "EcAllPdoRegister.h"
 #include "EcAllPdoTransfer.h"
-#include "EcTaskEthercatBase.h"
+#include "EcTaskEthercatSlaveBase.h"
 
-class EcSlaveBase : public EcTaskEthercatBase
+class EcSlaveBase : public EcTaskEthercatSlaveBase
 {
 public:
 	EcSlaveBase(uint16_t slaveAddr, const std::string &slaveName);
@@ -48,9 +48,9 @@ public:
 
 	virtual void dispRxPdo() override;
 
-	virtual uint16_t getAddress();
+	virtual uint16_t getSlaveAddress() override;
 
-	virtual std::string& getName();
+	virtual std::string& getSlaveName() override;
 
 protected:
 	uint16_t m_slaveAddr;

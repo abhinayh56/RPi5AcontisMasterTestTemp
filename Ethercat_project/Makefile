@@ -57,7 +57,7 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive
 
-INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercat
+INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlave
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskRobotControl
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskUser
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskManager
@@ -106,7 +106,7 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Common/QNX/*.cpp)
 
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcMasterDemo/*.cpp)
 
-SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercat/*.cpp)
+SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlave/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskRobotControl/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskUser/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskManager/*.cpp)
