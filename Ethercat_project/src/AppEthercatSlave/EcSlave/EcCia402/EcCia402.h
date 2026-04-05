@@ -17,6 +17,21 @@ namespace EcCia402Data
         MODE_CYCLIC_VELOCITY = 9,
         MODE_CYCLIC_TORQUE = 10
     };
+
+    struct Cia402Pdo
+    {
+        uint16_t statusWord = 0;
+        uint8_t modeOfOperationDisplay = 0;
+        int32_t actualPosition = 0;
+        int32_t actualVelocity = 0;
+        int32_t actualTorque = 0;
+
+        uint16_t controlWord = 0;
+        int8_t modeOfOperation = 0;
+        int32_t targetPosition = 0;
+        int32_t targetVelocity = 0;
+        int16_t targetTorque = 0;
+    };
 }
 
 class EcCia402 : public EcSlaveBase
@@ -26,31 +41,31 @@ public:
 
     virtual ~EcCia402();
 
-	virtual EC_T_DWORD registerTxPdo() override;
+    virtual EC_T_DWORD registerTxPdo() override;
 
-	virtual EC_T_DWORD registerRxPdo() override;
+    virtual EC_T_DWORD registerRxPdo() override;
 
-	virtual EC_T_DWORD transferTxPdo() override;
+    virtual EC_T_DWORD transferTxPdo() override;
 
-	virtual EC_T_DWORD transferRxPdo() override;
+    virtual EC_T_DWORD transferRxPdo() override;
 
-	virtual EC_T_DWORD processTxPdo() override;
+    virtual EC_T_DWORD processTxPdo() override;
 
-	virtual EC_T_DWORD processRxPdo() override;
+    virtual EC_T_DWORD processRxPdo() override;
 
-	virtual EC_T_DWORD registerPublisher() override;
+    virtual EC_T_DWORD registerPublisher() override;
 
-	virtual EC_T_DWORD registerSubscriber() override;
+    virtual EC_T_DWORD registerSubscriber() override;
 
-	virtual EC_T_DWORD publishData() override;
+    virtual EC_T_DWORD publishData() override;
 
-	virtual EC_T_DWORD subscribeData() override;
+    virtual EC_T_DWORD subscribeData() override;
 
-	virtual EC_T_DWORD mainProcess() override;
+    virtual EC_T_DWORD mainProcess() override;
 
-	virtual void dispTxPdo() override;
+    virtual void dispTxPdo() override;
 
-	virtual void dispRxPdo() override;
+    virtual void dispRxPdo() override;
 
     virtual EC_T_DWORD checkFault();
 
@@ -65,7 +80,7 @@ public:
     virtual EC_T_DWORD setTargetPosition(int32_t targetPosition);
 
     virtual EC_T_DWORD setTargetVelocity(int32_t targetVelocity);
-    
+
     virtual EC_T_DWORD setTargetTorque(int16_t targetTorque);
 
     virtual EC_T_DWORD syncPosition();
