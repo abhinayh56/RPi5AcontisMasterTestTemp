@@ -5,8 +5,8 @@ build/aarch64le-debug/./src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.o: \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
  external/ITC/ITC.h external/ITC/Data_store_element.h \
  external/ITC/Data_store.h \
- src/AppEthercat/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
- src/AppEthercat/EcSlave/EcSlaveBase/EcSlaveBase.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveBase/EcSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/QNX/EcOsPlatform.h \
@@ -19,22 +19,22 @@ build/aarch64le-debug/./src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.o: \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcPdoVariable.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoRegister.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcPdoVariable.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoRegister.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
- src/AppEthercat/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
+ src/AppEthercatSlave/EcSlave/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatSlave/EcSlave/EcPdoHandler/EcInputPdoRegister.h \
+ src/AppEthercatSlave/EcSlave/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatSlave/EcSlave/EcPdoHandler/EcOutputPdoRegister.h \
+ src/AppEthercatSlave/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
+ src/AppEthercatSlave/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
+ src/AppEthercatSlave/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
+ src/AppEthercatSlave/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
- src/AppEthercat/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
- src/AppEthercat/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
- src/AppEthercat/EcSlave/EcSlaveEl6002/EcSlaveEl6002.h \
- src/AppEthercat/EcSlave/EcSlaveSscIoModule/EcSlaveSscIoModule.h \
- src/AppEthercat/EcSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkctrl.h \
- src/AppEthercat/EcSlave/EcSlaveRfidslave/EcSlaveRfidslave.h \
- src/AppEthercat/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
- src/AppEthercat/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
- src/AppEthercat/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
- src/AppEthercat/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h
+ src/AppEthercatSlave/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveEl6002/EcSlaveEl6002.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveSscIoModule/EcSlaveSscIoModule.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkctrl.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveRfidslave/EcSlaveRfidslave.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
+ src/AppEthercatSlave/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
+ src/AppEthercatSlave/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h
