@@ -60,6 +60,7 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlave
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskRobotControl
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskUser
+INCLUDES += -I$(DIR_APP_MAIN)/EcTaskInterface
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskManager
 
 # Eigen library (header-only)
@@ -109,6 +110,7 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcMasterDemo/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlave/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskRobotControl/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskUser/*.cpp)
+SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskInterface/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskManager/*.cpp)
 
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveBase/*.cpp)

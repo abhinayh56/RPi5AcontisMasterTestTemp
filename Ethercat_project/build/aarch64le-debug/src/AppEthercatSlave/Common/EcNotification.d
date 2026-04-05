@@ -57,6 +57,8 @@ build/aarch64le-debug/./src/AppEthercatSlave/Common/EcNotification.o: \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
  src/AppMain/EcTaskUser/EcTaskUser.h \
  src/AppMain/EcTaskUser/EcTaskUserBase.h \
+ src/AppMain/EcTaskInterface/EcTaskInterface.h \
+ src/AppMain/EcTaskInterface/EcTaskInterfaceBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasServer.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasError.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasType.h

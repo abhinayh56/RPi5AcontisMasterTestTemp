@@ -4,6 +4,7 @@
 #include "EcTaskEthercatSlave.h"
 #include "EcTaskRobotControl.h"
 #include "EcTaskUser.h"
+#include "EcTaskInterface.h"
 
 class EcTaskManager
 {
@@ -28,6 +29,7 @@ private:
     EcTaskEthercatSlave ecTaskEthercatSlave;
     EcTaskRobotControl ecTaskRobotControl;
     EcTaskUser ecTaskUser;
+    EcTaskInterface ecTaskInterface;
 };
 
 #endif // EC_TASK_MANAGER_H
