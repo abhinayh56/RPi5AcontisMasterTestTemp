@@ -26,12 +26,11 @@ EC_T_DWORD EcTaskManager::preapareTask()
 	dwRes |= ecTaskEthercatSlave.checkSlave();
 	dwRes |= ecTaskEthercatSlave.registerPdo();
 	dwRes |= ecTaskEthercatSlave.registerPublisher();
+	dwRes |= ecTaskUser.registerPublisher();
     dwRes |= ecTaskRobotControl.registerPublisher();
-    dwRes |= ecTaskUser.registerPublisher();
-
 	dwRes |= ecTaskEthercatSlave.registerSubscriber();
+	dwRes |= ecTaskUser.registerSubscriber();
     dwRes |= ecTaskRobotControl.registerSubscriber();
-    dwRes |= ecTaskUser.registerSubscriber();
 
     return dwRes;
 }

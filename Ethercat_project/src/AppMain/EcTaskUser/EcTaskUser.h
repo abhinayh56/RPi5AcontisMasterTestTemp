@@ -26,10 +26,10 @@
 	EC_T_DWORD mainProcess();
 
  private:
-     std::vector<EcTaskUserBase*> m_ecTaskUserBaseVector;
-     int m_numEcTaskUser = 0;
+	std::vector<EcTaskUserBase*> m_ecTaskUserBaseVector;
+	int m_numTaskUser = 0;
 
-     EC_T_DWORD addTaskUser(EcTaskUserBase* pTaskUser);
+	EC_T_DWORD addTaskUser(EcTaskUserBase* pTaskUser);
  };
 
  #endif // EC_TASK_USER_H

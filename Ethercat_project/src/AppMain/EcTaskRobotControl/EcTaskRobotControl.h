@@ -27,7 +27,7 @@ public:
 
 private:
     std::vector<EcTaskRobotControlBase*> m_ecTaskRobotControlBaseVector;
-    int m_numEcTaskUser = 0;
+    int m_numTaskRobotControl = 0;
 
     EC_T_DWORD addTaskRobotControl(EcTaskRobotControlBase* pTaskRobotControl);
 };
