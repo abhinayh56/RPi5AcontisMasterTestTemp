@@ -2,6 +2,7 @@
 
 EcSlaveDenNetE::EcSlaveDenNetE(uint16_t slaveAddr, const std::string &slaveName) : EcSlaveBase(slaveAddr, slaveName)
 {
+	m_path += "/" + slaveName;
 }
 
 EcSlaveDenNetE::~EcSlaveDenNetE()

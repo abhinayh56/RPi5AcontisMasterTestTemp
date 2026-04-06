@@ -2,7 +2,7 @@
 
 EcSlaveEl1008::EcSlaveEl1008(uint16_t slaveAddr, const std::string &slaveName) :
 	EcSlaveBase(slaveAddr, slaveName),
-	m_InputCh_1("DIGITAL_INPUT_CH_1","ethercat/el1008", false, true),
+	m_InputCh_1("DIGITAL_INPUT_CH_1","ethercat/el1008"+slaveName, false, true),
 	m_InputCh_2("DIGITAL_INPUT_CH_2","ethercat/el1008", false, true),
 	m_InputCh_3("DIGITAL_INPUT_CH_3","ethercat/el1008", false, true),
 	m_InputCh_4("DIGITAL_INPUT_CH_4","ethercat/el1008", false, true),

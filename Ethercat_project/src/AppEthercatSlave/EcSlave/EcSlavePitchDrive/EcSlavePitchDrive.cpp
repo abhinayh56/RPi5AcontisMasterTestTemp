@@ -2,14 +2,14 @@
 
 EcSlavePitchDrive::EcSlavePitchDrive(uint16_t slaveAddr, const std::string &slaveName) :
 	EcSlaveBase(slaveAddr, slaveName),
-	m_InputCh_1("DIGITAL_INPUT_CH_1","ethercat/el1008", false, true),
-	m_InputCh_2("DIGITAL_INPUT_CH_2","ethercat/el1008", false, true),
-	m_InputCh_3("DIGITAL_INPUT_CH_3","ethercat/el1008", false, true),
-	m_InputCh_4("DIGITAL_INPUT_CH_4","ethercat/el1008", false, true),
-	m_InputCh_5("DIGITAL_INPUT_CH_5","ethercat/el1008", false, true),
-	m_InputCh_6("DIGITAL_INPUT_CH_6","ethercat/el1008", false, true),
-	m_InputCh_7("DIGITAL_INPUT_CH_7","ethercat/el1008", false, true),
-	m_InputCh_8("DIGITAL_INPUT_CH_8","ethercat/el1008", false, true)
+	m_InputCh_1("DIGITAL_INPUT_CH_1", m_path + "/" + slaveName, false, true),
+	m_InputCh_2("DIGITAL_INPUT_CH_2", m_path + "/" + slaveName, false, true),
+	m_InputCh_3("DIGITAL_INPUT_CH_3", m_path + "/" + slaveName, false, true),
+	m_InputCh_4("DIGITAL_INPUT_CH_4", m_path + "/" + slaveName, false, true),
+	m_InputCh_5("DIGITAL_INPUT_CH_5", m_path + "/" + slaveName, false, true),
+	m_InputCh_6("DIGITAL_INPUT_CH_6", m_path + "/" + slaveName, false, true),
+	m_InputCh_7("DIGITAL_INPUT_CH_7", m_path + "/" + slaveName, false, true),
+	m_InputCh_8("DIGITAL_INPUT_CH_8", m_path + "/" + slaveName, false, true)
 {
 }
 
