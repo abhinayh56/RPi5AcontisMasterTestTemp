@@ -1,6 +1,7 @@
 build/aarch64le-debug/./src/AppEthercatSlave/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.o: \
  src/AppEthercatSlave/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.cpp \
  src/AppEthercatSlave/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h \
+ src/AppEthercatSlave/EcSlave/EcCia402/EcCia402.h \
  src/AppEthercatSlave/EcSlave/EcSlaveBase/EcSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \

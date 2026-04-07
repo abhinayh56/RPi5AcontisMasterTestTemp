@@ -1,7 +1,7 @@
 #ifndef EC_SLAVE_PITCH_DRIVE_H
 #define EC_SLAVE_PITCH_DRIVE_H
 
-#include "EcCia402.h"
+#include "EcSlaveBase.h"
 
 namespace EcSlavePitchDriveData
 {
@@ -33,13 +33,13 @@ namespace EcSlavePitchDriveData
 	#pragma pack(pop)
 }
 
-class EcSlavePitchDrive : public EcCia402
+class EcSlavePitchDrive : public EcSlaveBase
 {
 public:
 	EcSlavePitchDrive(uint16_t slaveAddr, const std::string &slaveName);
 
 	~EcSlavePitchDrive();
-	
+
 	virtual EC_T_DWORD registerTxPdo() override;
 
 	virtual EC_T_DWORD registerRxPdo() override;

@@ -8,13 +8,6 @@ EcCia402::~EcCia402()
 {
 }
 
-EC_T_DWORD EcCia402::checkSlave()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    return dwRes;
-}
-
 EC_T_DWORD EcCia402::registerTxPdo()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -187,8 +180,6 @@ EC_T_DWORD EcCia402::syncPosition()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    m_pdo.targetPosition.value = m_pdo.actualPosition.value;
-
     return dwRes;
 }
 
@@ -196,16 +187,12 @@ EC_T_DWORD EcCia402::syncVelocity()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    m_pdo.targetVelocity.value = m_pdo.actualVelocity.value;
-
     return dwRes;
 }
 
 EC_T_DWORD EcCia402::syncTorque()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    m_pdo.targetTorque.value = m_pdo.actualTorque.value;
 
     return dwRes;
 }

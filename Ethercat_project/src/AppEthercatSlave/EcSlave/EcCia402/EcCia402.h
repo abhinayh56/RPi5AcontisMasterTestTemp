@@ -27,62 +27,62 @@ namespace EcCia402Data
 
     struct StatusWord
     {
-        uint16_t value = 0;
-        bool isSupported = false;
+        uint16_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct ModeOfOperationDisplay
     {
-        uint8_t value = 0;
-        bool isSupported = false;
+        uint8_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct ActualPosition
     {
-        int32_t value = 0;
-        bool isSupported = false;
+        int32_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct ActualVelocity
     {
-        int32_t value = 0;
-        bool isSupported = false;
+        int32_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct ActualTorque
     {
-        int32_t value = 0;
-        bool isSupported = false;
+        int16_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct ControlWord
     {
-        uint16_t value = 0;
-        bool isSupported = false;
+        uint16_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct ModeOfOperation
     {
-        int8_t value = 0;
-        bool isSupported = false;
+    	uint8_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct TargetPosition
     {
-        int32_t value = 0;
-        bool isSupported = false;
+        int32_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct TargetVelocity
     {
-        int32_t value = 0;
-        bool isSupported = false;
+        int32_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
     struct TargetTorque
     {
-        int16_t value = 0;
-        bool isSupported = false;
+        int16_t* value = nullptr;
+        bool* isSupported = nullptr;
     };
 
 
@@ -108,8 +108,6 @@ public:
     EcCia402(uint16_t slaveAddr, const std::string &slaveName);
 
     virtual ~EcCia402();
-
-    virtual EC_T_DWORD checkSlave() override;
 
 	virtual EC_T_DWORD registerTxPdo() override;
 
