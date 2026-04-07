@@ -20,100 +20,87 @@ namespace EcCia402Data
 
     struct Offset
     {
-        uint32_t position = 0;
-        uint32_t velocity = 0;
-        uint32_t torque = 0;
+        int32_t position = 0;
+        int32_t velocity = 0;
+        int16_t torque = 0;
     };
 
-    template <typename T>
     struct StatusWord
     {
-        T* value = nullptr;
-        bool* isSupported = nullptr;
+        uint16_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct ModeOfOperationDisplay
     {
-        uint8_t* value = nullptr;
-        bool* isSupported = nullptr;
+        int8_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct ActualPosition
     {
-        int32_t* value = nullptr;
-        bool* isSupported = nullptr;
+        int32_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct ActualVelocity
     {
-        int32_t* value = nullptr;
-        bool* isSupported = nullptr;
+        int32_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct ActualTorque
     {
-        int16_t* value = nullptr;
-        bool* isSupported = nullptr;
+        int16_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct ControlWord
     {
-        uint16_t* value = nullptr;
-        bool* isSupported = nullptr;
+        uint16_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct ModeOfOperation
     {
-    	uint8_t* value = nullptr;
-        bool* isSupported = nullptr;
+    	int8_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct TargetPosition
     {
-        int32_t* value = nullptr;
-        bool* isSupported = nullptr;
+        int32_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct TargetVelocity
     {
-        int32_t* value = nullptr;
-        bool* isSupported = nullptr;
+        int32_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-    template <typename T>
     struct TargetTorque
     {
-        int16_t* value = nullptr;
-        bool* isSupported = nullptr;
+        int16_t* p_value = nullptr;
+        bool* p_isSupported = nullptr;
     };
 
-
-    template <typename T1, typename T2, typename T3, typename T4, typename T5>
     struct PdoTx
     {
-        StatusWord<T1> statusWord;
-        ModeOfOperationDisplay<T2> modeOfOperationDisplay;
-        ActualPosition<T3> actualPosition;
-        ActualVelocity<T4> actualVelocity;
-        ActualTorque<T5> actualTorque;
+        StatusWord statusWord;
+        ModeOfOperationDisplay modeOfOperationDisplay;
+        ActualPosition actualPosition;
+        ActualVelocity actualVelocity;
+        ActualTorque actualTorque;
     };
 
-    template <typename T1, typename T2, typename T3, typename T4, typename T5>
     struct PdoRx
     {
-        ControlWord<T1> controlWord;
-        ModeOfOperation<T2> modeOfOperation;
-        TargetPosition<T3> targetPosition;
-        TargetVelocity<T4> targetVelocity;
-        TargetTorque<T5> targetTorque;
+        ControlWord controlWord;
+        ModeOfOperation modeOfOperation;
+        TargetPosition targetPosition;
+        TargetVelocity targetVelocity;
+        TargetTorque targetTorque;
     };
 }
 
@@ -158,11 +145,11 @@ public:
 
     virtual EC_T_DWORD disable();
 
-    virtual EC_T_DWORD setOffsetPosition(uint32_t offsetPosition);
+    virtual EC_T_DWORD setOffsetPosition(int32_t offsetPosition);
 
-    virtual EC_T_DWORD setOffsetVelocity(uint32_t offsetVelocity);
+    virtual EC_T_DWORD setOffsetVelocity(int32_t offsetVelocity);
     
-    virtual EC_T_DWORD setOffsetTorque(uint32_t offsetTorque);
+    virtual EC_T_DWORD setOffsetTorque(int16_t offsetTorque);
 
     virtual EC_T_DWORD setModeOfOperation(EcCia402Data::Cia402Mode mode);
 
@@ -180,7 +167,8 @@ public:
 
 protected:
     EcCia402Data::Offset m_offset;
-    EcCia402Data::PdoTx m_Cia402pdo;
+    EcCia402Data::PdoTx m_Cia402PdoTx;
+    EcCia402Data::PdoRx m_Cia402PdoRx;
 };
 
 #endif // EC_CIA402_H

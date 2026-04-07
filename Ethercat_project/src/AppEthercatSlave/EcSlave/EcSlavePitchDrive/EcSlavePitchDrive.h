@@ -11,7 +11,7 @@ namespace EcSlavePitchDriveData
 		PdoVariable<0x6064, 0,  int32_t, 32> ACT_POS;
 		PdoVariable<0x6041, 0, uint16_t, 16> STATUS_WD;
 		PdoVariable<0x6077, 0,  int16_t, 16> ACT_TOR;
-		PdoVariable<0x6061, 0,  uint8_t,  8> OPMODE_DISP;
+		PdoVariable<0x6061, 0,   int8_t,  8> OPMODE_DISP;
 		PdoVariable<0x603F, 0, uint16_t, 16> ERROR_CODE;
 		PdoVariable<0x3002, 0,  uint8_t,  8> DIG_IN;
 		PdoVariable<0x606C, 0,  int32_t, 32> ACT_VEL;
@@ -25,7 +25,7 @@ namespace EcSlavePitchDriveData
 		PdoVariable<0x607A, 0,  int32_t, 32> TARGET_POSE;
 		PdoVariable<0x6040, 0, uint16_t, 16> CONTROL_WD;
 		PdoVariable<0x6071, 0,  int16_t, 16> TARGET_TORQ;
-		PdoVariable<0x6060, 0,  uint8_t,  8> OP_MODE;
+		PdoVariable<0x6060, 0,   int8_t,  8> OP_MODE;
 		PdoVariable<0x3004, 0, uint16_t, 16> ERROR_CLEAR;
 		PdoVariable<0x3001, 0,  uint8_t,  8> DIG_OUT;
 		PdoVariable<0x60FF, 0,  int32_t, 32> TARGET_VEL;

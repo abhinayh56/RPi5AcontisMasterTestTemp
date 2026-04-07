@@ -121,7 +121,7 @@ EC_T_DWORD EcCia402::disable()
     return dwRes;
 }
 
-EC_T_DWORD EcCia402::setOffsetPosition(uint32_t offsetPosition)
+EC_T_DWORD EcCia402::setOffsetPosition(int32_t offsetPosition)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -130,7 +130,7 @@ EC_T_DWORD EcCia402::setOffsetPosition(uint32_t offsetPosition)
     return dwRes;
 }
 
-EC_T_DWORD EcCia402::setOffsetVelocity(uint32_t offsetVelocity)
+EC_T_DWORD EcCia402::setOffsetVelocity(int32_t offsetVelocity)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -139,7 +139,7 @@ EC_T_DWORD EcCia402::setOffsetVelocity(uint32_t offsetVelocity)
     return dwRes;
 }
 
-EC_T_DWORD EcCia402::setOffsetTorque(uint32_t offsetTorque)
+EC_T_DWORD EcCia402::setOffsetTorque(int16_t offsetTorque)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
