@@ -53,17 +53,26 @@ namespace EcCia402Data
 
         namespace ControlWord
         {
-            enum BitMask : uint16_t
+            namespace Bit
             {
-                SHUT_DOWN = (1 << 2) | (1 << 1),
-                SWITCH_ON = (1 << 2) | (1 << 1) | (1 << 0),
-                SWITCH_ON_AND_ENABLE_OPERATION = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
-                DISABLE_VOLTAGE = 0,
-                QUICK_STOP = (1 << 1),
-                DISABLE_OPERATION = (1 << 2) | (1 << 1) | (1 << 0),
-                ENABLE_OPERATION = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
-                FAULT_RESET = (1 << 7)
-            };
+                enum Value : uint16_t 
+                {
+                };
+            }
+            namespace BitMask
+            {
+                enum Value : uint16_t
+                {
+                    SHUT_DOWN = (1 << 2) | (1 << 1),
+                    SWITCH_ON = (1 << 2) | (1 << 1) | (1 << 0),
+                    SWITCH_ON_AND_ENABLE_OPERATION = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
+                    DISABLE_VOLTAGE = 0,
+                    QUICK_STOP = (1 << 1),
+                    DISABLE_OPERATION = (1 << 2) | (1 << 1) | (1 << 0),
+                    ENABLE_OPERATION = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
+                    FAULT_RESET = (1 << 7)
+                };
+            }
             namespace BitData
             {
                 enum Value : uint16_t
@@ -82,17 +91,26 @@ namespace EcCia402Data
         
         namespace StatusWord
         {
-            enum BitMask : uint16_t
+            namespace Bit
             {
-                NOT_READY_TO_SWITCH_ON = 0,
-                SWITCH_ON_DISABLED = (1 << 6),
-                READY_TO_SWITCH_ON = (1 << 5) | (1 << 0),
-                SWITCHED_ON = (1 << 5) | (1 << 1) | (1 << 0),
-                OPERATION_ENABLED = (1 << 5) | (1 << 2) | (1 << 1) | (1 << 0),
-                QUICK_STOP_ACTIVE = (1 << 2) | (1 << 1) | (1 << 0),
-                FAULT_REACTION_ACTIVE = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
-                FAULT = (1 << 3)
-            };
+                enum Value : uint16_t
+                {
+                };
+            }
+            namespace BitMask
+            {
+                enum Value : uint16_t
+                {
+                    NOT_READY_TO_SWITCH_ON = 0,
+                    SWITCH_ON_DISABLED = (1 << 6),
+                    READY_TO_SWITCH_ON = (1 << 5) | (1 << 0),
+                    SWITCHED_ON = (1 << 5) | (1 << 1) | (1 << 0),
+                    OPERATION_ENABLED = (1 << 5) | (1 << 2) | (1 << 1) | (1 << 0),
+                    QUICK_STOP_ACTIVE = (1 << 2) | (1 << 1) | (1 << 0),
+                    FAULT_REACTION_ACTIVE = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
+                    FAULT = (1 << 3)
+                };
+            }
             namespace BitData
             {
                 enum Value : uint16_t
