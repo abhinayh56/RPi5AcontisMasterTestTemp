@@ -1,7 +1,7 @@
 #ifndef EC_SLAVE_DEN_NET_E_H
 #define EC_SLAVE_DEN_NET_E_H
 
-#include "EcSlaveBase.h"
+#include "EcCia402.h"
 
 namespace EcSlaveDenNetEData
 {
@@ -33,7 +33,7 @@ namespace EcSlaveDenNetEData
 	#pragma pack(pop)
 }
 
-class EcSlaveDenNetE : public EcSlaveBase
+class EcSlaveDenNetE : public EcCia402
 {
 public:
 	EcSlaveDenNetE(uint16_t slaveAddr, const std::string &slaveName);

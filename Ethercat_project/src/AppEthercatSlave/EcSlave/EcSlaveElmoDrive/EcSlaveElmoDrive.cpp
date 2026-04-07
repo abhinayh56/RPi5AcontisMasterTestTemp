@@ -1,6 +1,7 @@
 #include "EcSlaveElmoDrive.h"
 
-EcSlaveElmoDrive::EcSlaveElmoDrive(uint16_t slaveAddr, const std::string &slaveName) : EcSlaveBase(slaveAddr, slaveName)
+EcSlaveElmoDrive::EcSlaveElmoDrive(uint16_t slaveAddr, const std::string &slaveName) :
+	EcCia402(slaveAddr, slaveName)
 {
 }
 
@@ -20,6 +21,18 @@ EC_T_DWORD EcSlaveElmoDrive::registerTxPdo()
 	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Digital_Inputs);
 	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Current_actual_value);
 
+	m_Cia402PdoTx.statusWord.p_isSupported = &m_txPdo.Status_word.isSupported;
+	m_Cia402PdoTx.modeOfOperationDisplay.p_isSupported = &m_txPdo.Mode_of_operation_display.isSupported;
+	m_Cia402PdoTx.actualPosition.p_isSupported = &m_txPdo.Position_actual_value.isSupported;
+	m_Cia402PdoTx.actualVelocity.p_isSupported = &m_txPdo.Velocity_actual_value.isSupported;
+	m_Cia402PdoTx.actualTorque.p_isSupported = &m_txPdo.Torque_actual_value.isSupported;
+
+	m_Cia402PdoTx.statusWord.p_value = &m_txPdo.Status_word.value;
+	m_Cia402PdoTx.modeOfOperationDisplay.p_value = &m_txPdo.Mode_of_operation_display.value;
+	m_Cia402PdoTx.actualPosition.p_value = &m_txPdo.Position_actual_value.value;
+	m_Cia402PdoTx.actualVelocity.p_value = &m_txPdo.Velocity_actual_value.value;
+	m_Cia402PdoTx.actualTorque.p_value = &m_txPdo.Torque_actual_value.value;
+
 	return dwRes;
 }
 
@@ -33,6 +46,18 @@ EC_T_DWORD EcSlaveElmoDrive::registerRxPdo()
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Target_Position);
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Velocity_Offset);
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Digital_Outputs);
+
+	m_Cia402PdoRx.controlWord.p_isSupported = &m_rxPdo.Control_word.isSupported;
+	m_Cia402PdoRx.modeOfOperation.p_isSupported = &m_rxPdo.Mode_of_operation.isSupported;
+	m_Cia402PdoRx.targetPosition.p_isSupported = &m_rxPdo.Target_Position.isSupported;
+	// m_Cia402PdoRx.targetVelocity.p_isSupported = &m_rxPdo.TARGET_VEL.isSupported;
+	m_Cia402PdoRx.targetTorque.p_isSupported = &m_rxPdo.Target_Torque.isSupported;
+
+	m_Cia402PdoRx.controlWord.p_value = &m_rxPdo.Control_word.value;
+	m_Cia402PdoRx.modeOfOperation.p_value = &m_rxPdo.Mode_of_operation.value;
+	m_Cia402PdoRx.targetPosition.p_value = &m_rxPdo.Target_Position.value;
+	// m_Cia402PdoRx.targetVelocity.p_value = &m_rxPdo.TARGET_VEL.value;
+	m_Cia402PdoRx.targetTorque.p_value = &m_rxPdo.Target_Torque.value;
 
 	return dwRes;
 }

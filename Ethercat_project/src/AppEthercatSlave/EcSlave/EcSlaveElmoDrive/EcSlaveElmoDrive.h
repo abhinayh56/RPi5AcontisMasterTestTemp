@@ -1,7 +1,7 @@
 #ifndef EC_SLAVE_ELMO_DRIVE_H
 #define EC_SLAVE_ELMO_DRIVE_H
 
-#include "EcSlaveBase.h"
+#include "EcCia402.h"
 
 namespace EcSlaveElmoDriveData
 {
@@ -31,7 +31,7 @@ namespace EcSlaveElmoDriveData
 	#pragma pack(pop)
 }
 
-class EcSlaveElmoDrive : public EcSlaveBase
+class EcSlaveElmoDrive : public EcCia402
 {
 public:
 	EcSlaveElmoDrive(uint16_t slaveAddr, const std::string &slaveName);

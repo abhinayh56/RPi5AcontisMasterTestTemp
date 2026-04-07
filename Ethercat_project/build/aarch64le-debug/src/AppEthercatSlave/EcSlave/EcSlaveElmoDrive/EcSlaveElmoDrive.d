@@ -1,6 +1,7 @@
 build/aarch64le-debug/./src/AppEthercatSlave/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.o: \
  src/AppEthercatSlave/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.cpp \
  src/AppEthercatSlave/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
+ src/AppEthercatSlave/EcSlave/EcCia402/EcCia402.h \
  src/AppEthercatSlave/EcSlave/EcSlaveBase/EcSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
