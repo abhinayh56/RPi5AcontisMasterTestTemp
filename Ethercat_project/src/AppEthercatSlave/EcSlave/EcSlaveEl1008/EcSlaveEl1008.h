@@ -57,38 +57,14 @@ protected:
 	EcSlaveEl1008Data::TxPdo m_txPdo;
 
 private:
-	Data_store_element<bool> m_InputCh_11;
-	Data_store_element<bool> m_InputCh_21;
-	Data_store_element<bool> m_InputCh_31;
-	Data_store_element<bool> m_InputCh_41;
-	Data_store_element<bool> m_InputCh_51;
-	Data_store_element<bool> m_InputCh_61;
-	Data_store_element<bool> m_InputCh_71;
-	Data_store_element<bool> m_InputCh_81;
-	Data_store_element<bool> m_InputCh_12;
-	Data_store_element<bool> m_InputCh_22;
-	Data_store_element<bool> m_InputCh_32;
-	Data_store_element<bool> m_InputCh_42;
-	Data_store_element<bool> m_InputCh_52;
-	Data_store_element<bool> m_InputCh_62;
-	Data_store_element<bool> m_InputCh_72;
-	Data_store_element<bool> m_InputCh_82;
-	Data_store_element<bool> m_InputCh_13;
-	Data_store_element<bool> m_InputCh_23;
-	Data_store_element<bool> m_InputCh_33;
-	Data_store_element<bool> m_InputCh_43;
-	Data_store_element<bool> m_InputCh_53;
-	Data_store_element<bool> m_InputCh_63;
-	Data_store_element<bool> m_InputCh_73;
-	Data_store_element<bool> m_InputCh_83;
-	Data_store_element<bool> m_InputCh_14;
-	Data_store_element<bool> m_InputCh_24;
-	Data_store_element<bool> m_InputCh_34;
-	Data_store_element<bool> m_InputCh_44;
-	Data_store_element<bool> m_InputCh_54;
-	Data_store_element<bool> m_InputCh_64;
-	Data_store_element<bool> m_InputCh_74;
-	Data_store_element<bool> m_InputCh_84;
+	Data_store_element<bool> m_InputCh_1;
+	Data_store_element<bool> m_InputCh_2;
+	Data_store_element<bool> m_InputCh_3;
+	Data_store_element<bool> m_InputCh_4;
+	Data_store_element<bool> m_InputCh_5;
+	Data_store_element<bool> m_InputCh_6;
+	Data_store_element<bool> m_InputCh_7;
+	Data_store_element<bool> m_InputCh_8;
 };
 
 #endif // EC_SLAVE_EL1008_H

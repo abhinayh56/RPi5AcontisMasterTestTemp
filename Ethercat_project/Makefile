@@ -24,6 +24,7 @@ DIR_EXTERNAL = ./external
 DIR_EC_SDK = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
 DIR_APP_MAIN = ./src/AppMain
 DIR_APP_ETHERCAT = ./src/AppEthercatSlave
+DIR_APP_USER = ./src/AppUser
 #DIR_APP_ETHERCAT = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/Examples
 DIR_ITC = ./external/ITC
 DIR_EIGEN = ./external/eigen-5.0.0
@@ -56,6 +57,8 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveDenNetE
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive
+
+INCLUDES += -I$(DIR_APP_USER)/EcUser_1
 
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlave
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskRobotControl
@@ -126,6 +129,8 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveDenNetE/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive/*.cpp)
+
+SRCS += $(wildcard $(DIR_APP_USER)/EcUser_1/*.cpp)
 
 #Object files list
 OBJS = $(addprefix $(OUTPUT_DIR)/,$(addsuffix .o, $(basename $(SRCS))))

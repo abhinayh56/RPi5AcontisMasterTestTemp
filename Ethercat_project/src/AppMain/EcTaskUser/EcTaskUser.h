@@ -3,6 +3,7 @@
 
  #include <vector>
  #include "EcTaskUserBase.h"
+ #include "EcUser_1.h"
 
  class EcTaskUser
  {

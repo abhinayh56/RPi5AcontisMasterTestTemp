@@ -12,6 +12,8 @@ EC_T_DWORD EcTaskUser::addAllTaskUser()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
+    dwRes |= addTaskUser(new EcUser_1(0, "/user1"));
+
     return dwRes;
 }
 

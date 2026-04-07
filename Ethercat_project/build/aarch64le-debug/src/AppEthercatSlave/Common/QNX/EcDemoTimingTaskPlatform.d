@@ -56,6 +56,7 @@ build/aarch64le-debug/./src/AppEthercatSlave/Common/QNX/EcDemoTimingTaskPlatform
  src/AppMain/EcTaskRobotControl/EcTaskRobotControlBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
  src/AppMain/EcTaskUser/EcTaskUser.h \
+ src/AppMain/EcTaskUser/EcTaskUserBase.h src/AppUser/EcUser_1/EcUser_1.h \
  src/AppMain/EcTaskUser/EcTaskUserBase.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
  src/AppMain/EcTaskInterface/EcTaskInterfaceBase.h \

@@ -2,14 +2,14 @@
 
 EcSlavePitchDrive::EcSlavePitchDrive(uint16_t slaveAddr, const std::string &slaveName) :
 	EcSlaveBase(slaveAddr, slaveName),
-	m_InputCh_1("DIGITAL_INPUT_CH_1", m_path, false, true),
-	m_InputCh_2("DIGITAL_INPUT_CH_2", m_path, false, true),
-	m_InputCh_3("DIGITAL_INPUT_CH_3", m_path, false, true),
-	m_InputCh_4("DIGITAL_INPUT_CH_4", m_path, false, true),
-	m_InputCh_5("DIGITAL_INPUT_CH_5", m_path, false, true),
-	m_InputCh_6("DIGITAL_INPUT_CH_6", m_path, false, true),
-	m_InputCh_7("DIGITAL_INPUT_CH_7", m_path, false, true),
-	m_InputCh_8("DIGITAL_INPUT_CH_8", m_path, false, true)
+	m_InputCh_1("DATA_1", m_path, false, true),
+	m_InputCh_2("DATA_2", m_path, false, true),
+	m_InputCh_3("DATA_3", m_path, false, true),
+	m_InputCh_4("DATA_4", m_path, false, true),
+	m_InputCh_5("DATA_5", m_path, false, true),
+	m_InputCh_6("DATA_6", m_path, false, true),
+	m_InputCh_7("DATA_7", m_path, false, true),
+	m_InputCh_8("DATA_8", m_path, false, true)
 {
 }
 
@@ -131,14 +131,14 @@ EC_T_DWORD EcSlavePitchDrive::subscribeData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	m_InputCh_1.get(m_InputCh_1_value);
-	m_InputCh_2.get(m_InputCh_2_value);
-	m_InputCh_3.get(m_InputCh_3_value);
-	m_InputCh_4.get(m_InputCh_4_value);
-	m_InputCh_5.get(m_InputCh_5_value);
-	m_InputCh_6.get(m_InputCh_6_value);
-	m_InputCh_7.get(m_InputCh_7_value);
-	m_InputCh_8.get(m_InputCh_8_value);
+	m_InputCh_1.get(m_data_1);
+	m_InputCh_2.get(m_data_2);
+	m_InputCh_3.get(m_data_3);
+	m_InputCh_4.get(m_data_4);
+	m_InputCh_5.get(m_data_5);
+	m_InputCh_6.get(m_data_6);
+	m_InputCh_7.get(m_data_7);
+	m_InputCh_8.get(m_data_8);
 
 	return dwRes;
 }
@@ -147,14 +147,14 @@ EC_T_DWORD EcSlavePitchDrive::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	if(m_InputCh_1_value == true) {m_rxPdo.OP_MODE.value = 8;}
-	if(m_InputCh_2_value == true) {m_rxPdo.CONTROL_WD.value = 6;}
-	if(m_InputCh_3_value == true) {m_rxPdo.CONTROL_WD.value = 7;}
-	if(m_InputCh_4_value == true) {m_rxPdo.CONTROL_WD.value = 15;}
-	if(m_InputCh_5_value == true) {m_rxPdo.TARGET_POSE.value = 0;}
-	if(m_InputCh_6_value == true) {m_rxPdo.TARGET_POSE.value = 8192;}
-	if(m_InputCh_7_value == true) {m_rxPdo.CONTROL_WD.value = 128; m_rxPdo.OP_MODE.value = 0;}
-	if(m_InputCh_8_value == true) {m_rxPdo.CONTROL_WD.value = 0; m_rxPdo.OP_MODE.value = 0;}
+	if(m_data_1 == true) {m_rxPdo.OP_MODE.value = 8;}
+	if(m_data_2 == true) {m_rxPdo.CONTROL_WD.value = 6;}
+	if(m_data_3 == true) {m_rxPdo.CONTROL_WD.value = 7;}
+	if(m_data_4 == true) {m_rxPdo.CONTROL_WD.value = 15;}
+	if(m_data_5 == true) {m_rxPdo.TARGET_POSE.value = 0;}
+	if(m_data_6 == true) {m_rxPdo.TARGET_POSE.value = 8192;}
+	if(m_data_7 == true) {m_rxPdo.CONTROL_WD.value = 128; m_rxPdo.OP_MODE.value = 0;}
+	if(m_data_8 == true) {m_rxPdo.CONTROL_WD.value = 0; m_rxPdo.OP_MODE.value = 0;}
 
 	return dwRes;
 }

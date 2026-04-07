@@ -79,14 +79,14 @@ protected:
 	Data_store_element<bool> m_InputCh_7;
 	Data_store_element<bool> m_InputCh_8;
 
-	bool m_InputCh_1_value = false;
-	bool m_InputCh_2_value = false;
-	bool m_InputCh_3_value = false;
-	bool m_InputCh_4_value = false;
-	bool m_InputCh_5_value = false;
-	bool m_InputCh_6_value = false;
-	bool m_InputCh_7_value = false;
-	bool m_InputCh_8_value = false;
+	bool m_data_1 = false;
+	bool m_data_2 = false;
+	bool m_data_3 = false;
+	bool m_data_4 = false;
+	bool m_data_5 = false;
+	bool m_data_6 = false;
+	bool m_data_7 = false;
+	bool m_data_8 = false;
 };
 
 #endif // EC_SLAVE_PITCH_DRIVE_H
