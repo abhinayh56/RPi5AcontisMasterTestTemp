@@ -25,60 +25,70 @@ namespace EcCia402Data
         uint32_t torque = 0;
     };
 
+    template <typename T>
     struct StatusWord
     {
-        uint16_t* value = nullptr;
+        T* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct ModeOfOperationDisplay
     {
         uint8_t* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct ActualPosition
     {
         int32_t* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct ActualVelocity
     {
         int32_t* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct ActualTorque
     {
         int16_t* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct ControlWord
     {
         uint16_t* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct ModeOfOperation
     {
     	uint8_t* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct TargetPosition
     {
         int32_t* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct TargetVelocity
     {
         int32_t* value = nullptr;
         bool* isSupported = nullptr;
     };
 
+    template <typename T>
     struct TargetTorque
     {
         int16_t* value = nullptr;
@@ -86,19 +96,24 @@ namespace EcCia402Data
     };
 
 
-    struct Pdo
+    template <typename T1, typename T2, typename T3, typename T4, typename T5>
+    struct PdoTx
     {
-        StatusWord statusWord;
-        ModeOfOperationDisplay modeOfOperationDisplay;
-        ActualPosition actualPosition;
-        ActualVelocity actualVelocity;
-        ActualTorque actualTorque;
+        StatusWord<T1> statusWord;
+        ModeOfOperationDisplay<T2> modeOfOperationDisplay;
+        ActualPosition<T3> actualPosition;
+        ActualVelocity<T4> actualVelocity;
+        ActualTorque<T5> actualTorque;
+    };
 
-        ControlWord controlWord;
-        ModeOfOperation modeOfOperation;
-        TargetPosition targetPosition;
-        TargetVelocity targetVelocity;
-        TargetTorque targetTorque;
+    template <typename T1, typename T2, typename T3, typename T4, typename T5>
+    struct PdoRx
+    {
+        ControlWord<T1> controlWord;
+        ModeOfOperation<T2> modeOfOperation;
+        TargetPosition<T3> targetPosition;
+        TargetVelocity<T4> targetVelocity;
+        TargetTorque<T5> targetTorque;
     };
 }
 
@@ -165,7 +180,7 @@ public:
 
 protected:
     EcCia402Data::Offset m_offset;
-    EcCia402Data::Pdo m_pdo;
+    EcCia402Data::PdoTx m_Cia402pdo;
 };
 
 #endif // EC_CIA402_H

@@ -30,17 +30,17 @@ EC_T_DWORD EcSlavePitchDrive::registerTxPdo()
 	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.ACT_VEL);
 	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.ADC_VAL);
 
-	m_pdo.statusWord.isSupported = &m_txPdo.STATUS_WD.isSupported;
-	m_pdo.modeOfOperationDisplay.isSupported = &m_txPdo.OPMODE_DISP.isSupported;
-	m_pdo.actualPosition.isSupported = &m_txPdo.ACT_POS.isSupported;
-	m_pdo.actualVelocity.isSupported = &m_txPdo.ACT_VEL.isSupported;
-	m_pdo.actualTorque.isSupported = &m_txPdo.ACT_TOR.isSupported;
+	m_Cia402pdo.statusWord.isSupported = &m_txPdo.STATUS_WD.isSupported;
+	m_Cia402pdo.modeOfOperationDisplay.isSupported = &m_txPdo.OPMODE_DISP.isSupported;
+	m_Cia402pdo.actualPosition.isSupported = &m_txPdo.ACT_POS.isSupported;
+	m_Cia402pdo.actualVelocity.isSupported = &m_txPdo.ACT_VEL.isSupported;
+	m_Cia402pdo.actualTorque.isSupported = &m_txPdo.ACT_TOR.isSupported;
 
-	m_pdo.statusWord.value = &m_txPdo.STATUS_WD.value;
-	m_pdo.modeOfOperationDisplay.value = &m_txPdo.OPMODE_DISP.value;
-	m_pdo.actualPosition.value = &m_txPdo.ACT_POS.value;
-	m_pdo.actualVelocity.value = &m_txPdo.ACT_VEL.value;
-	m_pdo.actualTorque.value = &m_txPdo.ACT_TOR.value;
+	m_Cia402pdo.statusWord.value = &m_txPdo.STATUS_WD.value;
+	m_Cia402pdo.modeOfOperationDisplay.value = &m_txPdo.OPMODE_DISP.value;
+	m_Cia402pdo.actualPosition.value = &m_txPdo.ACT_POS.value;
+	m_Cia402pdo.actualVelocity.value = &m_txPdo.ACT_VEL.value;
+	m_Cia402pdo.actualTorque.value = &m_txPdo.ACT_TOR.value;
 
 	return dwRes;
 }
@@ -57,17 +57,17 @@ EC_T_DWORD EcSlavePitchDrive::registerRxPdo()
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.DIG_OUT);
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.TARGET_VEL);
 
-	m_pdo.controlWord.isSupported = &m_rxPdo.CONTROL_WD.isSupported;
-	m_pdo.modeOfOperation.isSupported = &m_rxPdo.OP_MODE.isSupported;
-	m_pdo.targetPosition.isSupported = &m_rxPdo.TARGET_POSE.isSupported;
-	m_pdo.targetVelocity.isSupported = &m_rxPdo.TARGET_VEL.isSupported;
-	m_pdo.targetTorque.isSupported = &m_rxPdo.TARGET_TORQ.isSupported;
+	m_Cia402pdo.controlWord.isSupported = &m_rxPdo.CONTROL_WD.isSupported;
+	m_Cia402pdo.modeOfOperation.isSupported = &m_rxPdo.OP_MODE.isSupported;
+	m_Cia402pdo.targetPosition.isSupported = &m_rxPdo.TARGET_POSE.isSupported;
+	m_Cia402pdo.targetVelocity.isSupported = &m_rxPdo.TARGET_VEL.isSupported;
+	m_Cia402pdo.targetTorque.isSupported = &m_rxPdo.TARGET_TORQ.isSupported;
 
-	m_pdo.controlWord.value = &m_rxPdo.CONTROL_WD.value;
-	m_pdo.modeOfOperation.value = &m_rxPdo.OP_MODE.value;
-	m_pdo.targetPosition.value = &m_rxPdo.TARGET_POSE.value;
-	m_pdo.targetVelocity.value = &m_rxPdo.TARGET_VEL.value;
-	m_pdo.targetTorque.value = &m_rxPdo.TARGET_TORQ.value;
+	m_Cia402pdo.controlWord.value = &m_rxPdo.CONTROL_WD.value;
+	m_Cia402pdo.modeOfOperation.value = &m_rxPdo.OP_MODE.value;
+	m_Cia402pdo.targetPosition.value = &m_rxPdo.TARGET_POSE.value;
+	m_Cia402pdo.targetVelocity.value = &m_rxPdo.TARGET_VEL.value;
+	m_Cia402pdo.targetTorque.value = &m_rxPdo.TARGET_TORQ.value;
 
 	return dwRes;
 }
