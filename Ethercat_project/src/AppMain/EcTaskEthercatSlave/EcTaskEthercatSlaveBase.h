@@ -52,7 +52,7 @@ protected:
 	uint16_t m_ecTaskEthercatSlaveId;
 	std::string m_ecTaskEthercatSlaveName;
 
-	std::string m_path = ".";
+	std::string m_path = "/ethercat";
 };
 
 #endif // EC_TASK_ETHERCAT_SLAVE_BASE_H

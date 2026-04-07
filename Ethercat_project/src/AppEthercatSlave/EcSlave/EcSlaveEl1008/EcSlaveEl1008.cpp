@@ -2,14 +2,14 @@
 
 EcSlaveEl1008::EcSlaveEl1008(uint16_t slaveAddr, const std::string &slaveName) :
 	EcSlaveBase(slaveAddr, slaveName),
-	m_InputCh_1("DIGITAL_INPUT_CH_1","ethercat/el1008"+slaveName, false, true),
-	m_InputCh_2("DIGITAL_INPUT_CH_2","ethercat/el1008", false, true),
-	m_InputCh_3("DIGITAL_INPUT_CH_3","ethercat/el1008", false, true),
-	m_InputCh_4("DIGITAL_INPUT_CH_4","ethercat/el1008", false, true),
-	m_InputCh_5("DIGITAL_INPUT_CH_5","ethercat/el1008", false, true),
-	m_InputCh_6("DIGITAL_INPUT_CH_6","ethercat/el1008", false, true),
-	m_InputCh_7("DIGITAL_INPUT_CH_7","ethercat/el1008", false, true),
-	m_InputCh_8("DIGITAL_INPUT_CH_8","ethercat/el1008", false, true)
+	m_InputCh_1("DIGITAL_INPUT_CH_1", "/ethercat/motor_3", false, true),
+	m_InputCh_2("DIGITAL_INPUT_CH_2", "/ethercat/motor_3", false, true),
+	m_InputCh_3("DIGITAL_INPUT_CH_3", "/ethercat/motor_3", false, true),
+	m_InputCh_4("DIGITAL_INPUT_CH_4", "/ethercat/motor_3", false, true),
+	m_InputCh_5("DIGITAL_INPUT_CH_5", "/ethercat/motor_3", false, true),
+	m_InputCh_6("DIGITAL_INPUT_CH_6", "/ethercat/motor_3", false, true),
+	m_InputCh_7("DIGITAL_INPUT_CH_7", "/ethercat/motor_3", false, true),
+	m_InputCh_8("DIGITAL_INPUT_CH_8", "/ethercat/motor_3", false, true)
 {
 }
 
