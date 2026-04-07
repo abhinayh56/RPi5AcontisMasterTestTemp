@@ -9,40 +9,46 @@ namespace EcCia402Data
     {
         namespace ModeOfOperation
         {
-            enum Value : int8_t
+            namespace BitData
             {
-                COMMUTATION_OFFSET_DETECTION = -2,
-                COGGING_COMPENSATION_RECORDING = -1,
-                NONE = 0,
-                PROFILE_POSITION = 1,
-                VELOCITY = 2,
-                PROFILE_VELOCITY = 3,
-                PROFILE_TORQUE = 4,
-                HOMING = 6,
-                INTERPOLATED_POSITION = 7,
-                CYCLIC_SYNC_POSITION = 8,
-                CYCLIC_SYNC_VELOCITY = 9,
-                CYCLIC_SYNC_TORQUE = 10
-            };
+                enum Value : int8_t
+                {
+                    COMMUTATION_OFFSET_DETECTION = -2,
+                    COGGING_COMPENSATION_RECORDING = -1,
+                    NONE = 0,
+                    PROFILE_POSITION = 1,
+                    VELOCITY = 2,
+                    PROFILE_VELOCITY = 3,
+                    PROFILE_TORQUE = 4,
+                    HOMING = 6,
+                    INTERPOLATED_POSITION = 7,
+                    CYCLIC_SYNC_POSITION = 8,
+                    CYCLIC_SYNC_VELOCITY = 9,
+                    CYCLIC_SYNC_TORQUE = 10
+                };
+            }
         }
 
         namespace ModeOfOperationDisplay
         {
-            enum Value : int8_t
+            namespace BitData
             {
-                COMMUTATION_OFFSET_DETECTION = -2,
-                COGGING_COMPENSATION_RECORDING = -1,
-                NONE = 0,
-                PROFILE_POSITION = 1,
-                VELOCITY = 2,
-                PROFILE_VELOCITY = 3,
-                PROFILE_TORQUE = 4,
-                HOMING = 6,
-                INTERPOLATED_POSITION = 7,
-                CYCLIC_SYNC_POSITION = 8,
-                CYCLIC_SYNC_VELOCITY = 9,
-                CYCLIC_SYNC_TORQUE = 10
-            };
+                enum Value : int8_t
+                {
+                    COMMUTATION_OFFSET_DETECTION = -2,
+                    COGGING_COMPENSATION_RECORDING = -1,
+                    NONE = 0,
+                    PROFILE_POSITION = 1,
+                    VELOCITY = 2,
+                    PROFILE_VELOCITY = 3,
+                    PROFILE_TORQUE = 4,
+                    HOMING = 6,
+                    INTERPOLATED_POSITION = 7,
+                    CYCLIC_SYNC_POSITION = 8,
+                    CYCLIC_SYNC_VELOCITY = 9,
+                    CYCLIC_SYNC_TORQUE = 10
+                };
+            }
         }
 
         namespace ControlWord
