@@ -5,6 +5,89 @@
 
 namespace EcCia402Data
 {
+    namespace Object
+    {
+        namespace ModeOfOperation
+        {
+            enum Value : int8_t
+            {
+                COMMUTATION_OFFSET_DETECTION = -2,
+                COGGING_COMPENSATION_RECORDING = -1,
+                NONE = 0,
+                PROFILE_POSITION = 1,
+                VELOCITY = 2,
+                PROFILE_VELOCITY = 3,
+                PROFILE_TORQUE = 4,
+                HOMING = 6,
+                INTERPOLATED_POSITION = 7,
+                CYCLIC_SYNC_POSITION = 8,
+                CYCLIC_SYNC_VELOCITY = 9,
+                CYCLIC_SYNC_TORQUE = 10
+            };
+        }
+
+        namespace ModeOfOperationDisplay
+        {
+            enum Value : int8_t
+            {
+                COMMUTATION_OFFSET_DETECTION = -2,
+                COGGING_COMPENSATION_RECORDING = -1,
+                NONE = 0,
+                PROFILE_POSITION = 1,
+                VELOCITY = 2,
+                PROFILE_VELOCITY = 3,
+                PROFILE_TORQUE = 4,
+                HOMING = 6,
+                INTERPOLATED_POSITION = 7,
+                CYCLIC_SYNC_POSITION = 8,
+                CYCLIC_SYNC_VELOCITY = 9,
+                CYCLIC_SYNC_TORQUE = 10
+            };
+        }
+
+        namespace ControlWord
+        {
+            enum Bit : uint16_t
+            {
+                SHUT_DOWN = (1 << 2) | (1 << 1),
+                SWITCH_ON = (1 << 2) | (1 << 1) | (1 << 0),
+                SWITCH_ON_AND_ENABLE_OPERATION = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
+                DISABLE_VOLTAGE = 0,
+                QUICK_STOP = (1 << 1),
+                DISABLE_OPERATION = (1 << 2) | (1 << 1) | (1 << 0),
+                ENABLE_OPERATION = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
+                FAULT_RESET = (1 << 7)
+            };
+//            enum Value : uint16_t
+//            {
+//                SHUT_DOWN = (1 << 2) | (1 << 1),
+//                SWITCH_ON = (1 << 2) | (1 << 1) | (1 << 0),
+//                SWITCH_ON_AND_ENABLE_OPERATION = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
+//                DISABLE_VOLTAGE = 0,
+//                QUICK_STOP = (1 << 1),
+//                DISABLE_OPERATION = (1 << 2) | (1 << 1) | (1 << 0),
+//                ENABLE_OPERATION = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
+//                FAULT_RESET = (1 << 7)
+//            };
+
+        }
+        
+        namespace StatusWord
+        {
+            enum Bit : uint16_t
+            {
+                NOT_READY_TO_SWITCH_ON = 0,
+                SWITCH_ON_DISABLED = (1 << 6),
+                READY_TO_SWITCH_ON = (1 << 5) | (1 << 0),
+                SWITCHED_ON = (1 << 5) | (1 << 1) | (1 << 0),
+                OPERATION_ENABLED = (1 << 5) | (1 << 2) | (1 << 1) | (1 << 0),
+                QUICK_STOP_ACTIVE = (1 << 2) | (1 << 1) | (1 << 0),
+                FAULT_REACTION_ACTIVE = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
+                FAULT = (1 << 3)
+            };
+        }
+    }
+
     enum Cia402Mode : int8_t
     {
         MODE_NO_MODE,
@@ -151,7 +234,7 @@ public:
     
     virtual EC_T_DWORD setOffsetTorque(int16_t offsetTorque);
 
-    virtual EC_T_DWORD setModeOfOperation(EcCia402Data::Cia402Mode mode);
+    virtual EC_T_DWORD setModeOfOperation(int8_t mode);
 
     virtual EC_T_DWORD setTargetPosition(int32_t targetPosition);
 

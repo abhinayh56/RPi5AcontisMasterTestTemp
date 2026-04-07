@@ -104,6 +104,8 @@ EC_T_DWORD EcCia402::clearFault()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
+    *m_Cia402PdoRx.controlWord.p_value |= 1 << 7;
+
     return dwRes;
 }
 
@@ -117,6 +119,8 @@ EC_T_DWORD EcCia402::enable()
 EC_T_DWORD EcCia402::disable()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    *m_Cia402PdoRx.controlWord.p_value = 0;
 
     return dwRes;
 }
@@ -148,7 +152,7 @@ EC_T_DWORD EcCia402::setOffsetTorque(int16_t offsetTorque)
     return dwRes;
 }
 
-EC_T_DWORD EcCia402::setModeOfOperation(EcCia402Data::Cia402Mode mode)
+EC_T_DWORD EcCia402::setModeOfOperation(int8_t mode)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
