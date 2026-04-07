@@ -8,6 +8,13 @@ EcCia402::~EcCia402()
 {
 }
 
+EC_T_DWORD EcCia402::checkSlave()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    return dwRes;
+}
+
 EC_T_DWORD EcCia402::registerTxPdo()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -121,6 +128,33 @@ EC_T_DWORD EcCia402::disable()
     return dwRes;
 }
 
+EC_T_DWORD EcCia402::setOffsetPosition(uint32_t offsetPosition)
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    m_offset.position = offsetPosition;
+
+    return dwRes;
+}
+
+EC_T_DWORD EcCia402::setOffsetVelocity(uint32_t offsetVelocity)
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    m_offset.velocity = offsetVelocity;
+
+    return dwRes;
+}
+
+EC_T_DWORD EcCia402::setOffsetTorque(uint32_t offsetTorque)
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    m_offset.torque = offsetTorque;
+
+    return dwRes;
+}
+
 EC_T_DWORD EcCia402::setModeOfOperation(EcCia402Data::Cia402Mode mode)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -153,6 +187,8 @@ EC_T_DWORD EcCia402::syncPosition()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
+    m_pdo.targetPosition.value = m_pdo.actualPosition.value;
+
     return dwRes;
 }
 
@@ -160,12 +196,16 @@ EC_T_DWORD EcCia402::syncVelocity()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
+    m_pdo.targetVelocity.value = m_pdo.actualVelocity.value;
+
     return dwRes;
 }
 
 EC_T_DWORD EcCia402::syncTorque()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    m_pdo.targetTorque.value = m_pdo.actualTorque.value;
 
     return dwRes;
 }

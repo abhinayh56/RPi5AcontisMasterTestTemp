@@ -161,16 +161,14 @@ EC_T_DWORD EcSlaveEl2008::mainProcess()
 	if(m_rxPdo.Channel_7.value) {commandCh_7 = 1;}
 	if(m_rxPdo.Channel_8.value) {commandCh_8 = 1;}
 
-	uint8_t valTemp = (commandCh_1 << 0) | 
-			(commandCh_2 << 1) |
-			(commandCh_3 << 2) |
-			(commandCh_4 << 3) |
-			(commandCh_5 << 4) |
-			(commandCh_6 << 5) |
-			(commandCh_7 << 6) |
-			(commandCh_8 << 7);
-
-	m_rxPdoValue = valTemp;
+	m_rxPdoValue = (commandCh_1 << 0) | 
+					(commandCh_2 << 1) |
+					(commandCh_3 << 2) |
+					(commandCh_4 << 3) |
+					(commandCh_5 << 4) |
+					(commandCh_6 << 5) |
+					(commandCh_7 << 6) |
+					(commandCh_8 << 7);
 
 	return dwRes;
 }
