@@ -4,6 +4,7 @@
  #include <vector>
  #include "EcTaskUserBase.h"
  #include "EcUser_1.h"
+ #include "EcUser_2.h"
 
  class EcTaskUser
  {

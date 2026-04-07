@@ -59,6 +59,7 @@ INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat
 INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive
 
 INCLUDES += -I$(DIR_APP_USER)/EcUser_1
+INCLUDES += -I$(DIR_APP_USER)/EcUser_2
 
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlave
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskRobotControl
@@ -131,6 +132,7 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive/*.cpp)
 
 SRCS += $(wildcard $(DIR_APP_USER)/EcUser_1/*.cpp)
+SRCS += $(wildcard $(DIR_APP_USER)/EcUser_2/*.cpp)
 
 #Object files list
 OBJS = $(addprefix $(OUTPUT_DIR)/,$(addsuffix .o, $(basename $(SRCS))))

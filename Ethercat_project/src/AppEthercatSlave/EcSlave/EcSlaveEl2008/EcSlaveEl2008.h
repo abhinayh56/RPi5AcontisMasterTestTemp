@@ -56,18 +56,16 @@ public:
 protected:
 	EcSlaveEl2008Data::RxPdo m_rxPdo;
 	uint8_t m_rxPdoValue = 0;
-
-	uint64_t time_now_ms = 0;
-
+	
 private:
-	Data_store_element<bool> m_InputCh_1;
-	Data_store_element<bool> m_InputCh_2;
-	Data_store_element<bool> m_InputCh_3;
-	Data_store_element<bool> m_InputCh_4;
-	Data_store_element<bool> m_InputCh_5;
-	Data_store_element<bool> m_InputCh_6;
-	Data_store_element<bool> m_InputCh_7;
-	Data_store_element<bool> m_InputCh_8;
+	Data_store_element<bool> m_OutputCh_1;
+	Data_store_element<bool> m_OutputCh_2;
+	Data_store_element<bool> m_OutputCh_3;
+	Data_store_element<bool> m_OutputCh_4;
+	Data_store_element<bool> m_OutputCh_5;
+	Data_store_element<bool> m_OutputCh_6;
+	Data_store_element<bool> m_OutputCh_7;
+	Data_store_element<bool> m_OutputCh_8;
 };
 
 #endif // EC_SLAVE_EL2008_H
