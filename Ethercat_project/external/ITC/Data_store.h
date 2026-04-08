@@ -50,8 +50,8 @@ public:
 
         if (it == m_data_element_map.end())
         {
-            // size_t alignment = alignof(T);
-            uint64_t m_offset_required = m_offset_data; //(m_offset_data + alignment - 1) & ~(alignment - 1);
+            size_t alignment = alignof(T);
+            uint64_t m_offset_required = (m_offset_data + alignment - 1) & ~(alignment - 1);
 
             size_t required_size = m_offset_required + size_;
 
@@ -74,7 +74,7 @@ public:
             pthread_mutexattr_destroy(&attr);
 
             std::cout << "\tData element set. index_d: " << index_d << ", Key: " << key_ << ", Path: " << path_ << ", Value: " << "data_" << std::endl;
-            m_offset_data += size_;
+            m_offset_data = m_offset_required + size_;
             m_offset_mutex += 1;
             memcpy(&m_data_buffer[index_d], &data_, size_);
         }
