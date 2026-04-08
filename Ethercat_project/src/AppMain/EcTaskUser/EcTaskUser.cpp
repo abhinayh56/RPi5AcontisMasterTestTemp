@@ -14,6 +14,7 @@ EC_T_DWORD EcTaskUser::addAllTaskUser()
 
     dwRes |= addTaskUser(new EcUser_1(0, "/user1"));
     dwRes |= addTaskUser(new EcUser_2(0, "/user2"));
+    dwRes |= addTaskUser(new EcUser_3(0, "/user3"));
 
     return dwRes;
 }

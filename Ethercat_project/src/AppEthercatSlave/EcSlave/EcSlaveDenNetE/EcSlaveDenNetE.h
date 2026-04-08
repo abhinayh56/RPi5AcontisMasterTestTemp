@@ -13,10 +13,6 @@ namespace EcSlaveDenNetEData
 		PdoVariable<0x606C, 0,  int32_t, 32> Actual_velocity;
 		PdoVariable<0x6061, 0,   int8_t,  8> Operation_mode_display;
 		PdoVariable<0x6077, 0,  int16_t, 16> Torque_actual_value;
-		PdoVariable<0x200F, 0,  int32_t, 32> Last_error;
-		PdoVariable<0x2081, 0, uint16_t, 16> Anlog_input_1_Counts;
-		PdoVariable<0x2083, 0, uint16_t, 16> Anlog_input_2_Counts;
-		PdoVariable<0x2600, 0, uint32_t, 32> Digital_inputs_value;
 	};
 	#pragma pack(pop)
 
@@ -25,10 +21,9 @@ namespace EcSlaveDenNetEData
 	{
         PdoVariable<0x6040, 0, uint16_t, 16> Control_Word;
         PdoVariable<0x607A, 0,  int32_t, 32> Position_set_point;
+        PdoVariable<0x60FF, 0,  int32_t, 32> Velocity_set_point;
         PdoVariable<0x6060, 0,   int8_t,  8> Operation_mode;
         PdoVariable<0x6071, 0,  int16_t, 16> Target_torque;
-        PdoVariable<0x2602, 0, uint32_t, 32> Digital_outputs_set_value;
-        PdoVariable<0x208D, 0,   double, 32> Analog_output_1_Value;
 	};
 	#pragma pack(pop)
 }
@@ -69,6 +64,27 @@ public:
 protected:
 	EcSlaveDenNetEData::TxPdo m_txPdo;
 	EcSlaveDenNetEData::RxPdo m_rxPdo;
+
+	Data_store_element<bool> m_InputCh_1;
+	Data_store_element<bool> m_InputCh_2;
+	Data_store_element<bool> m_InputCh_3;
+	Data_store_element<bool> m_InputCh_4;
+	Data_store_element<bool> m_InputCh_5;
+	Data_store_element<bool> m_InputCh_6;
+	Data_store_element<bool> m_InputCh_7;
+	Data_store_element<bool> m_InputCh_8;
+
+	bool m_data_1 = false;
+	bool m_data_2 = false;
+	bool m_data_3 = false;
+	bool m_data_4 = false;
+	bool m_data_5 = false;
+	bool m_data_6 = false;
+	bool m_data_7 = false;
+	bool m_data_8 = false;
+
+private:
+	int32_t angle_command = 0;
 };
 
 #endif // EC_SLAVE_DEN_NET_E_H

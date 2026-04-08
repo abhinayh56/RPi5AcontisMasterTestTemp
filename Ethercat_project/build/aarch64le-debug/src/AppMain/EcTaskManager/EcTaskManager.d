@@ -46,5 +46,6 @@ build/aarch64le-debug/./src/AppMain/EcTaskManager/EcTaskManager.o: \
  src/AppMain/EcTaskUser/EcTaskUser.h \
  src/AppMain/EcTaskUser/EcTaskUserBase.h src/AppUser/EcUser_1/EcUser_1.h \
  src/AppMain/EcTaskUser/EcTaskUserBase.h src/AppUser/EcUser_2/EcUser_2.h \
+ src/AppUser/EcUser_3/EcUser_3.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
  src/AppMain/EcTaskInterface/EcTaskInterfaceBase.h

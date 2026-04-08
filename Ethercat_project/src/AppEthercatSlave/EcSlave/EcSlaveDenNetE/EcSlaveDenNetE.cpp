@@ -1,9 +1,16 @@
 #include "EcSlaveDenNetE.h"
 
 EcSlaveDenNetE::EcSlaveDenNetE(uint16_t slaveAddr, const std::string &slaveName) :
-	EcCia402(slaveAddr, slaveName)
+	EcCia402(slaveAddr, slaveName),
+	m_InputCh_1("DATA_1", m_path, false, true),
+	m_InputCh_2("DATA_2", m_path, false, true),
+	m_InputCh_3("DATA_3", m_path, false, true),
+	m_InputCh_4("DATA_4", m_path, false, true),
+	m_InputCh_5("DATA_5", m_path, false, true),
+	m_InputCh_6("DATA_6", m_path, false, true),
+	m_InputCh_7("DATA_7", m_path, false, true),
+	m_InputCh_8("DATA_8", m_path, false, true)
 {
-	m_path += "/" + slaveName;
 }
 
 EcSlaveDenNetE::~EcSlaveDenNetE()
@@ -19,10 +26,6 @@ EC_T_DWORD EcSlaveDenNetE::registerTxPdo()
 	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Actual_velocity);
 	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Operation_mode_display);
 	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Torque_actual_value);
-	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Last_error);
-	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Anlog_input_1_Counts);
-	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Anlog_input_2_Counts);
-	dwRes |= lookupInputPdoObject(m_slaveAddr, m_txPdo.Digital_inputs_value);
 
 	m_Cia402PdoTx.statusWord.p_isSupported = &m_txPdo.Status_Word.isSupported;
 	m_Cia402PdoTx.modeOfOperationDisplay.p_isSupported = &m_txPdo.Operation_mode_display.isSupported;
@@ -45,21 +48,20 @@ EC_T_DWORD EcSlaveDenNetE::registerRxPdo()
 
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Control_Word);
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Position_set_point);
+	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Velocity_set_point);
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Operation_mode);
 	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Target_torque);
-	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Digital_outputs_set_value);
-	dwRes |= lookupOutputPdoObject(m_slaveAddr, m_rxPdo.Analog_output_1_Value);
 
 	m_Cia402PdoRx.controlWord.p_isSupported = &m_rxPdo.Control_Word.isSupported;
 	m_Cia402PdoRx.modeOfOperation.p_isSupported = &m_rxPdo.Operation_mode.isSupported;
 	m_Cia402PdoRx.targetPosition.p_isSupported = &m_rxPdo.Position_set_point.isSupported;
-	// m_Cia402PdoRx.targetVelocity.p_isSupported = &m_rxPdo.TARGET_VEL.isSupported;
+	m_Cia402PdoRx.targetVelocity.p_isSupported = &m_rxPdo.Velocity_set_point.isSupported;
 	m_Cia402PdoRx.targetTorque.p_isSupported = &m_rxPdo.Target_torque.isSupported;
 
 	m_Cia402PdoRx.controlWord.p_value = &m_rxPdo.Control_Word.value;
 	m_Cia402PdoRx.modeOfOperation.p_value = &m_rxPdo.Operation_mode.value;
 	m_Cia402PdoRx.targetPosition.p_value = &m_rxPdo.Position_set_point.value;
-	// m_Cia402PdoRx.targetVelocity.p_value = &m_rxPdo.TARGET_VEL.value;
+	m_Cia402PdoRx.targetVelocity.p_value = &m_rxPdo.Velocity_set_point.value;
 	m_Cia402PdoRx.targetTorque.p_value = &m_rxPdo.Target_torque.value;
 
 	return dwRes;
@@ -76,10 +78,6 @@ EC_T_DWORD EcSlaveDenNetE::transferTxPdo()
 	transferInputPdoObject(m_txPdo.Actual_velocity, pBuffer);
 	transferInputPdoObject(m_txPdo.Operation_mode_display, pBuffer);
 	transferInputPdoObject(m_txPdo.Torque_actual_value, pBuffer);
-	transferInputPdoObject(m_txPdo.Last_error, pBuffer);
-	transferInputPdoObject(m_txPdo.Anlog_input_1_Counts, pBuffer);
-	transferInputPdoObject(m_txPdo.Anlog_input_2_Counts, pBuffer);
-	transferInputPdoObject(m_txPdo.Digital_inputs_value, pBuffer);
 
 	return dwRes;
 }
@@ -92,10 +90,9 @@ EC_T_DWORD EcSlaveDenNetE::transferRxPdo()
 
 	transferOutputPdoObject(m_rxPdo.Control_Word, pBuffer);
 	transferOutputPdoObject(m_rxPdo.Position_set_point, pBuffer);
+	transferOutputPdoObject(m_rxPdo.Velocity_set_point, pBuffer);
 	transferOutputPdoObject(m_rxPdo.Operation_mode, pBuffer);
 	transferOutputPdoObject(m_rxPdo.Target_torque, pBuffer);
-	transferOutputPdoObject(m_rxPdo.Digital_outputs_set_value, pBuffer);
-	transferOutputPdoObject(m_rxPdo.Analog_output_1_Value, pBuffer);
 
 	return dwRes;
 }
@@ -125,6 +122,15 @@ EC_T_DWORD EcSlaveDenNetE::registerSubscriber()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	m_InputCh_1.subscribe();
+	m_InputCh_2.subscribe();
+	m_InputCh_3.subscribe();
+	m_InputCh_4.subscribe();
+	m_InputCh_5.subscribe();
+	m_InputCh_6.subscribe();
+	m_InputCh_7.subscribe();
+	m_InputCh_8.subscribe();
+
 	return dwRes;
 }
 
@@ -139,12 +145,56 @@ EC_T_DWORD EcSlaveDenNetE::subscribeData()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
+	m_InputCh_1.get(m_data_1);
+	m_InputCh_2.get(m_data_2);
+	m_InputCh_3.get(m_data_3);
+	m_InputCh_4.get(m_data_4);
+	m_InputCh_5.get(m_data_5);
+	m_InputCh_6.get(m_data_6);
+	m_InputCh_7.get(m_data_7);
+	m_InputCh_8.get(m_data_8);
+
 	return dwRes;
 }
 
 EC_T_DWORD EcSlaveDenNetE::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	// if(m_data_1 == true) {clearFault();}
+	// if(m_data_2 == true) {disable();}
+	// if(m_data_3 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_POSITION);}
+	// if(m_data_4 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_VELOCITY);}
+	// if(m_data_5 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_TORQUE);}
+	// if(m_data_6 == true) {enable();}
+	// if(m_data_7 == true) {setTargetPosition(0);}
+	// if(m_data_8 == true) {setTargetPosition(8192);}
+
+	if(m_data_1 == true) {clearFault();}
+	if(m_data_2 == true) {disable();}
+	if(m_data_3 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_POSITION);}
+	if(m_data_4 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_VELOCITY);}
+	if(m_data_5 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_TORQUE);}
+	if(m_data_6 == true) {enable();}
+	
+	int32_t d_th = 1;
+	
+	if(m_data_7 == true)
+	{
+		angle_command -= d_th;
+
+		angle_command = std::min(angle_command, 0);
+
+		setTargetPosition(angle_command);
+	}
+	if(m_data_8 == true)
+	{
+		angle_command += d_th;
+
+		angle_command = std::max(angle_command, 500000);
+
+		setTargetPosition(angle_command);
+	}
 
 	return dwRes;
 }
@@ -158,11 +208,7 @@ void EcSlaveDenNetE::dispTxPdo()
 	"Actual_position: " << m_txPdo.Actual_position.value << ", "
 	"Actual_velocity: " << m_txPdo.Actual_velocity.value << ", "
 	"Operation_mode_display: " << (uint16_t)m_txPdo.Operation_mode_display.value << ", "
-	"Torque_actual_value: " << m_txPdo.Torque_actual_value.value << ", "
-	"Last_error: " << m_txPdo.Last_error.value << ", "
-	"Anlog_input_1_Counts: " << m_txPdo.Anlog_input_1_Counts.value << ", "
-	"Anlog_input_2_Counts: " << m_txPdo.Anlog_input_2_Counts.value << ", "
-	"Digital_inputs_value: " << m_txPdo.Digital_inputs_value.value
+	"Torque_actual_value: " << m_txPdo.Torque_actual_value.value
 	<< std::endl;
 }
 
@@ -173,9 +219,8 @@ void EcSlaveDenNetE::dispRxPdo()
 	"SLAVE_NAME: " << m_slaveName << " | " <<
 	"Control_Word: " << m_rxPdo.Control_Word.value << ", "
 	"Position_set_point: " << m_rxPdo.Position_set_point.value << ", "
+	"Position_set_point: " << m_rxPdo.Velocity_set_point.value << ", "
 	"Operation_mode: " << (uint16_t)m_rxPdo.Operation_mode.value << ", "
-	"Target_torque: " << m_rxPdo.Target_torque.value << ", "
-	"Digital_outputs_set_value: " << m_rxPdo.Digital_outputs_set_value.value << ", "
-	"Analog_output_1_Value: " << m_rxPdo.Analog_output_1_Value.value
+	"Target_torque: " << m_rxPdo.Target_torque.value
 	<< std::endl;
 }

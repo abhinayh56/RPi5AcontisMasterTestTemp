@@ -5,6 +5,7 @@
  #include "EcTaskUserBase.h"
  #include "EcUser_1.h"
  #include "EcUser_2.h"
+ #include "EcUser_3.h"
 
  class EcTaskUser
  {
