@@ -97,6 +97,20 @@ EC_T_DWORD EcCia402::checkFault()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
+    if
+    (    
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT_REACTION_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::FAULT_REACTION_ACTIVE) ||
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT) == EcCia402Data::Object::StatusWord::BitData::FAULT)
+    )
+    {
+        std::cout << m_slaveName << " : " << "FAULT DETECTED\n";
+        dwRes = 1 << 10;
+    }
+    else
+    {
+        std::cout << m_slaveName << " : " << "NO FAULT\n";
+    }
+
     return dwRes;
 }
 
@@ -199,6 +213,20 @@ EC_T_DWORD EcCia402::disable()
     {
         std::cout << "DISABLING" << std::endl;
     }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcCia402::quickStop()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    return dwRes;
+}
+
+EC_T_DWORD EcCia402::emergencyStop()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
 
     return dwRes;
 }

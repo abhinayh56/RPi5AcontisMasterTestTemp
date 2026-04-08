@@ -255,6 +255,10 @@ public:
 
     virtual EC_T_DWORD disable();
 
+    virtual EC_T_DWORD quickStop();
+
+    virtual EC_T_DWORD emergencyStop();
+
     virtual EC_T_DWORD setModeOfOperation(int8_t mode);
 
     virtual EC_T_DWORD setTargetPosition(int32_t targetPosition);
