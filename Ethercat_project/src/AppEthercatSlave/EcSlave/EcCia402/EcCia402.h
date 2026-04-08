@@ -255,12 +255,6 @@ public:
 
     virtual EC_T_DWORD disable();
 
-    virtual EC_T_DWORD setOffsetPosition(int32_t offsetPosition);
-
-    virtual EC_T_DWORD setOffsetVelocity(int32_t offsetVelocity);
-    
-    virtual EC_T_DWORD setOffsetTorque(int16_t offsetTorque);
-
     virtual EC_T_DWORD setModeOfOperation(int8_t mode);
 
     virtual EC_T_DWORD setTargetPosition(int32_t targetPosition);
@@ -274,6 +268,12 @@ public:
     virtual EC_T_DWORD syncVelocity();
 
     virtual EC_T_DWORD syncTorque();
+
+    virtual EC_T_DWORD setOffsetPosition(int32_t offsetPosition);
+
+    virtual EC_T_DWORD setOffsetVelocity(int32_t offsetVelocity);
+
+    virtual EC_T_DWORD setOffsetTorque(int16_t offsetTorque);
 
 protected:
     EcCia402Data::Offset m_offset;
