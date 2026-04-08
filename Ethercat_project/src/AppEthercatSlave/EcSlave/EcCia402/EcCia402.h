@@ -95,6 +95,21 @@ namespace EcCia402Data
             {
                 enum Value : uint16_t
                 {
+                    READY_TO_SWITCH_ON = (1 << 0),
+                    SWITCHED_ON = (1 << 1),
+                    OPERATION_ENABLED = (1 << 2),
+                    FAULT = (1 << 3),
+                    VOLTAGE_ENABLED = (1 << 4),
+                    QUICK_STOP = (1 << 5),
+                    SWITCH_ON_DISABLED = (1 << 6),
+                    WARNING = (1 << 7),
+                    REMOTE = (1 << 9),
+                    TARGET_REACHED = (1 << 10),
+                    INTERNAL_LIMIT_ACTIVE = (1 << 11),
+                    OPERATION_MODE_SPECIFIC_0 = (1 << 12),
+                    OPERATION_MODE_SPECIFIC_1 = (1 << 13),
+                    ABS_POSITION_VALID = (1 << 14),
+                    PROCEDURE_BUSY = (1 << 15)
                 };
             }
             namespace BitMask
@@ -102,13 +117,13 @@ namespace EcCia402Data
                 enum Value : uint16_t
                 {
                     NOT_READY_TO_SWITCH_ON = 0,
-                    SWITCH_ON_DISABLED = (1 << 6),
-                    READY_TO_SWITCH_ON = (1 << 5) | (1 << 0),
-                    SWITCHED_ON = (1 << 5) | (1 << 1) | (1 << 0),
-                    OPERATION_ENABLED = (1 << 5) | (1 << 2) | (1 << 1) | (1 << 0),
-                    QUICK_STOP_ACTIVE = (1 << 2) | (1 << 1) | (1 << 0),
-                    FAULT_REACTION_ACTIVE = (1 << 3) | (1 << 2) | (1 << 1) | (1 << 0),
-                    FAULT = (1 << 3)
+                    SWITCH_ON_DISABLED = Bit::Value::SWITCH_ON_DISABLED,
+                    READY_TO_SWITCH_ON = Bit::Value::QUICK_STOP | Bit::Value::READY_TO_SWITCH_ON,
+                    SWITCHED_ON = Bit::Value::QUICK_STOP | Bit::Value::SWITCHED_ON | Bit::Value::READY_TO_SWITCH_ON,
+                    OPERATION_ENABLED = Bit::Value::QUICK_STOP | Bit::Value::OPERATION_ENABLED | Bit::Value::SWITCHED_ON | Bit::Value::READY_TO_SWITCH_ON,
+                    QUICK_STOP_ACTIVE = Bit::Value::OPERATION_ENABLED | Bit::Value::SWITCHED_ON | Bit::Value::READY_TO_SWITCH_ON,
+                    FAULT_REACTION_ACTIVE = Bit::Value::FAULT | Bit::Value::OPERATION_ENABLED | Bit::Value::SWITCHED_ON | Bit::Value::READY_TO_SWITCH_ON,
+                    FAULT = Bit::Value::FAULT
                 };
             }
             namespace BitData
