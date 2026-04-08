@@ -22,7 +22,7 @@ public:
     }
 
     template <typename T>
-    inline bool register_element(const std::string &key_, const std::string &path_, T data_, std::size_t size_, bool overwrite_, uint64_t &index_data, uint64_t &index_mutex)
+    inline bool register_element(const std::string &key_, const std::string &path_, T& data_, std::size_t size_, bool overwrite_, uint64_t &index_data, uint64_t &index_mutex)
     {
         std::cout << "---\n";
         std::cout << "Registering data element in data_store\n";
@@ -168,7 +168,7 @@ private:
     std::vector<pthread_mutex_t> m_mutex_buffer;
     
     uint64_t m_offset_data = 0;
-    uint64_t m_offset_mutex = 0;
+    uint64_t m_offset_mutex = 1;
 };
 
 #endif // DATA_STORE_H
