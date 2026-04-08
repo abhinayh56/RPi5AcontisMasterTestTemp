@@ -128,19 +128,6 @@ namespace EcCia402Data
         }
     }
 
-    enum Cia402Mode : int8_t
-    {
-        MODE_NO_MODE,
-        MODE_PROFILE_POSITION = 1,
-        MODE_PROFILE_VELOCITY = 2,
-        MODE_PROFILE_TORQUE = 3,
-        MODE_HOMING = 6,
-        MODE_INTERPOLATED_POSITION = 7,
-        MODE_CYCLIC_POSITION = 8,
-        MODE_CYCLIC_VELOCITY = 9,
-        MODE_CYCLIC_TORQUE = 10
-    };
-
     struct Offset
     {
         int32_t position = 0;

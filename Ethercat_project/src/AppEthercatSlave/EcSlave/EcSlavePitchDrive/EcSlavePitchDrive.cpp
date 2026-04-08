@@ -171,14 +171,23 @@ EC_T_DWORD EcSlavePitchDrive::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	if(m_data_1 == true) {m_rxPdo.OP_MODE.value = 8;}
-	if(m_data_2 == true) {m_rxPdo.CONTROL_WD.value = 6;}
-	if(m_data_3 == true) {m_rxPdo.CONTROL_WD.value = 7;}
-	if(m_data_4 == true) {m_rxPdo.CONTROL_WD.value = 15;}
-	if(m_data_5 == true) {m_rxPdo.TARGET_POSE.value = 0;}
-	if(m_data_6 == true) {m_rxPdo.TARGET_POSE.value = 8192;}
-	if(m_data_7 == true) {m_rxPdo.CONTROL_WD.value = 128; m_rxPdo.OP_MODE.value = 0;}
-	if(m_data_8 == true) {m_rxPdo.CONTROL_WD.value = 0; m_rxPdo.OP_MODE.value = 0;}
+	// if(m_data_1 == true) {m_rxPdo.OP_MODE.value = 8;}
+	// if(m_data_2 == true) {m_rxPdo.CONTROL_WD.value = 6;}
+	// if(m_data_3 == true) {m_rxPdo.CONTROL_WD.value = 7;}
+	// if(m_data_4 == true) {m_rxPdo.CONTROL_WD.value = 15;}
+	// if(m_data_5 == true) {m_rxPdo.TARGET_POSE.value = 0;}
+	// if(m_data_6 == true) {m_rxPdo.TARGET_POSE.value = 8192;}
+	// if(m_data_7 == true) {m_rxPdo.CONTROL_WD.value = 128; m_rxPdo.OP_MODE.value = 0;}
+	// if(m_data_8 == true) {m_rxPdo.CONTROL_WD.value = 0; m_rxPdo.OP_MODE.value = 0;}
+
+	if(m_data_1 == true) {clearFault();}
+	if(m_data_2 == true) {disable();}
+	if(m_data_3 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_POSITION);}
+	if(m_data_4 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_VELOCITY);}
+	if(m_data_5 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_TORQUE);}
+	if(m_data_6 == true) {enable();}
+	if(m_data_7 == true) {setTargetPosition(0);}
+	if(m_data_8 == true) {setTargetPosition(8192);}
 
 	return dwRes;
 }
