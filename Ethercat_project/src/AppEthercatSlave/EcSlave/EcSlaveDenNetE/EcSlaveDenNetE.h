@@ -84,7 +84,7 @@ protected:
 	bool m_data_8 = false;
 
 private:
-	int32_t angle_command = 0;
+	double angle_command = 0;
 };
 
 #endif // EC_SLAVE_DEN_NET_E_H

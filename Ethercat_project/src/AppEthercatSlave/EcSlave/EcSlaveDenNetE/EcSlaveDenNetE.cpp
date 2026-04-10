@@ -161,40 +161,35 @@ EC_T_DWORD EcSlaveDenNetE::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	// if(m_data_1 == true) {clearFault();}
-	// if(m_data_2 == true) {disable();}
-	// if(m_data_3 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_POSITION);}
-	// if(m_data_4 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_VELOCITY);}
-	// if(m_data_5 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_TORQUE);}
-	// if(m_data_6 == true) {enable();}
-	// if(m_data_7 == true) {setTargetPosition(0);}
-	// if(m_data_8 == true) {setTargetPosition(8192);}
+	if(m_data_1 == true) {emergencyStop();}
+	if(m_data_2 == true) {clearFault();}
+	if(m_data_3 == true) {disable();}
+	if(m_data_4 == true) {setModePosition();}
+	if(m_data_5 == true) {setModeVelocity();}
+	if(m_data_6 == true) {setModeTorque();}
+	if(m_data_7 == true) {enable();}
+	if(m_data_8 == true) {quickStop();}
 
-	if(m_data_1 == true) {clearFault();}
-	if(m_data_2 == true) {disable();}
-	if(m_data_3 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_POSITION);}
-	if(m_data_4 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_VELOCITY);}
-	if(m_data_5 == true) {setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_TORQUE);}
-	if(m_data_6 == true) {enable();}
+	syncPosition();
 	
-	int32_t d_th = 1;
+	// double d_th = 0.0001;
 	
-	if(m_data_7 == true)
-	{
-		angle_command -= d_th;
+	// if(m_data_7 == true)
+	// {
+	// 	angle_command -= d_th;
 
-		angle_command = std::min(angle_command, 0);
+	// 	angle_command = std::min(angle_command, 0.0);
 
-		setTargetPosition(angle_command);
-	}
-	if(m_data_8 == true)
-	{
-		angle_command += d_th;
+	// 	setTargetPosition((int32_t)angle_command);
+	// }
+	// if(m_data_8 == true)
+	// {
+	// 	angle_command += d_th;
 
-		angle_command = std::max(angle_command, 500000);
+	// 	angle_command = std::max(angle_command, 500000.0);
 
-		setTargetPosition(angle_command);
-	}
+	// 	setTargetPosition((int32_t)angle_command);
+	// }
 
 	return dwRes;
 }

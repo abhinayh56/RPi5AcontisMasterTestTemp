@@ -13,18 +13,18 @@ namespace EcCia402Data
             {
                 enum Value : int8_t
                 {
-                    COMMUTATION_OFFSET_DETECTION = -2,
-                    COGGING_COMPENSATION_RECORDING = -1,
                     NONE = 0,
                     PROFILE_POSITION = 1,
                     VELOCITY = 2,
                     PROFILE_VELOCITY = 3,
                     PROFILE_TORQUE = 4,
+                    RESERVED = 5,
                     HOMING = 6,
                     INTERPOLATED_POSITION = 7,
                     CYCLIC_SYNC_POSITION = 8,
                     CYCLIC_SYNC_VELOCITY = 9,
-                    CYCLIC_SYNC_TORQUE = 10
+                    CYCLIC_SYNC_TORQUE = 10,
+                    CYCLIC_SYNC_TORQUE_WITH_COMMUTATION_ANGLE = 11
                 };
             }
         }
@@ -35,18 +35,18 @@ namespace EcCia402Data
             {
                 enum Value : int8_t
                 {
-                    COMMUTATION_OFFSET_DETECTION = -2,
-                    COGGING_COMPENSATION_RECORDING = -1,
                     NONE = 0,
                     PROFILE_POSITION = 1,
                     VELOCITY = 2,
                     PROFILE_VELOCITY = 3,
                     PROFILE_TORQUE = 4,
+                    RESERVED = 5,
                     HOMING = 6,
                     INTERPOLATED_POSITION = 7,
                     CYCLIC_SYNC_POSITION = 8,
                     CYCLIC_SYNC_VELOCITY = 9,
-                    CYCLIC_SYNC_TORQUE = 10
+                    CYCLIC_SYNC_TORQUE = 10,
+                    CYCLIC_SYNC_TORQUE_WITH_COMMUTATION_ANGLE = 11
                 };
             }
         }
@@ -274,13 +274,23 @@ public:
 
     virtual EC_T_DWORD emergencyStop();
 
-    virtual EC_T_DWORD setModeOfOperation(int8_t mode);
+    virtual EC_T_DWORD setModePosition();
+
+    virtual EC_T_DWORD setModeVelocity();
+    
+    virtual EC_T_DWORD setModeTorque();
 
     virtual EC_T_DWORD setTargetPosition(int32_t targetPosition);
 
     virtual EC_T_DWORD setTargetVelocity(int32_t targetVelocity);
 
     virtual EC_T_DWORD setTargetTorque(int16_t targetTorque);
+
+    virtual int32_t getActualPosition();
+
+    virtual int32_t getActualVelocity();
+
+    virtual int16_t getActualTorque();
 
     virtual EC_T_DWORD syncPosition();
 
@@ -298,6 +308,9 @@ protected:
     EcCia402Data::Offset m_offset;
     EcCia402Data::PdoTx m_Cia402PdoTx;
     EcCia402Data::PdoRx m_Cia402PdoRx;
+
+private:
+    virtual EC_T_DWORD setModeOfOperation(int8_t mode);
 };
 
 #endif // EC_CIA402_H
