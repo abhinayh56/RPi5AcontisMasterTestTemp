@@ -22,7 +22,7 @@ namespace MotorData
 class Motor
 {
 public:
-    Motor(const std::string& name, uint16_t id, double R, double L, double Kt, doubleKe, double J, double b, double angleMax, double speedMax, double accelerationMax, double torqueMax) :
+    Motor(const std::string& name, uint16_t id, double R, double L, double Kt, double Ke, double J, double b, double angleMax, double speedMax, double accelerationMax, double torqueMax) :
         name(name),
         id(id),
         param.R(R),
