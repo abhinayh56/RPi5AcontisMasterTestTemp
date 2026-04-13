@@ -1,6 +1,8 @@
 #include "State.h"
 
-State::State() :
+State::State(const std::string &name, uint32_t id) : 
+    n_name(name),
+    m_id(id),
     m_configuredStateOnEntry(false),
     m_configuredStateOnExit(false),
     m_configuredStateUpdate(false)
@@ -111,5 +113,13 @@ uint32_t State::addOnUpdate(Subroutine *p_subroutine)
     uint32_t dwRes = CallbackStatus::SUCCESS;
     m_subroutineUpdateVector.push_back(p_subroutine);
     m_numSubroutineUpdate = m_subroutineUpdateVector.size();
+    return dwRes;
+}
+
+uint32_t State::addTransition(Subroutine *p_subroutine)
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
+    m_transitionVector.push_back(p_subroutine);
+    m_numTransition = m_transitionVector.size();
     return dwRes;
 }
