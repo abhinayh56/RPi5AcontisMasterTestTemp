@@ -129,10 +129,12 @@ EC_T_DWORD EcCia402::clearFault()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT_REACTION_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::FAULT_REACTION_ACTIVE)
     )
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
         std::cout << "CLEARING FAULT: " << m_slaveName << std::endl;
     }
     else
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
         std::cout << "FAULT CLEARED : " << m_slaveName << std::endl;
     }
 
@@ -210,10 +212,12 @@ EC_T_DWORD EcCia402::enable()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
     )
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
         std::cout << "ENABLED : " << m_slaveName << std::endl;
     }
     else
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
         std::cout << "ENABLING: " << m_slaveName << std::endl;
     }
 
@@ -291,10 +295,12 @@ EC_T_DWORD EcCia402::disable()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
     )
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
         std::cout << "DISABLED : " << m_slaveName << std::endl;
     }
     else
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
         std::cout << "DISABLING: " << m_slaveName << std::endl;
     }
 
@@ -326,10 +332,12 @@ EC_T_DWORD EcCia402::quickStop()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::QUICK_STOP_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::QUICK_STOP_ACTIVE)
     )
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
         std::cout << "QUICK STOP ACTIVE     : " << m_slaveName << std::endl;
     }
     else
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
         std::cout << "QUICK STOP IN PROGRESS: " << m_slaveName << std::endl;
     }
 
@@ -407,10 +415,12 @@ EC_T_DWORD EcCia402::emergencyStop()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCH_ON_DISABLED) == EcCia402Data::Object::StatusWord::BitData::SWITCH_ON_DISABLED)
     )
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
         std::cout << "EMERGENCY STOP ACTIVE      : " << m_slaveName << std::endl;
     }
     else
     {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
         std::cout << "EMERGENCY STOP IN PROGRESS : " << m_slaveName << std::endl;
     }
 
@@ -421,7 +431,7 @@ EC_T_DWORD EcCia402::setModePosition()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_POSITION);
+    dwRes |= setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_POSITION);
 
     return dwRes;
 }
@@ -430,7 +440,7 @@ EC_T_DWORD EcCia402::setModeVelocity()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_VELOCITY);
+    dwRes |= setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_VELOCITY);
 
     return dwRes;
 }
@@ -439,7 +449,7 @@ EC_T_DWORD EcCia402::setModeTorque()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
-    setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_TORQUE);
+    dwRes |= setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_TORQUE);
 
     return dwRes;
 }
@@ -546,21 +556,48 @@ EC_T_DWORD EcCia402::setModeOfOperation(int8_t mode)
 
     *m_Cia402PdoRx.modeOfOperation.p_value = mode;
 
-    if(mode==8)
+    if (mode == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_POSITION)
     {
-        std::cout << "SETTING CYCLIC_SYNC_POSITION" << std::endl;
+        if (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_POSITION)
+        {
+            dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
+            std::cout << "CYCLIC_SYNC_POSITION ACTIVE" << std::endl;
+        }
+        else
+        {
+            dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
+            std::cout << "CYCLIC_SYNC_POSITION IN PROGRESS" << std::endl;
+        }
     }
-    else if(mode==9)
+    else if (mode == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_VELOCITY)
     {
-        std::cout << "SETTING CYCLIC_SYNC_VELOCITY" << std::endl;
+        if (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_VELOCITY)
+        {
+            dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
+            std::cout << "CYCLIC_SYNC_VELOCITY ACTIVE" << std::endl;
+        }
+        else
+        {
+            dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
+            std::cout << "CYCLIC_SYNC_VELOCITY IN PROGRESS" << std::endl;
+        }
     }
-    else if(mode==10)
+    else if (mode == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_TORQUE)
     {
-        std::cout << "SETTING CYCLIC_SYNC_TORQUE" << std::endl;
+        if (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_TORQUE)
+        {
+            dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
+            std::cout << "CYCLIC_SYNC_TORQUE ACTIVE" << std::endl;
+        }
+        else
+        {
+            dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
+            std::cout << "CYCLIC_SYNC_TORQUE IN PROGRESS" << std::endl;
+        }
     }
     else
     {
-        std::cout << "UNKNOWN MODE" << std::endl;
+         dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::FAULT;
     }
 
     return dwRes;

@@ -3,6 +3,16 @@
 
 #include "EcSlaveBase.h"
 
+namespace EcTaskEthercatSlaveServoBaseData
+{
+    enum ServoCallbackStatus : uint32_t
+    {
+        SUCCESS = 0,
+        IN_PROGRESS = 1,
+        FAULT = 3
+    };
+}
+
 class EcTaskEthercatSlaveServoBase : public EcSlaveBase
 {
 public:
