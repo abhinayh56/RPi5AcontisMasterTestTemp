@@ -15,18 +15,9 @@ EC_T_DWORD EcTaskEthercatSlave::addAllTaskSlave()
 
 	dwRes |= addTaskSlave(new EcSlaveEl1008(1002, "el1008"));
 	dwRes |= addTaskSlave(new EcSlaveEl2008(1003, "el2008"));
-
 	dwRes |= addTaskSlave(new EcSlaveSscIoModule(1009, "io_module"));
-    
 	dwRes |= addTaskSlave(new EcSlaveRfidslave(1010, "rfid"));
-	dwRes |= addTaskSlave(new EcSlavePitchDrive(1011, "motor_1"));
-	dwRes |= addTaskSlave(new EcSlavePitchDrive(1012, "motor_2"));
-	dwRes |= addTaskSlave(new EcSlavePitchDrive(1013, "motor_3"));
-	dwRes |= addTaskSlave(new EcSlavePitchDrive(1014, "motor_4"));
-
 	dwRes |= addTaskSlave(new EcSlaveEl6002(1015, "serial"));
-
-	dwRes |= addTaskSlave(new EcSlaveDenNetE(1007, "den_net_e"));
 
 	return dwRes;
 }

@@ -10,10 +10,6 @@
 #include "EcSlaveSscIoModule.h"
 #include "EcSlaveEncbrkctrl.h"
 #include "EcSlaveRfidslave.h"
-#include "EcSlaveDenNetE.h"
-#include "EcSlaveElmoDrive.h"
-#include "EcSlaveIpos2401MxCat.h"
-#include "EcSlavePitchDrive.h"
 
 class EcTaskEthercatSlave
 {

@@ -48,8 +48,11 @@ build/aarch64le-debug/./src/AppEthercatSlave/Common/QNX/EcDemoTimingTaskPlatform
  src/AppEthercatSlave/EcSlave/EcSlaveSscIoModule/EcSlaveSscIoModule.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkctrl.h \
  src/AppEthercatSlave/EcSlave/EcSlaveRfidslave/EcSlaveRfidslave.h \
+ src/AppMain/EcTaskEthercatSlaveServo/EcTaskEthercatSlaveServo.h \
+ src/AppMain/EcTaskEthercatSlaveServo/EcTaskEthercatSlaveServoBase.h \
  src/AppEthercatSlave/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
  src/AppEthercatSlave/EcSlave/EcCia402/EcCia402.h \
+ src/AppMain/EcTaskEthercatSlaveServo/EcTaskEthercatSlaveServoBase.h \
  src/AppEthercatSlave/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
  src/AppEthercatSlave/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
  src/AppEthercatSlave/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h \

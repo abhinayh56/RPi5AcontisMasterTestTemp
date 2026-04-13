@@ -1,7 +1,7 @@
 #ifndef EC_CIA402_H
 #define EC_CIA402_H
 
-#include "EcSlaveBase.h"
+#include "EcTaskEthercatSlaveServoBase.h"
 
 namespace EcCia402Data
 {
@@ -229,7 +229,7 @@ namespace EcCia402Data
     };
 }
 
-class EcCia402 : public EcSlaveBase
+class EcCia402 : public EcTaskEthercatSlaveServoBase
 {
 public:
     EcCia402(uint16_t slaveAddr, const std::string &slaveName);
@@ -262,41 +262,41 @@ public:
 
 	virtual void dispRxPdo() override;
 
-    virtual EC_T_DWORD checkFault();
+    virtual EC_T_DWORD checkFault() override;
 
-    virtual EC_T_DWORD clearFault();
+    virtual EC_T_DWORD clearFault() override;
 
-    virtual EC_T_DWORD enable();
+    virtual EC_T_DWORD enable() override;
 
-    virtual EC_T_DWORD disable();
+    virtual EC_T_DWORD disable() override;
 
-    virtual EC_T_DWORD quickStop();
+    virtual EC_T_DWORD quickStop() override;
 
-    virtual EC_T_DWORD emergencyStop();
+    virtual EC_T_DWORD emergencyStop() override;
 
-    virtual EC_T_DWORD setModePosition();
+    virtual EC_T_DWORD setModePosition() override;
 
-    virtual EC_T_DWORD setModeVelocity();
+    virtual EC_T_DWORD setModeVelocity() override;
     
-    virtual EC_T_DWORD setModeTorque();
+    virtual EC_T_DWORD setModeTorque() override;
 
-    virtual EC_T_DWORD setTargetPosition(int32_t targetPosition);
+    virtual EC_T_DWORD setTargetPosition(int32_t targetPosition) override;
 
-    virtual EC_T_DWORD setTargetVelocity(int32_t targetVelocity);
+    virtual EC_T_DWORD setTargetVelocity(int32_t targetVelocity) override;
 
-    virtual EC_T_DWORD setTargetTorque(int16_t targetTorque);
+    virtual EC_T_DWORD setTargetTorque(int16_t targetTorque) override;
 
-    virtual int32_t getActualPosition();
+    virtual int32_t getActualPosition() override;
 
-    virtual int32_t getActualVelocity();
+    virtual int32_t getActualVelocity() override;
 
-    virtual int16_t getActualTorque();
+    virtual int16_t getActualTorque() override;
 
-    virtual EC_T_DWORD syncPosition();
+    virtual EC_T_DWORD syncPosition() override;
 
-    virtual EC_T_DWORD syncVelocity();
+    virtual EC_T_DWORD syncVelocity() override;
 
-    virtual EC_T_DWORD syncTorque();
+    virtual EC_T_DWORD syncTorque() override;
 
     virtual EC_T_DWORD setOffsetPosition(int32_t offsetPosition);
 

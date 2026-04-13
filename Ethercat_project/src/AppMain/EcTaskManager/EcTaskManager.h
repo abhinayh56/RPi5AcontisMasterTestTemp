@@ -2,6 +2,7 @@
 #define EC_TASK_MANAGER_H
 
 #include "EcTaskEthercatSlave.h"
+#include "EcTaskEthercatSlaveServo.h"
 #include "EcTaskRobotControl.h"
 #include "EcTaskUser.h"
 #include "EcTaskInterface.h"
@@ -27,6 +28,7 @@ public:
 
 private:
     EcTaskEthercatSlave ecTaskEthercatSlave;
+    EcTaskEthercatSlaveServo ecTaskEthercatSlaveServo;
     EcTaskRobotControl ecTaskRobotControl;
     EcTaskUser ecTaskUser;
     EcTaskInterface ecTaskInterface;

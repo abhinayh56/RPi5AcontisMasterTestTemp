@@ -33,9 +33,4 @@ build/aarch64le-debug/./src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.o: \
  src/AppEthercatSlave/EcSlave/EcSlaveEl6002/EcSlaveEl6002.h \
  src/AppEthercatSlave/EcSlave/EcSlaveSscIoModule/EcSlaveSscIoModule.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkctrl.h \
- src/AppEthercatSlave/EcSlave/EcSlaveRfidslave/EcSlaveRfidslave.h \
- src/AppEthercatSlave/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
- src/AppEthercatSlave/EcSlave/EcCia402/EcCia402.h \
- src/AppEthercatSlave/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
- src/AppEthercatSlave/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
- src/AppEthercatSlave/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h
+ src/AppEthercatSlave/EcSlave/EcSlaveRfidslave/EcSlaveRfidslave.h

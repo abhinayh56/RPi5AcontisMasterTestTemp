@@ -2,6 +2,7 @@ build/aarch64le-debug/./src/AppEthercatSlave/EcSlave/EcSlaveDenNetE/EcSlaveDenNe
  src/AppEthercatSlave/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.cpp \
  src/AppEthercatSlave/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
  src/AppEthercatSlave/EcSlave/EcCia402/EcCia402.h \
+ src/AppMain/EcTaskEthercatSlaveServo/EcTaskEthercatSlaveServoBase.h \
  src/AppEthercatSlave/EcSlave/EcSlaveBase/EcSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \

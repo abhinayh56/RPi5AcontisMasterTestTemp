@@ -1,6 +1,6 @@
 #include "EcCia402.h"
 
-EcCia402::EcCia402(uint16_t slaveAddr, const std::string &slaveName) : EcSlaveBase(slaveAddr, slaveName)
+EcCia402::EcCia402(uint16_t slaveAddr, const std::string &slaveName) : EcTaskEthercatSlaveServoBase(slaveAddr, slaveName)
 {
 }
 
