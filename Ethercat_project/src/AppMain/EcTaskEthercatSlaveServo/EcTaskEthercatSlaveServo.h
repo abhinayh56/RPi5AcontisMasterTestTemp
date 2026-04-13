@@ -45,6 +45,30 @@ public:
 
     void dispRxPdo();
 
+    EC_T_DWORD checkFault();
+
+    EC_T_DWORD clearFault();
+
+    EC_T_DWORD enable();
+
+    EC_T_DWORD disable();
+
+    EC_T_DWORD quickStop();
+
+    EC_T_DWORD emergencyStop();
+
+    EC_T_DWORD setModePosition();
+
+    EC_T_DWORD setModeVelocity();
+    
+    EC_T_DWORD setModeTorque();
+
+    EC_T_DWORD syncPosition();
+
+    EC_T_DWORD syncVelocity();
+
+    EC_T_DWORD syncTorque();
+
 private:
     std::vector<EcTaskEthercatSlaveServoBase*> m_ecTaskEthercatSlaveServoBaseVector;
     int m_numTaskEthercatServoSlave = 0;

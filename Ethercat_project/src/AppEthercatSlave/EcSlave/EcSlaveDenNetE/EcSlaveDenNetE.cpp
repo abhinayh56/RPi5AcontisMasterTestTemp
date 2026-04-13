@@ -161,16 +161,16 @@ EC_T_DWORD EcSlaveDenNetE::mainProcess()
 {
 	EC_T_DWORD dwRes = EC_E_NOERROR;
 
-	if(m_data_1 == true) {emergencyStop();}
-	if(m_data_2 == true) {clearFault();}
-	if(m_data_3 == true) {disable();}
-	if(m_data_4 == true) {setModePosition();}
-	if(m_data_5 == true) {setModeVelocity();}
-	if(m_data_6 == true) {setModeTorque();}
-	if(m_data_7 == true) {enable();}
-	if(m_data_8 == true) {quickStop();}
+	// if(m_data_1 == true) {emergencyStop();}
+	// if(m_data_2 == true) {clearFault();}
+	// if(m_data_3 == true) {disable();}
+	// if(m_data_4 == true) {setModePosition();}
+	// if(m_data_5 == true) {setModeVelocity();}
+	// if(m_data_6 == true) {setModeTorque();}
+	// if(m_data_7 == true) {enable();}
+	// if(m_data_8 == true) {quickStop();}
 
-	syncPosition();
+	//syncPosition();
 	
 	// double d_th = 0.0001;
 	

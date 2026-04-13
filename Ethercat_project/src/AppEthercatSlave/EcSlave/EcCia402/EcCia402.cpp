@@ -150,7 +150,7 @@ EC_T_DWORD EcCia402::enable()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
     )
     {
-        std::cout << ".\n";
+       //  std::cout << ".\n";
     }
     else if
     (
@@ -264,7 +264,7 @@ EC_T_DWORD EcCia402::disable()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
     )
     {
-        std::cout << ".\n";
+       //  std::cout << ".\n";
     }
     else if
     (
@@ -316,7 +316,7 @@ EC_T_DWORD EcCia402::quickStop()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::QUICK_STOP_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::QUICK_STOP_ACTIVE)
     )
     {
-        std::cout << ".\n";
+       //  std::cout << ".\n";
     }
     else if
     (
@@ -400,7 +400,7 @@ EC_T_DWORD EcCia402::emergencyStop()
         ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCH_ON_DISABLED) == EcCia402Data::Object::StatusWord::BitData::SWITCH_ON_DISABLED)
     )
     {
-        std::cout << ".\n";
+       //  std::cout << ".\n";
     }
     else if
     (

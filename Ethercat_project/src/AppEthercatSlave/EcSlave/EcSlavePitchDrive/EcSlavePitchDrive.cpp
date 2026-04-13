@@ -180,14 +180,14 @@ EC_T_DWORD EcSlavePitchDrive::mainProcess()
 	// if(m_data_7 == true) {setTargetPosition(0);}
 	// if(m_data_8 == true) {setTargetPosition(8192);}
 
-	if(m_data_1 == true) {emergencyStop();syncPosition();}
-	if(m_data_2 == true) {clearFault();syncPosition();}
-	if(m_data_3 == true) {disable();syncPosition();}
-	if(m_data_4 == true) {setModePosition();}
-	if(m_data_5 == true) {setModeVelocity();syncPosition();}
-	if(m_data_6 == true) {setModeTorque();syncPosition();}
-	if(m_data_7 == true) {enable();syncPosition();}
-	if(m_data_8 == true) {quickStop();syncPosition();}
+	// if(m_data_1 == true) {emergencyStop();syncPosition();}
+	// if(m_data_2 == true) {clearFault();syncPosition();}
+	// if(m_data_3 == true) {disable();syncPosition();}
+	// if(m_data_4 == true) {setModePosition();}
+	// if(m_data_5 == true) {setModeVelocity();syncPosition();}
+	// if(m_data_6 == true) {setModeTorque();syncPosition();}
+	// if(m_data_7 == true) {enable();syncPosition();}
+	// if(m_data_8 == true) {quickStop();syncPosition();}
 
 	return dwRes;
 }

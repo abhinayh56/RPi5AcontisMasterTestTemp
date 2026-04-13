@@ -249,3 +249,147 @@ EC_T_DWORD EcTaskEthercatSlaveServo::addTaskSlaveServo(EcTaskEthercatSlaveServoB
 
     return dwRes;
 }
+
+EC_T_DWORD EcTaskEthercatSlaveServo::checkFault()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->checkFault();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::clearFault()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->clearFault();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::enable()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->enable();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::disable()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->disable();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::quickStop()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->quickStop();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::emergencyStop()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->emergencyStop();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::setModePosition()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->setModePosition();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::setModeVelocity()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->setModeVelocity();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::setModeTorque()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->setModeTorque();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::syncPosition()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->syncPosition();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::syncVelocity()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->syncVelocity();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::syncTorque()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->syncTorque();
+    }
+
+    return dwRes;
+}
