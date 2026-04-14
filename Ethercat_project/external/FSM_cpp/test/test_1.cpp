@@ -102,7 +102,6 @@ public:
     uint32_t callback(uint32_t &nextStateId) override
     {
         std::cout << "    transition: " << m_name << std::endl;
-        
         if(m_name == "state_a_trans")
         {
             nextStateId = 2;
@@ -116,7 +115,7 @@ public:
             nextStateId = 1;
         }
 
-        return 0;
+        return CallbackStatus::SUCCESS;
     }
 
 private:
@@ -125,9 +124,9 @@ private:
 
 int main()
 {
-    State state_a("state_a", 1);
-    State state_b("state_b", 2);
-    State state_c("state_c", 3);
+    State state_a("state_a", 157);
+    State state_b("state_b", 252);
+    State state_c("state_c", 398);
 
     OnEntrySubroutine state_a_entry("state_a_entry");
     OnEntrySubroutine state_b_entry("state_b_entry");
@@ -160,7 +159,7 @@ int main()
     state_c.addCallback(&state_c_cb);
     state_c.addTransition(&state_c_trans);
 
-    Fsm fsm(2);
+    Fsm fsm(252);
     fsm.addState(&state_a);
     fsm.addState(&state_b);
     fsm.addState(&state_c);

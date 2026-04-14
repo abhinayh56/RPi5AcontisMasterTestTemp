@@ -26,6 +26,7 @@ EC_T_DWORD EcTaskManager::initTask()
 
     dwRes |= ecTaskRobotControl.addAllTaskRobotControl();
     dwRes |= ecTaskUser.addAllTaskUser();
+    dwRes |= ecTaskFsm.config();
 
     return dwRes;
 }
@@ -82,7 +83,8 @@ EC_T_DWORD EcTaskManager::cyclicTask()
 
     dwRes |= ecTaskInterface.subscribeData();
 
-    update_fsm();
+    // update_fsm();
+    dwRes |= ecTaskFsm.update();
 
     dwRes |= ecTaskUser.subscribeData();
     dwRes |= ecTaskUser.mainProcess();

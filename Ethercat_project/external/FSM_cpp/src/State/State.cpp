@@ -84,7 +84,7 @@ uint32_t State::update(uint32_t &nextStateId)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    if(!m_onEntryFlag)
+    if(m_onEntryFlag == false)
     {
         dwRes |= onEntry();
         m_onEntryFlag = true;
@@ -95,11 +95,7 @@ uint32_t State::update(uint32_t &nextStateId)
     dwRes |= transition(nextStateId);
     m_idNext = nextStateId;
 
-    if(m_idNext == m_id)
-    {
-        dwRes |= callback();
-    }
-    else
+    if(m_idNext != m_id)
     {
         dwRes |= onExit();
         m_idNext = 0;

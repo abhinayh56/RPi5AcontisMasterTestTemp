@@ -6,6 +6,7 @@
 #include "EcTaskRobotControl.h"
 #include "EcTaskUser.h"
 #include "EcTaskInterface.h"
+#include "EcTaskFsm.h"
 
 class EcTaskManager
 {
@@ -31,6 +32,7 @@ private:
     EcTaskEthercatSlaveServo ecTaskEthercatSlaveServo;
     EcTaskRobotControl ecTaskRobotControl;
     EcTaskUser ecTaskUser;
+    EcTaskFsm ecTaskFsm;
     EcTaskInterface ecTaskInterface;
 
     // fsm test

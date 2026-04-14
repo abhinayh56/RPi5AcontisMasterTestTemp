@@ -8,7 +8,7 @@ Fsm::Fsm(uint32_t initialStateId) :
     m_nextStateIndex(0),
     m_numState(0)
 {
-    // m_stateVector.resize(3);
+    m_stateVector.reserve(10);
 }
 
 Fsm::~Fsm()
@@ -40,6 +40,11 @@ uint32_t Fsm::config()
         std::cout << "---\n";
         std::cout << "configuring state | id: " << m_stateVector[i]->m_id << ", name: " << m_stateVector[i]->m_name << std::endl;
         dwRes |= m_stateVector[i]->config();
+
+        if(m_currentStateId == m_stateVector[i]->m_id)
+        {
+            m_currentStateIndex = i;
+        }
     }
 
     return dwRes;
