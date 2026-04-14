@@ -65,6 +65,20 @@ build/aarch64le-debug/./src/AppEthercatSlave/Common/EcSdoServices.o: \
  src/AppUser/EcUser_3/EcUser_3.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
  src/AppMain/EcTaskInterface/EcTaskInterfaceBase.h \
+ src/AppMain/EcTaskFsm/EcTaskFsm.h external/FSM_cpp/src/Fsm/Fsm.h \
+ external/FSM_cpp/src/Fsm/../State/State.h \
+ external/FSM_cpp/src/Fsm/../State/../Subroutine/Subroutine.h \
+ external/FSM_cpp/src/Fsm/../State/../Subroutine/CallbackStatus.h \
+ src/AppFsm/EcStateClearingFault/EcStateClearingFault.h \
+ src/AppFsm/EcStateDisabled/EcStateDisabled.h \
+ src/AppFsm/EcStateDisabling/EcStateDisabling.h \
+ src/AppFsm/EcStateEnabled/EcStateEnabled.h \
+ src/AppFsm/EcStateEnabling/EcStateEnabling.h \
+ src/AppFsm/EcStateFault/EcStateFault.h \
+ src/AppFsm/EcStateInitialized/EcStateInitialized.h \
+ src/AppFsm/EcStateInitializing/EcStateInitializing.h \
+ src/AppFsm/EcStateJoystickControl/EcStateJoystickControl.h \
+ src/AppFsm/EcStateStandby/EcStateStandby.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasServer.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasError.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasType.h \

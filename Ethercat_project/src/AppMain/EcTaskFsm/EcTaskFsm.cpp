@@ -1,6 +1,7 @@
 #include "EcTaskFsm.h"
 
-EcTaskFsm::EcTaskFsm()
+EcTaskFsm::EcTaskFsm() :
+	fsm(0)
 {
 }
 

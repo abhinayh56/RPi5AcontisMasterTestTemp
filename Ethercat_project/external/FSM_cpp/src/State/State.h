@@ -27,13 +27,13 @@ private:
     std::vector<Subroutine*> m_callbackVector;
     std::vector<Subroutine*> m_onExitVector;
 
-    uint32_t m_numOnEntry = 0;
-    uint32_t m_numTransition = 0;
-    uint32_t m_numCallback = 0;
-    uint32_t m_numOnExit = 0;
+    uint32_t m_numOnEntry;
+    uint32_t m_numTransition;
+    uint32_t m_numCallback;
+    uint32_t m_numOnExit;
 
-    uint32_t m_idNext;
-    bool m_onEntryFlag;
+    uint32_t m_idNext = 0;
+    bool m_onEntryFlag = false;
 
     uint32_t onEntry();
     uint32_t transition(uint32_t &nextStateId);

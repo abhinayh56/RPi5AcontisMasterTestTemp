@@ -25,8 +25,10 @@ DIR_EC_SDK = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
 DIR_APP_MAIN = ./src/AppMain
 DIR_APP_ETHERCAT = ./src/AppEthercatSlave
 DIR_APP_USER = ./src/AppUser
+DIR_APP_FSM = ./src/AppFsm
 #DIR_APP_ETHERCAT = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/Examples
 DIR_ITC = ./external/ITC
+DIR_FSM = ./external/FSM_cpp/src
 DIR_EIGEN = ./external/eigen-5.0.0
 
 # External EtherCAT
@@ -62,15 +64,32 @@ INCLUDES += -I$(DIR_APP_USER)/EcUser_1
 INCLUDES += -I$(DIR_APP_USER)/EcUser_2
 INCLUDES += -I$(DIR_APP_USER)/EcUser_3
 
+INCLUDES += -I$(DIR_APP_FSM)/EcStateClearingFault
+INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabled
+INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabling
+INCLUDES += -I$(DIR_APP_FSM)/EcStateEnabled
+INCLUDES += -I$(DIR_APP_FSM)/EcStateEnabling
+INCLUDES += -I$(DIR_APP_FSM)/EcStateFault
+INCLUDES += -I$(DIR_APP_FSM)/EcStateInitialized
+INCLUDES += -I$(DIR_APP_FSM)/EcStateInitializing
+INCLUDES += -I$(DIR_APP_FSM)/EcStateJoystickControl
+INCLUDES += -I$(DIR_APP_FSM)/EcStateStandby
+
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlave
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlaveServo
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskRobotControl
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskUser
+INCLUDES += -I$(DIR_APP_MAIN)/EcTaskFsm
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskInterface
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskManager
 
 # Eigen library (header-only)
 INCLUDES += -I$(DIR_EIGEN)
+
+# FSM library
+INCLUDES += -I$(DIR_FSM)/Fsm
+INCLUDES += -I$(DIR_FSM)/State
+INCLUDES += -I$(DIR_FSM)/Subroutine
 
 #LIBS += -L/path/to/my/lib/$(PLATFORM)/usr/lib -lmylib
 #LIBS += -L../mylib/$(OUTPUT_DIR) -lmylib
@@ -113,10 +132,22 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Common/QNX/*.cpp)
 
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcMasterDemo/*.cpp)
 
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateClearingFault/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateDisabled/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateDisabling/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateEnabled/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateEnabling/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateFault/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateInitialized/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateInitializing/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateJoystickControl/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateStandby/*.cpp)
+
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlave/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlaveServo/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskRobotControl/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskUser/*.cpp)
+SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskFsm/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskInterface/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskManager/*.cpp)
 
@@ -137,6 +168,10 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive/*.cpp)
 SRCS += $(wildcard $(DIR_APP_USER)/EcUser_1/*.cpp)
 SRCS += $(wildcard $(DIR_APP_USER)/EcUser_2/*.cpp)
 SRCS += $(wildcard $(DIR_APP_USER)/EcUser_3/*.cpp)
+
+SRCS += $(wildcard $(DIR_FSM)/Fsm/*.cpp)
+SRCS += $(wildcard $(DIR_FSM)/State/*.cpp)
+SRCS += $(wildcard $(DIR_FSM)/Subroutine/*.cpp)
 
 #Object files list
 OBJS = $(addprefix $(OUTPUT_DIR)/,$(addsuffix .o, $(basename $(SRCS))))

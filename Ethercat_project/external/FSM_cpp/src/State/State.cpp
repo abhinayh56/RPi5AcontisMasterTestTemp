@@ -1,14 +1,14 @@
 #include "State.h"
 
 State::State(const std::string &name, uint32_t id) : 
-    m_name(name),
-    m_id(id),
-    m_idNext(id),
-    m_onEntryFlag(false),
-    m_numOnEntry(0),
-    m_numTransition(0),
-    m_numCallback(0),
-    m_numOnExit(0)
+	m_name(name),
+	m_id(id),
+	m_numOnEntry(0),
+	m_numTransition(0),
+	m_numCallback(0),
+	m_numOnExit(0),
+	m_idNext(id),
+	m_onEntryFlag(false)
 {
 }
 
