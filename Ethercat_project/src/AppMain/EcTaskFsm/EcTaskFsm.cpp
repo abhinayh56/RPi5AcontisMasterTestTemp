@@ -6,18 +6,18 @@ EcTaskFsm::EcTaskFsm() :
     p_ecTaskRobotControl(nullptr),
     p_ecTaskUser(nullptr),
     p_ecTaskInterface(nullptr),
-    m_ecStateStandby("STANDBY", 101),
-    m_ecStateFault("FAULT", 102),
-    m_ecStateClearingFault("CLEARING_FAULT", 103),
-    m_ecStateInitializing("INITIALIZING", 104),
-    m_ecStateInitialized("INITIALIZED", 105),
-    m_ecStateReady("READY", 106),
-    m_ecStateDisabling("DISABLING", 107),
-    m_ecStateDisabled("DISABLED", 108),
-    m_ecStateEnabled("ENABLED", 109),
-    m_ecStateEnabling("ENABLING",  100),
-    m_ecStateJoystickControl("JOYSTICKCONTROL",  101),
-    m_fsm(101),
+    m_ecStateStandby("STANDBY", EcTaskFsmData::StateId::STANDBY),
+    m_ecStateFault("FAULT", EcTaskFsmData::StateId::FAULT),
+    m_ecStateClearingFault("CLEARING_FAULT", EcTaskFsmData::StateId::CLEARING_FAULT),
+    m_ecStateInitializing("INITIALIZING", EcTaskFsmData::StateId::INITIALIZING),
+    m_ecStateInitialized("INITIALIZED", EcTaskFsmData::StateId::INITIALIZED),
+    m_ecStateReady("READY", EcTaskFsmData::StateId::READY),
+    m_ecStateDisabling("DISABLING", EcTaskFsmData::StateId::DISABLING),
+    m_ecStateDisabled("DISABLED", EcTaskFsmData::StateId::DISABLED),
+    m_ecStateEnabled("ENABLED", EcTaskFsmData::StateId::ENABLED),
+    m_ecStateEnabling("ENABLING",  EcTaskFsmData::StateId::ENABLING),
+    m_ecStateJoystickControl("JOYSTICKCONTROL",  EcTaskFsmData::StateId::JOYSTICKCONTROL),
+    m_fsm(EcTaskFsmData::StateId::STANDBY),
     m_InputCh_1("DIGITAL_INPUT_CH_1", "/ethercat/el1008", false, true),
     m_InputCh_2("DIGITAL_INPUT_CH_2", "/ethercat/el1008", false, true),
     m_InputCh_3("DIGITAL_INPUT_CH_3", "/ethercat/el1008", false, true),
@@ -56,6 +56,76 @@ uint32_t EcTaskFsm::config()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
+    m_ecStateStandby.addOnEntry(new EcStateStandbyNs::OnEntrySubroutine());
+    m_ecStateStandby.addOnExit(new EcStateStandbyNs::OnExitSubroutine());
+    m_ecStateStandby.addCallback(new EcStateStandbyNs::CallbackSubroutine());
+    m_ecStateStandby.addTransition(new EcStateStandbyNs::TransitionSubroutine());
+
+    m_ecStateFault.addOnEntry(new EcStateFaultNs::OnEntrySubroutine());
+    m_ecStateFault.addOnExit(new EcStateFaultNs::OnExitSubroutine());
+    m_ecStateFault.addCallback(new EcStateFaultNs::CallbackSubroutine());
+    m_ecStateFault.addTransition(new EcStateFaultNs::TransitionSubroutine());
+
+    m_ecStateClearingFault.addOnEntry(new EcStateClearingFaultNs::OnEntrySubroutine());
+    m_ecStateClearingFault.addOnExit(new EcStateClearingFaultNs::OnExitSubroutine());
+    m_ecStateClearingFault.addCallback(new EcStateClearingFaultNs::CallbackSubroutine());
+    m_ecStateClearingFault.addTransition(new EcStateClearingFaultNs::TransitionSubroutine());
+
+    m_ecStateInitializing.addOnEntry(new EcStateInitializingNs::OnEntrySubroutine());
+    m_ecStateInitializing.addOnExit(new EcStateInitializingNs::OnExitSubroutine());
+    m_ecStateInitializing.addCallback(new EcStateInitializingNs::CallbackSubroutine());
+    m_ecStateInitializing.addTransition(new EcStateInitializingNs::TransitionSubroutine());
+
+    m_ecStateInitialized.addOnEntry(new EcStateInitializedNs::OnEntrySubroutine());
+    m_ecStateInitialized.addOnExit(new EcStateInitializedNs::OnExitSubroutine());
+    m_ecStateInitialized.addCallback(new EcStateInitializedNs::CallbackSubroutine());
+    m_ecStateInitialized.addTransition(new EcStateInitializedNs::TransitionSubroutine());
+
+    m_ecStateReady.addOnEntry(new EcStateReadyNs::OnEntrySubroutine());
+    m_ecStateReady.addOnExit(new EcStateReadyNs::OnExitSubroutine());
+    m_ecStateReady.addCallback(new EcStateReadyNs::CallbackSubroutine());
+    m_ecStateReady.addTransition(new EcStateReadyNs::TransitionSubroutine());
+
+    m_ecStateDisabling.addOnEntry(new EcStateDisablingNs::OnEntrySubroutine());
+    m_ecStateDisabling.addOnExit(new EcStateDisablingNs::OnExitSubroutine());
+    m_ecStateDisabling.addCallback(new EcStateDisablingNs::CallbackSubroutine());
+    m_ecStateDisabling.addTransition(new EcStateDisablingNs::TransitionSubroutine());
+
+    m_ecStateDisabled.addOnEntry(new EcStateDisabledNs::OnEntrySubroutine());
+    m_ecStateDisabled.addOnExit(new EcStateDisabledNs::OnExitSubroutine());
+    m_ecStateDisabled.addCallback(new EcStateDisabledNs::CallbackSubroutine());
+    m_ecStateDisabled.addTransition(new EcStateDisabledNs::TransitionSubroutine());
+
+    m_ecStateEnabled.addOnEntry(new EcStateEnabledNs::OnEntrySubroutine());
+    m_ecStateEnabled.addOnExit(new EcStateEnabledNs::OnExitSubroutine());
+    m_ecStateEnabled.addCallback(new EcStateEnabledNs::CallbackSubroutine());
+    m_ecStateEnabled.addTransition(new EcStateEnabledNs::TransitionSubroutine());
+
+    m_ecStateEnabling.addOnEntry(new EcStateEnablingNs::OnEntrySubroutine());
+    m_ecStateEnabling.addOnExit(new EcStateEnablingNs::OnExitSubroutine());
+    m_ecStateEnabling.addCallback(new EcStateEnablingNs::CallbackSubroutine());
+    m_ecStateEnabling.addTransition(new EcStateEnablingNs::TransitionSubroutine());
+
+    m_ecStateJoystickControl.addOnEntry(new EcStateJoystickControlNs::OnEntrySubroutine());
+    m_ecStateJoystickControl.addOnExit(new EcStateJoystickControlNs::OnExitSubroutine());
+    m_ecStateJoystickControl.addCallback(new EcStateJoystickControlNs::CallbackSubroutine());
+    m_ecStateJoystickControl.addTransition(new EcStateJoystickControlNs::TransitionSubroutine());
+
+
+    m_fsm.addState(&m_ecStateStandby);
+    m_fsm.addState(&m_ecStateFault);
+    m_fsm.addState(&m_ecStateClearingFault);
+    m_fsm.addState(&m_ecStateInitializing);
+    m_fsm.addState(&m_ecStateInitialized);
+    m_fsm.addState(&m_ecStateReady);
+    m_fsm.addState(&m_ecStateDisabling);
+    m_fsm.addState(&m_ecStateDisabled);
+    m_fsm.addState(&m_ecStateEnabled);
+    m_fsm.addState(&m_ecStateEnabling);
+    m_fsm.addState(&m_ecStateJoystickControl);
+
+    m_fsm.config();
+
     init_fsm();
 
     return dwRes;
@@ -64,6 +134,8 @@ uint32_t EcTaskFsm::config()
 uint32_t EcTaskFsm::update()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
+
+    m_fsm.update();
 
     update_fsm();
 

@@ -1,6 +1,6 @@
 #include "Subroutine.h"
 
-Subroutine::Subroutine() : m_configuredSubroutine(false)
+Subroutine::Subroutine()
 {
 }
 
@@ -18,7 +18,7 @@ uint32_t Subroutine::callback()
     return CallbackStatus::SUCCESS;
 }
 
-SubroutineTransition::SubroutineTransition() : m_configuredSubroutine(false)
+SubroutineTransition::SubroutineTransition()
 {
 }
 
