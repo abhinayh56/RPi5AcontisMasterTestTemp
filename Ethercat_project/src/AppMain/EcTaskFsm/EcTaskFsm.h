@@ -1,8 +1,6 @@
 #ifndef EC_TASK_FSM_H
 #define EC_TASK_FSM_H
 
-#include "Fsm.h"
-
 #include"EcTaskEthercatSlave.h"
 #include"EcTaskEthercatSlaveServo.h"
 #include"EcTaskRobotControl.h"
@@ -21,6 +19,8 @@
 #include "EcStateEnabling.h"
 #include "EcStateJoystickControl.h"
 
+#include "Fsm.h"
+
 
 class EcTaskFsm
 {
@@ -29,7 +29,7 @@ public:
 
     ~EcTaskFsm();
 
-    uint32_t config(
+    uint32_t setTaskAddr(
         EcTaskEthercatSlave* p_ecTaskEthercatSlave_,
         EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo_,
         EcTaskRobotControl* p_ecTaskRobotControl_,
@@ -37,10 +37,30 @@ public:
         EcTaskInterface* p_ecTaskInterface_
     );
 
+    uint32_t config();
+
     uint32_t update();
 
 private:
-    // Fsm fsm;
+    EcTaskEthercatSlave* p_ecTaskEthercatSlave;
+    EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo;
+    EcTaskRobotControl* p_ecTaskRobotControl;
+    EcTaskUser* p_ecTaskUser;
+    EcTaskInterface* p_ecTaskInterface;
+
+    State m_ecStateStandby;
+    State m_ecStateFault;
+    State m_ecStateClearingFault;
+    State m_ecStateInitializing;
+    State m_ecStateInitialized;
+    State m_ecStateReady;
+    State m_ecStateDisabling;
+    State m_ecStateDisabled;
+    State m_ecStateEnabled;
+    State m_ecStateEnabling;
+    State m_ecStateJoystickControl;
+
+    Fsm m_fsm;
 
     // fsm test
     Data_store_element<bool> m_InputCh_1;
@@ -63,12 +83,6 @@ private:
 
     void init_fsm();
     void update_fsm();
-
-    EcTaskEthercatSlave* p_ecTaskEthercatSlave;
-    EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo;
-    EcTaskRobotControl* p_ecTaskRobotControl;
-    EcTaskUser* p_ecTaskUser;
-    EcTaskInterface* p_ecTaskInterface;
 };
 
 #endif // EC_TASK_FSM_H

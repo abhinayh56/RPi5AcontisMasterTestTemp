@@ -65,10 +65,7 @@ build/aarch64le-debug/./src/AppEthercatSlave/EcMasterDemo/EcDemoApp.o: \
  src/AppUser/EcUser_3/EcUser_3.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
  src/AppMain/EcTaskInterface/EcTaskInterfaceBase.h \
- src/AppMain/EcTaskFsm/EcTaskFsm.h external/FSM_cpp/src/Fsm/Fsm.h \
- external/FSM_cpp/src/Fsm/../State/State.h \
- external/FSM_cpp/src/Fsm/../State/../Subroutine/Subroutine.h \
- external/FSM_cpp/src/Fsm/../State/../Subroutine/CallbackStatus.h \
+ src/AppMain/EcTaskFsm/EcTaskFsm.h \
  src/AppFsm/EcStateStandby/EcStateStandby.h \
  src/AppFsm/EcStateFault/EcStateFault.h \
  src/AppFsm/EcStateClearingFault/EcStateClearingFault.h \
@@ -80,6 +77,9 @@ build/aarch64le-debug/./src/AppEthercatSlave/EcMasterDemo/EcDemoApp.o: \
  src/AppFsm/EcStateEnabled/EcStateEnabled.h \
  src/AppFsm/EcStateEnabling/EcStateEnabling.h \
  src/AppFsm/EcStateJoystickControl/EcStateJoystickControl.h \
+ external/FSM_cpp/src/Fsm/Fsm.h external/FSM_cpp/src/Fsm/../State/State.h \
+ external/FSM_cpp/src/Fsm/../State/../Subroutine/Subroutine.h \
+ external/FSM_cpp/src/Fsm/../State/../Subroutine/CallbackStatus.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasServer.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasError.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcRasType.h

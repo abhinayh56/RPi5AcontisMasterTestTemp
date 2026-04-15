@@ -1,7 +1,23 @@
 #include "EcTaskFsm.h"
 
 EcTaskFsm::EcTaskFsm() :
-    // fsm(0),
+    p_ecTaskEthercatSlave(nullptr),
+    p_ecTaskEthercatSlaveServo(nullptr),
+    p_ecTaskRobotControl(nullptr),
+    p_ecTaskUser(nullptr),
+    p_ecTaskInterface(nullptr),
+    m_ecStateStandby("STANDBY", 101),
+    m_ecStateFault("FAULT", 102),
+    m_ecStateClearingFault("CLEARING_FAULT", 103),
+    m_ecStateInitializing("INITIALIZING", 104),
+    m_ecStateInitialized("INITIALIZED", 105),
+    m_ecStateReady("READY", 106),
+    m_ecStateDisabling("DISABLING", 107),
+    m_ecStateDisabled("DISABLED", 108),
+    m_ecStateEnabled("ENABLED", 109),
+    m_ecStateEnabling("ENABLING",  100),
+    m_ecStateJoystickControl("JOYSTICKCONTROL",  101),
+    m_fsm(101),
     m_InputCh_1("DIGITAL_INPUT_CH_1", "/ethercat/el1008", false, true),
     m_InputCh_2("DIGITAL_INPUT_CH_2", "/ethercat/el1008", false, true),
     m_InputCh_3("DIGITAL_INPUT_CH_3", "/ethercat/el1008", false, true),
@@ -17,7 +33,7 @@ EcTaskFsm::~EcTaskFsm()
 {
 }
 
-uint32_t EcTaskFsm::config(
+uint32_t EcTaskFsm::setTaskAddr(
         EcTaskEthercatSlave* p_ecTaskEthercatSlave_,
         EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo_,
         EcTaskRobotControl* p_ecTaskRobotControl_,
@@ -32,6 +48,13 @@ uint32_t EcTaskFsm::config(
     p_ecTaskRobotControl = p_ecTaskRobotControl_;
     p_ecTaskUser = p_ecTaskUser_;
     p_ecTaskInterface = p_ecTaskInterface_;
+
+    return dwRes;
+}
+
+uint32_t EcTaskFsm::config()
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
 
     init_fsm();
 
