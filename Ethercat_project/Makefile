@@ -74,6 +74,7 @@ INCLUDES += -I$(DIR_APP_FSM)/EcStateInitialized
 INCLUDES += -I$(DIR_APP_FSM)/EcStateInitializing
 INCLUDES += -I$(DIR_APP_FSM)/EcStateJoystickControl
 INCLUDES += -I$(DIR_APP_FSM)/EcStateStandby
+INCLUDES += -I$(DIR_APP_FSM)/EcStateReady
 
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlave
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlaveServo
@@ -142,6 +143,7 @@ SRCS += $(wildcard $(DIR_APP_FSM)/EcStateInitialized/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateInitializing/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateJoystickControl/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateStandby/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateReady/*.cpp)
 
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlave/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlaveServo/*.cpp)
