@@ -36,11 +36,6 @@ public:
     uint32_t update();
 
 private:
-    // EcTaskEthercatSlave* p_ecTaskEthercatSlave;
-    // EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo;
-    // EcTaskRobotControl* p_ecTaskRobotControl;
-    // EcTaskUser* p_ecTaskUser;
-    // EcTaskInterface* p_ecTaskInterface;
     EcStateData::EcTaskAll ecTaskAll;
 
     State m_ecStateStandby;
@@ -57,27 +52,26 @@ private:
 
     Fsm m_fsm;
 
-    // fsm test
-    Data_store_element<bool> m_InputCh_1;
-	Data_store_element<bool> m_InputCh_2;
-	Data_store_element<bool> m_InputCh_3;
-	Data_store_element<bool> m_InputCh_4;
-	Data_store_element<bool> m_InputCh_5;
-	Data_store_element<bool> m_InputCh_6;
-	Data_store_element<bool> m_InputCh_7;
-	Data_store_element<bool> m_InputCh_8;
+    // Data_store_element<bool> m_InputCh_1;
+	// Data_store_element<bool> m_InputCh_2;
+	// Data_store_element<bool> m_InputCh_3;
+	// Data_store_element<bool> m_InputCh_4;
+	// Data_store_element<bool> m_InputCh_5;
+	// Data_store_element<bool> m_InputCh_6;
+	// Data_store_element<bool> m_InputCh_7;
+	// Data_store_element<bool> m_InputCh_8;
 
-    bool m_data_1 = false;
-    bool m_data_2 = false;
-    bool m_data_3 = false;
-    bool m_data_4 = false;
-    bool m_data_5 = false;
-    bool m_data_6 = false;
-    bool m_data_7 = false;
-    bool m_data_8 = false;
+    // bool m_data_1 = false;
+    // bool m_data_2 = false;
+    // bool m_data_3 = false;
+    // bool m_data_4 = false;
+    // bool m_data_5 = false;
+    // bool m_data_6 = false;
+    // bool m_data_7 = false;
+    // bool m_data_8 = false;
 
-    void init_fsm();
-    void update_fsm();
+    // void init_fsm();
+    // void update_fsm();
 };
 
 #endif // EC_TASK_FSM_H

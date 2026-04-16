@@ -33,13 +33,32 @@ namespace EcStateStandbyNs
     class CallbackSubroutine : public Subroutine
     {
     public:
-    	CallbackSubroutine();
+        CallbackSubroutine();
 
         ~CallbackSubroutine();
 
         uint32_t config() override;
 
         uint32_t callback() override;
+
+    private:
+        Data_store_element<bool> m_InputCh_1;
+        Data_store_element<bool> m_InputCh_2;
+        Data_store_element<bool> m_InputCh_3;
+        Data_store_element<bool> m_InputCh_4;
+        Data_store_element<bool> m_InputCh_5;
+        Data_store_element<bool> m_InputCh_6;
+        Data_store_element<bool> m_InputCh_7;
+        Data_store_element<bool> m_InputCh_8;
+
+        bool m_data_1 = false;
+        bool m_data_2 = false;
+        bool m_data_3 = false;
+        bool m_data_4 = false;
+        bool m_data_5 = false;
+        bool m_data_6 = false;
+        bool m_data_7 = false;
+        bool m_data_8 = false;
     };
 
     class TransitionSubroutine : public SubroutineTransition
@@ -51,7 +70,7 @@ namespace EcStateStandbyNs
 
         uint32_t config() override;
 
-        uint32_t callback(uint32_t& nextStateId) override;
+        uint32_t callback(uint32_t &nextStateId) override;
     };
 }
 
