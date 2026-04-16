@@ -1,5 +1,6 @@
 build/aarch64le-debug/./src/AppMain/EcTaskFsm/EcTaskFsm.o: \
  src/AppMain/EcTaskFsm/EcTaskFsm.cpp src/AppMain/EcTaskFsm/EcTaskFsm.h \
+ src/AppFsm/EcStateStandby/EcStateStandby.h src/AppFsm/EcState/EcState.h \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.h \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
@@ -51,7 +52,6 @@ build/aarch64le-debug/./src/AppMain/EcTaskFsm/EcTaskFsm.o: \
  src/AppUser/EcUser_3/EcUser_3.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
  src/AppMain/EcTaskInterface/EcTaskInterfaceBase.h \
- src/AppFsm/EcStateStandby/EcStateStandby.h src/AppFsm/EcState/EcState.h \
  external/FSM_cpp/src/Subroutine/Subroutine.h \
  external/FSM_cpp/src/Subroutine/CallbackStatus.h \
  src/AppFsm/EcStateFault/EcStateFault.h \

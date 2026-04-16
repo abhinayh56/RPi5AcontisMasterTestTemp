@@ -1,12 +1,6 @@
 #ifndef EC_TASK_FSM_H
 #define EC_TASK_FSM_H
 
-#include"EcTaskEthercatSlave.h"
-#include"EcTaskEthercatSlaveServo.h"
-#include"EcTaskRobotControl.h"
-#include"EcTaskUser.h"
-#include"EcTaskInterface.h"
-
 #include "EcStateStandby.h"
 #include "EcStateFault.h"
 #include "EcStateClearingFault.h"
@@ -42,11 +36,12 @@ public:
     uint32_t update();
 
 private:
-    EcTaskEthercatSlave* p_ecTaskEthercatSlave;
-    EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo;
-    EcTaskRobotControl* p_ecTaskRobotControl;
-    EcTaskUser* p_ecTaskUser;
-    EcTaskInterface* p_ecTaskInterface;
+    // EcTaskEthercatSlave* p_ecTaskEthercatSlave;
+    // EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo;
+    // EcTaskRobotControl* p_ecTaskRobotControl;
+    // EcTaskUser* p_ecTaskUser;
+    // EcTaskInterface* p_ecTaskInterface;
+    EcStateData::EcTaskAll ecTaskAll;
 
     State m_ecStateStandby;
     State m_ecStateFault;

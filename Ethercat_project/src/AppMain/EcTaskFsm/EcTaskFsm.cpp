@@ -1,11 +1,11 @@
 #include "EcTaskFsm.h"
 
 EcTaskFsm::EcTaskFsm() :
-    p_ecTaskEthercatSlave(nullptr),
-    p_ecTaskEthercatSlaveServo(nullptr),
-    p_ecTaskRobotControl(nullptr),
-    p_ecTaskUser(nullptr),
-    p_ecTaskInterface(nullptr),
+     ecTaskAll({nullptr, nullptr, nullptr, nullptr, nullptr}),
+    // ecTaskAll.p_ecTaskEthercatSlaveServo(nullptr),
+    // ecTaskAll.p_ecTaskRobotControl(nullptr),
+    // ecTaskAll.p_ecTaskUser(nullptr),
+    // ecTaskAll.p_ecTaskInterface(nullptr),
     m_ecStateStandby("STANDBY", EcStateData::StateId::STANDBY),
     m_ecStateFault("FAULT", EcStateData::StateId::FAULT),
     m_ecStateClearingFault("CLEARING_FAULT", EcStateData::StateId::CLEARING_FAULT),
@@ -43,11 +43,11 @@ uint32_t EcTaskFsm::setTaskAddr(
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    p_ecTaskEthercatSlave = p_ecTaskEthercatSlave_;
-    p_ecTaskEthercatSlaveServo = p_ecTaskEthercatSlaveServo_;
-    p_ecTaskRobotControl = p_ecTaskRobotControl_;
-    p_ecTaskUser = p_ecTaskUser_;
-    p_ecTaskInterface = p_ecTaskInterface_;
+    ecTaskAll.p_ecTaskEthercatSlave = p_ecTaskEthercatSlave_;
+    ecTaskAll.p_ecTaskEthercatSlaveServo = p_ecTaskEthercatSlaveServo_;
+    ecTaskAll.p_ecTaskRobotControl = p_ecTaskRobotControl_;
+    ecTaskAll.p_ecTaskUser = p_ecTaskUser_;
+    ecTaskAll.p_ecTaskInterface = p_ecTaskInterface_;
 
     return dwRes;
 }
@@ -174,14 +174,14 @@ void EcTaskFsm::update_fsm()
     // m_data_7 << ", " <<
     // m_data_8 << std::endl;
 
-    if(m_data_1 == true) {uint16_t out = p_ecTaskEthercatSlaveServo->emergencyStop();   std::cout << "---\nemergencyStop   : "<< out << std::endl;}
-	if(m_data_2 == true) {uint16_t out = p_ecTaskEthercatSlaveServo->clearFault();      std::cout << "---\nclearFault      : "<< out << std::endl;}
-	if(m_data_3 == true) {uint16_t out = p_ecTaskEthercatSlaveServo->disable();         std::cout << "---\ndisable         : "<< out << std::endl;}
-	if(m_data_4 == true) {uint16_t out = p_ecTaskEthercatSlaveServo->setModePosition(); std::cout << "---\nsetModePosition : "<< out << std::endl;}
-	if(m_data_5 == true) {uint16_t out = p_ecTaskEthercatSlaveServo->setModeVelocity(); std::cout << "---\nsetModeVelocity : "<< out << std::endl;}
-	if(m_data_6 == true) {uint16_t out = p_ecTaskEthercatSlaveServo->setModeTorque();   std::cout << "---\nsetModeTorque   : "<< out << std::endl;}
-	if(m_data_7 == true) {uint16_t out = p_ecTaskEthercatSlaveServo->enable();          std::cout << "---\nenable          : "<< out << std::endl;}
-	if(m_data_8 == true) {uint16_t out = p_ecTaskEthercatSlaveServo->quickStop();       std::cout << "---\nquickStop       : "<< out << std::endl;}
+    if(m_data_1 == true) {uint16_t out = ecTaskAll.p_ecTaskEthercatSlaveServo->emergencyStop();   std::cout << "---\nemergencyStop   : "<< out << std::endl;}
+	if(m_data_2 == true) {uint16_t out = ecTaskAll.p_ecTaskEthercatSlaveServo->clearFault();      std::cout << "---\nclearFault      : "<< out << std::endl;}
+	if(m_data_3 == true) {uint16_t out = ecTaskAll.p_ecTaskEthercatSlaveServo->disable();         std::cout << "---\ndisable         : "<< out << std::endl;}
+	if(m_data_4 == true) {uint16_t out = ecTaskAll.p_ecTaskEthercatSlaveServo->setModePosition(); std::cout << "---\nsetModePosition : "<< out << std::endl;}
+	if(m_data_5 == true) {uint16_t out = ecTaskAll.p_ecTaskEthercatSlaveServo->setModeVelocity(); std::cout << "---\nsetModeVelocity : "<< out << std::endl;}
+	if(m_data_6 == true) {uint16_t out = ecTaskAll.p_ecTaskEthercatSlaveServo->setModeTorque();   std::cout << "---\nsetModeTorque   : "<< out << std::endl;}
+	if(m_data_7 == true) {uint16_t out = ecTaskAll.p_ecTaskEthercatSlaveServo->enable();          std::cout << "---\nenable          : "<< out << std::endl;}
+	if(m_data_8 == true) {uint16_t out = ecTaskAll.p_ecTaskEthercatSlaveServo->quickStop();       std::cout << "---\nquickStop       : "<< out << std::endl;}
 
-    p_ecTaskEthercatSlaveServo->syncPosition();
+    ecTaskAll.p_ecTaskEthercatSlaveServo->syncPosition();
 }

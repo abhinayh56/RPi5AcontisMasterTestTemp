@@ -3,6 +3,12 @@
 
 #include <stdint.h>
 
+#include "EcTaskEthercatSlave.h"
+#include "EcTaskEthercatSlaveServo.h"
+#include "EcTaskRobotControl.h"
+#include "EcTaskUser.h"
+#include "EcTaskInterface.h"
+
 namespace EcStateData
 {
     enum StateId : uint32_t
@@ -19,6 +25,15 @@ namespace EcStateData
         READY = 110,
         JOYSTICKCONTROL = 111
     };
+
+    struct EcTaskAll
+	{
+		EcTaskEthercatSlave* p_ecTaskEthercatSlave;
+		EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo;
+		EcTaskRobotControl* p_ecTaskRobotControl;
+		EcTaskUser* p_ecTaskUser;
+		EcTaskInterface* p_ecTaskInterface;
+	};
 }
 
 #endif // EC_STATE_H
