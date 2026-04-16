@@ -6,18 +6,18 @@ EcTaskFsm::EcTaskFsm() :
     p_ecTaskRobotControl(nullptr),
     p_ecTaskUser(nullptr),
     p_ecTaskInterface(nullptr),
-    m_ecStateStandby("STANDBY", EcTaskFsmData::StateId::STANDBY),
-    m_ecStateFault("FAULT", EcTaskFsmData::StateId::FAULT),
-    m_ecStateClearingFault("CLEARING_FAULT", EcTaskFsmData::StateId::CLEARING_FAULT),
-    m_ecStateInitializing("INITIALIZING", EcTaskFsmData::StateId::INITIALIZING),
-    m_ecStateInitialized("INITIALIZED", EcTaskFsmData::StateId::INITIALIZED),
-    m_ecStateReady("READY", EcTaskFsmData::StateId::READY),
-    m_ecStateDisabling("DISABLING", EcTaskFsmData::StateId::DISABLING),
-    m_ecStateDisabled("DISABLED", EcTaskFsmData::StateId::DISABLED),
-    m_ecStateEnabled("ENABLED", EcTaskFsmData::StateId::ENABLED),
-    m_ecStateEnabling("ENABLING",  EcTaskFsmData::StateId::ENABLING),
-    m_ecStateJoystickControl("JOYSTICKCONTROL",  EcTaskFsmData::StateId::JOYSTICKCONTROL),
-    m_fsm(EcTaskFsmData::StateId::STANDBY),
+    m_ecStateStandby("STANDBY", EcStateData::StateId::STANDBY),
+    m_ecStateFault("FAULT", EcStateData::StateId::FAULT),
+    m_ecStateClearingFault("CLEARING_FAULT", EcStateData::StateId::CLEARING_FAULT),
+    m_ecStateInitializing("INITIALIZING", EcStateData::StateId::INITIALIZING),
+    m_ecStateInitialized("INITIALIZED", EcStateData::StateId::INITIALIZED),
+    m_ecStateDisabling("DISABLING", EcStateData::StateId::DISABLING),
+    m_ecStateDisabled("DISABLED", EcStateData::StateId::DISABLED),
+    m_ecStateEnabling("ENABLING",  EcStateData::StateId::ENABLING),
+    m_ecStateEnabled("ENABLED", EcStateData::StateId::ENABLED),
+    m_ecStateReady("READY", EcStateData::StateId::READY),
+    m_ecStateJoystickControl("JOYSTICKCONTROL",  EcStateData::StateId::JOYSTICKCONTROL),
+    m_fsm(EcStateData::StateId::STANDBY),
     m_InputCh_1("DIGITAL_INPUT_CH_1", "/ethercat/el1008", false, true),
     m_InputCh_2("DIGITAL_INPUT_CH_2", "/ethercat/el1008", false, true),
     m_InputCh_3("DIGITAL_INPUT_CH_3", "/ethercat/el1008", false, true),
@@ -81,11 +81,6 @@ uint32_t EcTaskFsm::config()
     m_ecStateInitialized.addCallback(new EcStateInitializedNs::CallbackSubroutine());
     m_ecStateInitialized.addTransition(new EcStateInitializedNs::TransitionSubroutine());
 
-    m_ecStateReady.addOnEntry(new EcStateReadyNs::OnEntrySubroutine());
-    m_ecStateReady.addOnExit(new EcStateReadyNs::OnExitSubroutine());
-    m_ecStateReady.addCallback(new EcStateReadyNs::CallbackSubroutine());
-    m_ecStateReady.addTransition(new EcStateReadyNs::TransitionSubroutine());
-
     m_ecStateDisabling.addOnEntry(new EcStateDisablingNs::OnEntrySubroutine());
     m_ecStateDisabling.addOnExit(new EcStateDisablingNs::OnExitSubroutine());
     m_ecStateDisabling.addCallback(new EcStateDisablingNs::CallbackSubroutine());
@@ -96,32 +91,36 @@ uint32_t EcTaskFsm::config()
     m_ecStateDisabled.addCallback(new EcStateDisabledNs::CallbackSubroutine());
     m_ecStateDisabled.addTransition(new EcStateDisabledNs::TransitionSubroutine());
 
+    m_ecStateEnabling.addOnEntry(new EcStateEnablingNs::OnEntrySubroutine());
+    m_ecStateEnabling.addOnExit(new EcStateEnablingNs::OnExitSubroutine());
+    m_ecStateEnabling.addCallback(new EcStateEnablingNs::CallbackSubroutine());
+    m_ecStateEnabling.addTransition(new EcStateEnablingNs::TransitionSubroutine());
+
     m_ecStateEnabled.addOnEntry(new EcStateEnabledNs::OnEntrySubroutine());
     m_ecStateEnabled.addOnExit(new EcStateEnabledNs::OnExitSubroutine());
     m_ecStateEnabled.addCallback(new EcStateEnabledNs::CallbackSubroutine());
     m_ecStateEnabled.addTransition(new EcStateEnabledNs::TransitionSubroutine());
 
-    m_ecStateEnabling.addOnEntry(new EcStateEnablingNs::OnEntrySubroutine());
-    m_ecStateEnabling.addOnExit(new EcStateEnablingNs::OnExitSubroutine());
-    m_ecStateEnabling.addCallback(new EcStateEnablingNs::CallbackSubroutine());
-    m_ecStateEnabling.addTransition(new EcStateEnablingNs::TransitionSubroutine());
+    m_ecStateReady.addOnEntry(new EcStateReadyNs::OnEntrySubroutine());
+    m_ecStateReady.addOnExit(new EcStateReadyNs::OnExitSubroutine());
+    m_ecStateReady.addCallback(new EcStateReadyNs::CallbackSubroutine());
+    m_ecStateReady.addTransition(new EcStateReadyNs::TransitionSubroutine());
 
     m_ecStateJoystickControl.addOnEntry(new EcStateJoystickControlNs::OnEntrySubroutine());
     m_ecStateJoystickControl.addOnExit(new EcStateJoystickControlNs::OnExitSubroutine());
     m_ecStateJoystickControl.addCallback(new EcStateJoystickControlNs::CallbackSubroutine());
     m_ecStateJoystickControl.addTransition(new EcStateJoystickControlNs::TransitionSubroutine());
 
-
     m_fsm.addState(&m_ecStateStandby);
     m_fsm.addState(&m_ecStateFault);
     m_fsm.addState(&m_ecStateClearingFault);
     m_fsm.addState(&m_ecStateInitializing);
-    m_fsm.addState(&m_ecStateInitialized);
+	m_fsm.addState(&m_ecStateInitialized);
+	m_fsm.addState(&m_ecStateDisabling);
+	m_fsm.addState(&m_ecStateDisabled);
+	m_fsm.addState(&m_ecStateEnabling);
+	m_fsm.addState(&m_ecStateEnabled);
     m_fsm.addState(&m_ecStateReady);
-    m_fsm.addState(&m_ecStateDisabling);
-    m_fsm.addState(&m_ecStateDisabled);
-    m_fsm.addState(&m_ecStateEnabled);
-    m_fsm.addState(&m_ecStateEnabling);
     m_fsm.addState(&m_ecStateJoystickControl);
 
     m_fsm.config();

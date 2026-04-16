@@ -1,6 +1,7 @@
 #ifndef EC_STATE_INITIALIZED_H
 #define EC_STATE_INITIALIZED_H
 
+#include "EcState.h"
 #include "Subroutine.h"
 
 namespace EcStateInitializedNs
@@ -89,7 +90,7 @@ namespace EcStateInitializedNs
 
         uint32_t callback(uint32_t& nextStateId) override
         {
-            nextStateId = 0;
+            nextStateId = EcStateData::StateId::DISABLING;
 
             return CallbackStatus::SUCCESS;
         }

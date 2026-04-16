@@ -1,6 +1,7 @@
 #ifndef EC_STATE_READY_H
 #define EC_STATE_READY_H
 
+#include "EcState.h"
 #include "Subroutine.h"
 
 namespace EcStateReadyNs
@@ -89,7 +90,7 @@ namespace EcStateReadyNs
 
         uint32_t callback(uint32_t& nextStateId) override
         {
-            nextStateId = 0;
+            nextStateId = EcStateData::StateId::JOYSTICKCONTROL;
 
             return CallbackStatus::SUCCESS;
         }

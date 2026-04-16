@@ -19,25 +19,8 @@
 #include "EcStateEnabling.h"
 #include "EcStateJoystickControl.h"
 
+#include "EcState.h"
 #include "Fsm.h"
-
-namespace EcTaskFsmData
-{
-    enum StateId : uint32_t
-    {
-        STANDBY = 101,
-        FAULT = 102,
-        CLEARING_FAULT = 103,
-        INITIALIZING = 104,
-        INITIALIZED = 105,
-        READY = 106,
-        DISABLING = 107,
-        DISABLED = 108,
-        ENABLED = 109,
-        ENABLING = 100,
-        JOYSTICKCONTROL = 101
-    };
-}
 
 class EcTaskFsm
 {
@@ -70,11 +53,11 @@ private:
     State m_ecStateClearingFault;
     State m_ecStateInitializing;
     State m_ecStateInitialized;
-    State m_ecStateReady;
     State m_ecStateDisabling;
     State m_ecStateDisabled;
-    State m_ecStateEnabled;
     State m_ecStateEnabling;
+    State m_ecStateEnabled;
+    State m_ecStateReady;
     State m_ecStateJoystickControl;
 
     Fsm m_fsm;

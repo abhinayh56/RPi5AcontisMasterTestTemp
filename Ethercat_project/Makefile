@@ -64,6 +64,7 @@ INCLUDES += -I$(DIR_APP_USER)/EcUser_1
 INCLUDES += -I$(DIR_APP_USER)/EcUser_2
 INCLUDES += -I$(DIR_APP_USER)/EcUser_3
 
+INCLUDES += -I$(DIR_APP_FSM)/EcState
 INCLUDES += -I$(DIR_APP_FSM)/EcStateClearingFault
 INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabled
 INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabling
@@ -133,6 +134,7 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Common/QNX/*.cpp)
 
 SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcMasterDemo/*.cpp)
 
+SRCS += $(wildcard $(DIR_APP_FSM)/EcState/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateClearingFault/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateDisabled/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateDisabling/*.cpp)

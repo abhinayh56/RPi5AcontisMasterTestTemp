@@ -51,7 +51,7 @@ build/aarch64le-debug/./src/AppMain/EcTaskFsm/EcTaskFsm.o: \
  src/AppUser/EcUser_3/EcUser_3.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
  src/AppMain/EcTaskInterface/EcTaskInterfaceBase.h \
- src/AppFsm/EcStateStandby/EcStateStandby.h \
+ src/AppFsm/EcStateStandby/EcStateStandby.h src/AppFsm/EcState/EcState.h \
  external/FSM_cpp/src/Subroutine/Subroutine.h \
  external/FSM_cpp/src/Subroutine/CallbackStatus.h \
  src/AppFsm/EcStateFault/EcStateFault.h \

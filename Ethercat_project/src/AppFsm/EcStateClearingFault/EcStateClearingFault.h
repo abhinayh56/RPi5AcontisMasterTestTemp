@@ -1,6 +1,7 @@
 #ifndef EC_STATE_CLEARING_FAULT_H
 #define EC_STATE_CLEARING_FAULT_H
 
+#include "EcState.h"
 #include "Subroutine.h"
 
 namespace EcStateClearingFaultNs
@@ -89,7 +90,7 @@ namespace EcStateClearingFaultNs
 
         uint32_t callback(uint32_t& nextStateId) override
         {
-            nextStateId = 0;
+            nextStateId = EcStateData::StateId::INITIALIZING;
 
             return CallbackStatus::SUCCESS;
         }
