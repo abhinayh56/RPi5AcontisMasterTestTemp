@@ -54,8 +54,8 @@ uint32_t Fsm::update()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    std::cout << "\n  N: " << update_number << "\n  state name: " << m_stateVector[m_currentStateIndex]->m_name << std::endl;
-    update_number++;
+//    std::cout << "\n  N: " << update_number << "\n  state name: " << m_stateVector[m_currentStateIndex]->m_name << std::endl;
+//    update_number++;
 
     dwRes |= m_stateVector[m_currentStateIndex]->update(m_nextStateId);
 

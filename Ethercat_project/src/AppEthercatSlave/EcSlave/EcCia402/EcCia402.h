@@ -270,6 +270,10 @@ public:
 
     virtual EC_T_DWORD disable() override;
 
+    virtual EC_T_DWORD isEnable() override;
+
+    virtual EC_T_DWORD isDisable() override;
+
     virtual EC_T_DWORD quickStop() override;
 
     virtual EC_T_DWORD emergencyStop() override;

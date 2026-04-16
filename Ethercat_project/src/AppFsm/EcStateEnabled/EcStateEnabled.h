@@ -9,91 +9,53 @@ namespace EcStateEnabledNs
     class OnEntrySubroutine : public Subroutine
     {
     public:
-        OnEntrySubroutine()
-        {
-        }
+        OnEntrySubroutine();
 
-        ~OnEntrySubroutine()
-        {
-        }
+        ~OnEntrySubroutine();
 
-        uint32_t config() override
-        {
-            return 0;
-        }
+        uint32_t config() override;
 
-        uint32_t callback() override
-        {
-            return 0;
-        }
+        uint32_t callback() override;
     };
 
     class OnExitSubroutine : public Subroutine
     {
     public:
-        OnExitSubroutine()
-        {
-        }
+        OnExitSubroutine();
 
-        ~OnExitSubroutine()
-        {
-        }
+        ~OnExitSubroutine();
 
-        uint32_t config() override
-        {
-            return 0;
-        }
+        uint32_t config() override;
 
-        uint32_t callback() override
-        {
-            return 0;
-        }
+        uint32_t callback() override;
     };
 
     class CallbackSubroutine : public Subroutine
     {
     public:
-        CallbackSubroutine()
-        {
-        }
+        CallbackSubroutine();
 
-        ~CallbackSubroutine()
-        {
-        }
+        ~CallbackSubroutine();
 
-        uint32_t config() override
-        {
-            return 0;
-        }
+        uint32_t config() override;
 
-        uint32_t callback() override
-        {
-            return 0;
-        }
+        uint32_t callback() override;
     };
 
     class TransitionSubroutine : public SubroutineTransition
     {
     public:
-        TransitionSubroutine()
-        {
-        }
+        TransitionSubroutine();
 
-        ~TransitionSubroutine()
-        {
-        }
+        ~TransitionSubroutine();
 
-        uint32_t config() override
-        {
-            return 0;
-        }
+        uint32_t config() override;
 
-        uint32_t callback(uint32_t& nextStateId) override
-        {
-            nextStateId = EcStateData::StateId::READY;
+        uint32_t callback(uint32_t& nextStateId) override;
 
-            return CallbackStatus::SUCCESS;
-        }
+	private:
+        Data_store_element<bool> m_InputCh_3;
+		bool m_data_3 = false;
     };
 }
 

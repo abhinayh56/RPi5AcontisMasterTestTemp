@@ -71,6 +71,10 @@ namespace EcStateStandbyNs
         uint32_t config() override;
 
         uint32_t callback(uint32_t &nextStateId) override;
+
+    private:
+        Data_store_element<bool> m_InputCh_7;
+        bool m_data_7 = false;
     };
 }
 

@@ -108,7 +108,7 @@ EC_T_DWORD EcCia402::checkFault()
     }
     else
     {
-        std::cout << m_slaveName << " : " << "NO FAULT\n";
+        // std::cout << m_slaveName << " : " << "NO FAULT\n";
     }
 
     return dwRes;
@@ -305,6 +305,36 @@ EC_T_DWORD EcCia402::disable()
     }
 
     return dwRes;
+}
+
+EC_T_DWORD EcCia402::isEnable()
+{
+    if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
+    )
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+EC_T_DWORD EcCia402::isDisable()
+{
+    if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
+    )
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
 }
 
 EC_T_DWORD EcCia402::quickStop()

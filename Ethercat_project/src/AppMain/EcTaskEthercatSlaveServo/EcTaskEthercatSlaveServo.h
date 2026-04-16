@@ -53,6 +53,10 @@ public:
 
     EC_T_DWORD disable();
 
+	bool isEnable();
+
+	bool isDisable();
+
     EC_T_DWORD quickStop();
 
     EC_T_DWORD emergencyStop();

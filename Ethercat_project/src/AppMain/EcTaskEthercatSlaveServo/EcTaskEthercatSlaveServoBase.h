@@ -54,6 +54,10 @@ public:
 
     virtual EC_T_DWORD disable() = 0;
 
+    virtual EC_T_DWORD isEnable() = 0;
+
+    virtual EC_T_DWORD isDisable() = 0;
+
     virtual EC_T_DWORD quickStop() = 0;
 
     virtual EC_T_DWORD emergencyStop() = 0;

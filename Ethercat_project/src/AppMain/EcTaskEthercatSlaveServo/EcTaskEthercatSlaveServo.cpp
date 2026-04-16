@@ -298,6 +298,30 @@ EC_T_DWORD EcTaskEthercatSlaveServo::disable()
     return dwRes;
 }
 
+bool EcTaskEthercatSlaveServo::isEnable()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+	{
+		dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isEnable();
+	}
+
+	return dwRes;
+}
+
+bool EcTaskEthercatSlaveServo::isDisable()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+	{
+		dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isDisable();
+	}
+
+	return dwRes;
+}
+
 EC_T_DWORD EcTaskEthercatSlaveServo::quickStop()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;

@@ -24,6 +24,7 @@ namespace EcStateFaultNs
 
         uint32_t callback() override
         {
+            std::cout << "FAULT ENTRY" << std::endl;
             return 0;
         }
     };
@@ -46,6 +47,7 @@ namespace EcStateFaultNs
 
         uint32_t callback() override
         {
+            std::cout << "FAULT EXIT" << std::endl;
             return 0;
         }
     };
@@ -68,6 +70,7 @@ namespace EcStateFaultNs
 
         uint32_t callback() override
         {
+            std::cout << "FAULT CALLBACK" << std::endl;
             return 0;
         }
     };
@@ -75,7 +78,8 @@ namespace EcStateFaultNs
     class TransitionSubroutine : public SubroutineTransition
     {
     public:
-        TransitionSubroutine()
+        TransitionSubroutine() :
+            m_InputCh_2("DIGITAL_INPUT_CH_2", "/ethercat/el1008", false, true)
         {
         }
 
@@ -85,15 +89,29 @@ namespace EcStateFaultNs
 
         uint32_t config() override
         {
+            m_InputCh_2.subscribe();
             return 0;
         }
 
         uint32_t callback(uint32_t& nextStateId) override
         {
-            nextStateId = EcStateData::StateId::CLEARING_FAULT;
+            m_InputCh_2.get(m_data_2);
+            if(m_data_2)
+			{
+                std::cout << "FAULT TRANSITION" << std::endl;
+				nextStateId = EcStateData::StateId::CLEARING_FAULT;
+			}
+            else
+            {
+                nextStateId = EcStateData::StateId::FAULT;
+            }
 
             return CallbackStatus::SUCCESS;
         }
+
+    private:
+        Data_store_element<bool> m_InputCh_2;
+        bool m_data_2 = false;
     };
 }
 
