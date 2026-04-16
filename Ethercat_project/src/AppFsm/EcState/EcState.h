@@ -1,6 +1,8 @@
 #ifndef EC_STATE_H
 #define EC_STATE_H
 
+#include <stdint.h>
+
 namespace EcStateData
 {
     enum StateId : uint32_t
