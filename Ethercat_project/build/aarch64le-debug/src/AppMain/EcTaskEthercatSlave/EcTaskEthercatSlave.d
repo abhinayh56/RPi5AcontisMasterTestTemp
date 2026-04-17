@@ -1,12 +1,12 @@
 build/aarch64le-debug/./src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.o: \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.cpp \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.h \
- src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
+ src/AppEthercatSlave/EcTaskEthercatSlaveBase/EcTaskEthercatSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
  external/ITC/ITC.h external/ITC/Data_store_element.h \
  external/ITC/Data_store.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
- src/AppEthercatSlave/EcSlave/EcSlaveBase/EcSlaveBase.h \
+ src/AppEthercatSlave/EcSlaveBase/EcSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/QNX/EcOsPlatform.h \
@@ -19,15 +19,14 @@ build/aarch64le-debug/./src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.o: \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcPdoVariable.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcInputPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcPdoVariable.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcOutputPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
- src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
+ src/AppEthercatMaster/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatMaster/EcPdoHandler/EcInputPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatMaster/EcPdoHandler/EcOutputPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcInputPdoTransfer.h \
+ src/AppEthercatMaster/EcPdoHandler/EcOutputPdoTransfer.h \
+ src/AppEthercatMaster/EcPdoHandler/EcAllPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcAllPdoTransfer.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEl6002/EcSlaveEl6002.h \

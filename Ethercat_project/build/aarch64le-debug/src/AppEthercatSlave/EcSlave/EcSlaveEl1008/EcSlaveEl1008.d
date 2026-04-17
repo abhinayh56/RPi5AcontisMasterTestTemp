@@ -1,7 +1,7 @@
 build/aarch64le-debug/./src/AppEthercatSlave/EcSlave/EcSlaveEl1008/EcSlaveEl1008.o: \
  src/AppEthercatSlave/EcSlave/EcSlaveEl1008/EcSlaveEl1008.cpp \
  src/AppEthercatSlave/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
- src/AppEthercatSlave/EcSlave/EcSlaveBase/EcSlaveBase.h \
+ src/AppEthercatSlave/EcSlaveBase/EcSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
@@ -16,14 +16,14 @@ build/aarch64le-debug/./src/AppEthercatSlave/EcSlave/EcSlaveEl1008/EcSlaveEl1008
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcPdoVariable.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcInputPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcPdoVariable.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcOutputPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
- src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
+ src/AppEthercatMaster/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatMaster/EcPdoHandler/EcInputPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatMaster/EcPdoHandler/EcOutputPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcInputPdoTransfer.h \
+ src/AppEthercatMaster/EcPdoHandler/EcOutputPdoTransfer.h \
+ src/AppEthercatMaster/EcPdoHandler/EcAllPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcAllPdoTransfer.h \
+ src/AppEthercatSlave/EcTaskEthercatSlaveBase/EcTaskEthercatSlaveBase.h \
  external/ITC/ITC.h external/ITC/Data_store_element.h \
  external/ITC/Data_store.h

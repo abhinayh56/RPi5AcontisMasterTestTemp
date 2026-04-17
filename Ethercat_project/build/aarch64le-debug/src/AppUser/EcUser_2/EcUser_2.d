@@ -1,6 +1,6 @@
 build/aarch64le-debug/./src/AppUser/EcUser_2/EcUser_2.o: \
  src/AppUser/EcUser_2/EcUser_2.cpp src/AppUser/EcUser_2/EcUser_2.h \
- src/AppMain/EcTaskUser/EcTaskUserBase.h \
+ src/AppUser/EcTaskUserBase/EcTaskUserBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
  external/ITC/ITC.h external/ITC/Data_store_element.h \

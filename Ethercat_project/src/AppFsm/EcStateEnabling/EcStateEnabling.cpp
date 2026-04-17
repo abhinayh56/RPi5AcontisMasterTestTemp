@@ -55,6 +55,7 @@ uint32_t EcStateEnablingNs::CallbackSubroutine::callback()
 {
     std::cout << "ENABLING CALLBACK" << std::endl;
     ecTaskAll.p_ecTaskEthercatSlaveServo->enable(); 
+    ecTaskAll.p_ecTaskEthercatSlaveServo->syncPosition();
     return 0;
 }
 

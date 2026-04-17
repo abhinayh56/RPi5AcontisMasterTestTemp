@@ -2,12 +2,12 @@ build/aarch64le-debug/./src/AppFsm/EcStateStandby/EcStateStandby.o: \
  src/AppFsm/EcStateStandby/EcStateStandby.cpp \
  src/AppFsm/EcStateStandby/EcStateStandby.h src/AppFsm/EcState/EcState.h \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.h \
- src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
+ src/AppEthercatSlave/EcTaskEthercatSlaveBase/EcTaskEthercatSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
  external/ITC/ITC.h external/ITC/Data_store_element.h \
  external/ITC/Data_store.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
- src/AppEthercatSlave/EcSlave/EcSlaveBase/EcSlaveBase.h \
+ src/AppEthercatSlave/EcSlaveBase/EcSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/QNX/EcOsPlatform.h \
@@ -20,15 +20,14 @@ build/aarch64le-debug/./src/AppFsm/EcStateStandby/EcStateStandby.o: \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcPdoVariable.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcInputPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcPdoVariable.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcOutputPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcInputPdoTransfer.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcOutputPdoTransfer.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcAllPdoRegister.h \
- src/AppEthercatSlave/EcSlave/EcPdoHandler/EcAllPdoTransfer.h \
- src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlaveBase.h \
+ src/AppEthercatMaster/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatMaster/EcPdoHandler/EcInputPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatMaster/EcPdoHandler/EcOutputPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcInputPdoTransfer.h \
+ src/AppEthercatMaster/EcPdoHandler/EcOutputPdoTransfer.h \
+ src/AppEthercatMaster/EcPdoHandler/EcAllPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcAllPdoTransfer.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
  src/AppEthercatSlave/EcSlave/EcSlaveEl6002/EcSlaveEl6002.h \
@@ -36,21 +35,20 @@ build/aarch64le-debug/./src/AppFsm/EcStateStandby/EcStateStandby.o: \
  src/AppEthercatSlave/EcSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkctrl.h \
  src/AppEthercatSlave/EcSlave/EcSlaveRfidslave/EcSlaveRfidslave.h \
  src/AppMain/EcTaskEthercatSlaveServo/EcTaskEthercatSlaveServo.h \
- src/AppMain/EcTaskEthercatSlaveServo/EcTaskEthercatSlaveServoBase.h \
+ src/AppEthercatSlave/EcTaskEthercatSlaveServoBase/EcTaskEthercatSlaveServoBase.h \
  src/AppEthercatSlave/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
- src/AppEthercatSlave/EcSlave/EcCia402/EcCia402.h \
- src/AppMain/EcTaskEthercatSlaveServo/EcTaskEthercatSlaveServoBase.h \
+ src/AppEthercatSlave/EcCia402/EcCia402.h \
  src/AppEthercatSlave/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
  src/AppEthercatSlave/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
  src/AppEthercatSlave/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h \
  src/AppMain/EcTaskRobotControl/EcTaskRobotControl.h \
- src/AppMain/EcTaskRobotControl/EcTaskRobotControlBase.h \
+ src/AppRobotControl/EcTaskRobotControlBase/EcTaskRobotControlBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
  src/AppMain/EcTaskUser/EcTaskUser.h \
- src/AppMain/EcTaskUser/EcTaskUserBase.h src/AppUser/EcUser_1/EcUser_1.h \
- src/AppMain/EcTaskUser/EcTaskUserBase.h src/AppUser/EcUser_2/EcUser_2.h \
+ src/AppUser/EcTaskUserBase/EcTaskUserBase.h \
+ src/AppUser/EcUser_1/EcUser_1.h src/AppUser/EcUser_2/EcUser_2.h \
  src/AppUser/EcUser_3/EcUser_3.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
- src/AppMain/EcTaskInterface/EcTaskInterfaceBase.h \
+ src/AppInterface/EcTaskInterfaceBase/EcTaskInterfaceBase.h \
  external/FSM_cpp/src/Subroutine/Subroutine.h \
  external/FSM_cpp/src/Subroutine/CallbackStatus.h

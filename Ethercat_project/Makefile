@@ -20,50 +20,65 @@ LD = $(CXX)
 
 #INCLUDES += -I/path/to/my/lib/include
 #INCLUDES += -I../mylib/public
-DIR_EXTERNAL = ./external
-DIR_EC_SDK = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
-DIR_APP_MAIN = ./src/AppMain
-DIR_APP_ETHERCAT = ./src/AppEthercatSlave
-DIR_APP_USER = ./src/AppUser
-DIR_APP_FSM = ./src/AppFsm
-#DIR_APP_ETHERCAT = ./external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/Examples
-DIR_ITC = ./external/ITC
-DIR_FSM = ./external/FSM_cpp/src
-DIR_EIGEN = ./external/eigen-5.0.0
+
+DIR_EXT = ./external
+DIR_SRC = ./src
+
+DIR_EXT_EC_SDK = $(DIR_EXT)/EC-Master-V3.2-QNX8-ARM_64Bit-Eval
+DIR_EXT_ITC    = $(DIR_EXT)/ITC
+DIR_EXT_FSM    = $(DIR_EXT)/FSM_cpp/src
+DIR_EXT_EIGEN  = $(DIR_EXT)/eigen-5.0.0
+
+DIR_APP_ETHERCAT_MASTER = $(DIR_SRC)/AppEthercatMaster
+DIR_APP_ETHERCAT_SLAVE  = $(DIR_SRC)/AppEthercatSlave
+DIR_APP_FSM             = $(DIR_SRC)/AppFsm
+DIR_APP_INTERFACE       = $(DIR_SRC)/AppInterface
+DIR_APP_MAIN            = $(DIR_SRC)/AppMain
+DIR_APP_ROBOT_CONTROL   = $(DIR_SRC)/AppRobotControl
+DIR_APP_USER            = $(DIR_SRC)/AppUser
 
 # External EtherCAT
-INCLUDES += -I$(DIR_EC_SDK)/SDK/INC
-INCLUDES += -I$(DIR_EC_SDK)/SDK/INC/QNX
-INCLUDES += -I$(DIR_EC_SDK)/Sources/Common
+INCLUDES += -I$(DIR_EXT_EC_SDK)/SDK/INC
+INCLUDES += -I$(DIR_EXT_EC_SDK)/SDK/INC/QNX
+INCLUDES += -I$(DIR_EXT_EC_SDK)/Sources/Common
 
-# EtherCAT App (main)
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Common
-INCLUDES += -I$(DIR_APP_ETHERCAT)/Common/QNX
+# External ITC
+INCLUDES += -I$(DIR_EXT_ITC)
+INCLUDES += -I$(DIR_EXT_ITC)/Data_store
+INCLUDES += -I$(DIR_EXT_ITC)/Data_store_element
 
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcMasterDemo
+# External FSM
+INCLUDES += -I$(DIR_EXT_FSM)/Fsm
+INCLUDES += -I$(DIR_EXT_FSM)/State
+INCLUDES += -I$(DIR_EXT_FSM)/Subroutine
 
-INCLUDES += -I$(DIR_ITC)
-INCLUDES += -I$(DIR_ITC)/Data_store
-INCLUDES += -I$(DIR_ITC)/Data_store_element
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcPdoHandler
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveBase
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcCia402
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl1008
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl2008
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl3024
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl6002
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveSscIoModule
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEncbrkctrl
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveRfidslave
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveDenNetE
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat
-INCLUDES += -I$(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive
+# External Eigen
+INCLUDES += -I$(DIR_EXT_EIGEN)
 
-INCLUDES += -I$(DIR_APP_USER)/EcUser_1
-INCLUDES += -I$(DIR_APP_USER)/EcUser_2
-INCLUDES += -I$(DIR_APP_USER)/EcUser_3
+# App Ethercat Master
+INCLUDES += -I$(DIR_APP_ETHERCAT_MASTER)/Common
+INCLUDES += -I$(DIR_APP_ETHERCAT_MASTER)/Common/QNX
+INCLUDES += -I$(DIR_APP_ETHERCAT_MASTER)/EcMasterDemo
+INCLUDES += -I$(DIR_APP_ETHERCAT_MASTER)/EcPdoHandler
 
+# App Ethercat Slave
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcTaskEthercatSlaveBase
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcTaskEthercatSlaveServoBase
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlaveBase
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcCia402
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEl1008
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEl2008
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEl3024
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEl6002
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveRfidslave
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveSscIoModule
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEncbrkctrl
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlavePitchDrive
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveDenNetE
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveElmoDrive
+INCLUDES += -I$(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveIpos2401MxCat
+
+# App FSM
 INCLUDES += -I$(DIR_APP_FSM)/EcState
 INCLUDES += -I$(DIR_APP_FSM)/EcStateClearingFault
 INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabled
@@ -74,9 +89,22 @@ INCLUDES += -I$(DIR_APP_FSM)/EcStateFault
 INCLUDES += -I$(DIR_APP_FSM)/EcStateInitialized
 INCLUDES += -I$(DIR_APP_FSM)/EcStateInitializing
 INCLUDES += -I$(DIR_APP_FSM)/EcStateJoystickControl
-INCLUDES += -I$(DIR_APP_FSM)/EcStateStandby
 INCLUDES += -I$(DIR_APP_FSM)/EcStateReady
+INCLUDES += -I$(DIR_APP_FSM)/EcStateStandby
 
+# App User
+INCLUDES += -I$(DIR_APP_USER)/EcTaskUserBase
+INCLUDES += -I$(DIR_APP_USER)/EcUser_1
+INCLUDES += -I$(DIR_APP_USER)/EcUser_2
+INCLUDES += -I$(DIR_APP_USER)/EcUser_3
+
+# App Robot Control
+INCLUDES += -I$(DIR_APP_ROBOT_CONTROL)/EcTaskRobotControlBase
+
+# App Interface
+INCLUDES += -I$(DIR_APP_INTERFACE)/EcTaskInterfaceBase
+
+# App Main
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlave
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlaveServo
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskRobotControl
@@ -85,18 +113,9 @@ INCLUDES += -I$(DIR_APP_MAIN)/EcTaskFsm
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskInterface
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskManager
 
-# Eigen library (header-only)
-INCLUDES += -I$(DIR_EIGEN)
-
-# FSM library
-INCLUDES += -I$(DIR_FSM)/Fsm
-INCLUDES += -I$(DIR_FSM)/State
-INCLUDES += -I$(DIR_FSM)/Subroutine
-
 #LIBS += -L/path/to/my/lib/$(PLATFORM)/usr/lib -lmylib
 #LIBS += -L../mylib/$(OUTPUT_DIR) -lmylib
-LIBS += -L$(DIR_EC_SDK)/SDK/LIB/QNX8/aarch64
-
+LIBS += -L$(DIR_EXT_EC_SDK)/SDK/LIB/QNX8/aarch64
 LIBS += -lEcMasterRasServer
 LIBS += -lEcMaster
 LIBS += -lsocket
@@ -126,14 +145,36 @@ rwildcard = $(wildcard $(addprefix $1/*.,$2)) $(foreach d,$(wildcard $1/*),$(cal
 #SRCS = $(call rwildcard, src, c cpp)
 
 # External EtherCAT
-SRCS += $(wildcard $(DIR_EC_SDK)/Sources/Common/*.cpp)
+SRCS += $(wildcard $(DIR_EXT_EC_SDK)/Sources/Common/*.cpp)
 
-# EtherCAT App (main)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Common/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/Common/QNX/*.cpp)
+# External FSM
+SRCS += $(wildcard $(DIR_EXT_FSM)/Fsm/*.cpp)
+SRCS += $(wildcard $(DIR_EXT_FSM)/State/*.cpp)
+SRCS += $(wildcard $(DIR_EXT_FSM)/Subroutine/*.cpp)
 
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcMasterDemo/*.cpp)
+# App Ethercat Master
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_MASTER)/Common/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_MASTER)/Common/QNX/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_MASTER)/EcMasterDemo/*.cpp)
 
+# App Ethercat Slave
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcTaskEthercatSlaveBase/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcTaskEthercatSlaveServoBase/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlaveBase/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcCia402/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEl1008/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEl2008/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEl3024/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEl6002/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveRfidslave/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveSscIoModule/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveEncbrkctrl/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlavePitchDrive/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveDenNetE/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveElmoDrive/*.cpp)
+SRCS += $(wildcard $(DIR_APP_ETHERCAT_SLAVE)/EcSlave/EcSlaveIpos2401MxCat/*.cpp)
+
+# App FSM
 SRCS += $(wildcard $(DIR_APP_FSM)/EcState/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateClearingFault/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateDisabled/*.cpp)
@@ -144,9 +185,22 @@ SRCS += $(wildcard $(DIR_APP_FSM)/EcStateFault/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateInitialized/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateInitializing/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateJoystickControl/*.cpp)
-SRCS += $(wildcard $(DIR_APP_FSM)/EcStateStandby/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateReady/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateStandby/*.cpp)
 
+# App User
+SRCS += $(wildcard $(DIR_APP_USER)/EcTaskUserBase/*.cpp)
+SRCS += $(wildcard $(DIR_APP_USER)/EcUser_1/*.cpp)
+SRCS += $(wildcard $(DIR_APP_USER)/EcUser_2/*.cpp)
+SRCS += $(wildcard $(DIR_APP_USER)/EcUser_3/*.cpp)
+
+# App Robot Control
+SRCS += $(wildcard $(DIR_APP_ROBOT_CONTROL)/EcTaskRobotControlBase/*.cpp)
+
+# App Interface
+SRCS += $(wildcard $(DIR_APP_INTERFACE)/EcTaskInterfaceBase/*.cpp)
+
+# App Main
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlave/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlaveServo/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskRobotControl/*.cpp)
@@ -154,28 +208,6 @@ SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskUser/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskFsm/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskInterface/*.cpp)
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskManager/*.cpp)
-
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveBase/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcCia402/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl1008/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl2008/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl3024/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEl6002/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveSscIoModule/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveEncbrkctrl/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveRfidslave/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveDenNetE/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveElmoDrive/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlaveIpos2401MxCat/*.cpp)
-SRCS += $(wildcard $(DIR_APP_ETHERCAT)/EcSlave/EcSlavePitchDrive/*.cpp)
-
-SRCS += $(wildcard $(DIR_APP_USER)/EcUser_1/*.cpp)
-SRCS += $(wildcard $(DIR_APP_USER)/EcUser_2/*.cpp)
-SRCS += $(wildcard $(DIR_APP_USER)/EcUser_3/*.cpp)
-
-SRCS += $(wildcard $(DIR_FSM)/Fsm/*.cpp)
-SRCS += $(wildcard $(DIR_FSM)/State/*.cpp)
-SRCS += $(wildcard $(DIR_FSM)/Subroutine/*.cpp)
 
 #Object files list
 OBJS = $(addprefix $(OUTPUT_DIR)/,$(addsuffix .o, $(basename $(SRCS))))
