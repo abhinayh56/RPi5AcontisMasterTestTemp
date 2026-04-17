@@ -61,6 +61,15 @@ EC_T_DWORD EcUser_2::publishData()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
+    m_OutputCh_1.set(m_data_1);
+    m_OutputCh_2.set(m_data_2);
+    m_OutputCh_3.set(m_data_3);
+    m_OutputCh_4.set(m_data_4);
+    m_OutputCh_5.set(m_data_5);
+    m_OutputCh_6.set(m_data_6);
+    m_OutputCh_7.set(m_data_7);
+    m_OutputCh_8.set(m_data_8);
+
     return dwRes;
 }
 
@@ -83,15 +92,6 @@ EC_T_DWORD EcUser_2::subscribeData()
 EC_T_DWORD EcUser_2::mainProcess()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    m_OutputCh_1.set(m_data_1);
-    m_OutputCh_2.set(m_data_2);
-    m_OutputCh_3.set(m_data_3);
-    m_OutputCh_4.set(m_data_4);
-    m_OutputCh_5.set(m_data_5);
-    m_OutputCh_6.set(m_data_6);
-    m_OutputCh_7.set(m_data_7);
-    m_OutputCh_8.set(m_data_8);
 
     return dwRes;
 }
