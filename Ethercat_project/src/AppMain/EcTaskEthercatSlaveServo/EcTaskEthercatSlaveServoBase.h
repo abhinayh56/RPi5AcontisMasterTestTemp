@@ -68,6 +68,12 @@ public:
     
     virtual EC_T_DWORD setModeTorque() = 0;
 
+    virtual EC_T_DWORD isModePosition() = 0;
+
+    virtual EC_T_DWORD isModeVelocity() = 0;
+
+    virtual EC_T_DWORD isModeTorque() = 0;
+
     virtual EC_T_DWORD setTargetPosition(int32_t targetPosition) = 0;
 
     virtual EC_T_DWORD setTargetVelocity(int32_t targetVelocity) = 0;

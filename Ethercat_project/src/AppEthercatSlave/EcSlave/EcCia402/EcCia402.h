@@ -284,6 +284,12 @@ public:
     
     virtual EC_T_DWORD setModeTorque() override;
 
+    virtual EC_T_DWORD isModePosition() override;
+
+    virtual EC_T_DWORD isModeVelocity() override;
+
+    virtual EC_T_DWORD isModeTorque() override;
+
     virtual EC_T_DWORD setTargetPosition(int32_t targetPosition) override;
 
     virtual EC_T_DWORD setTargetVelocity(int32_t targetVelocity) override;

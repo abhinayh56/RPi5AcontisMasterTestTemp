@@ -484,6 +484,21 @@ EC_T_DWORD EcCia402::setModeTorque()
     return dwRes;
 }
 
+EC_T_DWORD EcCia402::isModePosition()
+{
+    return (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_POSITION) ? 0 :1;
+}
+
+EC_T_DWORD EcCia402::isModeVelocity()
+{
+    return (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_VELOCITY) ? 0 : 1;
+}
+
+EC_T_DWORD EcCia402::isModeTorque()
+{
+    return (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_TORQUE) ? 0 : 1;
+}
+
 EC_T_DWORD EcCia402::setTargetPosition(int32_t targetPosition)
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
