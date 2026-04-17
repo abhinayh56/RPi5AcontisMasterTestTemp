@@ -1,0 +1,12 @@
+INCLUDES += -I$(DIR_APP_FSM)/EcState
+INCLUDES += -I$(DIR_APP_FSM)/EcStateClearingFault
+INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabled
+INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabling
+INCLUDES += -I$(DIR_APP_FSM)/EcStateEnabled
+INCLUDES += -I$(DIR_APP_FSM)/EcStateEnabling
+INCLUDES += -I$(DIR_APP_FSM)/EcStateFault
+INCLUDES += -I$(DIR_APP_FSM)/EcStateInitialized
+INCLUDES += -I$(DIR_APP_FSM)/EcStateInitializing
+INCLUDES += -I$(DIR_APP_FSM)/EcStateJoystickControl
+INCLUDES += -I$(DIR_APP_FSM)/EcStateReady
+INCLUDES += -I$(DIR_APP_FSM)/EcStateStandby

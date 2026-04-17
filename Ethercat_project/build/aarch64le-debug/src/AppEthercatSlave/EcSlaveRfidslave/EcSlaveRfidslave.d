@@ -1,0 +1,29 @@
+build/aarch64le-debug/./src/AppEthercatSlave/EcSlaveRfidslave/EcSlaveRfidslave.o: \
+ src/AppEthercatSlave/EcSlaveRfidslave/EcSlaveRfidslave.cpp \
+ src/AppEthercatSlave/EcSlaveRfidslave/EcSlaveRfidslave.h \
+ src/AppEthercatSlave/EcSlaveBase/EcSlaveBase.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/QNX/EcOsPlatform.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcFeatures.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcError.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/OsCommon.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcInterfaceCommon.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcVersion.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLog.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcEscReg.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EthernetServices.h \
+ external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcLink.h \
+ src/AppEthercatMaster/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatMaster/EcPdoHandler/EcInputPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcPdoVariable.h \
+ src/AppEthercatMaster/EcPdoHandler/EcOutputPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcInputPdoTransfer.h \
+ src/AppEthercatMaster/EcPdoHandler/EcOutputPdoTransfer.h \
+ src/AppEthercatMaster/EcPdoHandler/EcAllPdoRegister.h \
+ src/AppEthercatMaster/EcPdoHandler/EcAllPdoTransfer.h \
+ src/AppEthercatSlave/EcTaskEthercatSlaveBase/EcTaskEthercatSlaveBase.h \
+ external/ITC/ITC.h external/ITC/Data_store_element.h \
+ external/ITC/Data_store.h

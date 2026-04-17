@@ -28,8 +28,8 @@ build/aarch64le-debug/./src/AppMain/EcTaskEthercatSlaveServo/EcTaskEthercatSlave
  src/AppEthercatSlave/EcTaskEthercatSlaveBase/EcTaskEthercatSlaveBase.h \
  external/ITC/ITC.h external/ITC/Data_store_element.h \
  external/ITC/Data_store.h \
- src/AppEthercatSlave/EcSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
+ src/AppEthercatSlave/EcSlaveDenNetE/EcSlaveDenNetE.h \
  src/AppEthercatSlave/EcCia402/EcCia402.h \
- src/AppEthercatSlave/EcSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
- src/AppEthercatSlave/EcSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
- src/AppEthercatSlave/EcSlave/EcSlavePitchDrive/EcSlavePitchDrive.h
+ src/AppEthercatSlave/EcSlaveElmoDrive/EcSlaveElmoDrive.h \
+ src/AppEthercatSlave/EcSlaveIpos2401MxCat/EcSlaveIpos2401MxCat.h \
+ src/AppEthercatSlave/EcSlavePitchDrive/EcSlavePitchDrive.h

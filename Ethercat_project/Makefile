@@ -61,7 +61,7 @@ INCLUDES += -I$(DIR_APP_ETHERCAT_MASTER)/Common/QNX
 INCLUDES += -I$(DIR_APP_ETHERCAT_MASTER)/EcMasterDemo
 INCLUDES += -I$(DIR_APP_ETHERCAT_MASTER)/EcPdoHandler
 
-include app_includes.mk
+include appIncludes.mk
 
 # App Main
 INCLUDES += -I$(DIR_APP_MAIN)/EcTaskEthercatSlave
@@ -116,7 +116,7 @@ SRCS += $(wildcard $(DIR_APP_ETHERCAT_MASTER)/Common/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT_MASTER)/Common/QNX/*.cpp)
 SRCS += $(wildcard $(DIR_APP_ETHERCAT_MASTER)/EcMasterDemo/*.cpp)
 
-include app_sources.mk
+include appSources.mk
 
 # App Main
 SRCS += $(wildcard $(DIR_APP_MAIN)/EcTaskEthercatSlave/*.cpp)

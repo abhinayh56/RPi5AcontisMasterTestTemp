@@ -5,7 +5,7 @@ build/aarch64le-debug/./src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.o: \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcType.h \
  external/ITC/ITC.h external/ITC/Data_store_element.h \
  external/ITC/Data_store.h \
- src/AppEthercatSlave/EcSlave/EcSlaveEl1008/EcSlaveEl1008.h \
+ src/AppEthercatSlave/EcSlaveEl1008/EcSlaveEl1008.h \
  src/AppEthercatSlave/EcSlaveBase/EcSlaveBase.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcMaster.h \
  external/EC-Master-V3.2-QNX8-ARM_64Bit-Eval/SDK/INC/EcOs.h \
@@ -27,9 +27,9 @@ build/aarch64le-debug/./src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.o: \
  src/AppEthercatMaster/EcPdoHandler/EcOutputPdoTransfer.h \
  src/AppEthercatMaster/EcPdoHandler/EcAllPdoRegister.h \
  src/AppEthercatMaster/EcPdoHandler/EcAllPdoTransfer.h \
- src/AppEthercatSlave/EcSlave/EcSlaveEl2008/EcSlaveEl2008.h \
- src/AppEthercatSlave/EcSlave/EcSlaveEl3024/EcSlaveEl3024.h \
- src/AppEthercatSlave/EcSlave/EcSlaveEl6002/EcSlaveEl6002.h \
- src/AppEthercatSlave/EcSlave/EcSlaveSscIoModule/EcSlaveSscIoModule.h \
- src/AppEthercatSlave/EcSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkctrl.h \
- src/AppEthercatSlave/EcSlave/EcSlaveRfidslave/EcSlaveRfidslave.h
+ src/AppEthercatSlave/EcSlaveEl2008/EcSlaveEl2008.h \
+ src/AppEthercatSlave/EcSlaveEl3024/EcSlaveEl3024.h \
+ src/AppEthercatSlave/EcSlaveEl6002/EcSlaveEl6002.h \
+ src/AppEthercatSlave/EcSlaveSscIoModule/EcSlaveSscIoModule.h \
+ src/AppEthercatSlave/EcSlaveEncbrkctrl/EcSlaveEncbrkctrl.h \
+ src/AppEthercatSlave/EcSlaveRfidslave/EcSlaveRfidslave.h

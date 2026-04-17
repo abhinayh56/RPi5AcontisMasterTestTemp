@@ -1,0 +1,1 @@
+INCLUDES += -I$(DIR_APP_INTERFACE)/EcTaskInterfaceBase
