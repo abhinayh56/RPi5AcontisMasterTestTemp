@@ -93,28 +93,7 @@ void EcCia402::dispRxPdo()
 {
 }
 
-EC_T_DWORD EcCia402::checkFault()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    if
-    (    
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT_REACTION_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::FAULT_REACTION_ACTIVE) ||
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT) == EcCia402Data::Object::StatusWord::BitData::FAULT)
-    )
-    {
-        std::cout << m_slaveName << " : " << "FAULT DETECTED\n";
-        dwRes = 1 << 10;
-    }
-    else
-    {
-        // std::cout << m_slaveName << " : " << "NO FAULT\n";
-    }
-
-    return dwRes;
-}
-
-EC_T_DWORD EcCia402::clearFault()
+EC_T_DWORD EcCia402::faultClear()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
@@ -141,200 +120,12 @@ EC_T_DWORD EcCia402::clearFault()
     return dwRes;
 }
 
-EC_T_DWORD EcCia402::enable()
+EC_T_DWORD EcCia402::isFaultClear()
 {
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
-    )
-    {
-       //  std::cout << ".\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT_REACTION_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::FAULT_REACTION_ACTIVE)
-    )
-    {
-        std::cout << "14\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT) == EcCia402Data::Object::StatusWord::BitData::FAULT)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::FAULT_RESET;
-        std::cout << "15\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::QUICK_STOP_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::QUICK_STOP_ACTIVE)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::ENABLE_OPERATION;
-        std::cout << "16\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::ENABLE_OPERATION;
-        std::cout << "4\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::READY_TO_SWITCH_ON) == EcCia402Data::Object::StatusWord::BitData::READY_TO_SWITCH_ON)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::SWITCH_ON;
-        std::cout << "3\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCH_ON_DISABLED) == EcCia402Data::Object::StatusWord::BitData::SWITCH_ON_DISABLED)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::SHUT_DOWN;
-        std::cout << "2\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::NOT_READY_TO_SWITCH_ON) == EcCia402Data::Object::StatusWord::BitData::NOT_READY_TO_SWITCH_ON)
-    )
-    {
-        std::cout << "1\n";
-    }
-
-    if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
-    )
-    {
-        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
-        std::cout << "ENABLED : " << m_slaveName << std::endl;
-    }
-    else
-    {
-        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
-        std::cout << "ENABLING: " << m_slaveName << std::endl;
-    }
-
-    return dwRes;
-}
-
-EC_T_DWORD EcCia402::disable()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-    
-    if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::DISABLE_OPERATION;
-        std::cout << "5\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT_REACTION_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::FAULT_REACTION_ACTIVE)
-    )
-    {
-        std::cout << "14\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT) == EcCia402Data::Object::StatusWord::BitData::FAULT)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::FAULT_RESET;
-        std::cout << "15\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::QUICK_STOP_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::QUICK_STOP_ACTIVE)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::DISABLE_VOLTAGE;
-        std::cout << "12\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
-    )
-    {
-       //  std::cout << ".\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::READY_TO_SWITCH_ON) == EcCia402Data::Object::StatusWord::BitData::READY_TO_SWITCH_ON)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::SWITCH_ON;
-        std::cout << "3\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCH_ON_DISABLED) == EcCia402Data::Object::StatusWord::BitData::SWITCH_ON_DISABLED)
-    )
-    {
-        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::SHUT_DOWN;
-        std::cout << "2\n";
-    }
-    else if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::NOT_READY_TO_SWITCH_ON) == EcCia402Data::Object::StatusWord::BitData::NOT_READY_TO_SWITCH_ON)
-    )
-    {
-        std::cout << "1\n";
-    }
-
-    if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
-    )
-    {
-        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
-        std::cout << "DISABLED : " << m_slaveName << std::endl;
-    }
-    else
-    {
-        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
-        std::cout << "DISABLING: " << m_slaveName << std::endl;
-    }
-
-    return dwRes;
-}
-
-EC_T_DWORD EcCia402::isEnable()
-{
-    if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
-    )
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
-
-EC_T_DWORD EcCia402::isDisable()
-{
-    if
-    (
-        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
-    )
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
+    return (
+            ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT_REACTION_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::FAULT_REACTION_ACTIVE) ||
+            ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT) == EcCia402Data::Object::StatusWord::BitData::FAULT)
+        ) ? 0 : 1;
 }
 
 EC_T_DWORD EcCia402::quickStop()
@@ -372,6 +163,11 @@ EC_T_DWORD EcCia402::quickStop()
     }
 
     return dwRes;
+}
+
+EC_T_DWORD EcCia402::isQuickStop()
+{    
+    return ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::QUICK_STOP_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::QUICK_STOP_ACTIVE) ? 0 : 1;
 }
 
 EC_T_DWORD EcCia402::emergencyStop()
@@ -457,6 +253,187 @@ EC_T_DWORD EcCia402::emergencyStop()
     return dwRes;
 }
 
+EC_T_DWORD EcCia402::isEmergencyStop()
+{
+    return ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCH_ON_DISABLED) == EcCia402Data::Object::StatusWord::BitData::SWITCH_ON_DISABLED) ? 0 : 1;
+}
+
+EC_T_DWORD EcCia402::enable()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
+    )
+    {
+       //  std::cout << ".\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT_REACTION_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::FAULT_REACTION_ACTIVE)
+    )
+    {
+        std::cout << "14\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT) == EcCia402Data::Object::StatusWord::BitData::FAULT)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::FAULT_RESET;
+        std::cout << "15\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::QUICK_STOP_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::QUICK_STOP_ACTIVE)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::ENABLE_OPERATION;
+        std::cout << "16\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::ENABLE_OPERATION;
+        std::cout << "4\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::READY_TO_SWITCH_ON) == EcCia402Data::Object::StatusWord::BitData::READY_TO_SWITCH_ON)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::SWITCH_ON;
+        std::cout << "3\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCH_ON_DISABLED) == EcCia402Data::Object::StatusWord::BitData::SWITCH_ON_DISABLED)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::SHUT_DOWN;
+        std::cout << "2\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::NOT_READY_TO_SWITCH_ON) == EcCia402Data::Object::StatusWord::BitData::NOT_READY_TO_SWITCH_ON)
+    )
+    {
+        std::cout << "1\n";
+    }
+
+    if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
+    )
+    {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
+        std::cout << "ENABLED : " << m_slaveName << std::endl;
+    }
+    else
+    {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
+        std::cout << "ENABLING: " << m_slaveName << std::endl;
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcCia402::isEnable()
+{
+    return ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED) ? 0 : 1;
+}
+
+EC_T_DWORD EcCia402::disable()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+    
+    if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::OPERATION_ENABLED) == EcCia402Data::Object::StatusWord::BitData::OPERATION_ENABLED)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::DISABLE_OPERATION;
+        std::cout << "5\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT_REACTION_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::FAULT_REACTION_ACTIVE)
+    )
+    {
+        std::cout << "14\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::FAULT) == EcCia402Data::Object::StatusWord::BitData::FAULT)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::FAULT_RESET;
+        std::cout << "15\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::QUICK_STOP_ACTIVE) == EcCia402Data::Object::StatusWord::BitData::QUICK_STOP_ACTIVE)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::DISABLE_VOLTAGE;
+        std::cout << "12\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
+    )
+    {
+       //  std::cout << ".\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::READY_TO_SWITCH_ON) == EcCia402Data::Object::StatusWord::BitData::READY_TO_SWITCH_ON)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::SWITCH_ON;
+        std::cout << "3\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCH_ON_DISABLED) == EcCia402Data::Object::StatusWord::BitData::SWITCH_ON_DISABLED)
+    )
+    {
+        *m_Cia402PdoRx.controlWord.p_value = EcCia402Data::Object::ControlWord::BitData::SHUT_DOWN;
+        std::cout << "2\n";
+    }
+    else if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::NOT_READY_TO_SWITCH_ON) == EcCia402Data::Object::StatusWord::BitData::NOT_READY_TO_SWITCH_ON)
+    )
+    {
+        std::cout << "1\n";
+    }
+
+    if
+    (
+        ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON)
+    )
+    {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::SUCCESS;
+        std::cout << "DISABLED : " << m_slaveName << std::endl;
+    }
+    else
+    {
+        dwRes = EcTaskEthercatSlaveServoBaseData::ServoCallbackStatus::IN_PROGRESS;
+        std::cout << "DISABLING: " << m_slaveName << std::endl;
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcCia402::isDisable()
+{
+    return ((*m_Cia402PdoTx.statusWord.p_value & EcCia402Data::Object::StatusWord::BitMask::SWITCHED_ON) == EcCia402Data::Object::StatusWord::BitData::SWITCHED_ON) ? 0 : 1;
+}
+
 EC_T_DWORD EcCia402::setModePosition()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -464,6 +441,11 @@ EC_T_DWORD EcCia402::setModePosition()
     dwRes |= setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_POSITION);
 
     return dwRes;
+}
+
+EC_T_DWORD EcCia402::isModePosition()
+{
+    return (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_POSITION) ? 0 :1;
 }
 
 EC_T_DWORD EcCia402::setModeVelocity()
@@ -475,6 +457,11 @@ EC_T_DWORD EcCia402::setModeVelocity()
     return dwRes;
 }
 
+EC_T_DWORD EcCia402::isModeVelocity()
+{
+    return (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_VELOCITY) ? 0 : 1;
+}
+
 EC_T_DWORD EcCia402::setModeTorque()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -482,16 +469,6 @@ EC_T_DWORD EcCia402::setModeTorque()
     dwRes |= setModeOfOperation(EcCia402Data::Object::ModeOfOperation::BitData::CYCLIC_SYNC_TORQUE);
 
     return dwRes;
-}
-
-EC_T_DWORD EcCia402::isModePosition()
-{
-    return (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_POSITION) ? 0 :1;
-}
-
-EC_T_DWORD EcCia402::isModeVelocity()
-{
-    return (*m_Cia402PdoTx.modeOfOperationDisplay.p_value == EcCia402Data::Object::ModeOfOperationDisplay::BitData::CYCLIC_SYNC_VELOCITY) ? 0 : 1;
 }
 
 EC_T_DWORD EcCia402::isModeTorque()

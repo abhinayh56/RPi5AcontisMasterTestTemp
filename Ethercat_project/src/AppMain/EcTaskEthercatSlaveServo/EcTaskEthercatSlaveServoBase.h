@@ -46,31 +46,35 @@ public:
 
 	virtual void dispRxPdo() override;
 
-    virtual EC_T_DWORD checkFault() = 0;
+    virtual EC_T_DWORD faultClear() = 0;
 
-    virtual EC_T_DWORD clearFault() = 0;
-
-    virtual EC_T_DWORD enable() = 0;
-
-    virtual EC_T_DWORD disable() = 0;
-
-    virtual EC_T_DWORD isEnable() = 0;
-
-    virtual EC_T_DWORD isDisable() = 0;
+    virtual EC_T_DWORD isFaultClear() = 0;
 
     virtual EC_T_DWORD quickStop() = 0;
 
+    virtual EC_T_DWORD isQuickStop() = 0;
+
     virtual EC_T_DWORD emergencyStop() = 0;
+
+    virtual EC_T_DWORD isEmergencyStop() = 0;
+
+    virtual EC_T_DWORD enable() = 0;
+
+    virtual EC_T_DWORD isEnable() = 0;
+
+    virtual EC_T_DWORD disable() = 0;
+
+    virtual EC_T_DWORD isDisable() = 0;
 
     virtual EC_T_DWORD setModePosition() = 0;
 
-    virtual EC_T_DWORD setModeVelocity() = 0;
-    
-    virtual EC_T_DWORD setModeTorque() = 0;
-
     virtual EC_T_DWORD isModePosition() = 0;
 
+    virtual EC_T_DWORD setModeVelocity() = 0;
+
     virtual EC_T_DWORD isModeVelocity() = 0;
+    
+    virtual EC_T_DWORD setModeTorque() = 0;
 
     virtual EC_T_DWORD isModeTorque() = 0;
 

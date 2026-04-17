@@ -250,76 +250,28 @@ EC_T_DWORD EcTaskEthercatSlaveServo::addTaskSlaveServo(EcTaskEthercatSlaveServoB
     return dwRes;
 }
 
-EC_T_DWORD EcTaskEthercatSlaveServo::checkFault()
+EC_T_DWORD EcTaskEthercatSlaveServo::faultClear()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
     for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
     {
-        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->checkFault();
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->faultClear();
     }
 
     return dwRes;
 }
 
-EC_T_DWORD EcTaskEthercatSlaveServo::clearFault()
+EC_T_DWORD EcTaskEthercatSlaveServo::isFaultClear()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
 
     for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
     {
-        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->clearFault();
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isFaultClear();
     }
 
     return dwRes;
-}
-
-EC_T_DWORD EcTaskEthercatSlaveServo::enable()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
-    {
-        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->enable();
-    }
-
-    return dwRes;
-}
-
-EC_T_DWORD EcTaskEthercatSlaveServo::disable()
-{
-    EC_T_DWORD dwRes = EC_E_NOERROR;
-
-    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
-    {
-        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->disable();
-    }
-
-    return dwRes;
-}
-
-bool EcTaskEthercatSlaveServo::isEnable()
-{
-	EC_T_DWORD dwRes = EC_E_NOERROR;
-
-	for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
-	{
-		dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isEnable();
-	}
-
-	return dwRes;
-}
-
-bool EcTaskEthercatSlaveServo::isDisable()
-{
-	EC_T_DWORD dwRes = EC_E_NOERROR;
-
-	for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
-	{
-		dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isDisable();
-	}
-
-	return dwRes;
 }
 
 EC_T_DWORD EcTaskEthercatSlaveServo::quickStop()
@@ -329,6 +281,18 @@ EC_T_DWORD EcTaskEthercatSlaveServo::quickStop()
     for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
     {
         dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->quickStop();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::isQuickStop()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isQuickStop();
     }
 
     return dwRes;
@@ -346,6 +310,66 @@ EC_T_DWORD EcTaskEthercatSlaveServo::emergencyStop()
     return dwRes;
 }
 
+EC_T_DWORD EcTaskEthercatSlaveServo::isEmergencyStop()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isEmergencyStop();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::enable()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->enable();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::isEnable()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+	{
+		dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isEnable();
+	}
+
+	return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::disable()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->disable();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::isDisable()
+{
+	EC_T_DWORD dwRes = EC_E_NOERROR;
+
+	for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+	{
+		dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isDisable();
+	}
+
+	return dwRes;
+}
+
 EC_T_DWORD EcTaskEthercatSlaveServo::setModePosition()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -353,6 +377,18 @@ EC_T_DWORD EcTaskEthercatSlaveServo::setModePosition()
     for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
     {
         dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->setModePosition();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::isModePosition()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isModePosition();
     }
 
     return dwRes;
@@ -370,6 +406,18 @@ EC_T_DWORD EcTaskEthercatSlaveServo::setModeVelocity()
     return dwRes;
 }
 
+EC_T_DWORD EcTaskEthercatSlaveServo::isModeVelocity()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isModeVelocity();
+    }
+
+    return dwRes;
+}
+
 EC_T_DWORD EcTaskEthercatSlaveServo::setModeTorque()
 {
     EC_T_DWORD dwRes = EC_E_NOERROR;
@@ -378,6 +426,60 @@ EC_T_DWORD EcTaskEthercatSlaveServo::setModeTorque()
     {
         dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->setModeTorque();
     }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::isModeTorque()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    for(int i = 0; i < m_numTaskEthercatServoSlave; i++)
+    {
+        dwRes |= m_ecTaskEthercatSlaveServoBaseVector[i]->isModeTorque();
+    }
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::setTargetPosition(int32_t targetPosition)
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::setTargetVelocity(int32_t targetVelocity)
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskEthercatSlaveServo::setTargetTorque(int16_t targetTorque)
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    return dwRes;
+}
+
+int32_t EcTaskEthercatSlaveServo::getActualPosition()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    return dwRes;
+}
+
+int32_t EcTaskEthercatSlaveServo::getActualVelocity()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
+
+    return dwRes;
+}
+
+int16_t EcTaskEthercatSlaveServo::getActualTorque()
+{
+    EC_T_DWORD dwRes = EC_E_NOERROR;
 
     return dwRes;
 }

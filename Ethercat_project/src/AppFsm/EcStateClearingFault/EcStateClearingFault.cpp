@@ -53,7 +53,7 @@ uint32_t EcStateClearingFaultNs::CallbackSubroutine::config()
 
 uint32_t EcStateClearingFaultNs::CallbackSubroutine::callback()
 {
-    ecTaskAll.p_ecTaskEthercatSlaveServo->clearFault();
+    ecTaskAll.p_ecTaskEthercatSlaveServo->faultClear();
     std::cout << "CLEARING FAULT CALLBACK" << std::endl;
     return 0;
 }
@@ -73,7 +73,7 @@ uint32_t EcStateClearingFaultNs::TransitionSubroutine::config()
 
 uint32_t EcStateClearingFaultNs::TransitionSubroutine::callback(uint32_t &nextStateId)
 {
-    if (ecTaskAll.p_ecTaskEthercatSlaveServo->checkFault() == 0)
+    if (ecTaskAll.p_ecTaskEthercatSlaveServo->isFaultClear() == 0)
     {
         std::cout << "CLEARING FAULT TRANSITION" << std::endl;
         nextStateId = EcStateData::StateId::STANDBY;

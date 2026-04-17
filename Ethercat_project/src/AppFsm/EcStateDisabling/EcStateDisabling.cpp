@@ -74,7 +74,7 @@ uint32_t EcStateDisablingNs::TransitionSubroutine::config()
 
 uint32_t EcStateDisablingNs::TransitionSubroutine::callback(uint32_t &nextStateId)
 {
-    if(ecTaskAll.p_ecTaskEthercatSlaveServo->checkFault() != 0)
+    if(ecTaskAll.p_ecTaskEthercatSlaveServo->isFaultClear() == 0)
     {
         std::cout << "DISABLING TRANSITION" << std::endl;
     	nextStateId = EcStateData::StateId::FAULT;

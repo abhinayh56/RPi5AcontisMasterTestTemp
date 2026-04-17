@@ -45,27 +45,49 @@ public:
 
     void dispRxPdo();
 
-    EC_T_DWORD checkFault();
+    EC_T_DWORD faultClear();
 
-    EC_T_DWORD clearFault();
-
-    EC_T_DWORD enable();
-
-    EC_T_DWORD disable();
-
-	bool isEnable();
-
-	bool isDisable();
+    EC_T_DWORD isFaultClear();
 
     EC_T_DWORD quickStop();
 
+    EC_T_DWORD isQuickStop();
+
     EC_T_DWORD emergencyStop();
+
+    EC_T_DWORD isEmergencyStop();
+
+    EC_T_DWORD enable();
+
+    EC_T_DWORD isEnable();
+
+    EC_T_DWORD disable();
+
+    EC_T_DWORD isDisable();
 
     EC_T_DWORD setModePosition();
 
+    EC_T_DWORD isModePosition();
+
     EC_T_DWORD setModeVelocity();
+
+    EC_T_DWORD isModeVelocity();
     
     EC_T_DWORD setModeTorque();
+
+    EC_T_DWORD isModeTorque();
+
+    EC_T_DWORD setTargetPosition(int32_t targetPosition);
+
+    EC_T_DWORD setTargetVelocity(int32_t targetVelocity);
+
+    EC_T_DWORD setTargetTorque(int16_t targetTorque);
+
+    int32_t getActualPosition();
+
+    int32_t getActualVelocity();
+
+    int16_t getActualTorque();
 
     EC_T_DWORD syncPosition();
 

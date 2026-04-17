@@ -124,7 +124,7 @@ uint32_t EcStateDisabledNs::TransitionSubroutine::callback(uint32_t &nextStateId
 {
     m_InputCh_7.get(m_data_7);
 
-    if (ecTaskAll.p_ecTaskEthercatSlaveServo->checkFault() != 0)
+    if (ecTaskAll.p_ecTaskEthercatSlaveServo->isFaultClear() == 0)
     {
         std::cout << "DISABLED TRANSITION" << std::endl;
         nextStateId = EcStateData::StateId::FAULT;
