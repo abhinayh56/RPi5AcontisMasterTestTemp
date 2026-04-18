@@ -15,6 +15,7 @@ EcTaskFsm::EcTaskFsm() :
     m_ecStateJoystickControl("JOYSTICKCONTROL",  EcStateData::StateId::JOYSTICKCONTROL),
     m_fsm(EcStateData::StateId::STANDBY)
 {
+    m_stateVector.reserve(25);
 }
 
 EcTaskFsm::~EcTaskFsm()
@@ -36,6 +37,32 @@ uint32_t EcTaskFsm::setTaskAddr(
     ecTaskAll.p_ecTaskRobotControl = p_ecTaskRobotControl_;
     ecTaskAll.p_ecTaskUser = p_ecTaskUser_;
     ecTaskAll.p_ecTaskInterface = p_ecTaskInterface_;
+
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskFsm::addAllState()
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
+
+    m_stateVector.push_back(new State("STANDBY", EcStateData::StateId::STANDBY));
+    m_stateVector.push_back(new State("FAULT", EcStateData::StateId::FAULT));
+    m_stateVector.push_back(new State("CLEARING_FAULT", EcStateData::StateId::CLEARING_FAULT));
+    m_stateVector.push_back(new State("INITIALIZING", EcStateData::StateId::INITIALIZING));
+    m_stateVector.push_back(new State("INITIALIZED", EcStateData::StateId::INITIALIZED));
+    m_stateVector.push_back(new State("DISABLING", EcStateData::StateId::DISABLING));
+    m_stateVector.push_back(new State("DISABLED", EcStateData::StateId::DISABLED));
+    m_stateVector.push_back(new State("ENABLING",  EcStateData::StateId::ENABLING));
+    m_stateVector.push_back(new State("ENABLED", EcStateData::StateId::ENABLED));
+    m_stateVector.push_back(new State("READY", EcStateData::StateId::READY));
+    m_stateVector.push_back(new State("JOYSTICKCONTROL",  EcStateData::StateId::JOYSTICKCONTROL));
+    
+    return dwRes;
+}
+
+EC_T_DWORD EcTaskFsm::cleanupState()
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
 
     return dwRes;
 }

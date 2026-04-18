@@ -1,4 +1,5 @@
 SRCS += $(wildcard $(DIR_APP_FSM)/EcState/*.cpp)
+SRCS += $(wildcard $(DIR_APP_FSM)/EcStateBase/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateClearingFault/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateDisabled/*.cpp)
 SRCS += $(wildcard $(DIR_APP_FSM)/EcStateDisabling/*.cpp)

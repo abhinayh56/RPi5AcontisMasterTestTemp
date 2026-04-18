@@ -1,6 +1,8 @@
 #ifndef EC_TASK_FSM_H
 #define EC_TASK_FSM_H
 
+#include <vector>
+
 #include "EcStateStandby.h"
 #include "EcStateFault.h"
 #include "EcStateClearingFault.h"
@@ -31,12 +33,17 @@ public:
         EcTaskInterface* p_ecTaskInterface_
     );
 
+    EC_T_DWORD addAllState();
+
+	EC_T_DWORD cleanupState();
+
     uint32_t config();
 
     uint32_t update();
 
 private:
     EcStateData::EcTaskAll ecTaskAll;
+    std::vector<State> m_stateVector;
 
     State m_ecStateStandby;
     State m_ecStateFault;
