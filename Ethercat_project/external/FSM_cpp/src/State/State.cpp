@@ -56,23 +56,23 @@ uint32_t State::addOnExit(Subroutine* p_subroutine)
     return dwRes;
 }
 
-uint32_t State::setTaskAddr(
-        EcTaskEthercatSlave *p_ecTaskEthercatSlave_,
-        EcTaskEthercatSlaveServo *p_ecTaskEthercatSlaveServo_,
-        EcTaskRobotControl *p_ecTaskRobotControl_,
-        EcTaskUser *p_ecTaskUser_,
-        EcTaskInterface *p_ecTaskInterface_)
-{
-    uint32_t dwRes = CallbackStatus::SUCCESS;
+// uint32_t State::setTaskAddr(
+//         EcTaskEthercatSlave *p_ecTaskEthercatSlave_,
+//         EcTaskEthercatSlaveServo *p_ecTaskEthercatSlaveServo_,
+//         EcTaskRobotControl *p_ecTaskRobotControl_,
+//         EcTaskUser *p_ecTaskUser_,
+//         EcTaskInterface *p_ecTaskInterface_)
+// {
+//     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    ecTaskAll.p_ecTaskEthercatSlave = p_ecTaskEthercatSlave_;
-    ecTaskAll.p_ecTaskEthercatSlaveServo = p_ecTaskEthercatSlaveServo_;
-    ecTaskAll.p_ecTaskRobotControl = p_ecTaskRobotControl_;
-    ecTaskAll.p_ecTaskUser = p_ecTaskUser_;
-    ecTaskAll.p_ecTaskInterface = p_ecTaskInterface_;
+//     ecTaskAll.p_ecTaskEthercatSlave = p_ecTaskEthercatSlave_;
+//     ecTaskAll.p_ecTaskEthercatSlaveServo = p_ecTaskEthercatSlaveServo_;
+//     ecTaskAll.p_ecTaskRobotControl = p_ecTaskRobotControl_;
+//     ecTaskAll.p_ecTaskUser = p_ecTaskUser_;
+//     ecTaskAll.p_ecTaskInterface = p_ecTaskInterface_;
 
-    return dwRes;
-}
+//     return dwRes;
+// }
 
 uint32_t State::config()
 {
@@ -80,43 +80,19 @@ uint32_t State::config()
 
     for(uint32_t i=0; i<m_numOnEntry; i++)
     {
-        dwRes |= m_onEntryVector[i]->setTaskAddr(
-            ecTaskAll.p_ecTaskEthercatSlave,
-            ecTaskAll.p_ecTaskEthercatSlaveServo,
-            ecTaskAll.p_ecTaskRobotControl,
-            ecTaskAll.p_ecTaskUser,
-            ecTaskAll.p_ecTaskInterface
-        );
+        dwRes |= m_onEntryVector[i]->setTaskAddr(ecTaskAll);
     }
     for(uint32_t i=0; i<m_numTransition; i++)
     {
-        dwRes |= m_transitionVector[i]->setTaskAddr(
-            ecTaskAll.p_ecTaskEthercatSlave,
-            ecTaskAll.p_ecTaskEthercatSlaveServo,
-            ecTaskAll.p_ecTaskRobotControl,
-            ecTaskAll.p_ecTaskUser,
-            ecTaskAll.p_ecTaskInterface
-        );
+        dwRes |= m_transitionVector[i]->setTaskAddr(ecTaskAll);
     }
     for(uint32_t i=0; i<m_numCallback; i++)
     {
-        dwRes |= m_callbackVector[i]->setTaskAddr(
-            ecTaskAll.p_ecTaskEthercatSlave,
-            ecTaskAll.p_ecTaskEthercatSlaveServo,
-            ecTaskAll.p_ecTaskRobotControl,
-            ecTaskAll.p_ecTaskUser,
-            ecTaskAll.p_ecTaskInterface
-        );
+        dwRes |= m_callbackVector[i]->setTaskAddr(ecTaskAll);
     }
     for(uint32_t i=0; i<m_numOnExit; i++)
     {
-        dwRes |= m_onExitVector[i]->setTaskAddr(
-            ecTaskAll.p_ecTaskEthercatSlave,
-            ecTaskAll.p_ecTaskEthercatSlaveServo,
-            ecTaskAll.p_ecTaskRobotControl,
-            ecTaskAll.p_ecTaskUser,
-            ecTaskAll.p_ecTaskInterface
-        );
+        dwRes |= m_onExitVector[i]->setTaskAddr(ecTaskAll);
     }
 
     for(uint32_t i=0; i<m_numOnEntry; i++)

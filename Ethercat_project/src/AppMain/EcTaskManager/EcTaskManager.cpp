@@ -44,7 +44,7 @@ EC_T_DWORD EcTaskManager::preapareTask()
 	dwRes |= ecTaskUser.registerSubscriber();
     dwRes |= ecTaskRobotControl.registerSubscriber();
 
-    dwRes |= ecTaskFsm.setTaskAddr(&ecTaskEthercatSlave, &ecTaskEthercatSlaveServo, &ecTaskRobotControl, &ecTaskUser, &ecTaskInterface);
+    dwRes |= ecTaskFsm.setTaskAddr({&ecTaskEthercatSlave, &ecTaskEthercatSlaveServo, &ecTaskRobotControl, &ecTaskUser, &ecTaskInterface});
     dwRes |= ecTaskFsm.config();
     
     return dwRes;

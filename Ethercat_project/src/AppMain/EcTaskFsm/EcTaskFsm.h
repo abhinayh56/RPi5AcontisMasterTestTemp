@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "EcTaskStateBase.h"
 #include "EcStateStandby.h"
 #include "EcStateFault.h"
 #include "EcStateClearingFault.h"
@@ -25,13 +26,7 @@ public:
 
     ~EcTaskFsm();
 
-    uint32_t setTaskAddr(
-        EcTaskEthercatSlave* p_ecTaskEthercatSlave_,
-        EcTaskEthercatSlaveServo* p_ecTaskEthercatSlaveServo_,
-        EcTaskRobotControl* p_ecTaskRobotControl_,
-        EcTaskUser* p_ecTaskUser_,
-        EcTaskInterface* p_ecTaskInterface_
-    );
+    uint32_t setTaskAddr(EcStateData::EcTaskAll ecTaskAll_);
 
     EC_T_DWORD addAllState();
 
@@ -43,7 +38,7 @@ public:
 
 private:
     EcStateData::EcTaskAll ecTaskAll;
-    std::vector<State*> m_stateVector;
+    std::vector<EcTaskStateBase*> m_stateVector;
     
     Fsm m_fsm;
 };

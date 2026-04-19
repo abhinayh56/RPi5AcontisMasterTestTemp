@@ -51,9 +51,12 @@ build/aarch64le-debug/./src/AppMain/EcTaskManager/EcTaskManager.o: \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
  src/AppInterface/EcTaskInterfaceBase/EcTaskInterfaceBase.h \
  src/AppMain/EcTaskFsm/EcTaskFsm.h \
- src/AppFsm/EcStateStandby/EcStateStandby.h src/AppFsm/EcState/EcState.h \
+ src/AppFsm/EcTaskStateBase/EcTaskStateBase.h \
+ external/FSM_cpp/src/State/State.h \
+ external/FSM_cpp/src/State/../Subroutine/Subroutine.h \
+ external/FSM_cpp/src/State/../Subroutine/CallbackStatus.h \
+ src/AppFsm/EcState/EcState.h src/AppFsm/EcStateStandby/EcStateStandby.h \
  external/FSM_cpp/src/Subroutine/Subroutine.h \
- external/FSM_cpp/src/Subroutine/CallbackStatus.h \
  src/AppFsm/EcStateFault/EcStateFault.h \
  src/AppFsm/EcStateClearingFault/EcStateClearingFault.h \
  src/AppFsm/EcStateInitializing/EcStateInitializing.h \
@@ -64,5 +67,4 @@ build/aarch64le-debug/./src/AppMain/EcTaskManager/EcTaskManager.o: \
  src/AppFsm/EcStateEnabled/EcStateEnabled.h \
  src/AppFsm/EcStateEnabling/EcStateEnabling.h \
  src/AppFsm/EcStateJoystickControl/EcStateJoystickControl.h \
- external/FSM_cpp/src/Fsm/Fsm.h external/FSM_cpp/src/Fsm/../State/State.h \
- external/FSM_cpp/src/Fsm/../State/../Subroutine/Subroutine.h
+ external/FSM_cpp/src/Fsm/Fsm.h external/FSM_cpp/src/Fsm/../State/State.h

@@ -1,4 +1,5 @@
 INCLUDES += -I$(DIR_APP_FSM)/EcState
+INCLUDES += -I$(DIR_APP_FSM)/EcTaskStateBase
 INCLUDES += -I$(DIR_APP_FSM)/EcStateClearingFault
 INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabled
 INCLUDES += -I$(DIR_APP_FSM)/EcStateDisabling
