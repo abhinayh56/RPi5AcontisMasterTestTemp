@@ -17,6 +17,7 @@ EC_T_DWORD EcTaskManager::initTask()
     dwRes |= ecTaskEthercatSlaveServo.addAllTaskSlave();
     dwRes |= ecTaskRobotControl.addAllTaskRobotControl();
     dwRes |= ecTaskUser.addAllTaskUser();
+    dwRes |= ecTaskFsm.addAllState();
 
     return dwRes;
 }
