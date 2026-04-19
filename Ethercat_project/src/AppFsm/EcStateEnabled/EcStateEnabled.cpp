@@ -1,5 +1,25 @@
 #include "EcStateEnabled.h"
 
+EcStateEnabled::EcStateEnabled() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+{
+}
+
+EcStateEnabled::~EcStateEnabled()
+{
+}
+
+uint32_t EcStateEnabled::addSubroutine()
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
+
+    addOnEntry(new EcStateEnabledNs::OnEntrySubroutine());
+    addOnExit(new EcStateEnabledNs::OnExitSubroutine());
+    addCallback(new EcStateEnabledNs::CallbackSubroutine());
+    addTransition(new EcStateEnabledNs::TransitionSubroutine());
+
+    return dwRes;
+}
+
 EcStateEnabledNs::OnEntrySubroutine::OnEntrySubroutine()
 {
 }

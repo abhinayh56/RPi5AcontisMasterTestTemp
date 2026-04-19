@@ -1,5 +1,25 @@
 #include "EcStateDisabling.h"
 
+EcStateDisabling::EcStateDisabling() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+{
+}
+
+EcStateDisabling::~EcStateDisabling()
+{
+}
+
+uint32_t EcStateDisabling::addSubroutine()
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
+
+    addOnEntry(new EcStateDisablingNs::OnEntrySubroutine());
+    addOnExit(new EcStateDisablingNs::OnExitSubroutine());
+    addCallback(new EcStateDisablingNs::CallbackSubroutine());
+    addTransition(new EcStateDisablingNs::TransitionSubroutine());
+
+    return dwRes;
+}
+
 EcStateDisablingNs::OnEntrySubroutine::OnEntrySubroutine()
 {
 }

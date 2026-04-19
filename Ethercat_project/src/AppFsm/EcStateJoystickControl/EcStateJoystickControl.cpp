@@ -1,5 +1,25 @@
 #include "EcStateJoystickControl.h"
 
+EcStateJoystickControl::EcStateJoystickControl() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+{
+}
+
+EcStateJoystickControl::~EcStateJoystickControl()
+{
+}
+
+uint32_t EcStateJoystickControl::addSubroutine()
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
+
+    addOnEntry(new EcStateJoystickControlNs::OnEntrySubroutine());
+    addOnExit(new EcStateJoystickControlNs::OnExitSubroutine());
+    addCallback(new EcStateJoystickControlNs::CallbackSubroutine());
+    addTransition(new EcStateJoystickControlNs::TransitionSubroutine());
+
+    return dwRes;
+}
+
 EcStateJoystickControlNs::OnEntrySubroutine::OnEntrySubroutine()
 {
 }

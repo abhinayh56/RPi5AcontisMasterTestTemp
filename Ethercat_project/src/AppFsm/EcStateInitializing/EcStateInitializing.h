@@ -1,8 +1,16 @@
 #ifndef EC_STATE_INITIALIZING_H
 #define EC_STATE_INITIALIZING_H
 
-#include "EcState.h"
+#include "EcTaskStateBase.h"
 #include "Subroutine.h"
+
+class EcStateInitializing : public EcTaskStateBase
+{
+public:
+    EcStateInitializing();
+    ~EcStateInitializing();
+    virtual uint32_t addSubroutine() override;
+};
 
 namespace EcStateInitializingNs
 {

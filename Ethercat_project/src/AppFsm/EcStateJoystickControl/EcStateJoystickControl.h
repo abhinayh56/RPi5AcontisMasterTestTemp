@@ -1,8 +1,16 @@
 #ifndef EC_STATE_JOYSTICKCONTROL_H
 #define EC_STATE_JOYSTICKCONTROL_H
 
-#include "EcState.h"
+#include "EcTaskStateBase.h"
 #include "Subroutine.h"
+
+class EcStateJoystickControl : public EcTaskStateBase
+{
+public:
+    EcStateJoystickControl();
+    ~EcStateJoystickControl();
+    virtual uint32_t addSubroutine() override;
+};
 
 namespace EcStateJoystickControlNs
 {

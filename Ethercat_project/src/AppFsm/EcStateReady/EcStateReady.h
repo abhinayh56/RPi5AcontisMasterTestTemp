@@ -1,8 +1,16 @@
 #ifndef EC_STATE_READY_H
 #define EC_STATE_READY_H
 
-#include "EcState.h"
+#include "EcTaskStateBase.h"
 #include "Subroutine.h"
+
+class EcStateReady : public EcTaskStateBase
+{
+public:
+    EcStateReady();
+    ~EcStateReady();
+    virtual uint32_t addSubroutine() override;
+};
 
 namespace EcStateReadyNs
 {

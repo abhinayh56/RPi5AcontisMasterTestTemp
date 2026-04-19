@@ -1,8 +1,16 @@
 #ifndef EC_STATE_FAULT_H
 #define EC_STATE_FAULT_H
 
-#include "EcState.h"
+#include "EcTaskStateBase.h"
 #include "Subroutine.h"
+
+class EcStateFault : public EcTaskStateBase
+{
+public:
+    EcStateFault();
+    ~EcStateFault();
+    virtual uint32_t addSubroutine() override;
+};
 
 namespace EcStateFaultNs
 {

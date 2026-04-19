@@ -1,8 +1,16 @@
 #ifndef EC_STATE_DISABLED_H
 #define EC_STATE_DISABLED_H
 
-#include "EcState.h"
+#include "EcTaskStateBase.h"
 #include "Subroutine.h"
+
+class EcStateDisabled : public EcTaskStateBase
+{
+public:
+    EcStateDisabled();
+    ~EcStateDisabled();
+    virtual uint32_t addSubroutine() override;
+};
 
 namespace EcStateDisabledNs
 {

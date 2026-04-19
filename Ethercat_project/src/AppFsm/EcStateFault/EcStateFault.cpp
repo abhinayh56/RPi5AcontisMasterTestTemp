@@ -1,5 +1,25 @@
 #include "EcStateFault.h"
 
+EcStateFault::EcStateFault() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+{
+}
+
+EcStateFault::~EcStateFault()
+{
+}
+
+uint32_t EcStateFault::addSubroutine()
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
+
+    addOnEntry(new EcStateFaultNs::OnEntrySubroutine());
+    addOnExit(new EcStateFaultNs::OnExitSubroutine());
+    addCallback(new EcStateFaultNs::CallbackSubroutine());
+    addTransition(new EcStateFaultNs::TransitionSubroutine());
+
+    return dwRes;
+}
+
 EcStateFaultNs::OnEntrySubroutine::OnEntrySubroutine()
 {
 }

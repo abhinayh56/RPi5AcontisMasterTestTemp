@@ -1,8 +1,16 @@
 #ifndef EC_STATE_STANDBY_H
 #define EC_STATE_STANDBY_H
 
-#include "EcState.h"
+#include "EcTaskStateBase.h"
 #include "Subroutine.h"
+
+class EcStateStandby : public EcTaskStateBase
+{
+public:
+    EcStateStandby();
+    ~EcStateStandby();
+    virtual uint32_t addSubroutine() override;
+};
 
 namespace EcStateStandbyNs
 {

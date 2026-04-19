@@ -1,6 +1,10 @@
 build/aarch64le-debug/./src/AppFsm/EcStateDisabling/EcStateDisabling.o: \
  src/AppFsm/EcStateDisabling/EcStateDisabling.cpp \
  src/AppFsm/EcStateDisabling/EcStateDisabling.h \
+ src/AppFsm/EcTaskStateBase/EcTaskStateBase.h \
+ external/FSM_cpp/src/State/State.h \
+ external/FSM_cpp/src/State/../Subroutine/Subroutine.h \
+ external/FSM_cpp/src/State/../Subroutine/CallbackStatus.h \
  src/AppFsm/EcState/EcState.h \
  src/AppMain/EcTaskEthercatSlave/EcTaskEthercatSlave.h \
  src/AppEthercatSlave/EcTaskEthercatSlaveBase/EcTaskEthercatSlaveBase.h \
@@ -51,5 +55,4 @@ build/aarch64le-debug/./src/AppFsm/EcStateDisabling/EcStateDisabling.o: \
  src/AppUser/EcUser_3/EcUser_3.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
  src/AppInterface/EcTaskInterfaceBase/EcTaskInterfaceBase.h \
- external/FSM_cpp/src/Subroutine/Subroutine.h \
- external/FSM_cpp/src/Subroutine/CallbackStatus.h
+ external/FSM_cpp/src/Subroutine/Subroutine.h

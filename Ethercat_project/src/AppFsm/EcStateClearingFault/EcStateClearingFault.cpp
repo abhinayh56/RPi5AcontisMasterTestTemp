@@ -1,5 +1,25 @@
 #include "EcStateClearingFault.h"
 
+EcStateClearingFault::EcStateClearingFault() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+{
+}
+
+EcStateClearingFault::~EcStateClearingFault()
+{
+}
+
+uint32_t EcStateClearingFault::addSubroutine()
+{
+    uint32_t dwRes = CallbackStatus::SUCCESS;
+
+    addOnEntry(new EcStateClearingFaultNs::OnEntrySubroutine());
+    addOnExit(new EcStateClearingFaultNs::OnExitSubroutine());
+    addCallback(new EcStateClearingFaultNs::CallbackSubroutine());
+    addTransition(new EcStateClearingFaultNs::TransitionSubroutine());
+
+    return dwRes;
+}
+
 EcStateClearingFaultNs::OnEntrySubroutine::OnEntrySubroutine()
 {
 }

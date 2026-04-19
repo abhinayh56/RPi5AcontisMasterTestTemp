@@ -1,8 +1,16 @@
 #ifndef EC_STATE_CLEARING_FAULT_H
 #define EC_STATE_CLEARING_FAULT_H
 
-#include "EcState.h"
+#include "EcTaskStateBase.h"
 #include "Subroutine.h"
+
+class EcStateClearingFault : public EcTaskStateBase
+{
+public:
+    EcStateClearingFault();
+    ~EcStateClearingFault();
+    virtual uint32_t addSubroutine() override;
+};
 
 namespace EcStateClearingFaultNs
 {

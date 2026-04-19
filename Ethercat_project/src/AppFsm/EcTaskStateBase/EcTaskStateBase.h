@@ -10,9 +10,7 @@ public:
     EcTaskStateBase(const std::string &name, uint32_t id);
     virtual ~EcTaskStateBase();
     virtual uint32_t setTaskAddr(EcStateData::EcTaskAll ecTaskAll_);
-
-private:
-        // EcStateData::EcTaskAll ecTaskAll;
+    virtual uint32_t addSubroutine();
 };
 
 #endif // EC_TASK_STATE_BASE_H
