@@ -16,7 +16,7 @@ State::~State()
 {
 }
 
-uint32_t State::addOnEntry(Subroutine* p_subroutine)
+uint32_t State::addOnEntry(SubroutineBase* p_subroutine)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -26,7 +26,7 @@ uint32_t State::addOnEntry(Subroutine* p_subroutine)
     return dwRes;
 }
 
-uint32_t State::addTransition(SubroutineTransition* p_subroutine)
+uint32_t State::addTransition(SubroutineTransitionBase* p_subroutine)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -36,7 +36,7 @@ uint32_t State::addTransition(SubroutineTransition* p_subroutine)
     return dwRes;
 }
 
-uint32_t State::addCallback(Subroutine* p_subroutine)
+uint32_t State::addCallback(SubroutineBase* p_subroutine)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -46,7 +46,7 @@ uint32_t State::addCallback(Subroutine* p_subroutine)
     return dwRes;
 }
 
-uint32_t State::addOnExit(Subroutine* p_subroutine)
+uint32_t State::addOnExit(SubroutineBase* p_subroutine)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -62,19 +62,19 @@ uint32_t State::config()
 
     for(uint32_t i=0; i<m_numOnEntry; i++)
     {
-        dwRes |= m_onEntryVector[i]->setTaskAddr(ecTaskAll);
+        dwRes |= m_onEntryVector[i]->setTaskAddr(p_taskAll);
     }
     for(uint32_t i=0; i<m_numTransition; i++)
     {
-        dwRes |= m_transitionVector[i]->setTaskAddr(ecTaskAll);
+        dwRes |= m_transitionVector[i]->setTaskAddr(p_taskAll);
     }
     for(uint32_t i=0; i<m_numCallback; i++)
     {
-        dwRes |= m_callbackVector[i]->setTaskAddr(ecTaskAll);
+        dwRes |= m_callbackVector[i]->setTaskAddr(p_taskAll);
     }
     for(uint32_t i=0; i<m_numOnExit; i++)
     {
-        dwRes |= m_onExitVector[i]->setTaskAddr(ecTaskAll);
+        dwRes |= m_onExitVector[i]->setTaskAddr(p_taskAll);
     }
 
     for(uint32_t i=0; i<m_numOnEntry; i++)

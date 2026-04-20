@@ -4,29 +4,29 @@
 #include <stdint.h>
 #include <string>
 #include <vector>
-#include "../Subroutine/Subroutine.h"
+#include "../SubroutineBase/SubroutineBase.h"
 
 class State
 {
 public:
     State(const std::string &name, uint32_t id);
     virtual ~State();
-    virtual uint32_t addOnEntry(Subroutine* p_subroutine);
-    virtual uint32_t addTransition(SubroutineTransition* p_subroutine);
-    virtual uint32_t addCallback(Subroutine* p_subroutine);
-    virtual uint32_t addOnExit(Subroutine* p_subroutine);
+    virtual uint32_t addOnEntry(SubroutineBase* p_subroutine);
+    virtual uint32_t addTransition(SubroutineTransitionBase* p_subroutine);
+    virtual uint32_t addCallback(SubroutineBase* p_subroutine);
+    virtual uint32_t addOnExit(SubroutineBase* p_subroutine);
     virtual uint32_t config();
     virtual uint32_t update(uint32_t &nextStateId);
     
-//protected:
+protected:
     std::string m_name;
     uint32_t m_id;
 
 private:
-    std::vector<Subroutine*> m_onEntryVector;
-    std::vector<SubroutineTransition*> m_transitionVector;
-    std::vector<Subroutine*> m_callbackVector;
-    std::vector<Subroutine*> m_onExitVector;
+    std::vector<SubroutineBase*> m_onEntryVector;
+    std::vector<SubroutineTransitionBase*> m_transitionVector;
+    std::vector<SubroutineBase*> m_callbackVector;
+    std::vector<SubroutineBase*> m_onExitVector;
 
     uint32_t m_numOnEntry;
     uint32_t m_numTransition;
@@ -42,7 +42,7 @@ private:
     uint32_t onExit();
 
 protected:
-    EcStateData::EcTaskAll ecTaskAll;
+    TaskAll* p_taskAll;
 };
 
 #endif // STATE_H
