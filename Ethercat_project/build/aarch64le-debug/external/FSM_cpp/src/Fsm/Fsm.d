@@ -52,4 +52,6 @@ build/aarch64le-debug/./external/FSM_cpp/src/Fsm/Fsm.o: \
  src/AppUser/EcUser_1/EcUser_1.h src/AppUser/EcUser_2/EcUser_2.h \
  src/AppUser/EcUser_3/EcUser_3.h \
  src/AppMain/EcTaskInterface/EcTaskInterface.h \
- src/AppInterface/EcTaskInterfaceBase/EcTaskInterfaceBase.h
+ src/AppInterface/EcTaskInterfaceBase/EcTaskInterfaceBase.h \
+ src/AppFsm/EcTaskStateBase/EcTaskStateBase.h \
+ external/FSM_cpp/src/State/State.h

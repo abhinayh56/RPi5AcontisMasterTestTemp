@@ -1,6 +1,6 @@
 #include "EcStateFault.h"
 
-EcStateFault::EcStateFault() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+EcStateFault::EcStateFault() : EcTaskStateBase("FAULT", EcStateData::StateId::FAULT)
 {
 }
 

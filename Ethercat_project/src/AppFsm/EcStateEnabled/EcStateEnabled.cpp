@@ -1,6 +1,6 @@
 #include "EcStateEnabled.h"
 
-EcStateEnabled::EcStateEnabled() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+EcStateEnabled::EcStateEnabled() : EcTaskStateBase("ENABLED", EcStateData::StateId::ENABLED)
 {
 }
 
@@ -74,7 +74,7 @@ uint32_t EcStateEnabledNs::CallbackSubroutine::config()
 uint32_t EcStateEnabledNs::CallbackSubroutine::callback()
 {
 	std::cout << "ENABLED CALLBACK" << std::endl;
-	ecTaskAll.p_ecTaskEthercatSlaveServo->syncPosition();
+	// ecTaskAll.p_ecTaskEthercatSlaveServo->syncPosition();
     return 0;
 }
 

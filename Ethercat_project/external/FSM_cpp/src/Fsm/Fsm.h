@@ -4,6 +4,7 @@
 #include "../State/State.h"
 #include <vector>
 #include <iostream>
+#include "EcTaskStateBase.h"
 
 class Fsm
 {
@@ -12,7 +13,7 @@ public:
     
     ~Fsm();
 
-    uint32_t addState(State* p_state);
+    uint32_t addState(EcTaskStateBase* p_state);
 
     uint32_t config();
 
@@ -25,7 +26,7 @@ private:
     uint32_t m_currentStateIndex;
     uint32_t m_nextStateIndex;
 
-    std::vector<State*> m_stateVector;
+    std::vector<EcTaskStateBase*> m_stateVector;
     uint32_t m_numState;
 
     uint32_t update_number = 1;

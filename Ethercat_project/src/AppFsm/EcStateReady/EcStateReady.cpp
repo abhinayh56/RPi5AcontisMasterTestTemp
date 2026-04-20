@@ -1,6 +1,6 @@
 #include "EcStateReady.h"
 
-EcStateReady::EcStateReady() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+EcStateReady::EcStateReady() : EcTaskStateBase("READY", EcStateData::StateId::READY)
 {
 }
 

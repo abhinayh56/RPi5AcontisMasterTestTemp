@@ -1,6 +1,6 @@
 #include "EcStateInitialized.h"
 
-EcStateInitialized::EcStateInitialized() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+EcStateInitialized::EcStateInitialized() : EcTaskStateBase("INITIALIZED", EcStateData::StateId::INITIALIZED)
 {
 }
 

@@ -1,6 +1,6 @@
 #include "EcStateEnabling.h"
 
-EcStateEnabling::EcStateEnabling() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+EcStateEnabling::EcStateEnabling() : EcTaskStateBase("ENABLING", EcStateData::StateId::ENABLING)
 {
 }
 

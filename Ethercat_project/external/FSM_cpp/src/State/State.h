@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 #include "../Subroutine/Subroutine.h"
-// #include "EcState.h"
 
 class State
 {
@@ -16,12 +15,6 @@ public:
     virtual uint32_t addTransition(SubroutineTransition* p_subroutine);
     virtual uint32_t addCallback(Subroutine* p_subroutine);
     virtual uint32_t addOnExit(Subroutine* p_subroutine);
-    // virtual uint32_t setTaskAddr(
-    //     EcTaskEthercatSlave *p_ecTaskEthercatSlave_,
-    //     EcTaskEthercatSlaveServo *p_ecTaskEthercatSlaveServo_,
-    //     EcTaskRobotControl *p_ecTaskRobotControl_,
-    //     EcTaskUser *p_ecTaskUser_,
-    //     EcTaskInterface *p_ecTaskInterface_);
     virtual uint32_t config();
     virtual uint32_t update(uint32_t &nextStateId);
     

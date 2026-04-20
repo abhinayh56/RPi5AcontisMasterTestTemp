@@ -1,6 +1,6 @@
 #include "EcStateDisabled.h"
 
-EcStateDisabled::EcStateDisabled() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+EcStateDisabled::EcStateDisabled() : EcTaskStateBase("DISABLED", EcStateData::StateId::DISABLED)
 {
 }
 

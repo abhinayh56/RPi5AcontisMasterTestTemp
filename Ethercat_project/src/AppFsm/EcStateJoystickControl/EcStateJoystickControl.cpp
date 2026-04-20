@@ -1,6 +1,6 @@
 #include "EcStateJoystickControl.h"
 
-EcStateJoystickControl::EcStateJoystickControl() : EcTaskStateBase("STANDBY", EcStateData::StateId::STANDBY)
+EcStateJoystickControl::EcStateJoystickControl() : EcTaskStateBase("JOYSTICKCONTROL", EcStateData::StateId::JOYSTICKCONTROL)
 {
 }
 
