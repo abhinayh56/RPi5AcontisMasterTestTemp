@@ -15,7 +15,7 @@ Fsm::~Fsm()
 {
 }
 
-uint32_t Fsm::addState(EcTaskStateBase* p_state)
+uint32_t Fsm::addState(StateBase* p_state)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
