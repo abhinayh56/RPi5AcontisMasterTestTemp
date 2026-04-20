@@ -6,11 +6,11 @@
 #include <vector>
 #include "../SubroutineBase/SubroutineBase.h"
 
-class State
+class StateBase
 {
 public:
-    State(const std::string &name, uint32_t id);
-    virtual ~State();
+    StateBase(const std::string &name, uint32_t id);
+    virtual ~StateBase();
     virtual uint32_t addOnEntry(SubroutineBase* p_subroutine);
     virtual uint32_t addTransition(SubroutineTransitionBase* p_subroutine);
     virtual uint32_t addCallback(SubroutineBase* p_subroutine);

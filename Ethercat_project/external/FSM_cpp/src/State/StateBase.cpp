@@ -1,6 +1,6 @@
-#include "State.h"
+#include "StateBase.h"
 
-State::State(const std::string &name, uint32_t id) : 
+StateBase::StateBase(const std::string &name, uint32_t id) : 
 	m_name(name),
 	m_id(id),
 	m_numOnEntry(0),
@@ -12,11 +12,11 @@ State::State(const std::string &name, uint32_t id) :
 {
 }
 
-State::~State()
+StateBase::~StateBase()
 {
 }
 
-uint32_t State::addOnEntry(SubroutineBase* p_subroutine)
+uint32_t StateBase::addOnEntry(SubroutineBase* p_subroutine)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -26,7 +26,7 @@ uint32_t State::addOnEntry(SubroutineBase* p_subroutine)
     return dwRes;
 }
 
-uint32_t State::addTransition(SubroutineTransitionBase* p_subroutine)
+uint32_t StateBase::addTransition(SubroutineTransitionBase* p_subroutine)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -36,7 +36,7 @@ uint32_t State::addTransition(SubroutineTransitionBase* p_subroutine)
     return dwRes;
 }
 
-uint32_t State::addCallback(SubroutineBase* p_subroutine)
+uint32_t StateBase::addCallback(SubroutineBase* p_subroutine)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -46,7 +46,7 @@ uint32_t State::addCallback(SubroutineBase* p_subroutine)
     return dwRes;
 }
 
-uint32_t State::addOnExit(SubroutineBase* p_subroutine)
+uint32_t StateBase::addOnExit(SubroutineBase* p_subroutine)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -56,7 +56,7 @@ uint32_t State::addOnExit(SubroutineBase* p_subroutine)
     return dwRes;
 }
 
-uint32_t State::config()
+uint32_t StateBase::config()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -97,7 +97,7 @@ uint32_t State::config()
     return dwRes;
 }
 
-uint32_t State::update(uint32_t &nextStateId)
+uint32_t StateBase::update(uint32_t &nextStateId)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -122,7 +122,7 @@ uint32_t State::update(uint32_t &nextStateId)
     return dwRes;
 }
 
-uint32_t State::onEntry()
+uint32_t StateBase::onEntry()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -134,7 +134,7 @@ uint32_t State::onEntry()
     return dwRes;
 }
 
-uint32_t State::transition(uint32_t &nextStateId)
+uint32_t StateBase::transition(uint32_t &nextStateId)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -146,7 +146,7 @@ uint32_t State::transition(uint32_t &nextStateId)
     return dwRes;
 }
 
-uint32_t State::callback()
+uint32_t StateBase::callback()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
@@ -158,7 +158,7 @@ uint32_t State::callback()
     return dwRes;
 }
 
-uint32_t State::onExit()
+uint32_t StateBase::onExit()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
