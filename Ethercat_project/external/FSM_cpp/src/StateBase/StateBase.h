@@ -9,7 +9,7 @@
 class StateBase
 {
 public:
-    StateBase(const std::string &name, uint32_t id);
+    StateBase(uint32_t id, const std::string &name);
     virtual ~StateBase();
     virtual uint32_t addOnEntry(SubroutineBase* p_subroutine);
     virtual uint32_t addTransition(SubroutineTransitionBase* p_subroutine);
@@ -19,8 +19,9 @@ public:
     virtual uint32_t update(uint32_t &nextStateId);
     
 protected:
-    std::string m_name;
     uint32_t m_id;
+    std::string m_name;
+    TaskAll* p_taskAll;
 
 private:
     std::vector<SubroutineBase*> m_onEntryVector;
@@ -40,9 +41,6 @@ private:
     uint32_t transition(uint32_t &nextStateId);
     uint32_t callback();
     uint32_t onExit();
-
-protected:
-    TaskAll* p_taskAll;
 };
 
 #endif // STATE_H

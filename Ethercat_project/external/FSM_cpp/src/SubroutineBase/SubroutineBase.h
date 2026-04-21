@@ -18,9 +18,9 @@ public:
     virtual uint32_t callback();
 
 protected:
-    TaskAll* p_taskAll;
     uint32_t m_id;
     std::string m_name;
+    TaskAll* p_taskAll;
 };
 
 class SubroutineTransitionBase
@@ -33,9 +33,9 @@ public:
     virtual uint32_t callback(uint32_t &nextStateId);
 
 protected:
-    TaskAll* p_taskAll;
     uint32_t m_id;
     std::string m_name;
+    TaskAll* p_taskAll;
 };
 
 #endif // SUBROUTINE_H

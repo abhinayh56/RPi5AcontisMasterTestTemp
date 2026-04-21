@@ -1,8 +1,13 @@
 #include "StateBase.h"
 
-StateBase::StateBase(const std::string &name, uint32_t id) : 
-	m_name(name),
+StateBase::StateBase(uint32_t id, const std::string &name) : 
 	m_id(id),
+    m_name(name),
+    p_taskAll(nullptr),
+    m_onEntryVector(nullptr),
+    m_transitionVector(nullptr),
+    m_callbackVector(nullptr),
+    m_onExitVector(nullptr),
 	m_numOnEntry(0),
 	m_numTransition(0),
 	m_numCallback(0),

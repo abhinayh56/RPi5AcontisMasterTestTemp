@@ -2,7 +2,6 @@
 #define CALLBACK_STATUS_H
 
 #include <stdint.h>
-#include <iostream>
 
 enum CallbackStatus : uint32_t
 {

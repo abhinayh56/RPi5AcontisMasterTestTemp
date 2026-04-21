@@ -1,6 +1,9 @@
 #include "SubroutineBase.h"
 
-SubroutineBase::SubroutineBase(uint32_t id, const std::string& name) : m_id(id), m_name(name)
+SubroutineBase::SubroutineBase(uint32_t id, const std::string& name) : 
+    m_id(id),
+    m_name(name),
+    p_taskAll(nullptr)
 {
     std::cout << "SubroutineBase constructor" << std::endl;
 }
@@ -32,7 +35,10 @@ uint32_t SubroutineBase::callback()
     return CallbackStatus::SUCCESS;
 }
 
-SubroutineTransitionBase::SubroutineTransitionBase(uint32_t id, const std::string& name) : m_id(id), m_name(name)
+SubroutineTransitionBase::SubroutineTransitionBase(uint32_t id, const std::string& name) :
+    m_id(id),
+    m_name(name),
+    p_taskAll(nullptr)
 {
     std::cout << "SubroutineTransitionBase constructor" << std::endl;
 }
