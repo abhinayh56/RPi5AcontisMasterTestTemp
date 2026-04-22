@@ -4,14 +4,6 @@ StateBase::StateBase(uint32_t id, const std::string &name) :
 	m_id(id),
     m_name(name),
     p_taskAll(nullptr),
-    m_onEntryVector(nullptr),
-    m_transitionVector(nullptr),
-    m_callbackVector(nullptr),
-    m_onExitVector(nullptr),
-	m_numOnEntry(0),
-	m_numTransition(0),
-	m_numCallback(0),
-	m_numOnExit(0),
 	m_idNext(id),
 	m_onEntryFlag(false)
 {
@@ -26,7 +18,6 @@ uint32_t StateBase::addOnEntry(SubroutineBase* p_subroutine)
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
     m_onEntryVector.push_back(p_subroutine);
-    m_numOnEntry = m_onEntryVector.size();
 
     return dwRes;
 }
@@ -36,7 +27,6 @@ uint32_t StateBase::addTransition(SubroutineTransitionBase* p_subroutine)
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
     m_transitionVector.push_back(p_subroutine);
-    m_numTransition = m_transitionVector.size();
 
     return dwRes;
 }
@@ -46,7 +36,6 @@ uint32_t StateBase::addCallback(SubroutineBase* p_subroutine)
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
     m_callbackVector.push_back(p_subroutine);
-    m_numCallback = m_callbackVector.size();
 
     return dwRes;
 }
@@ -56,7 +45,6 @@ uint32_t StateBase::addOnExit(SubroutineBase* p_subroutine)
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
     m_onExitVector.push_back(p_subroutine);
-    m_numOnExit = m_onExitVector.size();
 
     return dwRes;
 }
@@ -65,36 +53,35 @@ uint32_t StateBase::config()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    for(uint32_t i=0; i<m_numOnEntry; i++)
+    for(uint32_t i=0; i<m_onEntryVector.size(); i++)
     {
         dwRes |= m_onEntryVector[i]->setTaskAddr(p_taskAll);
     }
-    for(uint32_t i=0; i<m_numTransition; i++)
+    for(uint32_t i=0; i<m_transitionVector.size(); i++)
     {
         dwRes |= m_transitionVector[i]->setTaskAddr(p_taskAll);
     }
-    for(uint32_t i=0; i<m_numCallback; i++)
+    for(uint32_t i=0; i<m_transitionVector.size(); i++)
     {
         dwRes |= m_callbackVector[i]->setTaskAddr(p_taskAll);
     }
-    for(uint32_t i=0; i<m_numOnExit; i++)
+    for(uint32_t i=0; i<m_onExitVector.size(); i++)
     {
         dwRes |= m_onExitVector[i]->setTaskAddr(p_taskAll);
     }
-
-    for(uint32_t i=0; i<m_numOnEntry; i++)
+    for(uint32_t i=0; i<m_onEntryVector.size(); i++)
     {
         dwRes |= m_onEntryVector[i]->config();
     }
-    for(uint32_t i=0; i<m_numTransition; i++)
+    for(uint32_t i=0; i<m_transitionVector.size(); i++)
     {
         dwRes |= m_transitionVector[i]->config();
     }
-    for(uint32_t i=0; i<m_numCallback; i++)
+    for(uint32_t i=0; i<m_transitionVector.size(); i++)
     {
         dwRes |= m_callbackVector[i]->config();
     }
-    for(uint32_t i=0; i<m_numOnExit; i++)
+    for(uint32_t i=0; i<m_onExitVector.size(); i++)
     {
         dwRes |= m_onExitVector[i]->config();
     }
@@ -131,7 +118,7 @@ uint32_t StateBase::onEntry()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    for(uint32_t i=0; i<m_numOnEntry; i++)
+    for(uint32_t i=0; i<m_onEntryVector.size(); i++)
     {
         dwRes |= m_onEntryVector[i]->callback();
     }
@@ -143,7 +130,7 @@ uint32_t StateBase::transition(uint32_t &nextStateId)
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    for(uint32_t i=0; i<m_numTransition; i++)
+    for(uint32_t i=0; i<m_transitionVector.size(); i++)
     {
         dwRes |= m_transitionVector[i]->callback(nextStateId);
     }
@@ -155,7 +142,7 @@ uint32_t StateBase::callback()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    for(uint32_t i=0; i<m_numCallback; i++)
+    for(uint32_t i=0; i<m_transitionVector.size(); i++)
     {
         dwRes |= m_callbackVector[i]->callback();
     }
@@ -167,7 +154,7 @@ uint32_t StateBase::onExit()
 {
     uint32_t dwRes = CallbackStatus::SUCCESS;
 
-    for(uint32_t i=0; i<m_numOnExit; i++)
+    for(uint32_t i=0; i < m_onExitVector.size(); i++)
     {
         dwRes |= m_onExitVector[i]->callback();
     }

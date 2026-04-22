@@ -1,5 +1,5 @@
-#ifndef STATE_H
-#define STATE_H
+#ifndef STATE_BASE_H
+#define STATE_BASE_H
 
 #include <stdint.h>
 #include <string>
@@ -11,10 +11,10 @@ class StateBase
 public:
     StateBase(uint32_t id, const std::string &name);
     virtual ~StateBase();
-    virtual uint32_t addOnEntry(SubroutineBase* p_subroutine);
-    virtual uint32_t addTransition(SubroutineTransitionBase* p_subroutine);
-    virtual uint32_t addCallback(SubroutineBase* p_subroutine);
-    virtual uint32_t addOnExit(SubroutineBase* p_subroutine);
+    virtual uint32_t addOnEntry(SubroutineBase* p_subroutineBase);
+    virtual uint32_t addTransition(SubroutineTransitionBase* p_subroutineBase);
+    virtual uint32_t addCallback(SubroutineBase* p_subroutineBase);
+    virtual uint32_t addOnExit(SubroutineBase* p_subroutineBase);
     virtual uint32_t config();
     virtual uint32_t update(uint32_t &nextStateId);
     
@@ -28,12 +28,7 @@ private:
     std::vector<SubroutineTransitionBase*> m_transitionVector;
     std::vector<SubroutineBase*> m_callbackVector;
     std::vector<SubroutineBase*> m_onExitVector;
-
-    uint32_t m_numOnEntry;
-    uint32_t m_numTransition;
-    uint32_t m_numCallback;
-    uint32_t m_numOnExit;
-
+    
     uint32_t m_idNext = 0;
     bool m_onEntryFlag = false;
 
@@ -43,4 +38,4 @@ private:
     uint32_t onExit();
 };
 
-#endif // STATE_H
+#endif // STATE_BASE_H

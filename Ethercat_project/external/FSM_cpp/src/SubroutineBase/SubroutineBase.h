@@ -1,5 +1,5 @@
-#ifndef SUBROUTINE_H
-#define SUBROUTINE_H
+#ifndef SUBROUTINE_BASE_H
+#define SUBROUTINE_BASE_H
 
 #include <string>
 #include <stdint.h>
@@ -38,4 +38,4 @@ protected:
     TaskAll* p_taskAll;
 };
 
-#endif // SUBROUTINE_H
+#endif // SUBROUTINE_BASE_H
